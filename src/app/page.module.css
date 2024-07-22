@@ -1,11 +1,242 @@
-.mainContainer{
-    width: 100% !important;
+#mainContainer {
+    width: 100% ;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-.main-assist{
+.mainAssist {
     width: 1400px;
     margin: 50px 0;
     position: relative;
+}
+.backgroundImage {
+    width: 100%;
+    height: 60rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
+.backgroundImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.centerLogo {
+    width: 100%;
+    height: 53rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: -1;
+    user-select: none;
+}
+.insideCenterLogo h1 {
+    padding-top: 100px;
+    font-family: "DM Sans", sans-serif;
+    font-style: italic;
+    color: #74471F;
+    letter-spacing: 2.4px;
+    font-weight: 300;
+    font-size: 16px;
+}
+.insideCenterLogo button {
+    background-color: rgba(255, 255, 255, 0.349);
+    border: 3px solid #74471F;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #74471F;
+    padding: 10px 15px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 100px;
+}
+.insideCenterLogo {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.section {
+    width: 100%;
+}
+.welcomeSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 0;
+}
+.welcomeToGa {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.welcomeToGa h3 {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-size: 21px;
+    color: #C98E59;
+    font-weight: 600;
+}
+.welcomeToGa hr {
+    width: 50px;
+    border: 1px solid #C98E59;
+    margin: 50px 0;
+}
+.welcomeToGa p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 1px;
+    line-height: 25.6px;
+    text-align: center;
+    margin-top: 50px; 
+}
+.experienceUnderSection h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 21px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #C98E59;
+    text-align: center;
+    margin-top: 100px;
+}
+.explanationCards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.explanationCards .card {
+    width: 350px;
+    padding: 30px;
+    margin-top: 50px;
+}
+.explanationCards .card h1 {
+    font-family: "DM Sans", sans-serif;
+    color: #74471F;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 6px;
+    text-align: center;
+}
+.explanationCards .card p {
+    font-family: "DM Sans", sans-serif;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 30px;
+}
+.sectionExploreMore {
+    background-color: #C98E59;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.textExploreMore h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 43px;
+    letter-spacing: 6px;
+    line-height: 55.9px;
+    color: #f2f2f2;
+    text-shadow: 0 0 4px #000000;
+    text-align: center;
+}
+.sectionExploreMore hr {
+    width: 112px;
+    border: 1px solid #74471F;
+    margin: 30px 0;
+}
+.sectionExploreMore p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #f2f2f2;
+}
+.sectionExploreMore button {
+    background: linear-gradient(90deg, #74471F, #C98E59);
+    font-weight: 700;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    padding: 10px 20px;
+    margin-top: 50px;
+    border: 3px solid #74471F;
+    cursor: pointer;
+}
+.contactUsSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contactUsSection h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 43px;
+    letter-spacing: 6px;
+    color: #74471F;
+    text-align: center;
+}
+.contactUsSection hr {
+    width: 110px;
+    border: 1px solid #74471F;
+    margin: 50px 0;
+}
+.contactUsSection p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #74471F;
+    font-size: 16px;
+}
+.contactUsSection button {
+    background: linear-gradient(90deg, #74471F, #C98E59);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    padding: 15px 25px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1400px) {
+    .mainAssist{
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .centerLogo > .insideCenterLogo > img{
+        width: 500px;
+    }
+    .sectionExploreMore > .textExploreMore > h1{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:510px) {
+    .centerLogo > .insideCenterLogo > img{
+        width: 300px;
+    }
+    .sectionExploreMore > .textExploreMore > h1{
+        font-size: 20px;
+    }
+    .sectionExploreMore > p{
+        font-size: 14px;
+    }
 }
