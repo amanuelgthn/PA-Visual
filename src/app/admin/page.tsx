@@ -2,7 +2,6 @@
 import React from 'react'
 import styles from '../admin/adminStyles/dashboard.module.css'; // Import CSS module
 import Image from 'next/image';
-import { legacy } from '../../../.next/server/_error';
 
 
 const Adminpage = () => {
