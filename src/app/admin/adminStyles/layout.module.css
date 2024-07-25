@@ -1,0 +1,14 @@
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    font-family: "DM Sans", sans-serif;
+  }
+  
+  .mainContent {
+    flex: 1;
+    margin-left: 250px; 
+    padding: 20px;
+    background-color: #ECF0F1;
+  }
+  

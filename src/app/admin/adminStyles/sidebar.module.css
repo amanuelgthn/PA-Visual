@@ -1,0 +1,108 @@
+
+.sidebar {
+  width: 250px;
+  background: #2C3E50; 
+  color: #fff;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #ddd;
+  z-index: 10;
+}
+
+/* .logo {
+  text-align: left;
+  margin-bottom: 20px;
+  cursor: pointer;
+} */
+
+/* Base styling for the logo */
+.logo {
+  position: relative;
+  display: inline-block;
+}
+
+/* Default logo image */
+.logo img {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Color overlay for hover effect */
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #74471F; /* Hover color */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+
+/* .logo:hover::before {
+  opacity: 0.7; 
+} */
+
+.logo img {
+  position: relative;
+  z-index: 0;
+}
+
+.nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navItem {
+  margin: 15px 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.navLink:hover {
+  background-color: #34495E; 
+  color: #fff;
+}
+
+.sidebarButton {
+  background: linear-gradient(90deg, #74471F, #C98E59);
+  width: 200px;
+  color: white;
+  border: 2px;
+  outline: none;
+  border-radius: 15px;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+
+.sidebarButton:hover {
+  background: white; 
+  color: #74471F; 
+  border: 4px solid #74471F; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+}
+
+
+.sidebarButtonLink {
+  text-decoration: none; 
+  color: inherit; 
+}
