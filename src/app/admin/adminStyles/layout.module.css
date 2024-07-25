@@ -1,5 +1,4 @@
-
-.container {
+/* .container {
     display: flex;
     min-height: 100vh;
     font-family: "DM Sans", sans-serif;
@@ -11,4 +10,28 @@
     padding: 20px;
     background-color: #ECF0F1;
   }
-  
+   */
+
+/* layout.module.css */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ecf0f1;
+  font-family: "DM Sans", sans-serif;
+  transition: margin-left 0.3s ease; /* Smooth transition for content shift */
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 250px; /* Default margin-left for when the sidebar is visible */
+  padding: 20px;
+  background-color: #ecf0f1;
+  transition: margin-left 0.3s ease; /* Smooth transition for content shift */
+}
+
+@media (max-width: 1024px) {
+  .mainContent {
+    margin-left: 0; /* No margin-left when the sidebar is hidden */
+  }
+}

@@ -1,5 +1,5 @@
-'use client'
-import React from 'react';
+"use client";
+import React from "react";
 
 const ModeratorRequests: React.FC = () => {
   return (

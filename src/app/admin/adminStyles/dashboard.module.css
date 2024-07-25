@@ -1,171 +1,220 @@
+/* src/admin/adminStyles/dashboard.module.css */
 
-.dashboard{
-    display: flex;
-    justify-content: space-between;
-    max-width: 1225px;
-    align-items: center;
-    background: linear-gradient(90.54deg, #74471F 1.65%, #C98E59 100%);
-    padding: 20px 30px;
-    color: #fff;
-    border-radius: 5PX;
+/* Dashboard Section */
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: linear-gradient(90.54deg, #74471f 1.65%, #c98e59 100%);
+  padding: 20px 30px;
+  color: #fff;
+  border-radius: 5px;
+  justify-content: space-between;
 }
 
-
-.dashboardDesc{
-    display: flex;
-   
-    flex-direction: column;
-    gap: 15px;
+/* Flex items in dashboard */
+.dashboardDesc {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .dashboardDesc h2 {
-    font-size: 23px;
+  font-size: 23px;
 }
 
 .dashboard p {
-      font-family: "DM Sans", sans-serif;
-    font-size: 13.88px;
-    font-weight: normal;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13.88px;
+  font-weight: normal;
+}
+
+.notification {
+  position: relative;
+  display: inline-block;
 }
 
 .notificationCount {
+  position: absolute;
+  top: -10px; /* Adjust as needed to position the count properly */
+  right: -10px; /* Adjust as needed to position the count properly */
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px; /* Set a fixed width */
+  height: 20px; /* Set a fixed height */
+  text-align: center; /* Center the text inside */
+}
+
+/* Total section */
+.total {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Each total item */
+.totalDesc {
+  flex: 1 1 calc(33.333% - 20px); /* Responsive flex basis */
+  min-height: 100px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.totalDesc h2 {
+  font-size: 20px;
+}
+
+.totalDesc h3 {
+  font-size: 22px;
+  color: #3498db;
+  font-weight: bolder;
+}
+
+/* Trends section */
+.trends {
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  flex: 1;
+}
+
+/* Ensure the chart fits within the trends section */
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Ensure the height is adjustable to maintain aspect ratio */
+  position: relative;
+}
+
+/* Chart container */
+.chartContainer {
+  width: 98%;
+  height: 300px; /* Adjust as needed */
+  position: relative;
+}
+
+/* Recent activities section */
+.recentActivities {
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* Activities table */
+.activitiesTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.activitiesTable th,
+.activitiesTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.activitiesTable th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.activitiesTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.activitiesTable tr:hover {
+  background-color: #ddd;
+}
+
+/* Activities List Image */
+.activitiesList img {
+  vertical-align: middle;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* Media Queries for responsiveness */
+
+/* For tablets (min-width: 768px) and desktops */
+@media (min-width: 768px) {
+  .dashboard {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .notificationCount {
     position: absolute;
-    top:45px;
-    right: 45px;
-    background: #E74C3C;
+    top: -10px; /* Adjust as needed to position the count properly */
+    right: -10px; /* Adjust as needed to position the count properly */
+    background: #e74c3c;
     color: #fff;
     border-radius: 50%;
-    padding: 4px 6px;
+    padding: 4px 8px;
     font-size: 12px;
     line-height: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 20px; /* Set a fixed width */
+    height: 20px; /* Set a fixed height */
+    text-align: center; /* Center the text inside */
   }
 
   .total {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: row;
+    gap: 20px;
   }
 
   .totalDesc {
-    width: 100%;
-    max-width: 400px;
-    min-height: 100px;
-    background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-left: 20px;
-      border-radius: 5px;
-      gap: 18px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
+    flex: 1 1 calc(33.333% - 20px); /* Full width for each item on larger screens */
   }
 
-  .totalDesc h2{
-    font-size: 20px;
-  }
-
-  .totalDesc h3{
-    font-size: 22;
-    color: #3498DB;
-    font-weight: bolder;
-  }
-
-
-  .trends {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex: 1;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    flex-direction: column;
+  .trends,
+  .recentActivities {
     padding: 20px;
-    gap: 18px;
   }
 
-
-  /* .recentActivities {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex: 1;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    flex-direction: column;
-    padding: 20px;
-    gap: 18px;
+  .chartContainer {
+    height: 300px; /* Adjust as needed for larger screens */
   }
-
-.activitiesTable {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .adminwrapper {
+    display: none; /* Hide entire section on mobile devices */
+  }
 
-.actlivitiesList {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+  .chartContainer {
+    display: none; /* Optionally hide chart on mobile devices */
+  }
 }
-
-.actlivitiesList img {
-    object-fit: cover;
-} */
-
-
-.recentActivities {
-    margin-top: 20px;
-    flex: 1;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    flex-direction: column;
-    padding: 20px;
-    gap: 18px;
-  }
-  
-  .activitiesTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .activitiesTable th, .activitiesTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .activitiesTable th {
-    background-color: #f2f2f2;
-    color: #333;
-  }
-  
-  .activitiesTable tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .activitiesTable tr:hover {
-    background-color: #ddd;
-  }
-  
-  .activitiesList img {
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-  .icon {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    vertical-align: middle;
-    object-fit: contain; 
-  }
