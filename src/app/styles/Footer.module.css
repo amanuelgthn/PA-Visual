@@ -75,12 +75,19 @@
     margin-bottom: 30px;
     color: #fff;
 }
+.Links_Footer > ul > li{
+    margin: 10px 0;
+}
 .Links_Footer > ul > li > a{
     text-decoration: none;
     color: #fff;
     font-size: 16px;
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
+    transition: .2s;
+}
+.Links_Footer > ul > li > a:hover{
+    color: #74471F;
 }
 .InsideContainer_Subscribe{
     background-color: #ffffff3b;
@@ -127,6 +134,10 @@
     border-bottom-right-radius: 6px;
     cursor: pointer;
 }
+.InsideContainer_Subscribe > .Input_Subscribe > button:hover{
+    background: linear-gradient(90deg, #C98E59, #74471F);
+}
+
 .InsideContainer_Subscribe > p{
     font-family: "DM Sans", sans-serif;
     color: #fff;
@@ -171,9 +182,18 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
+    transition: .2s;
+}
+.Last_Links > ul > li > a:hover{
+    color: #74471F;
 }
 .Socials > ul > li > a > img{
     margin: 0 10px;
+    transition: .2s;
+    border-radius: 50%;
+}
+.Socials > ul > li > a > img:hover{
+    background: linear-gradient(90deg, #C98E59, #74471F);
 }
 
 @media screen and (max-width:1400px) {
