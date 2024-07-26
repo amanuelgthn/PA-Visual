@@ -1,5 +1,3 @@
-/* src/admin/adminStyles/dashboard.module.css */
-
 /* Dashboard Section */
 .dashboard {
   display: flex;
@@ -37,8 +35,8 @@
 
 .notificationCount {
   position: absolute;
-  top: -10px; /* Adjust as needed to position the count properly */
-  right: -10px; /* Adjust as needed to position the count properly */
+  top: -10px;
+  right: -10px;
   background: #e74c3c;
   color: #fff;
   border-radius: 50%;
@@ -48,9 +46,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px; /* Set a fixed width */
-  height: 20px; /* Set a fixed height */
-  text-align: center; /* Center the text inside */
+  width: 20px;
+  height: 20px;
+  text-align: center;
 }
 
 /* Total section */
@@ -63,7 +61,7 @@
 
 /* Each total item */
 .totalDesc {
-  flex: 1 1 calc(33.333% - 20px); /* Responsive flex basis */
+  flex: 1 1 calc(33.333% - 20px);
   min-height: 100px;
   background-color: #fff;
   display: flex;
@@ -95,20 +93,19 @@
   flex: 1;
 }
 
-/* Ensure the chart fits within the trends section */
 .chart {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%; /* Ensure the height is adjustable to maintain aspect ratio */
+  height: 100%;
   position: relative;
 }
 
 /* Chart container */
 .chartContainer {
   width: 98%;
-  height: 300px; /* Adjust as needed */
+  height: 300px;
   position: relative;
 }
 
@@ -162,8 +159,6 @@
   object-fit: contain;
 }
 
-/* Media Queries for responsiveness */
-
 /* For tablets (min-width: 768px) and desktops */
 @media (min-width: 768px) {
   .dashboard {
@@ -173,8 +168,8 @@
 
   .notificationCount {
     position: absolute;
-    top: -10px; /* Adjust as needed to position the count properly */
-    right: -10px; /* Adjust as needed to position the count properly */
+    top: -10px;
+    right: -10px;
     background: #e74c3c;
     color: #fff;
     border-radius: 50%;
@@ -184,9 +179,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px; /* Set a fixed width */
-    height: 20px; /* Set a fixed height */
-    text-align: center; /* Center the text inside */
+    width: 20px;
+    height: 20px;
+    text-align: center;
   }
 
   .total {
@@ -195,7 +190,7 @@
   }
 
   .totalDesc {
-    flex: 1 1 calc(33.333% - 20px); /* Full width for each item on larger screens */
+    flex: 1 1 calc(33.333% - 20px);
   }
 
   .trends,
@@ -204,17 +199,17 @@
   }
 
   .chartContainer {
-    height: 300px; /* Adjust as needed for larger screens */
+    height: 300px;
   }
 }
 
 /* For mobile devices (max-width: 480px) */
 @media (max-width: 480px) {
   .adminwrapper {
-    display: none; /* Hide entire section on mobile devices */
+    display: none;
   }
 
   .chartContainer {
-    display: none; /* Optionally hide chart on mobile devices */
+    display: none;
   }
 }

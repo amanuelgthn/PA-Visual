@@ -1,0 +1,134 @@
+.usersWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.headerStyles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headerStyles h2 {
+  color: #c98e59;
+}
+
+.btnLink {
+  text-decoration: none;
+}
+
+.btn {
+  background-color: #5a3e2b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.searchForm {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.submitBtn {
+  background-color: #5a3e2b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ensure the table is wider than some screens */
+}
+
+.userTable th,
+.userTable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.userTable th {
+  background-color: #5a3e2b;
+  color: white;
+}
+
+.editBtn {
+  background-color: #f0ad4e;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.deleteBtn {
+  background-color: #d9534f;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive styling */
+@media (min-width: 768px) {
+  /* .usersWrapper {
+    padding: 40px;
+  } */
+}
+
+@media (max-width: 1024px) {
+  .userTable th:nth-child(6),
+  .userTable td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .headerStyles h2 {
+    font-size: 18px;
+  }
+
+  .btn,
+  .submitBtn {
+    padding: 8px 16px;
+  }
+
+  .input {
+    padding: 8px;
+  }
+
+  .userTable th,
+  .userTable td {
+    padding: 8px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pageBtn {
+  background-color: #5a3e2b;
+  color: white;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+}
