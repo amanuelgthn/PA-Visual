@@ -225,6 +225,9 @@
     .centerLogo > .insideCenterLogo > img{
         width: 500px;
     }
+    .welcomeToGa > img{
+        width: 300px;
+    }
     .sectionExploreMore > .textExploreMore > h1{
         font-size: 30px;
     }
