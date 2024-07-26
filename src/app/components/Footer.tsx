@@ -38,22 +38,34 @@ const Footer = () => {
                             <ul>
                                 <li className={styles.Title_List}>Product</li>
                                 <li>
-                                    <a href="">Employee database</a>
+                                    <a href="">
+                                        <h1>Employee database</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Payroll</a>
+                                    <a href="">
+                                        <h1>Payroll</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Absences</a>
+                                    <a href="">
+                                        <h1>Absences</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Time tracking</a>
+                                    <a href="">
+                                        <h1>Time tracking</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Shift planner</a>
+                                    <a href="">
+                                        <h1>Shift planner</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Recruiting</a>
+                                    <a href="">
+                                        <h1>Recruiting</h1>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -61,13 +73,19 @@ const Footer = () => {
                             <ul>
                                 <li className={styles.Title_List}>Information</li>
                                 <li>
-                                    <a href="">FAQ</a>
+                                    <a href="">
+                                        <h1>FAQ</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Blog</a>
+                                    <a href="">
+                                        <h1>Blog</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Support</a>
+                                    <a href="">
+                                        <h1>Support</h1>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -75,16 +93,24 @@ const Footer = () => {
                             <ul>
                                 <li className={styles.Title_List}>Company</li>
                                 <li>
-                                    <a href="">About us</a>
+                                    <a href="">
+                                        <h1>About us</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Careers</a>
+                                    <a href="">
+                                        <h1>Careers</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Contact us</a>
+                                    <a href="">
+                                        <h1>Contact us</h1>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="">Lift Media</a>
+                                    <a href="">
+                                        <h1>Lift Media</h1>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
