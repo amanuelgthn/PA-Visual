@@ -44,11 +44,11 @@ const Sidebar: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <button type="submit" className={styles.sidebarButton}>
-          <Link href="/admin/logout" className={styles.sidebarButtonLink}>
+        <Link href="/admin/logout" className={styles.sidebarButtonLink}>
+          <button type="submit" className={styles.sidebarButton}>
             Logout
-          </Link>
-        </button>
+          </button>
+        </Link>
       </nav>
     </div>
   );
