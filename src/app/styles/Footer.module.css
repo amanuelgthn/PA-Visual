@@ -80,13 +80,15 @@
 }
 .Links_Footer > ul > li > a{
     text-decoration: none;
+}
+.Links_Footer > ul > li > a > h1{
     color: #fff;
     font-size: 16px;
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
-    transition: .2s;
+    transition: .3s;
 }
-.Links_Footer > ul > li > a:hover{
+.Links_Footer > ul > li > a > h1:hover {
     color: #74471F;
 }
 .InsideContainer_Subscribe{
@@ -123,19 +125,40 @@
     font-size: 14px;
     font-family: "DM Sans", sans-serif;
 }
-.InsideContainer_Subscribe > .Input_Subscribe > button{
-    padding:11px 10px;
+.InsideContainer_Subscribe > .Input_Subscribe > button {
+    position: relative;
+    padding: 11px 10px;
     border: none;
-    background-color: #BF8654;
+    background: #BF8654;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     cursor: pointer;
+    overflow: hidden;
 }
-.InsideContainer_Subscribe > .Input_Subscribe > button:hover{
+
+.InsideContainer_Subscribe > .Input_Subscribe > button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(90deg, #C98E59, #74471F);
+    z-index: 0;
+    transition: opacity .3s;
+    opacity: 0;
+}
+
+.InsideContainer_Subscribe > .Input_Subscribe > button:hover::before {
+    opacity: 1;
+}
+
+.InsideContainer_Subscribe > .Input_Subscribe > button > img {
+    position: relative;
+    z-index: 1;
 }
 
 .InsideContainer_Subscribe > p{
@@ -167,7 +190,7 @@
 }
 .Socials{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 .Last_Links > ul,
@@ -182,18 +205,44 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
-    transition: .2s;
+    transition: .3s;
 }
 .Last_Links > ul > li > a:hover{
     color: #74471F;
 }
-.Socials > ul > li > a > img{
+
+
+.Socials > ul > li > a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 10px;
-    transition: .2s;
     border-radius: 50%;
 }
-.Socials > ul > li > a > img:hover{
+
+.Socials > ul > li > a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(90deg, #C98E59, #74471F);
+    border-radius: 50%; 
+    z-index: 0;
+    transition: opacity .3s;
+    opacity: 0;
+}
+
+.Socials > ul > li > a:hover::before {
+    opacity: 1;
+}
+
+.Socials > ul > li > a > img {
+    position: relative;
+    z-index: 1; 
+    border-radius: 50%;
 }
 
 @media screen and (max-width:1400px) {
