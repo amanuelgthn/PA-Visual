@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import styles from '../styles/NavBar.module.css';
+import styles from '../styles/Navbar.module.css';
 
 const NavBar = () => {
     const [isActive, setIsActive] = useState(false);
