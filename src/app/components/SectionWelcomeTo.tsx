@@ -5,7 +5,7 @@ export const SectionWelcomeTo = () => {
         <>
         <section className={`${styles.welcomeSection} ${styles.section}`}>
           <div className={styles.welcomeToGa}>
-            <h3>Welcome to</h3>
+            <h3>WELCOME TO</h3>
             <hr />
             <img src="/globalproperty.png" alt="Pro Advisor Logos" />
             
