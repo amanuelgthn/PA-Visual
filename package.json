@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "classnames": "^2.5.1",
     "next": "^14.2.5",
