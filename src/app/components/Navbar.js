@@ -47,7 +47,7 @@ const NavBar = () => {
                 <ul>
                     {['Home', 'About Us', 'Properties', 'Service', 'Innovation', 'Clients', 'Blog', 'Contact', 'Social Media'].map((item) => (
                         <li key={item} onClick={closeMenu}>
-                            <Link href={`/${item.toLowerCase().replace(' ', '-')}`} className={styles.link}>
+                            <Link href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} className={styles.link}>
                                 {item}
                             </Link>
                         </li>
@@ -66,7 +66,7 @@ const NavBar = () => {
                 <ul>
                     {['Home', 'About Us', 'Properties', 'Service', 'Innovation', 'Clients', 'Blog', 'Contact', 'Social Media'].map((item) => (
                         <li key={item} onClick={closeMenu}>
-                            <Link href={`/${item.toLowerCase().replace(' ', '-')}`}>
+                            <Link href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}>
                                 {item}
                             </Link>
                         </li>
