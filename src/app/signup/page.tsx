@@ -19,7 +19,11 @@ const page = () => {
                             <input type="password" name="" id="" placeholder='Password'/>
                             <label htmlFor="confirmpassword">Confirm Password</label>
                             <input type="text" name='' id='' placeholder='Confirm password'/>
-                            <button type='submit'>Sign Up</button>
+                            <div className="terms_conditions">
+                                <input type="checkbox" name="" id="" />
+                                I agree to the <span></span><a href="#"> terms & policy</a>
+                            </div>
+                            <button type="submit"><span>Sigunup</span></button>
                         </form>
                     </div>
                     <div className="second-half both-halfs">

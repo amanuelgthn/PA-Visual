@@ -41,7 +41,7 @@ const NavBar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logoNavbar}>
-                <img src="/homelogo.png" alt="logo" />
+                <Link href='/'><img src="/homelogo.png" alt="logo" /></Link>
             </div>
             <div className={`${styles.linksNavbarCenter} ${isActive ? styles.active : ''}`}>
                 <ul>
