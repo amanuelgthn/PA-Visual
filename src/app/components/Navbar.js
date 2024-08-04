@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import styles from '../styles/Navbar.module.css';
 
 const NavBar = () => {
@@ -37,6 +38,16 @@ const NavBar = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+    const router = useRouter();
+
+    const handleLogin = () => {
+        router.push('/login');
+    };
+
+    const handleSignup = () => {
+        router.push('/signup');
+    };
+
 
     return (
         <nav className={styles.navbar}>
@@ -45,7 +56,7 @@ const NavBar = () => {
             </div>
             <div className={`${styles.linksNavbarCenter} ${isActive ? styles.active : ''}`}>
                 <ul>
-                    {['Home', 'About Us', 'Properties', 'Service', 'Innovation', 'Clients', 'Blog', 'Contact', 'Social Media'].map((item) => (
+                    {['Home', 'about-us', 'Properties', 'Service', 'Innovation', 'Clients', 'Blog', 'Contact', 'Social Media'].map((item) => (
                         <li key={item} onClick={closeMenu}>
                             <Link href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} className={styles.link}>
                                 {item}
@@ -83,9 +94,11 @@ const NavBar = () => {
             </div>
 
             <div className={styles.loginContainer}>
-                <button>Login</button>
+            <div className={styles.loginContainer}>
+                <button onClick={handleLogin}>Login</button>
                 <h1>/</h1>
-                <button>Sign up</button>
+                <button onClick={handleSignup}>Sign up</button>
+            </div>
             </div>
         </nav>
     );
