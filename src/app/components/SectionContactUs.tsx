@@ -1,10 +1,10 @@
-import styles from "../page.module.css";
+import "../page.module.css"
 
 export const SectionContactUs = () => {
     return(
         <>
-        <div className={styles.mainAssist}>
-        <div className={`${styles.contactUsSection} ${styles.section}`}>
+        <div className="mainAssist">
+        <div className="contactUsSection">
           <h1>CONTACT US</h1>
           <hr />
           <p>
