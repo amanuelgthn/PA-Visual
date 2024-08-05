@@ -34,7 +34,7 @@ function About() {
                 className="text-overlay title"
                 style={{
                   position: 'absolute',
-                  top: '55%',
+                  top: '58%',
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
                   color: '#A66844',
@@ -51,7 +51,7 @@ function About() {
                 className="text-overlay"
                 style={{
                   position: 'absolute',
-                  top: '70%',
+                  top: '78%',
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
                   color: '#74471F',
@@ -68,13 +68,14 @@ function About() {
         </Row>
 
         {/* the OUR HISTORY part */}
+
         <Row noGutters>
           <Col>
-            <div className="card" style={{ backgroundColor: "#8FB1BF", position: 'relative', overflow: 'hidden', height: "800px" }}>
+            <div className="card" style={{ backgroundColor: "#8FB1BF", position: 'relative', overflow: 'hidden', minHeight: "800px" }}>
               <div className="card-body">
                 <h5 className="card-title"
                   style={{
-                    marginLeft: "180px",
+                    marginLeft: "15%",
                     marginTop: "100px",
                     color: '#FFFFFF',
                     textAlign: 'left',
@@ -84,70 +85,30 @@ function About() {
                   }}>
                   OUR HISTORY
                 </h5>
+
                 {/* INNER CARD */}
-                <Row style={{ marginTop: '100px' }}>
+                <Row style={{ marginTop: '90px', marginBottom: "50px" }}>
                   <Col xs={12} md={4}>
-                    <div style={{
-                      background: 'linear-gradient(60deg, rgba(255,255,255,1), rgba(171,196,206,1))',
-                      border: '1px solid #FFFFFF',
-                      borderRadius: "20px",
-                      opacity: '30',
-                      height: '100px',
-                      width: "1000px",
-                      margin: '10px',
-                      marginLeft: "180px",
-                      textAlign: "center",
-                      fontSize: '1em',
-                      padding: '10px'
-
-                    }}>
+                    <div className="history-card">
                       Founded in [Year], Property Advisor was born out of a passion for luxury real estate and a vision to redefine the way high-end property transactions are conducted. Over the years, we have grown from a small team of dedicated professionals into a renowned company known for our personalized approach and cutting-edge technology.
                     </div>
                   </Col>
                   <Col xs={12} md={4}>
-                    <div style={{
-                      background: 'linear-gradient(60deg, rgba(255,255,255,1), rgba(171,196,206,1))',
-                      border: '1px solid #FFFFFF',
-                      borderRadius: "20px",
-                      opacity: '30',
-                      height: '100px',
-                      width: "1000px",
-                      margin: '10px',
-                      marginLeft: "250px",
-                      marginTop: "50px",
-                      textAlign: "center",
-                      fontSize: '1em',
-                      padding: '10px'
-
-                    }}>
+                    <div className="history-card" style={{ marginTop: "50px", marginRight: "100px" }}>
                       Founded in [Year], Property Advisor was born out of a passion for luxury real estate and a vision to redefine the way high-end property transactions are conducted. Over the years, we have grown from a small team of dedicated professionals into a renowned company known for our personalized approach and cutting-edge technology.
                     </div>
                   </Col>
                   <Col xs={12} md={4}>
-                    <div style={{
-                      background: 'linear-gradient(60deg, rgba(255,255,255,1), rgba(171,196,206,1))',
-                      border: '1px solid #FFFFFF',
-                      borderRadius: "20px",
-                      opacity: '30',
-                      height: '100px',
-                      width: "1000px",
-                      margin: '10px',
-                      marginLeft: "180px",
-                      marginTop: "50px",
-                      textAlign: "center",
-                      fontSize: '1em',
-                      padding: '10px'
-
-                    }}>
+                    <div className="history-card" style={{ marginTop: "50px", }}>
                       Founded in [Year], Property Advisor was born out of a passion for luxury real estate and a vision to redefine the way high-end property transactions are conducted. Over the years, we have grown from a small team of dedicated professionals into a renowned company known for our personalized approach and cutting-edge technology.
                     </div>
                   </Col>
                 </Row>
-
               </div>
             </div>
           </Col>
         </Row>
+
 
 
         {/* the OUR TEAM part */}
