@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useRef } from 'react';
 import Image from 'react-bootstrap/Image';
-import './aboutUs.css';
+import '../styles/AboutUs.css'
 import { Button, Modal } from 'react-bootstrap';
 
 interface CeoDetails {
@@ -14,7 +14,7 @@ interface CeoDetails {
   projects: string;
 }
 
-const ceoDetailsList: CeoDetails[]= [
+const ceoDetailsList: CeoDetails[] = [
   {
     id: 1,
     name: "CEO Name",
@@ -43,7 +43,7 @@ const ceoDetailsList: CeoDetails[]= [
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     languages: "English / Spanish",
     projects: "Marriot luxury hotel",
-   
+
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ const ceoDetailsList: CeoDetails[]= [
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     languages: "English / Spanish",
     projects: "Marriot luxury hotel",
- 
+
   },
   {
     id: 6,
@@ -130,82 +130,82 @@ function SliderAboutUs() {
 
   return (
     <>
-    <div className="AboutUs-container">
-      <Image src='/preslider.png' className="arrow prev" onClick={handlePrev} />
-      {visibleItems.map((ceo, index) => (
-        <div className="AboutUs-item" key={index}>
-          <div className="ceo-card">
-            <Image src={ceo.imgSrc} className="ceo-image" />
-            <div className="ceo-info">
-              <h4>{ceo.name}</h4>
-              <p>{ceo.title}</p>
-            </div>
-            <Button className="ceo-button" onClick={() => handleShowModal(ceo)} >
-             Discover
-            </Button>
-          </div>
-        </div>
-      ))}
-      <Image src='/nextslider.png' className="arrow next" onClick={handleNext}  />
-
-
-      {selectedCeo && (
-        <>
-           <div className="modalAbout-overlay" onClick={handleCloseModal}></div>
-
-  <Modal show={showModal} onHide={handleCloseModal} className='modalAbout-dialog'>
-    <div style={{ position: 'relative' }}>
-      <Image
-        src="/closeButton.png"
-        onClick={handleCloseModal}
-        style={{
-          width: '30px',
-          height: '30px',
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          cursor: 'pointer',
-          zIndex: 1000
-        }}
-      />
-      <Modal.Header style={{ paddingTop: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', width: '1200px' }}>
-          <Image
-            src={selectedCeo.imgSrc}
-            style={{ width: '500px', height: '500px', marginRight: '30px' , marginLeft:"20px"}}
-          />
-          <div style={{ maxWidth: '1000px', display: 'flex', flexDirection: 'column', height: '450px' }}>
-            <div style={{ marginBottom: '20px' }}>
-              <p style={{ marginBottom: '10px' }}>
-                <strong>{selectedCeo.name}</strong>
-              </p>
-              <p>{selectedCeo.title}</p>
-            </div>
-            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',  textAlign: 'justify', width:"600px" }}>
-              <p><strong></strong> {selectedCeo.text}</p>
-            </div>
-            <div style={{ marginTop: '20px', display: 'flex' }}>
-              <div style={{ marginBottom: '10px', flex: 1 }}>
-                <p><strong>Languages:</strong></p>
-                <p>{selectedCeo.languages}</p>
+      <div className="AboutUs-container">
+        <Image src='/preslider.png' className="arrow prev" onClick={handlePrev} />
+        {visibleItems.map((ceo, index) => (
+          <div className="AboutUs-item" key={index}>
+            <div className="ceo-card">
+              <Image src={ceo.imgSrc} className="ceo-image" />
+              <div className="ceo-info">
+                <h4>{ceo.name}</h4>
+                <p>{ceo.title}</p>
               </div>
-              <div style={{ flex: 1 }}>
-                <p><strong>Projects:</strong></p>
-                <p>{selectedCeo.projects}</p>
-              </div>
+              <Button className="ceo-button" onClick={() => handleShowModal(ceo)} >
+                Discover
+              </Button>
             </div>
           </div>
-        </div>
-      </Modal.Header>
-    </div>
-  </Modal>
-  </>
-)}
+        ))}
+        <Image src='/nextslider.png' className="arrow next" onClick={handleNext} />
 
 
-    </div>
-  </> );
- 
+        {selectedCeo && (
+          <>
+            <div className="modalAbout-overlay" onClick={handleCloseModal}></div>
+
+            <Modal show={showModal} onHide={handleCloseModal} className='modalAbout-dialog'>
+              <div style={{ position: 'relative' }}>
+                <Image
+                  src="/closeButton.png"
+                  onClick={handleCloseModal}
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    cursor: 'pointer',
+                    zIndex: 1000
+                  }}
+                />
+                <Modal.Header style={{ paddingTop: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', width: '1200px' }}>
+                    <Image
+                      src={selectedCeo.imgSrc}
+                      style={{ width: '400px', height: '500px', marginRight: '30px', marginLeft: "20px" }}
+                    />
+                    <div style={{ maxWidth: '1000px', display: 'flex', flexDirection: 'column', height: '450px' }}>
+                      <div style={{ marginBottom: '20px' }}>
+                        <p style={{ marginBottom: '10px' }}>
+                          <strong>{selectedCeo.name}</strong>
+                        </p>
+                        <p>{selectedCeo.title}</p>
+                      </div>
+                      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'justify', width: "600px" }}>
+                        <p><strong></strong> {selectedCeo.text}</p>
+                      </div>
+                      <div style={{ marginTop: '20px', display: 'flex' }}>
+                        <div style={{ marginBottom: '10px', flex: 1 }}>
+                          <p><strong>Languages:</strong></p>
+                          <p>{selectedCeo.languages}</p>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <p><strong>Projects:</strong></p>
+                          <p>{selectedCeo.projects}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Modal.Header>
+              </div>
+            </Modal>
+          </>
+        )}
+
+
+      </div>
+    </>);
+
 }
 
 export default SliderAboutUs;
