@@ -1,7 +1,7 @@
 "use client"
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Image from 'react-bootstrap/Image';
-import '../styles/AboutUs.css'
+import './styles/AboutUs.css'
 import { Button, Modal } from 'react-bootstrap';
 
 interface CeoDetails {

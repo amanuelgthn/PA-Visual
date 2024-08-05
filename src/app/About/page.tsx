@@ -2,21 +2,19 @@ import React from 'react';
 import Image from 'react-bootstrap/Image';
 import { Container, Row, Col } from 'react-bootstrap';
 import SliderAboutUs from '../components/SliderAboutUs';
-import NavBar from '../components/Navbar';
+import { NavBar } from '../components/Navbar';
 
-function About() {
+
+const About = () => {
   return (
     <div style={{ position: 'relative' }}>
       <div className="navbar-container">
         <NavBar />
       </div>
       <Container fluid className="p-0">
-        {/* the image and its content */}
         <Row noGutters>
           <Col>
-
             <div className="image-container" style={{ position: 'relative', width: '100vw', overflow: 'hidden', height: '100vh' }}>
-
               <Image src="/image.png" className="img-fluid w-100" style={{ height: '100%', width: '100%', objectFit: 'cover', opacity: 0.8 }} />
 
               <div

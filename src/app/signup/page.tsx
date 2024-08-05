@@ -1,12 +1,13 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+
 import './signup.css'
+import { NavBar } from '../components/Navbar'
 
 const page = () => {
     return (
         <main id='mainContainer'>
             <div className='mainAssist'>
-                <Navbar />
+                <NavBar />
                 <section className='contact_section'>
                     <div className="first-half both-halfs">
                         <h1>Get Started Now</h1>

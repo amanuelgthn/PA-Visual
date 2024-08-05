@@ -1,12 +1,11 @@
 "use client";
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import styles from '../styles/Navbar.module.css';
+import styles from './styles/Navbar.module.css';
 
-const NavBar = () => {
+export const NavBar = () => {
     const [isActive, setIsActive] = useState(false);
+
     const toggleMenu = () => {
         setIsActive(!isActive);
         toggleBodyOverflow(!isActive);
@@ -17,7 +16,7 @@ const NavBar = () => {
         toggleBodyOverflow(false);
     };
 
-    const toggleBodyOverflow = (shouldOverflow) => {
+    const toggleBodyOverflow = (shouldOverflow: boolean) => {
         if (shouldOverflow) {
             document.body.classList.add("overflow-hidden");
         } else {
@@ -31,23 +30,15 @@ const NavBar = () => {
                 closeMenu();
             }
         };
-
         window.addEventListener('resize', handleResize);
-
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-    const router = useRouter();
 
-    const handleLogin = () => {
-        router.push('/login');
-    };
-
-    const handleSignup = () => {
-        router.push('/signup');
-    };
-
+    const NavBarLink = ({name, URL}: {name:string, URL?: string}) => {
+        return <li><Link href={URL ? URL : name}>{name}</Link></li>
+    }
 
     return (
         <nav className={styles.navbar}>
@@ -56,13 +47,15 @@ const NavBar = () => {
             </div>
             <div className={`${styles.linksNavbarCenter} ${isActive ? styles.active : ''}`}>
                 <ul>
-                    {['Home', 'about-us', 'Properties', 'Service', 'Innovation', 'Clients', 'Blog', 'Contact', 'Social Media'].map((item) => (
-                        <li key={item} onClick={closeMenu}>
-                            <Link href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} className={styles.link}>
-                                {item}
-                            </Link>
-                        </li>
-                    ))}
+                    <NavBarLink name="Home" URL="/"/>
+                    <NavBarLink name="About" />
+                    <NavBarLink name="Properties" />
+                    <NavBarLink name="Service" />
+                    <NavBarLink name="Innovation" />
+                    <NavBarLink name="Clients" />
+                    <NavBarLink name="Blog" />
+                    <NavBarLink name="Contact" />
+                    <NavBarLink name="Social Media" URL='Social'/>
                 </ul>
             </div>
 
@@ -75,13 +68,15 @@ const NavBar = () => {
                     <button>Sign up</button>
                 </div>
                 <ul>
-                    {['Home', 'About Us', 'Properties', 'Service', 'Innovation', 'Clients', 'Blog', 'Contact', 'Social Media'].map((item) => (
-                        <li key={item} onClick={closeMenu}>
-                            <Link href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}>
-                                {item}
-                            </Link>
-                        </li>
-                    ))}
+                    <NavBarLink name="Home" />
+                    <NavBarLink name="About" />
+                    <NavBarLink name="Properties" />
+                    <NavBarLink name="Service" />
+                    <NavBarLink name="Innovation" />
+                    <NavBarLink name="Clients" />
+                    <NavBarLink name="Blog" />
+                    <NavBarLink name="Contact" />
+                    <NavBarLink name="Social Media" URL='Social'/>
                 </ul>
             </div>
 
@@ -95,13 +90,11 @@ const NavBar = () => {
 
             <div className={styles.loginContainer}>
             <div className={styles.loginContainer}>
-                <button onClick={handleLogin}>Login</button>
-                <h1>/</h1>
-                <button onClick={handleSignup}>Sign up</button>
+                <Link href="Login" style={{color:"#C98E59", fontFamily: "DM Sans, sans-serif", textDecoration: "none", fontSize: "20px"}}>Login</Link>
+                <h1 style={{userSelect: "none"}}>&nbsp;/&nbsp;</h1>
+                <Link href="Signup" style={{color:"#C98E59", fontFamily: "DM Sans, sans-serif", textDecoration: "none", fontSize: "20px"}}>Sign up</Link>
             </div>
             </div>
         </nav>
     );
 };
-
-export default NavBar;

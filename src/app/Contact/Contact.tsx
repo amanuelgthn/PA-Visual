@@ -125,8 +125,8 @@ export default function Contact() {
             <textarea
               id="message"
               name="message"
-              rows="4"
-              cols="50"
+              rows={4}
+              cols={50}
               autoComplete="off"
               aria-label="Your message"
               aria-required="true"
