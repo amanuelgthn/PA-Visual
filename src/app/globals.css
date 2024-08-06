@@ -13,3 +13,19 @@
 body {
     overflow-x: hidden;
 }
+
+body, html {
+    width:100%;
+    min-height: 100vh;
+}
+
+:root {
+    --nav-link: #C98E59;
+    --nav-link-active: #74471F;
+}
+
+  
+.remove-scrolling { 
+    height: 100%; 
+    overflow: hidden; 
+} 

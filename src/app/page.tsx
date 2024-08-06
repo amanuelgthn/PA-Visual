@@ -1,4 +1,3 @@
-import { NavBar } from "./components/Navbar";
 import { SectionContactUs } from "./components/SectionContactUs";
 import { SectionExploreOurFeatured } from "./components/SectionExploreOurFeatured";
 import { SectionWelcomeTo } from "./components/SectionWelcomeTo";
@@ -11,7 +10,6 @@ export default function Home() {
         <img src="/TRY IT 2.png" alt=""/>
       </div>
         <div className={styles.mainAssist}>
-        <NavBar />
         <main className={styles.centerLogo}>
           <div className={styles.insideCenterLogo}>
             <img src="/Group.png" alt="Logo" />

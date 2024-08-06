@@ -1,0 +1,120 @@
+.NavbarContainer {
+    width:100%;
+    min-height: 10vh;
+    padding: 3vh 10vh;
+    top:0;
+    z-index: 999999;
+
+
+    .NavbarLogoContainer {
+        width:10%;
+    }
+
+    .NavbarLinksContainer {
+        width: 80%;
+        padding: 0 5%;
+    }
+    .Navlink {
+        padding: 16px;
+        width: auto;
+        color: var(--nav-link);
+        font-size: 1.2vw;
+        font-weight: 500;
+        line-height: 1.2vw;
+        text-transform: capitalize;
+        text-wrap: nowrap;
+        &:hover {
+          transform: scale(1.07);  
+        }
+    }
+
+    .Navlink.active {
+        color: var(--nav-link-active)
+    }
+
+    .NavbarLoginContainer {
+        width: 10%;
+    }
+
+}
+
+.MobileNavbarContainer {
+    position: absolute;
+    display: none;
+    right: -1000vw;
+    top: 0;
+    height: 100vh;
+    background: #f8f6f6;
+    padding: 0 10vh;
+    z-index: 9999999;
+    -webkit-box-shadow: -2px 0px 15px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -2px 0px 15px 0px rgba(66, 68, 90, 1);
+    box-shadow: -2px 0px 15px 0px rgba(66, 68, 90, 1);
+
+    &.active {
+    right: 0;
+    }
+
+    .MobileNavbarCloser {
+        left: 3vh;
+        top: 3vh;
+        position: absolute;
+        font-size: 3vh;
+        padding: 10px;
+        color: var(--nav-link-active);
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+        &:hover {
+            color:red;
+        }
+    }
+
+    .MobileNavbarLogoContainer {
+        width: 100%;
+        height: 20%;
+    }
+
+    .MobileNavbarLinksContainer {
+        height: 80%;
+    }
+    .Navlink {
+        font-size: 3vh;
+    }
+    .MobileNavbarLoginContainer {
+        height: 20%;
+
+    }
+}
+
+
+.MobileNavbarOpener {
+    right: 5vh;
+    top: 5vh;
+    position: absolute;
+    font-size: 3vh;
+    padding: 10px;
+    color: var(--nav-link-active);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 100;
+    padding: 16px;
+    display: none;
+    &:hover {
+        color: yellowgreen;
+    }
+}
+
+@media (max-width: 1000px) {
+    .MobileNavbarContainer {
+        display: flex;
+    }
+
+    .MobileNavbarOpener {
+        display: block;
+    }
+    .NavbarLinksContainer, .NavbarLogoContainer,  .NavbarLoginContainer{
+        display: none;
+    }
+}
+  
