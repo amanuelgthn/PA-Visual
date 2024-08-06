@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ClientLayout from "./ClientLayout";
-
+import { Wrapper } from "./components/Wrapper";
 
 export const metadata: Metadata = {
   title: "Global Property",
@@ -13,11 +12,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="en">
       <body>
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <ClientLayout>{children}</ClientLayout>
+        <Wrapper>
+            {children}
+        </Wrapper>
       </body>
     </html>
   );

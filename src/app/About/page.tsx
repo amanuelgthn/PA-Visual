@@ -2,15 +2,10 @@ import React from 'react';
 import Image from 'react-bootstrap/Image';
 import { Container, Row, Col } from 'react-bootstrap';
 import SliderAboutUs from '../components/SliderAboutUs';
-import { NavBar } from '../components/Navbar';
-
 
 const About = () => {
   return (
     <div style={{ position: 'relative' }}>
-      <div className="navbar-container">
-        <NavBar />
-      </div>
       <Container fluid className="p-0">
         <Row noGutters>
           <Col>
