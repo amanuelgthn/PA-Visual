@@ -1,9 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import styles from "../adminStyles/hamburgerMenu.module.css";
-import { FaTimes } from "react-icons/fa"; // Using react-icons for the close icon
-import Image from "next/image";
+'use client';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import styles from '../adminStyles/hamburgerMenu.module.css';
+import { FaTimes } from 'react-icons/fa'; // Using react-icons for the close icon
+import Image from 'next/image';
 
 const HamburgerMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ const HamburgerMenu: React.FC = () => {
       <div className={styles.hamburgerIcon} onClick={toggleMenu}>
         ☰ {/* Hamburger icon */}
       </div>
-      <div className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}>
+      <div className={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
         <div className={styles.closeButton} onClick={toggleMenu}>
           <Link href="/admin" passHref>
             <Image

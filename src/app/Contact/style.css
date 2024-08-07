@@ -1,0 +1,125 @@
+@media (max-width: 769px) {
+  .image-container {
+    height: auto;
+  }
+}
+
+@media (max-width: 769px) {
+  .text-overlay h1 {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1024px) {
+  .text-overlay p {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 769px) {
+  .text-overlay p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 769px) {
+  .body-contact-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 769px) {
+  .Contact-Us-section {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1024px) {
+  .contact-us-image-container {
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 10px 0;
+    display: flex;
+    height: auto;
+    position: relative;
+  }
+}
+
+@media (max-width: 769px) {
+  .contact-us-image-container {
+    display: none;
+  }
+}
+
+@media (max-width: 769px) {
+  .Contact-Form form {
+    max-width: 100%;
+    justify-content: center;
+    align-items: left;
+    display: flex;
+    position: relative;
+  }
+}
+
+@media (max-width: 769px) {
+  .Contact-Us-section h2 {
+    max-width: 100%;
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+@media (max-width: 769px) {
+  .description {
+    max-width: 100%;
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+@media (max-width: 769px) {
+  .Contact-Form label {
+    width: 100%;
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+.Follow-us-section {
+  background-color: #f8f6f4;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}
+
+.follow-us-title,
+.follow-us-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #000000;
+  max-width: 100%;
+}
+
+@media (max-width: 769px) {
+  .follow-us-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 769px) {
+  .follow-us-text p {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    padding: 0 10px 0 10px;
+  }
+}
