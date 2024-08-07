@@ -1,7 +1,7 @@
 'use client';
 import { Button, Flex, Form, Input } from 'antd';
 import React from 'react';
-import './login.scss';
+import './Login.scss';
 import Link from 'next/link';
 import { LeftOutlined } from '@ant-design/icons';
 

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import '@fontsource/montserrat';
 import styles from './ButtonComponent.module.css';
-import './responsive.css';
+import './Responsive.css';
 
 const ButtonComponent = () => {
   const [planType, setPlanType] = useState('monthly');
