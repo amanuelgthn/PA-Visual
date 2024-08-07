@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import SliderAboutUs from '../components/SliderAboutUs';
 import NavBar from '../components/Navbar';
 
+
 function About() {
   return (
     <div style={{ position: 'relative' }}>
