@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged --allow-emptynpm next lint
+npx lint-staged --allow-empty next lint
