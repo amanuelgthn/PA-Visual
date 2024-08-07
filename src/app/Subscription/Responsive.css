@@ -1,49 +1,48 @@
 @media (max-width: 769px) {
-    .main-container {
-      padding: 20px 10px;
-    }
-  
-    .first-section {
-      margin: 10px auto;
-      padding: 10px;
-    }
-  
-    .button-container {
-      flex-direction: column;
-      text-align: left;
-    }
-  
-    .inner-buttons {
-      width: 100%;
-      height: auto;
-    }
-  
-    .inner-button {
-      width: 100%;
-    }
-  
-    .second-section {
-      flex-direction: column;
-      align-items: center;
-      margin: 10px auto;
-    }
-  
-    .first-container,
-    .second-container,
-    .third-container {
-      width: 90%;
-      height: auto;
-      margin: 10px 0;
-    }
-  
-    .third-section {
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 100%;
-    }
-  
-    .text-section {
-      margin: 20px;
-    }
+  .main-container {
+    padding: 20px 10px;
   }
-  
+
+  .first-section {
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .inner-buttons {
+    width: 100%;
+    height: auto;
+  }
+
+  .inner-button {
+    width: 100%;
+  }
+
+  .second-section {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+  }
+
+  .first-container,
+  .second-container,
+  .third-container {
+    width: 90%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .third-section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .text-section {
+    margin: 20px;
+  }
+}

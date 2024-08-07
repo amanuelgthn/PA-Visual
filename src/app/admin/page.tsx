@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import styles from "../admin/adminStyles/dashboard.module.css"; // Import CSS module
-import Image from "next/image";
-import PropertyTrendsChart from "./components/PropertyTrendsChart";
+'use client';
+import React from 'react';
+import styles from '../admin/adminStyles/dashboard.module.css'; // Import CSS module
+import Image from 'next/image';
+import PropertyTrendsChart from './components/PropertyTrendsChart';
 
 const Adminpage = () => {
   return (
