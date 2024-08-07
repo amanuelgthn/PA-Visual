@@ -1,17 +1,17 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import '@fontsource/montserrat';
-import styles from './ButtonComponent.module.css';
-import './Responsive.css';
+import { useState } from 'react'
+import Image from 'next/image'
+import '@fontsource/montserrat'
+import styles from './ButtonComponent.module.css'
+import './Responsive.css'
 
 const ButtonComponent = () => {
-  const [planType, setPlanType] = useState('monthly');
+  const [planType, setPlanType] = useState('monthly')
 
   const handleClick = (buttonName) => {
-    setPlanType(buttonName);
-  };
+    setPlanType(buttonName)
+  }
 
   const getButtonStyle = (buttonName) => ({
     padding: '10px 20px',
@@ -25,7 +25,7 @@ const ButtonComponent = () => {
     borderRadius: '10px',
     transition:
       'background-color 0.5s ease, color 0.5s ease, font-weight 0.5s ease',
-  });
+  })
 
   const getText = (container) => {
     if (planType === 'monthly') {
@@ -35,21 +35,21 @@ const ButtonComponent = () => {
             price: '$50',
             period: 'per month',
             features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-          };
+          }
         case 'platinum':
           return {
             price: '$100',
             period: 'per month',
             features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-          };
+          }
         case 'diamond':
           return {
             price: '$200',
             period: 'per month',
             features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-          };
+          }
         default:
-          return { price: '', period: '', features: [] };
+          return { price: '', period: '', features: [] }
       }
     } else {
       switch (container) {
@@ -58,28 +58,28 @@ const ButtonComponent = () => {
             price: '$500',
             period: 'per year',
             features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-          };
+          }
         case 'platinum':
           return {
             price: '$1000',
             period: 'per year',
             features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-          };
+          }
         case 'diamond':
           return {
             price: '$2000',
             period: 'per year',
             features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-          };
+          }
         default:
-          return { price: '', period: '', features: [] };
+          return { price: '', period: '', features: [] }
       }
     }
-  };
+  }
 
   return (
     <div
-      className="main-container"
+      className='main-container'
       style={{
         backgroundImage: 'url("/subscription-background-image.jpg")',
         position: 'relative',
@@ -93,7 +93,7 @@ const ButtonComponent = () => {
       }}
     >
       <section
-        className="first-section"
+        className='first-section'
         style={{
           justifyContent: 'center',
           alignItems: 'center',
@@ -103,13 +103,13 @@ const ButtonComponent = () => {
           textAlign: 'center',
         }}
       >
-        <div className="image-container">
+        <div className='image-container'>
           <Image
-            src="/security-icon-s.png"
+            src='/security-icon-s.png'
             width={78}
             height={81}
-            className="security-icon"
-            alt="security-icon"
+            className='security-icon'
+            alt='security-icon'
             style={{
               alignItems: 'center',
               justifyContent: 'center',
@@ -123,7 +123,7 @@ const ButtonComponent = () => {
           </p>
         </div>
         <div
-          className="button-container"
+          className='button-container'
           style={{
             display: 'flex',
             gap: '8px',
@@ -134,7 +134,7 @@ const ButtonComponent = () => {
           }}
         >
           <div
-            className="inner-buttons"
+            className='inner-buttons'
             style={{
               display: 'flex',
               gap: '5px',
@@ -146,14 +146,14 @@ const ButtonComponent = () => {
             }}
           >
             <button
-              className="inner-button"
+              className='inner-button'
               style={getButtonStyle('monthly')}
               onClick={() => handleClick('monthly')}
             >
               Monthly plans
             </button>
             <button
-              className="inner-button"
+              className='inner-button'
               style={getButtonStyle('annual')}
               onClick={() => handleClick('annual')}
             >
@@ -163,7 +163,7 @@ const ButtonComponent = () => {
         </div>
       </section>
       <section
-        className="second-section"
+        className='second-section'
         style={{
           justifyContent: 'center',
           alignItems: 'center',
@@ -176,7 +176,7 @@ const ButtonComponent = () => {
         }}
       >
         {['basic', 'platinum', 'diamond'].map((container, index) => {
-          const text = getText(container);
+          const text = getText(container)
           return (
             <div
               key={index}
@@ -214,7 +214,7 @@ const ButtonComponent = () => {
                 {container.toUpperCase()}
                 {index === 1 && (
                   <div
-                    className="small-box"
+                    className='small-box'
                     style={{
                       position: 'relative',
                       width: '150px',
@@ -231,13 +231,13 @@ const ButtonComponent = () => {
                     }}
                   >
                     <h1 style={{ fontSize: '14px' }}>Most popular</h1>
-                    <div className="vector">
+                    <div className='vector'>
                       <Image
-                        src="/Vector.png"
+                        src='/Vector.png'
                         width={21}
                         height={18}
-                        className="vector-icon"
-                        alt="vector-icon"
+                        className='vector-icon'
+                        alt='vector-icon'
                         style={{ marginLeft: '5px' }}
                       />
                     </div>
@@ -254,7 +254,7 @@ const ButtonComponent = () => {
                 }}
               >
                 <div
-                  className="title"
+                  className='title'
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -335,11 +335,11 @@ const ButtonComponent = () => {
                 </button>
               </div>
             </div>
-          );
+          )
         })}
       </section>
       <section
-        className="third-section"
+        className='third-section'
         style={{
           justifyContent: 'center',
           fontSize: '16px',
@@ -358,9 +358,9 @@ const ButtonComponent = () => {
           flexWrap: 'wrap',
         }}
       >
-        <div className="text-section" style={{ margin: '40px' }}>
+        <div className='text-section' style={{ margin: '40px' }}>
           <div
-            className="first-box-third-section"
+            className='first-box-third-section'
             style={{
               border: 'none',
               backgroundColor: '#FFFFFF',
@@ -372,7 +372,7 @@ const ButtonComponent = () => {
             <h1>What you get?</h1>
           </div>
           <div
-            className="second-box-third-section"
+            className='second-box-third-section'
             style={{
               border: 'none',
               textAlign: 'left',
@@ -391,7 +391,7 @@ const ButtonComponent = () => {
             </p>
 
             <div
-              className="third-box-third-section"
+              className='third-box-third-section'
               style={{ margin: '25px 0 0 15px' }}
             >
               <ul>
@@ -416,7 +416,7 @@ const ButtonComponent = () => {
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default ButtonComponent;
+export default ButtonComponent
