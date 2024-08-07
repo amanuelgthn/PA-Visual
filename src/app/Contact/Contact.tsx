@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import '@fontsource/montserrat';
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import '@fontsource/montserrat'
 
 export default function Contact() {
   const hrStyle = {
@@ -11,33 +11,33 @@ export default function Contact() {
     maxWidth: '30%',
     margin: '30px auto',
     justifyContent: 'center',
-  };
+  }
 
   const ContactForm = () => {
-    const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false)
 
     useEffect(() => {
-      setIsMounted(true);
-    }, []);
+      setIsMounted(true)
+    }, [])
 
-    if (!isMounted) return null;
+    if (!isMounted) return null
 
     return (
-      <div className="Contact-Form">
+      <div className='Contact-Form'>
         <form
-          id="form"
-          name="Contact-Form"
+          id='form'
+          name='Contact-Form'
           style={{
             display: 'flex',
             flexDirection: 'column',
             gap: '30px',
           }}
-          method="post"
-          action="/submit-form"
+          method='post'
+          action='/submit-form'
         >
           <div>
             <label
-              htmlFor="first-name"
+              htmlFor='first-name'
               style={{
                 display: 'block',
                 margin: '0 0 6px 0',
@@ -46,12 +46,12 @@ export default function Contact() {
               First name
             </label>
             <input
-              type="text"
-              id="first-name"
-              name="first-name"
-              placeholder="First name"
-              className="first-name"
-              autoComplete="given-name"
+              type='text'
+              id='first-name'
+              name='first-name'
+              placeholder='First name'
+              className='first-name'
+              autoComplete='given-name'
               required
               style={{
                 width: '100%',
@@ -63,7 +63,7 @@ export default function Contact() {
           </div>
           <div>
             <label
-              htmlFor="last-name"
+              htmlFor='last-name'
               style={{
                 display: 'block',
                 margin: '0 0 6px 0',
@@ -72,12 +72,12 @@ export default function Contact() {
               Last name
             </label>
             <input
-              type="text"
-              id="last-name"
-              name="last-name"
-              placeholder="Last name"
-              className="last-name"
-              autoComplete="family-name"
+              type='text'
+              id='last-name'
+              name='last-name'
+              placeholder='Last name'
+              className='last-name'
+              autoComplete='family-name'
               required
               style={{
                 width: '100%',
@@ -89,7 +89,7 @@ export default function Contact() {
           </div>
           <div>
             <label
-              htmlFor="email"
+              htmlFor='email'
               style={{
                 display: 'block',
                 margin: '0 0 6px 0',
@@ -98,11 +98,11 @@ export default function Contact() {
               Email address
             </label>
             <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email address"
-              autoComplete="email"
+              type='email'
+              id='email'
+              name='email'
+              placeholder='Email address'
+              autoComplete='email'
               required
               style={{
                 width: '100%',
@@ -114,7 +114,7 @@ export default function Contact() {
           </div>
           <div>
             <label
-              htmlFor="message"
+              htmlFor='message'
               style={{
                 display: 'block',
                 margin: '0 0 6px 0',
@@ -123,13 +123,13 @@ export default function Contact() {
               Your message
             </label>
             <textarea
-              id="message"
-              name="message"
+              id='message'
+              name='message'
               rows={4}
               cols={50}
-              autoComplete="off"
-              aria-label="Your message"
-              aria-required="true"
+              autoComplete='off'
+              aria-label='Your message'
+              aria-required='true'
               style={{
                 width: '100%',
                 padding: '15px',
@@ -140,8 +140,8 @@ export default function Contact() {
           </div>
 
           <button
-            className="submit-button"
-            type="submit"
+            className='submit-button'
+            type='submit'
             style={{
               padding: '10px',
               backgroundColor: '#c98e59',
@@ -158,17 +158,17 @@ export default function Contact() {
           </button>
         </form>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div>
       <section
-        className="Contact-section"
+        className='Contact-section'
         style={{ height: '100vh', display: 'flex', flexWrap: 'wrap' }}
       >
         <div
-          className="image-container"
+          className='image-container'
           style={{
             position: 'relative',
             width: '100%',
@@ -182,7 +182,7 @@ export default function Contact() {
           }}
         >
           <div
-            className="text-overlay"
+            className='text-overlay'
             style={{
               position: 'absolute',
               top: '50%',
@@ -241,7 +241,7 @@ export default function Contact() {
       </section>
 
       <section
-        className="body-contact-section"
+        className='body-contact-section'
         style={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -255,7 +255,7 @@ export default function Contact() {
         }}
       >
         <div
-          className="Contact-Us-section"
+          className='Contact-Us-section'
           style={{
             color: '#C98E59',
             flex: 1,
@@ -269,7 +269,7 @@ export default function Contact() {
         >
           <h2 style={{ marginBottom: '20px' }}>Contact us</h2>
           <div
-            className="description"
+            className='description'
             style={{ color: '#9E9E9E', margin: '0 0 35px 0' }}
           >
             <p>
@@ -282,7 +282,7 @@ export default function Contact() {
         </div>
 
         <div
-          className="contact-us-image-container"
+          className='contact-us-image-container'
           style={{
             maxWidth: '50%',
             marginTop: '60px',
@@ -290,7 +290,7 @@ export default function Contact() {
           }}
         >
           <Image
-            src="/contact-us-image.jpg"
+            src='/contact-us-image.jpg'
             width={600}
             height={600}
             style={{
@@ -300,16 +300,16 @@ export default function Contact() {
               width: '100%',
               height: 'auto',
             }}
-            className="contact-us-image"
-            alt="Contact Us"
+            className='contact-us-image'
+            alt='Contact Us'
             priority
           />
         </div>
       </section>
 
-      <section className="Follow-us-section">
+      <section className='Follow-us-section'>
         <div
-          className="follow-us-title"
+          className='follow-us-title'
           style={{
             fontSize: '30px',
             fontWeight: 500,
@@ -326,7 +326,7 @@ export default function Contact() {
           <h2>You can follow us</h2>
         </div>
         <div
-          className="follow-us-text"
+          className='follow-us-text'
           style={{
             fontSize: '14px',
             fontWeight: 100,
@@ -347,7 +347,7 @@ export default function Contact() {
         </div>
 
         <div
-          className="icons"
+          className='icons'
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -359,60 +359,60 @@ export default function Contact() {
           }}
         >
           <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href='https://www.facebook.com'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <Image
-              src="/Facebook.png"
+              src='/Facebook.png'
               width={48}
               height={50}
-              className="facebook-icon"
-              alt="Facebook"
+              className='facebook-icon'
+              alt='Facebook'
             />
           </a>
 
           <a
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href='https://www.linkedin.com'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <Image
-              src="/LinkedIn.png"
+              src='/LinkedIn.png'
               width={48}
               height={50}
-              className="linkedin-icon"
-              alt="LinkedIn"
+              className='linkedin-icon'
+              alt='LinkedIn'
             />
           </a>
 
-          <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
+          <a href='https://www.x.com' target='_blank' rel='noopener noreferrer'>
             <Image
-              src="/Twitter.png"
+              src='/Twitter.png'
               width={48}
               height={50}
-              className="twitter-icon"
-              alt="Twitter"
+              className='twitter-icon'
+              alt='Twitter'
             />
           </a>
 
           <a
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href='https://www.instagram.com'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <Image
-              src="/Instagram.png"
+              src='/Instagram.png'
               width={48}
               height={50}
-              className="instagram-icon"
-              alt="Instagram"
+              className='instagram-icon'
+              alt='Instagram'
             />
           </a>
         </div>
       </section>
 
-      <style jsx>{`
+      <style>{`
         @media (max-width: 769px) {
           .image-container {
             height: auto;
@@ -540,5 +540,5 @@ export default function Contact() {
         }
       `}</style>
     </div>
-  );
+  )
 }
