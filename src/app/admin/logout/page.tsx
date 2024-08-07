@@ -1,5 +1,4 @@
-'use client';
-import React from 'react';
+'use client'
 
 const LogoutPage: React.FC = () => {
   return (
@@ -7,7 +6,7 @@ const LogoutPage: React.FC = () => {
       <h1>logout page</h1>
       <p>logoutpage.</p>
     </div>
-  );
-};
+  )
+}
 
-export default LogoutPage;
+export default LogoutPage
