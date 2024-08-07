@@ -1,8 +1,8 @@
-import styles from "../page.module.css";
+import styles from '../page.module.css';
 
 export const SectionExploreOurFeatured = () => {
-    return(
-        <>
+  return (
+    <>
       <section className={`${styles.sectionExploreMore} ${styles.section}`}>
         <div className={styles.textExploreMore}>
           <h1>Explore Our</h1>
@@ -10,10 +10,11 @@ export const SectionExploreOurFeatured = () => {
         </div>
         <hr />
         <p>
-          Experience the finest in luxury living. Browse our exclusive listings and find your dream home today.
+          Experience the finest in luxury living. Browse our exclusive listings
+          and find your dream home today.
         </p>
         <button>EXPLORE NOW</button>
       </section>
-      </>
-    )
-}
+    </>
+  );
+};

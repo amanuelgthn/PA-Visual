@@ -22,7 +22,7 @@
 }
 
 .logo::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -55,7 +55,9 @@
   display: block;
   padding: 10px;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .navLink:hover {
