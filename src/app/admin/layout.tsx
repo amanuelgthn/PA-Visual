@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import Sidebar from "./components/Sidebar";
-import styles from "./adminStyles/layout.module.css";
-import HamburgerMenu from "./components/HamburgerMenu";
+'use client';
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import styles from './adminStyles/layout.module.css';
+import HamburgerMenu from './components/HamburgerMenu';
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

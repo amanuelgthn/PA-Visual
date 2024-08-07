@@ -13,9 +13,10 @@ const PropertiesManagement: React.FC = () => {
       <h1>Properties Management</h1>
       <Link href="/admin/properties/add">Add New Property</Link>
       <ul>
-        {properties.map(property => (
+        {properties.map((property) => (
           <li key={property.id}>
-            {property.name} - <Link href={`/admin/properties/${property.id}`}>Edit</Link>
+            {property.name} -{' '}
+            <Link href={`/admin/properties/${property.id}`}>Edit</Link>
           </li>
         ))}
       </ul>

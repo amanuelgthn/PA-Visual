@@ -9,12 +9,10 @@
   z-index: 0;
   width: 100%;
   max-width: 1600px;
-
-
 }
 
 .ceo-card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   height: 65vh;
   width: 350px;
   display: flex;
@@ -24,9 +22,10 @@
   position: relative;
   overflow: hidden;
   margin: 5px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   clip-path: inset(1 5 0 0);
-
 }
 
 .ceo-card .ceo-info {
@@ -45,7 +44,8 @@
   z-index: 1;
 }
 
-.AboutUs-item:not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(5)) .ceo-card {
+.AboutUs-item:not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(5))
+  .ceo-card {
   width: 330px;
   height: 55vh;
   transform: scale(0.8);
@@ -88,7 +88,7 @@
   left: 150px;
   right: 0;
   bottom: 0;
-  background: #F2F2F2;
+  background: #f2f2f2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +98,6 @@
   height: 70vh;
   max-height: 600px;
   border-radius: 10px;
-
 }
 
 .modalAbout-overlay {
@@ -110,7 +109,6 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
-
 
 .ceo-image {
   width: 80%;
@@ -128,19 +126,17 @@
   padding: 15px;
   border-radius: 30px;
   width: calc(80% - 20px);
-
 }
 
 .ceo-button {
-  background-color: #FFFFFF;
-  color: #74471F;
+  background-color: #ffffff;
+  color: #74471f;
   border: 4px solid transparent;
   border-radius: 50px;
   padding: 10px 20px;
   margin-top: 20px;
-  border-image: linear-gradient(to right, #74471F, #C98E59) 1;
+  border-image: linear-gradient(to right, #74471f, #c98e59) 1;
 }
-
 
 .arrow {
   background: none;
@@ -157,24 +153,23 @@
   align-items: center;
   justify-content: center;
   z-index: 4;
-
-
 }
 
 .prev {
   left: 0;
-
 }
 
 .next {
   right: 0;
-
-
 }
 
 .history-card {
-  background: linear-gradient(60deg, rgba(255, 255, 255, 1), rgba(171, 196, 206, 1));
-  border: 1px solid #FFFFFF;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 1),
+    rgba(171, 196, 206, 1)
+  );
+  border: 1px solid #ffffff;
   border-radius: 20px;
   opacity: 0.8;
   height: auto;

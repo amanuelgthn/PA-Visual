@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import "@fontsource/montserrat";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import '@fontsource/montserrat';
 
 export default function Contact() {
   const hrStyle = {
-    border: "0",
-    borderTop: "1px solid #C98E59",
-    maxWidth: "30%",
-    margin: "30px auto",
-    justifyContent: "center",
+    border: '0',
+    borderTop: '1px solid #C98E59',
+    maxWidth: '30%',
+    margin: '30px auto',
+    justifyContent: 'center',
   };
 
   const ContactForm = () => {
@@ -28,9 +28,9 @@ export default function Contact() {
           id="form"
           name="Contact-Form"
           style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "30px",
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '30px',
           }}
           method="post"
           action="/submit-form"
@@ -39,8 +39,8 @@ export default function Contact() {
             <label
               htmlFor="first-name"
               style={{
-                display: "block",
-                margin: "0 0 6px 0",
+                display: 'block',
+                margin: '0 0 6px 0',
               }}
             >
               First name
@@ -54,10 +54,10 @@ export default function Contact() {
               autoComplete="given-name"
               required
               style={{
-                width: "100%",
-                padding: "15px",
-                border: "2px solid #e8e9eb",
-                borderRadius: "10px",
+                width: '100%',
+                padding: '15px',
+                border: '2px solid #e8e9eb',
+                borderRadius: '10px',
               }}
             />
           </div>
@@ -65,8 +65,8 @@ export default function Contact() {
             <label
               htmlFor="last-name"
               style={{
-                display: "block",
-                margin: "0 0 6px 0",
+                display: 'block',
+                margin: '0 0 6px 0',
               }}
             >
               Last name
@@ -80,10 +80,10 @@ export default function Contact() {
               autoComplete="family-name"
               required
               style={{
-                width: "100%",
-                padding: "15px",
-                border: "2px solid #e8e9eb",
-                borderRadius: "10px",
+                width: '100%',
+                padding: '15px',
+                border: '2px solid #e8e9eb',
+                borderRadius: '10px',
               }}
             />
           </div>
@@ -91,8 +91,8 @@ export default function Contact() {
             <label
               htmlFor="email"
               style={{
-                display: "block",
-                margin: "0 0 6px 0",
+                display: 'block',
+                margin: '0 0 6px 0',
               }}
             >
               Email address
@@ -105,10 +105,10 @@ export default function Contact() {
               autoComplete="email"
               required
               style={{
-                width: "100%",
-                padding: "15px",
-                border: "2px solid #e8e9eb",
-                borderRadius: "10px",
+                width: '100%',
+                padding: '15px',
+                border: '2px solid #e8e9eb',
+                borderRadius: '10px',
               }}
             />
           </div>
@@ -116,8 +116,8 @@ export default function Contact() {
             <label
               htmlFor="message"
               style={{
-                display: "block",
-                margin: "0 0 6px 0",
+                display: 'block',
+                margin: '0 0 6px 0',
               }}
             >
               Your message
@@ -131,10 +131,10 @@ export default function Contact() {
               aria-label="Your message"
               aria-required="true"
               style={{
-                width: "100%",
-                padding: "15px",
-                border: "2px solid #e8e9eb",
-                borderRadius: "10px",
+                width: '100%',
+                padding: '15px',
+                border: '2px solid #e8e9eb',
+                borderRadius: '10px',
               }}
             ></textarea>
           </div>
@@ -143,15 +143,15 @@ export default function Contact() {
             className="submit-button"
             type="submit"
             style={{
-              padding: "10px",
-              backgroundColor: "#c98e59",
-              color: "#fff",
-              border: "none",
-              cursor: "pointer",
-              borderRadius: "10px",
+              padding: '10px',
+              backgroundColor: '#c98e59',
+              color: '#fff',
+              border: 'none',
+              cursor: 'pointer',
+              borderRadius: '10px',
               boxShadow:
-                "rgba(17, 17, 26, 0.17) 0px 4px 16px, rgba(17, 17, 26, 0.17) 0px 8px 24px, rgba(17, 17, 26, 0.17) 0px 16px 56px",
-              fontWeight: "500",
+                'rgba(17, 17, 26, 0.17) 0px 4px 16px, rgba(17, 17, 26, 0.17) 0px 8px 24px, rgba(17, 17, 26, 0.17) 0px 16px 56px',
+              fontWeight: '500',
             }}
           >
             Submit
@@ -165,42 +165,42 @@ export default function Contact() {
     <div>
       <section
         className="Contact-section"
-        style={{ height: "100vh", display: "flex", flexWrap: "wrap" }}
+        style={{ height: '100vh', display: 'flex', flexWrap: 'wrap' }}
       >
         <div
           className="image-container"
           style={{
-            position: "relative",
-            width: "100%",
-            height: "100vh",
-            overflow: "hidden",
+            position: 'relative',
+            width: '100%',
+            height: '100vh',
+            overflow: 'hidden',
             backgroundImage: 'url("/contact-background-image.jpg")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            display: "flex",
-            flexWrap: "wrap",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            display: 'flex',
+            flexWrap: 'wrap',
           }}
         >
           <div
             className="text-overlay"
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              color: "#ffffff",
-              display: "flex",
-              flexDirection: "column",
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              textAlign: 'center',
+              color: '#ffffff',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             <h1
               style={{
                 fontFamily: '"Montserrat", sans-serif',
-                fontSize: "60px",
-                margin: "0 0 60px 0",
-                color: "#a66844",
-                textShadow: "1px 0px 2px rgba(66, 68, 90, 1)",
+                fontSize: '60px',
+                margin: '0 0 60px 0',
+                color: '#a66844',
+                textShadow: '1px 0px 2px rgba(66, 68, 90, 1)',
               }}
             >
               Contact us
@@ -209,9 +209,9 @@ export default function Contact() {
             <p
               style={{
                 fontFamily: '"Montserrat", sans-serif',
-                fontSize: "25px",
-                margin: "0 0 10px 0",
-                color: "#000000",
+                fontSize: '25px',
+                margin: '0 0 10px 0',
+                color: '#000000',
               }}
             >
               Ready to experience the Property Advisor difference?
@@ -219,9 +219,9 @@ export default function Contact() {
             <p
               style={{
                 fontFamily: '"Montserrat", sans-serif',
-                fontSize: "25px",
-                margin: "0 0 10px 0",
-                color: "#000000",
+                fontSize: '25px',
+                margin: '0 0 10px 0',
+                color: '#000000',
               }}
             >
               Contact us today to learn more about how we can help you
@@ -229,9 +229,9 @@ export default function Contact() {
             <p
               style={{
                 fontFamily: '"Montserrat", sans-serif',
-                fontSize: "25px",
-                margin: "0 0 10px 0",
-                color: "#000000",
+                fontSize: '25px',
+                margin: '0 0 10px 0',
+                color: '#000000',
               }}
             >
               achieve your real estate goals.
@@ -243,34 +243,34 @@ export default function Contact() {
       <section
         className="body-contact-section"
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "20px",
-          paddingBottom: "50px",
-          backgroundColor: "#f2f2f2",
-          maxWidth: "100%",
+          display: 'flex',
+          flexWrap: 'wrap',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '20px',
+          paddingBottom: '50px',
+          backgroundColor: '#f2f2f2',
+          maxWidth: '100%',
         }}
       >
         <div
           className="Contact-Us-section"
           style={{
-            color: "#C98E59",
+            color: '#C98E59',
             flex: 1,
-            marginRight: "20px",
-            backgroundColor: "#f2f2f2",
+            marginRight: '20px',
+            backgroundColor: '#f2f2f2',
             fontFamily: '"Montserrat", sans-serif',
-            fontSize: "16px",
-            marginTop: "30px",
-            maxWidth: "70%",
+            fontSize: '16px',
+            marginTop: '30px',
+            maxWidth: '70%',
           }}
         >
-          <h2 style={{ marginBottom: "20px" }}>Contact us</h2>
+          <h2 style={{ marginBottom: '20px' }}>Contact us</h2>
           <div
             className="description"
-            style={{ color: "#9E9E9E", margin: "0 0 35px 0" }}
+            style={{ color: '#9E9E9E', margin: '0 0 35px 0' }}
           >
             <p>
               Ready to experience the Property Advisor difference? Contact us
@@ -283,18 +283,22 @@ export default function Contact() {
 
         <div
           className="contact-us-image-container"
-          style={{ maxWidth: "50%", marginTop: "60px", marginLeft: "20px" }}
+          style={{
+            maxWidth: '50%',
+            marginTop: '60px',
+            marginLeft: '20px',
+          }}
         >
           <Image
             src="/contact-us-image.jpg"
             width={600}
             height={600}
             style={{
-              borderRadius: "60px",
-              objectFit: "cover",
-              margin: "20px auto",
-              width: "100%",
-              height: "auto",
+              borderRadius: '60px',
+              objectFit: 'cover',
+              margin: '20px auto',
+              width: '100%',
+              height: 'auto',
             }}
             className="contact-us-image"
             alt="Contact Us"
@@ -307,16 +311,16 @@ export default function Contact() {
         <div
           className="follow-us-title"
           style={{
-            fontSize: "30px",
+            fontSize: '30px',
             fontWeight: 500,
-            textAlign: "center",
-            color: "#a66844",
-            paddingBottom: "20px",
-            paddingTop: "40px",
-            height: "auto",
-            textShadow: "1px 0px 2px rgba(68, 68, 90, 1)",
-            display: "flex",
-            flexWrap: "wrap",
+            textAlign: 'center',
+            color: '#a66844',
+            paddingBottom: '20px',
+            paddingTop: '40px',
+            height: 'auto',
+            textShadow: '1px 0px 2px rgba(68, 68, 90, 1)',
+            display: 'flex',
+            flexWrap: 'wrap',
           }}
         >
           <h2>You can follow us</h2>
@@ -324,12 +328,12 @@ export default function Contact() {
         <div
           className="follow-us-text"
           style={{
-            fontSize: "14px",
+            fontSize: '14px',
             fontWeight: 100,
-            color: "#000000",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            color: '#000000',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <p>
@@ -345,13 +349,13 @@ export default function Contact() {
         <div
           className="icons"
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "auto",
-            width: "100%",
-            gap: "20px",
-            paddingBottom: "40px",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: 'auto',
+            width: '100%',
+            gap: '20px',
+            paddingBottom: '40px',
           }}
         >
           <a
@@ -514,7 +518,7 @@ export default function Contact() {
           align-items: center;
           text-align: center;
           justify-content: center;
-          font-family: "Montserrat", sans-serif;
+          font-family: 'Montserrat', sans-serif;
           color: #000000;
           max-width: 100%;
         }
