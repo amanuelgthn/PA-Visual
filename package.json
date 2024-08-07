@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src --color",
+    "prettier": "prettier src -check",
+    "lint-staged": "lint-staged --config lint-staged.js",
+    "husky-install": "husky"
   },
   "dependencies": {
     "@fontsource/montserrat": "^5.0.18",
@@ -23,17 +26,21 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.25.1",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "tsc-files": "^1.1.4"
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.41",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.2.5",
+    "husky": "^9.1.4",
     "install": "^0.13.0",
+    "lint-staged": "^15.2.8",
     "npm": "^10.8.2",
+    "prettier": "^3.3.3",
     "typescript": "^5"
   }
 }
