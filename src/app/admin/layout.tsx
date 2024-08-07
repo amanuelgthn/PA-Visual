@@ -1,7 +1,7 @@
 'use client'
-import Sidebar from './components/Sidebar'
 import styles from './adminStyles/layout.module.css'
 import HamburgerMenu from './components/HamburgerMenu'
+import Sidebar from './components/Sidebar'
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
