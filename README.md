@@ -1,5 +1,49 @@
 # This is frontend (NEXT.JS) repository
 
+### Some rules to follow:
+- When possible you are suppose to NEVER use class functions declarations, instead you should use ARROW FUNCTIONS
+<br/> These are very simple to learn: <a href="https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/">Link for tutorial</a>
+- Component names (Folders and Component Functions) always Pascal Case<br/>
+<img src="https://khalilstemmler.com/img/blog/camel-snake-pascal-case/camel-case-snake-case-pascal-case.png" height=200/><br/>
+- When possibile use named exports instead of default exports
+<br/>(Should be possible almost everywhere except ```page.tsx``` files)
+<br/><img src="https://media.dev.to/cdn-cgi/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fi%2Fs82i6fitzwlcc9k700uh.png" height="300"/>
+```
+Example Chart.tsx component:
+=====================
+export const Chart = () => {
+}
+    ^^ THIS IS VERY GOOD :) 
+
+=====================
+export function Chart() {
+}
+    ^^ THIS IS BAD !1!11!!
+
+=====================
+function Chart() {
+}
+export default Chart;
+^^ THIS IS VERY VERY VERY BAD !1!11!!
+
+===============================================================
+
+Example page.tsx for sub page /Dashboard:
+=====================
+const Dashboard = () => {
+}
+export default Dashboard;
+
+^^ SO SIMPLE :) ^^
+
+```
+
+- More will be added in the future. Please stay updated :)
+<br/>
+<hr/>
+<br/>
+<br/>
+
 ```
 Example folder structure you should follow
 .
@@ -57,7 +101,6 @@ The result should look like:
 ```
 
 
-It uses pre-commit!
 ### _How to run the app_
 
 ```
@@ -80,3 +123,5 @@ npm run build
 ```
 
 
+
+#### It uses pre-commit!
