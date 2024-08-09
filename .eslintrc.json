@@ -9,6 +9,7 @@
     ],
     "plugins": ["@typescript-eslint", "react", "react-hooks"],
     "rules": {
+      "@next/next/no-img-element": "off",
       "react/prop-types": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "react/react-in-jsx-scope": "off",

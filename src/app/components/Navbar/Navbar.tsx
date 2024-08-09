@@ -54,7 +54,11 @@ export const Navbar = () => {
           align='center'
         >
           <Link href='/'>
-            <img src='./logo/logoColor.svg' width={100} />
+            <img
+              src='./logo/logoColor.svg'
+              width={100}
+              alt='Global Property Logo'
+            />
           </Link>
         </Flex>
         <Flex
@@ -97,7 +101,7 @@ export const Navbar = () => {
       />
       <Flex className='NavbarLogoContainer' justify='center' align='center'>
         <Link href='/'>
-          <img src='./logo/logo.svg' width={100} />
+          <img src='./logo/logo.svg' width={100} alt='Global Property Logo' />
         </Link>
       </Flex>
       <Flex
