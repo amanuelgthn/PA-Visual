@@ -1,0 +1,41 @@
+.team-container {
+    background: #FFFFFF;
+    z-index: 99999;
+    width: 100%;
+    // height: 60vh;
+    padding: 16vh 0;
+    gap: 5vh;
+    .team-header {
+        color: #C98E59;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 5vh;
+        font-weight: 500;
+        letter-spacing: 0.06em;    
+    }
+
+    .team-inner-container {
+        background: #C98E594D;
+        // height: 50%;
+        width: 100%;
+
+        .team-header-element {
+            height: 100%;
+            width: 20%;
+            padding: 5vh 0;
+            gap: 5vh;
+            h3 {
+                color: #74471F;
+                font-size: 3vh;
+             }
+
+            p {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 2vh;
+                font-weight: 300;
+                line-height: 3.2vh;
+                text-align: justified;
+                width: 100%;
+            }
+        }
+    }
+}
