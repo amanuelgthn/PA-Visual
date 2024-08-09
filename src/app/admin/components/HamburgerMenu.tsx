@@ -1,28 +1,28 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import styles from "../adminStyles/hamburgerMenu.module.css";
-import { FaTimes } from "react-icons/fa"; // Using react-icons for the close icon
-import Image from "next/image";
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
+import styles from '../adminStyles/hamburgerMenu.module.css'
+import { FaTimes } from 'react-icons/fa' // Using react-icons for the close icon
+import Image from 'next/image'
 
 const HamburgerMenu: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   return (
     <>
       <div className={styles.hamburgerIcon} onClick={toggleMenu}>
         ☰ {/* Hamburger icon */}
       </div>
-      <div className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}>
+      <div className={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
         <div className={styles.closeButton} onClick={toggleMenu}>
-          <Link href="/admin" passHref>
+          <Link href='/admin' passHref>
             <Image
-              src="/homelogo.svg"
-              alt="logo"
+              src='/homelogo.svg'
+              alt='logo'
               width={61}
               height={26}
               className={styles.logo}
@@ -32,13 +32,13 @@ const HamburgerMenu: React.FC = () => {
         </div>
         <ul className={styles.nav}>
           <li className={styles.navItem}>
-            <Link href="/admin" className={styles.navLink} onClick={toggleMenu}>
+            <Link href='/admin' className={styles.navLink} onClick={toggleMenu}>
               Dashboard
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link
-              href="/admin/users"
+              href='/admin/users'
               className={styles.navLink}
               onClick={toggleMenu}
             >
@@ -47,7 +47,7 @@ const HamburgerMenu: React.FC = () => {
           </li>
           <li className={styles.navItem}>
             <Link
-              href="/admin/properties"
+              href='/admin/properties'
               className={styles.navLink}
               onClick={toggleMenu}
             >
@@ -56,7 +56,7 @@ const HamburgerMenu: React.FC = () => {
           </li>
           <li className={styles.navItem}>
             <Link
-              href="/admin/requests"
+              href='/admin/requests'
               className={styles.navLink}
               onClick={toggleMenu}
             >
@@ -65,7 +65,7 @@ const HamburgerMenu: React.FC = () => {
           </li>
           <li className={styles.navItem}>
             <Link
-              href="/admin/statistics"
+              href='/admin/statistics'
               className={styles.navLink}
               onClick={toggleMenu}
             >
@@ -74,7 +74,7 @@ const HamburgerMenu: React.FC = () => {
           </li>
           <li className={styles.navItem}>
             <Link
-              href="/admin/settings"
+              href='/admin/settings'
               className={styles.navLink}
               onClick={toggleMenu}
             >
@@ -83,15 +83,15 @@ const HamburgerMenu: React.FC = () => {
           </li>
         </ul>
         <div className={styles.logoutBtn}>
-          <Link href="/admin/logout" className={styles.menuButtonLink}>
-            <button type="submit" className={styles.menuButton}>
+          <Link href='/admin/logout' className={styles.menuButtonLink}>
+            <button type='submit' className={styles.menuButton}>
               Logout
             </button>
           </Link>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default HamburgerMenu;
+export default HamburgerMenu

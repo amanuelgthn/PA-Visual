@@ -8,6 +8,7 @@
   color: #fff;
   border-radius: 5px;
   justify-content: space-between;
+  width: 100%;
 }
 
 /* Flex items in dashboard */
@@ -23,7 +24,7 @@
 }
 
 .dashboard p {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 13.88px;
   font-weight: normal;
 }
