@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.acquisitions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    color: rgba(143, 177, 191, 1);
+    text-align: center;
+    background-color: #F5F5F5; /* Adjusted to match the background in the image */
+}
+
+.acquisitions {
+    max-width: 800px;
+}
+
+.acquisitions-title {
+    font-size: 36px; 
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    color: #8FB1BF;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.acquisitions-body {
+    font-size: 18px; 
+    font-weight: 300;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.acquisitions-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    max-width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .acquisitions-container {
+        padding: 30px 10px;
+    }
+
+    .acquisitions {
+        width: 100%;
+    }
+
+    .acquisitions-title {
+        font-size: 28px;
+    }
+
+    .acquisitions-body {
+        font-size: 16px;
+    }
+
+    .service-item {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}

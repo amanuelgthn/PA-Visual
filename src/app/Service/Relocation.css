@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.relocation-container {
+    width: 100%;
+    background-image: url(./relocation.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.relocation {
+    background: transparent;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.relocation-title {
+    background: transparent;
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 54.9px;
+    letter-spacing: 0.06em;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.relocation-content {
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.5);
+    ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.relocation-body {
+    background: transparent;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.relocation-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.relocation-services {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.relocation-item {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .relocation {
+        padding: 20px;
+    }
+
+    .relocation-title {
+        font-size: 32px;
+    }
+
+    .relocation-body {
+        font-size: 16px;
+    }
+
+    .relocation-item {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .relocation-content {
+        flex-direction: column;
+    }
+
+    .relocation-image {
+        margin-top: 20px;
+    }
+}
