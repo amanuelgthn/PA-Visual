@@ -2,8 +2,9 @@
   display: flex;
   min-height: 100vh;
   background-color: #ecf0f1;
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   transition: margin-left 0.3s ease;
+  width: 100%;
 }
 
 .mainContent {

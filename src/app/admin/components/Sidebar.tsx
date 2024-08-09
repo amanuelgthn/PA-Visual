@@ -1,7 +1,7 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "../adminStyles/sidebar.module.css";
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from '../adminStyles/sidebar.module.css';
 
 const Sidebar: React.FC = () => {
   return (

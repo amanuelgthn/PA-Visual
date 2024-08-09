@@ -1,8 +1,7 @@
-"use client";
-import React from "react";
-import Sidebar from "./components/Sidebar";
-import styles from "./adminStyles/layout.module.css";
-import HamburgerMenu from "./components/HamburgerMenu";
+'use client'
+import styles from './adminStyles/layout.module.css'
+import HamburgerMenu from './components/HamburgerMenu'
+import Sidebar from './components/Sidebar'
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -12,7 +11,7 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* tablet humburgen icon must render from here */}
       <HamburgerMenu />
     </div>
-  );
-};
+  )
+}
 
-export default AdminLayout;
+export default AdminLayout

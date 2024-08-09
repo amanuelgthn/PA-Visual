@@ -1,10 +1,10 @@
-"use client";
-import React from "react";
-import styles from "../admin/adminStyles/dashboard.module.css"; // Import CSS module
-import Image from "next/image";
-import PropertyTrendsChart from "./components/PropertyTrendsChart";
+'use client'
+import React from 'react'
+import styles from '../admin/adminStyles/dashboard.module.css' // Import CSS module
+import Image from 'next/image'
+import PropertyTrendsChart from './components/PropertyTrendsChart'
 
-const Adminpage = () => {
+const Admin = () => {
   return (
     <main className={styles.adminwrapper}>
       {/* section 1  */}
@@ -16,8 +16,8 @@ const Adminpage = () => {
 
         <div className={styles.notification}>
           <Image
-            src="/notificationIcon.png"
-            alt="notification icon"
+            src='/notificationIcon.png'
+            alt='notification icon'
             width={25}
             height={25}
           />
@@ -57,8 +57,8 @@ const Adminpage = () => {
             <tr className={styles.activitiesList}>
               <td>
                 <Image
-                  src="/newproperty.png"
-                  alt="newproperty"
+                  src='/newproperty.png'
+                  alt='newproperty'
                   width={20}
                   height={20}
                   className={styles.icon}
@@ -69,8 +69,8 @@ const Adminpage = () => {
             <tr className={styles.activitiesList}>
               <td>
                 <Image
-                  src="/soldproperty.png"
-                  alt="soldproperty"
+                  src='/soldproperty.png'
+                  alt='soldproperty'
                   width={20}
                   height={20}
                 />
@@ -80,8 +80,8 @@ const Adminpage = () => {
             <tr className={styles.activitiesList}>
               <td>
                 <Image
-                  src="/newUser.png"
-                  alt="newuser"
+                  src='/newUser.png'
+                  alt='newuser'
                   width={20}
                   height={20}
                 />
@@ -91,8 +91,8 @@ const Adminpage = () => {
             <tr className={styles.activitiesList}>
               <td>
                 <Image
-                  src="/updatedproperty.png"
-                  alt="newuser"
+                  src='/updatedproperty.png'
+                  alt='newuser'
                   width={20}
                   height={20}
                 />
@@ -103,7 +103,7 @@ const Adminpage = () => {
         </table>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Adminpage;
+export default Admin

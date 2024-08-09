@@ -1,7 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root,
+*,
+body,
+html,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+}
+
+:root {
+  --nav-link: #c98e59;
+  --nav-link-active: #74471f;
+  --footer-primary: #8fb1bf;
+  --button-primary: #bf8654;
+}
+
+.remove-scrolling {
+  height: 100%;
+  overflow: hidden;
 }
