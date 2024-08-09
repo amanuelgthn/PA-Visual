@@ -1,5 +1,10 @@
 # This is frontend (NEXT.JS) repository
 
+### Project uses:
+ - https://ant.design/
+ - https://sass-lang.com/guide/
+
+
 ### Some rules to follow:
 - When possible you are suppose to NEVER use class functions declarations, instead you should use ARROW FUNCTIONS
 <br/> These are very simple to learn: <a href="https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/">Link for tutorial</a>
