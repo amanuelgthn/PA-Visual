@@ -164,13 +164,13 @@ export const Footer = () => {
           align='center'
         >
           <Link href='/' className='social-link'>
-            <img src='./social/linkedin.svg' />
+            <img src='./social/linkedin.svg' alt='Linkedin Icon' />
           </Link>
           <Link href='/' className='social-link'>
-            <img src='./social/facebook.svg' />
+            <img src='./social/facebook.svg' alt='Facebook Icon' />
           </Link>
           <Link href='/' className='social-link'>
-            <img src='./social/twitter.svg' />
+            <img src='./social/twitter.svg' alt='Twitter Icon' />
           </Link>
         </Flex>
       </Flex>
