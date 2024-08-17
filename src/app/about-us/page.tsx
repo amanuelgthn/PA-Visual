@@ -18,7 +18,7 @@ function About() {
 
             <div className="image-container" style={{ position: 'relative', width: '100vw', overflow: 'hidden', height: '100vh' }}>
 
-              <Image src="/image.png" className="img-fluid w-100" style={{ height: '100%', width: '100%', objectFit: 'cover', opacity: 0.8 }} />
+              <Image src="/image.png" alt='' className="img-fluid w-100" style={{ height: '100%', width: '100%', objectFit: 'cover', opacity: 0.8 }} />
 
               <div
                 style={{
@@ -28,7 +28,7 @@ function About() {
                   transform: 'translate(-50%, -50%)',
                 }}
               >
-                <Image src="/Group.png" fluid />
+                <Image alt='' src="/Group.png" fluid />
               </div>
 
               <div
@@ -223,7 +223,7 @@ function About() {
           <Col>
             <div className="card" style={{ backgroundColor: "#FFFFFF", position: 'relative', overflow: 'hidden', height: "250px", marginTop: "10px", marginBottom: "100px" }}>
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "40px" }}>
-                <Image src="/next.png" style={{ width: "20px" }} />
+                <Image src="/next.png" alt='' style={{ width: "20px" }} />
               </div>
               <div className="card-body"
 
@@ -253,7 +253,7 @@ function About() {
 
             <div style={{ backgroundColor: "#F2F2F2", height: "300px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
 
-              <Image src="/logoBlue.png" style={{ width: "300px" }} />
+              <Image src="/logoBlue.png" alt='' style={{ width: "300px" }} />
 
               <h1 style={{ color: "#1F2247", fontSize: "40px", marginBottom: "30px" }}>
 
@@ -282,7 +282,7 @@ function About() {
               <div className="card-body"
                 style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '100%', marginTop: "-30px" }}>
                 <div style={{ textAlign: 'center', width: '45%', display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                  <Image src="/pic1.png" style={{ width: "100px", marginBottom: "20px" }} />
+                  <Image src="/pic1.png" alt='' style={{ width: "100px", marginBottom: "20px" }} />
 
                   <h5 className="card-title"
                     style={{ color: '#1F2247', fontSize: '1.5em', marginBottom: "20px" }}
@@ -297,7 +297,7 @@ function About() {
                 </div>
 
                 <div style={{ textAlign: 'center', width: '45%', display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                  <Image src="/pic2.png" style={{ width: "100px", marginBottom: "20px" }} />
+                  <Image src="/pic2.png" alt='' style={{ width: "100px", marginBottom: "20px" }} />
                   <h5 className="card-title"
                     style={{ color: '#1F2247', fontSize: '1.5em', marginBottom: "30px" }}>
                     Personalized Service
@@ -331,7 +331,7 @@ function About() {
               <div className="card-body"
                 style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '100%', marginTop: "-30px" }}>
                 <div style={{ textAlign: 'center', width: '45%', display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                  <Image src="/pic3.png" style={{ width: "100px", marginBottom: "20px" }} />
+                  <Image src="/pic3.png" alt='' style={{ width: "100px", marginBottom: "20px" }} />
                   <h5 className="card-title"
                     style={{ color: '#1F2247', fontSize: '1.5em', marginBottom: "30px" }}
                   >
@@ -345,7 +345,7 @@ function About() {
                 </div>
 
                 <div style={{ textAlign: 'center', width: '45%' }}>
-                  <Image src="/pic1.png" style={{ width: "100px", marginBottom: "20px" }} />
+                  <Image src="/pic1.png" alt='' style={{ width: "100px", marginBottom: "20px" }} />
                   <h5 className="card-title"
                     style={{ color: '#1F2247', fontSize: '1.5em', marginBottom: "30px" }}>
                     Dedicated Team
