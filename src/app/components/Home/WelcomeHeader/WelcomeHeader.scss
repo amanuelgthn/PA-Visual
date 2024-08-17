@@ -1,5 +1,5 @@
 .welcome-header-container {
-    width: 90%;
+    width: 100%;
     min-height: 50vh;
     padding: 10vh 0;
     .welcome-header-header {
@@ -58,7 +58,7 @@
     .welcome-header-nodes-container {
         width: 100% !important;
         flex-direction: column;
-        gap: 3vh;
+        gap: 10vh;
 
         .welcome-header-node {
             width: 50% !important;
@@ -74,7 +74,3 @@
     }
 
 }
-@media (max-width: 600px) {
-
-}
-    

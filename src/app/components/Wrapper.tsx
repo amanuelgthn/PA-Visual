@@ -33,11 +33,11 @@ export const Wrapper = ({ children }: IWrapper) => {
   return (
     <>
       <Flex vertical justify='center' align='center' style={WrapperStyles}>
-        {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Navbar />}
+      {children}
+        {/* {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Navbar />}
         <Flex vertical style={WrapperAssistStyles}>
-          {children}
-        </Flex>
-        {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Footer />}
+        </Flex> */}
+        {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Footer />} 
       </Flex>
     </>
   )
