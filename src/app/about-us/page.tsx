@@ -1,15 +1,15 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
 import { Container, Row, Col } from 'react-bootstrap';
-import SliderAboutUs from '../components/SliderAboutUs';
-import NavBar from '../components/Navbar';
+// import SliderAboutUs from '../components/About/';
+import {Navbar} from '../components/Navbar/Navbar';
 
 
 function About() {
   return (
     <div style={{ position: 'relative' }}>
       <div className="navbar-container">
-        <NavBar />
+        <Navbar />
       </div>
       <Container fluid className="p-0">
         {/* the image and its content */}
@@ -200,7 +200,7 @@ function About() {
                   Our teams cover architecture, interior design, partners, a team of AI experts, real estate, management, and our CEO.
                 </h5>
                 <div style={{ overflow: "hidden", marginTop: "50px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <SliderAboutUs />
+                  {/* <SliderAboutUs /> */}
                 </div>
               </div>
             </div>
@@ -231,14 +231,15 @@ function About() {
                 <div style={{ textAlign: 'center', width: '65%' }}>
 
 
-                  <p style={{ color: '#000000', fontSize: '1em', marginBottom: "40" }}>
-                    At Global Property, we believe in a personalized approach to real estate. We take the time to understand our clients' needs and preferences,<br />
-                    providing tailored solutions that exceed their expectations. Our commitment to innovation drives us to continuously adopt new technologies,<br />
-                    such as artificial intelligence, to enhance our services and streamline our processes.
+                <p style={{ color: '#000000', fontSize: '1em', marginBottom: "40" }}>
+                  At Global Property, we believe in a personalized approach to real estate. We take the time to understand our clients&apos; needs and preferences,<br />
+                  providing tailored solutions that exceed their expectations. Our commitment to innovation drives us to continuously adopt new technologies,<br />
+                  such as artificial intelligence, to enhance our services and streamline our processes.
 
-                    To provide our clients with unparalleled service and expertise,<br />
-                    ensuring a seamless and rewarding experience in the luxury real estate market.
-                  </p>
+                  To provide our clients with unparalleled service and expertise,<br />
+                  ensuring a seamless and rewarding experience in the luxury real estate market.
+                </p>
+
                 </div>
               </div>
             </div>
