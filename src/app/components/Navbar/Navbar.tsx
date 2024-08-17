@@ -86,7 +86,7 @@ export const Navbar = () => {
           className='MobileNavbarLoginContainer'
         >
           <Navlink text='Login' to='Login' />
-          <Navlink text='Signup' to='Signup' />
+          <Navlink text='Signup' to='signup' />
         </Flex>
       </Flex>
     )
@@ -128,7 +128,7 @@ export const Navbar = () => {
         <span className='Navlink' style={{ userSelect: 'none' }}>
           /
         </span>
-        <Navlink text='Signup' to='Signup' />
+        <Navlink text='Signup' to='signup' />
       </Flex>
     </Flex>
   )
