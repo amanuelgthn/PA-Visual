@@ -7,12 +7,13 @@ import '@fontsource/open-sans'
 import './styles.css'
 
 const ContactForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target)
-    const data = Object.fromEntries(formData.entries())
-    console.log('Form data submitted:', data)
-  }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    console.log('Form data submitted:', data);
+}
+
 
   return (
     <div className='secondSection'>

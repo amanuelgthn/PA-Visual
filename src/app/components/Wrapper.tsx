@@ -3,7 +3,6 @@ import { Flex } from 'antd'
 import { usePathname } from 'next/navigation'
 import React, { ReactNode } from 'react'
 import { Footer } from './Footer/Footer'
-import { Navbar } from './Navbar/Navbar'
 
 interface IWrapper {
   children: ReactNode
@@ -16,12 +15,6 @@ const WrapperStyles: React.CSSProperties = {
   zIndex: '-999999',
 }
 
-const WrapperAssistStyles: React.CSSProperties = {
-  width: '100%',
-  boxSizing: 'border-box',
-  justifyContent: 'center',
-  alignItems: 'center',
-}
 
 export const Wrapper = ({ children }: IWrapper) => {
   const pathname = usePathname()
