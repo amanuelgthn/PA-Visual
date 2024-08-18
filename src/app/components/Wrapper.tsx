@@ -3,6 +3,7 @@ import { Flex } from 'antd'
 import { usePathname } from 'next/navigation'
 import React, { ReactNode } from 'react'
 import { Footer } from './Footer/Footer'
+import { Navbar } from './Navbar/Navbar'
 
 interface IWrapper {
   children: ReactNode
@@ -15,7 +16,6 @@ const WrapperStyles: React.CSSProperties = {
   zIndex: '-999999',
 }
 
-
 export const Wrapper = ({ children }: IWrapper) => {
   const pathname = usePathname()
   const isAdminPath = pathname.startsWith('/admin')
@@ -26,11 +26,11 @@ export const Wrapper = ({ children }: IWrapper) => {
   return (
     <>
       <Flex vertical justify='center' align='center' style={WrapperStyles}>
-      {children}
-        {/* {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Navbar />}
-        <Flex vertical style={WrapperAssistStyles}>
+        {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Navbar />}
+        {children}
+        {/* <Flex vertical style={WrapperAssistStyles}>
         </Flex> */}
-        {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Footer />} 
+        {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Footer />}
       </Flex>
     </>
   )
