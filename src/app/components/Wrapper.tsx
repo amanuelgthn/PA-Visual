@@ -16,13 +16,6 @@ const WrapperStyles: React.CSSProperties = {
   zIndex: '-999999',
 }
 
-const WrapperAssistStyles: React.CSSProperties = {
-  width: '100%',
-  boxSizing: 'border-box',
-  justifyContent: 'center',
-  alignItems: 'center',
-}
-
 export const Wrapper = ({ children }: IWrapper) => {
   const pathname = usePathname()
   const isAdminPath = pathname.startsWith('/admin')
@@ -34,9 +27,9 @@ export const Wrapper = ({ children }: IWrapper) => {
     <>
       <Flex vertical justify='center' align='center' style={WrapperStyles}>
         {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Navbar />}
-        <Flex vertical style={WrapperAssistStyles}>
-          {children}
-        </Flex>
+        {children}
+        {/* <Flex vertical style={WrapperAssistStyles}>
+        </Flex> */}
         {!isAdminPath && !isLogin && !isSignup && !isForgotPass && <Footer />}
       </Flex>
     </>

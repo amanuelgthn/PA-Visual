@@ -1,129 +1,138 @@
-'use client';
-import Link from 'next/link';
-import './Navbar.scss';
-import { Divider, Flex } from 'antd';
-import { usePathname } from 'next/navigation';
-import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
-import { useEffect, useState } from 'react';
+'use client'
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
+import { Button, Flex } from 'antd'
+import './Navbar.scss'
 
-interface INavlink {
-  to: string;
-  text: string;
-}
-export const Navbar = () => {
-  const location = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const Navlink = ({ to, text }: INavlink) => (
-    <Link
-      href={`./${to}`}
-      className={`Navlink ${location === '/' + to && 'active'}`}
-    >
-      {text}
-    </Link>
-  );
+export const Navbar: React.FC = () => {
+  const [isActive, setIsActive] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
 
-  const HandleOpenMenu = (open: boolean) => {
-    window.scrollTo(0, 0);
-    if (open === true) {
-      setMobileOpen(true);
-      document.body.classList.add('remove-scrolling');
+  const toggleMenu = () => {
+    setIsActive(!isActive)
+    toggleBodyOverflow(!isActive)
+  }
+
+  const closeMenu = () => {
+    setIsActive(false)
+    toggleBodyOverflow(false)
+  }
+
+  const toggleBodyOverflow = (shouldOverflow: boolean) => {
+    if (shouldOverflow) {
+      document.body.classList.add('overflow-hidden')
     } else {
-      setMobileOpen(false);
-      document.body.classList.remove('remove-scrolling');
+      document.body.classList.remove('overflow-hidden')
     }
-  };
+  }
 
   useEffect(() => {
-    HandleOpenMenu(false);
-  }, [location]);
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        closeMenu()
+      }
+    }
 
-  const MobileNavbar = () => {
-    return (
-      <Flex
-        vertical
-        className={`MobileNavbarContainer ${mobileOpen && 'active'}`}
-      >
-        <CloseOutlined
-          className="MobileNavbarCloser"
-          onClick={() => HandleOpenMenu(false)}
-        />
-        <Flex
-          vertical
-          className="MobileNavbarLogoContainer"
-          justify="center"
-          align="center"
-        >
-          <Link href="/">
-            <img src="./logo/logoColor.svg" width={100} />
-          </Link>
-        </Flex>
-        <Flex
-          vertical
-          justify="center"
-          align="center"
-          gap={15}
-          className="MobileNavbarLinksContainer"
-        >
-          <Navlink text="Home" to="" />
-          <Navlink text="About us" to="About" />
-          <Navlink text="Properties" to="Properties" />
-          <Navlink text="Clients" to="Clients" />
-          <Navlink text="Blog" to="Blog" />
-          <Navlink text="Contact" to="Contact" />
-          <Navlink text="Social Media" to="Social" />
-          <Navlink text="Innovation" to="Innovation" />
-        </Flex>
-        <Divider />
-        <Flex
-          vertical
-          align="center"
-          gap={15}
-          className="MobileNavbarLoginContainer"
-        >
-          <Navlink text="Login" to="Login" />
-          <Navlink text="Signup" to="Signup" />
-        </Flex>
-      </Flex>
-    );
-  };
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  const handleLogin = () => {
+    router.push('/login')
+  }
+
+  const handleSignup = () => {
+    router.push('/signup')
+  }
+
+  const menuItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About Us', path: '/About' },
+    { label: 'Properties', path: '/Properties' },
+    { label: 'Service', path: '/Service' },
+    { label: 'Innovation', path: '/Innovation' },
+    { label: 'Clients', path: '/Clients' },
+    { label: 'Blog', path: '/Blog' },
+    { label: 'Contact', path: '/Contact' },
+    { label: 'Social Media', path: '/Social' },
+  ]
 
   return (
-    <Flex className="NavbarContainer">
-      <MobileNavbar />
-      <MenuOutlined
-        className="MobileNavbarOpener"
-        onClick={() => HandleOpenMenu(true)}
-      />
-      <Flex className="NavbarLogoContainer" justify="center" align="center">
-        <Link href="/">
-          <img src="./logo/logo.svg" width={100} />
-        </Link>
-      </Flex>
-      <Flex
-        className="NavbarLinksContainer"
-        justify="space-evenly"
-        align="center"
-      >
-        <Navlink text="Home" to="" />
-        <Navlink text="About us" to="About" />
-        <Navlink text="Properties" to="Properties" />
-        <Navlink text="Clients" to="Clients" />
-        <Navlink text="Blog" to="Blog" />
-        <Navlink text="Contact" to="Contact" />
-        <Navlink text="Social Media" to="Social" />
-        <Navlink text="Innovation" to="Innovation" />
-      </Flex>
-      <Flex
-        className="NavbarLoginContainer"
-        justify="space-evenly"
-        align="center"
-      >
-        <Navlink text="Login" to="Login" />
-        <span className="Navlink" style={{ userSelect: 'none' }}>
-          /
-        </span>
-        <Navlink text="Signup" to="Signup" />
+    <Flex className='wrapper-navbar'>
+      <Flex className='wrapper-assist-navbar'>
+        <nav className='navbar'>
+          <div className='logo-navbar'>
+            <Link href='/'>
+              <img src='./logo/logo.svg' alt='logo' />
+            </Link>
+          </div>
+
+          <div className={`links-navbar-center ${isActive ? 'active' : ''}`}>
+            <ul>
+              {menuItems.map((item) => (
+                <li
+                  key={item.path}
+                  className={pathname === item.path ? 'active' : ''}
+                >
+                  <Link href={item.path} onClick={closeMenu}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className='apply-hamburger'>
+            <div
+              className={`hamburger ${isActive ? 'active' : ''}`}
+              onClick={toggleMenu}
+            >
+              <span className={`bar ${isActive ? 'active' : ''}`}></span>
+              <span className={`bar ${isActive ? 'active' : ''}`}></span>
+              <span className={`bar ${isActive ? 'active' : ''}`}></span>
+            </div>
+          </div>
+
+          <div className={`nav-menu ${isActive ? 'active' : ''}`}>
+            <div className='login-container-inside'>
+              <Button type='link' onClick={handleLogin}>
+                Login
+              </Button>
+              <h1>/</h1>
+              <Button type='link' onClick={handleSignup}>
+                Sign up
+              </Button>
+            </div>
+            <ul>
+              {menuItems.map((item) => (
+                <li
+                  key={item.path}
+                  className={pathname === item.path ? 'active' : ''}
+                >
+                  <Link href={item.path} onClick={closeMenu}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className='login-container'>
+            <Button type='link' onClick={handleLogin}>
+              Login
+            </Button>
+            <h1>/</h1>
+            <Button type='link' onClick={handleSignup}>
+              Sign up
+            </Button>
+          </div>
+        </nav>
       </Flex>
     </Flex>
-  );
-};
+  )
+}

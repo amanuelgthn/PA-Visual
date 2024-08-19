@@ -1,11 +1,14 @@
-import React from 'react';
-import Contact from './Contact';
-
-const contactPage = () => {
+import { Flex } from 'antd'
+import './Contact.scss'
+import { ImageHeader } from '../components/Contact/ImageHeader/ImageHeader'
+import { FormSection } from '../components/Contact/FormSection/FormSection'
+import { FollowSection } from '../components/Contact/FollowSection/FollowSection'
+export default function Contact() {
   return (
-    <div>
-      <Contact />
-    </div>
-  );
-};
-export default contactPage;
+    <Flex className='contact-container' vertical>
+      <ImageHeader />
+      <FormSection />
+      <FollowSection />
+    </Flex>
+  )
+}
