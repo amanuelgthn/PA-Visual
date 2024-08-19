@@ -1,0 +1,42 @@
+.history-container {
+    gap: 5vh;
+    padding: 5vh;
+    background: rgba(143, 177, 191, 0.8);
+    // background: #000;
+    z-index: 999999;
+
+    .history-container-header-container {
+        width: 100%;
+        justify-content: left;
+        .history-container-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4vh;
+            font-weight: 500;
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: -2px -2px #0000004D;
+
+        }
+    }
+    // box-shadow: 0px 4px 4px 0px #0000004D inset;
+
+
+    .historyheader-textbox {
+        width: 90%;
+        // height: 200px;
+        background: rgba(255, 255, 255, 0.4);
+        border: 1px solid white;
+        border-radius: 12px;
+        padding: 3vh;
+
+        
+        .historyheader-textbox-p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 26.66px;
+            text-align: justify;
+
+        }
+    }
+}

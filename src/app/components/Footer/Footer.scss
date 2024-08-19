@@ -1,29 +1,40 @@
+.wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper-assist{
+  width: 1400px;
+  
+}
+
 .footer-main-container {
   width: 100%;
   height: auto;
   background-color: var(--footer-primary);
-  padding: 1%;
+  z-index: 999999;
   .footer-menu {
-    width: 70%;
+    width: 100%;
     .footer-menu-container {
-      margin: 0% 2%;
+      width: 25%;
       .footer-menu-header {
         color: #fff;
       }
 
       .footer-menu-link {
         color: #fff;
-        font-weight: lighter;
+        font-weight: 200;
       }
     }
   }
 
   .footer-logo-container {
     width: 100%;
-    padding: 7%;
+    padding: 40px 0;
 
     .footer-logos {
-      width: 80%;
+      width: 100%;
       border: 1px solid white;
       position: relative;
       padding: 4%;
@@ -54,70 +65,93 @@
       justify-content: center;
       align-items: center;
       img {
-        width: 80%;
+        width: 100%;
       }
     }
   }
   .footer-middle {
     width: 100%;
-
     .footer-newsletter-container {
       background-color: rgba(255, 255, 255, 0.2);
-      padding: 1vw;
+      padding: 30px;
       color: #fff;
       width: 70%;
       border-radius: 25px;
       text-align: center;
-      button {
-        width: 30%;
-        background-color: var(--button-primary);
-
-        &:hover {
-          background-color: #9c6d44;
+      .input-container{
+        display: flex;
+        width: 100%;
+        input{
+          width: 100%;
+          border: 1px solid #E7E8F2;
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+          padding: 5px;
         }
-        &:active,
-        &:focus,
-        &::before,
-        &::after {
-          background-color: #a37f5f;
+        input:focus{
+          outline: none;
         }
+        .button-subscribe{
+          background-color: #BF8654;
+          border: none;
+          border-radius: 0px;
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+        }
+        .icon{
+          color: #fff;
+        }
+      }
+      p{
+        font-style: italic;
       }
     }
   }
   .footer-footer {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
     .footer-footer-terms {
-      width: 20%;
       .terms-element {
         color: #fff;
       }
     }
-
+    .footer-footer-logo{
+      display: flex;
+      justify-content: start;
+    }
     .footer-footer-social {
-      width: 10%;
+      display: flex;
+      justify-content: end;
+      gap: 2vw;
     }
   }
 }
-
+.footer-bottom{
+  width: 33.33% !important;
+}
 @media (max-width: 1000px) {
   .footer-logos {
     flex-direction: row;
     flex-wrap: wrap;
-    flex: 1 0 21%;
+    // flex: 3 0 25%;
   }
   .footer-middle {
     flex-wrap: wrap;
     gap: 2vh;
     .footer-menu {
       width: 100%;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
       .footer-menu-container {
-        margin: 0% 2%;
+        width: 33%;
         .footer-menu-header {
           color: #fff;
         }
         .footer-menu-link {
           color: #fff;
-          font-weight: lighter;
+          font-weight: 200;
         }
       }
     }
@@ -128,7 +162,10 @@
     gap: 3vh;
     flex-wrap: wrap;
     .footer-footer-logo {
-      width: 100%;
+      width: 100% !important;
+      display: flex;
+      justify-content: center !important;
+      align-items: center;
     }
     .footer-footer-terms {
       width: 70%;
@@ -141,8 +178,9 @@
     }
 
     .footer-footer-social {
-      width: 30%;
-      justify-content: center;
+      width: 100%;
+      display: flex;
+      justify-content: center !important;
       gap: 3vh;
       align-items: center;
     }
@@ -152,21 +190,40 @@
     display: none;
   }
 }
+@media (max-width: 1000px) {
+  .footer-middle {
+    flex-direction: column;
+    gap: 10vh;
+  }
+}
 
-@media (max-width: 700px) {
+
+@media (max-width: 900px) {
   .footer-logos {
     flex-direction: column;
   }
+}
 
+
+@media (max-width: 700px) {
   .main-logo {
     width: 60%;
     img {
       width: 100%;
     }
   }
-
-  .footer-middle {
-    flex-direction: column;
-    gap: 10vh;
+  .footer-menu-container{
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
   }
+  .footer-subscribe{
+    width: 100%;
+    .footer-newsletter-container{
+      width: 100% !important;
+    }
+  }
+
 }
