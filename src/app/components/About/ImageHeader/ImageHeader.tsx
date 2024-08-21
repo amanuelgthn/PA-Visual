@@ -1,30 +1,21 @@
 import { Flex } from 'antd'
 import './ImageHeader.scss'
-import { CONSTANTS } from '@/app/Utils/config/Constants'
 
-export const ImageHeader = ({ children }: { children: React.ReactNode }) => {
+export const ImageHeader = () => {
   return (
-    <Flex
-      className='about-image-header-container'
-      justify='center'
-      vertical
-      align='center'
-    >
-      <img src='./home/logo.svg' alt='Global Property Logo' />
+    <Flex className='about-image-header-container'>
+      <Flex className='about_image_comtainer'>
+        <img src='./home/logo.svg' alt='Global Property Logo' />
 
-      <Flex
-        vertical
-        className='about-image-header-second-container'
-        justify='center'
-        align='center'
-      >
-        <h2 className='about-image-header-header'>ABOUT US</h2>
-        <p className='about-image-header-text'>
-          {CONSTANTS.STRINGS.EN.ABOUT_TEXT}
+        <h1 className='about_main_header'>About us</h1>
+        <p className='about_main_paragraph'>
+          We are committed to providing exceptional service and expertise in the
+          luxury real estate market. With a focus on innovation and excellence,
+          we have established ourselves as leaders in facilitating the purchase,
+          sale, and investment of high-end properties across Europe and
+          internationally.
         </p>
       </Flex>
-
-      {children}
     </Flex>
   )
 }

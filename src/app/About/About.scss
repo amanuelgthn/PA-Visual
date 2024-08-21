@@ -1,0 +1,36 @@
+.wrapper-about{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column !important;
+    position: relative;
+}
+.wrapper-assist-about{
+    width: 1400px;
+    padding: 50px 0;
+}
+
+.bg_image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    filter: grayscale(100%);
+    opacity: 0.3;  
+    height: 60rem !important;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media screen and (max-width: 1400px){
+    .wrapper-assist-about{
+        width: 100%;
+        padding: 50px 20px;
+    }
+}
+@media (min-width: 1000px) {
+    .bg_image{
+        object-position: top;
+    }
+}

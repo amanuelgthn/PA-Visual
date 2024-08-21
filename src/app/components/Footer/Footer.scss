@@ -35,7 +35,8 @@
 
     .footer-logos {
       width: 100%;
-      border: 1px solid white;
+      border: 1px solid #B27B49;
+      border-radius: 15px;
       position: relative;
       padding: 4%;
     }
@@ -56,6 +57,7 @@
       align-items: center;
       img {
         width: 70%;
+        background-color: #2A2E30;
       }
     }
     .smaller-logo {
