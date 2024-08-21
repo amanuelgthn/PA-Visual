@@ -49,22 +49,10 @@ export const WelcomeHeader = () => {
         align='center'
         className='welcome-header-nodes-container'
       >
-        <WelcomeNode
-          HEADER='Exclusive Properties'
-          TEXT='Explore our handpicked selection of luxury homes and estates.'
-        />
-        <WelcomeNode
-          HEADER='Investment Advisory'
-          TEXT='Get expert advice on the best real estate investment opportunities.'
-        />
-        <WelcomeNode
-          HEADER='Architecture & Design'
-          TEXT='Work with our skilled architects and interior designers to create your dream space. '
-        />
-        <WelcomeNode
-          HEADER='Cutting-Edge Technology'
-          TEXT='Benefit from our innovative use of artificial intelligence to streamline processes and enhance your experience.'
-        />
+        <WelcomeNode HEADER='Exclusive Properties' TEXT='' />
+        <WelcomeNode HEADER='Investment Advisory' TEXT='' />
+        <WelcomeNode HEADER='Architecture & Design' TEXT=' ' />
+        <WelcomeNode HEADER='Cutting-Edge Technology' TEXT='' />
       </Flex>
     </Flex>
   )

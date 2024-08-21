@@ -1,6 +1,5 @@
 import { Button, Flex } from 'antd'
 import './ImageHeader.scss'
-import { CONSTANTS } from '@/app/Utils/config/Constants'
 
 export const ImageHeader = () => {
   return (
@@ -10,9 +9,16 @@ export const ImageHeader = () => {
       vertical
       align='center'
     >
-      <img src='./home/logo.svg' alt='Global Property Logo' />
+      <video autoPlay loop muted playsInline className='image-header-video'>
+        <source
+          src='/videos/458708_Finance_District_3840x2160.mp4'
+          type='video/mp4'
+        />
+        Your browser does not support the video tag.
+      </video>
+
       <p className='image-header-undertext'>
-        {CONSTANTS.STRINGS.EN.HOME_HEADER}
+        expereince luxury & redifine living
       </p>
       <Button className='image-header-button' href='/Properties'>
         SEARCH PROPERTIES
