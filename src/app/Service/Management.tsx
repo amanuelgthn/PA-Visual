@@ -15,12 +15,12 @@ const Management = () => (
       </div>
       <div className='management-services'>
         <div className='management-item'>
-          ✔ Tenant screening and lease management
+          ✔Tenant screening and lease management
         </div>
-        <div className='management-item'>✔ Rent collection and accounting</div>
-        <div className='management-item'>✔ Material and finish selection</div>
+        <div className='management-item'>✔Rent collection and accounting</div>
+        <div className='management-item'>✔Material and finish selection</div>
         <div className='management-item'>
-          ✔ Property inspections and reporting
+          ✔Property inspections and reporting
         </div>
       </div>
     </div>

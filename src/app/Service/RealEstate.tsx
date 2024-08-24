@@ -15,7 +15,6 @@ const RealEstate = () => (
         <div className='realestate-item'> ✔️Investment property analysis</div>
         <div className='realestate-item'> ✔️Risk assessment and mitigation</div>
         <div className='realestate-item'>
-          {' '}
           ✔️Portfolio diversification strategy
         </div>
         <div className='realestate-item'> ✔️Rental property management</div>
