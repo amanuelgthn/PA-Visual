@@ -5,6 +5,7 @@ import { HistoryHeader } from '../components/About/HistoryHeader/HistoryHeader'
 import { MilestonesHeader } from '../components/About/MilestonesHeader/MinestonesHeader'
 import { AdditionalHeader } from '../components/About/AdditionalHeader/AdditionalHeader'
 import { TeamHeader } from '../components/About/TeamHeader/TeamHeader'
+import { IconsHeader } from '../components/About/IconsHeader/IconsHeader'
 
 const About = () => {
   return (
@@ -18,6 +19,9 @@ const About = () => {
           <AdditionalHeader />
         </Flex>
         <TeamHeader />
+        <Flex className='wrapper-assist-about'>
+          <IconsHeader />
+        </Flex>
       </Flex>
     </>
   )

@@ -12,6 +12,8 @@ const teamMembers = [
     title: 'CEO',
     description:
       'John Doe is the visionary leader of Global Property, bringing over 20 years of experience in real estate and property management. His innovative approach has led the company to new heights.',
+    Languages: ['English', 'Spanish'],
+    Projects: ['Project 1', 'Project 2'],
   },
   {
     image: '/contact/facebook.svg',
@@ -19,6 +21,8 @@ const teamMembers = [
     title: 'Head of Architecture',
     description:
       'Jane Smith leads our architecture team with her keen eye for design and sustainable building practices. She has won numerous awards for her groundbreaking architectural concepts.',
+    Languages: ['English', 'Spanish'],
+    Projects: ['Project 1', 'Project 2'],
   },
   {
     image: '/contact/form.jpg',
@@ -26,6 +30,8 @@ const teamMembers = [
     title: 'Lead Interior Designer',
     description:
       'Mike Johnson transforms spaces with his unique blend of functionality and aesthetics. His designs have been featured in top interior design magazines worldwide.',
+    Languages: ['English', 'Spanish'],
+    Projects: ['Project 1', 'Project 2'],
   },
   {
     image: '/contact/instagram.svg',
@@ -33,6 +39,8 @@ const teamMembers = [
     title: 'AI Expert',
     description:
       'Sarah Brown is at the forefront of integrating AI into property management. Her innovations have streamlined our processes and improved client satisfaction significantly.',
+    Languages: ['English', 'Spanish'],
+    Projects: ['Project 1', 'Project 2'],
   },
   {
     image: '/contact/linkedin.svg',
@@ -40,6 +48,8 @@ const teamMembers = [
     title: 'Real Estate Manager',
     description:
       'David Lees deep understanding of market trends and negotiation skills make him an invaluable asset to our real estate operations. He has closed some of our most significant deals.',
+    Languages: ['English', 'Spanish'],
+    Projects: ['Project 1', 'Project 2'],
   },
   {
     image: '/contact/linkedin.svg',
@@ -47,6 +57,8 @@ const teamMembers = [
     title: 'Partner Relations',
     description:
       'Emily Chen excels at building and maintaining strong relationships with our partners. Her networking skills have expanded our business opportunities exponentially.',
+    Languages: ['English', 'Spanish'],
+    Projects: ['Project 1', 'Project 2'],
   },
   {
     image: '/contact/linkedin.svg',
@@ -54,6 +66,8 @@ const teamMembers = [
     title: 'Project Manager',
     description:
       'Alex Turner ensures that all our projects are completed on time and within budget. His attention to detail and leadership skills keep our teams running smoothly.',
+    Languages: ['English', 'Spanish'],
+    Projects: ['Project 1', 'Project 2'],
   },
 ]
 
@@ -123,6 +137,21 @@ export const TeamHeader = () => {
               </div>
             ))}
           </div>
+          <Title level={2} className='approach-header'>
+            OUR APPROACH
+          </Title>
+          <Flex className='icon_down_container'>
+            <img className='about_us_icon_down' src='/icons/down.png' alt='' />
+            <p>
+              At Global Property, we believe in a personalized approach to real
+              estate. We take the time to understand our clients needs and
+              preferences, providing tailored solutions that exceed their
+              expectations. Our commitment to innovation drives us to
+              continuously adopt new technologies, such as artificial
+              intelligence, to enhance our services and streamline our
+              processes.
+            </p>
+          </Flex>
         </Flex>
       </Flex>
 
@@ -130,9 +159,33 @@ export const TeamHeader = () => {
         {selectedMember && (
           <>
             <img src={selectedMember.image} alt={selectedMember.name} />
-            <Title level={3}>{selectedMember.name}</Title>
-            <Title level={4}>{selectedMember.title}</Title>
-            <Paragraph>{selectedMember.description}</Paragraph>
+            <div className='open_modal_content'>
+              <Title level={3}>{selectedMember.name}</Title>
+              <Title level={4}>{selectedMember.title}</Title>
+              <div className='paragraph_modal_container'>
+                <p>{selectedMember.description}</p>
+              </div>
+
+              <div className='open_modal_container_langauges'>
+                <div className='open_modal_languages_container'>
+                  <Title level={4}>Languages</Title>
+                  <ul>
+                    {selectedMember.Languages.map((language, index) => (
+                      <li key={index}>{language}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className='open_modal_projects_container'>
+                  <Title level={4}>Projects</Title>
+                  <ul>
+                    {selectedMember.Projects.map((project, index) => (
+                      <li key={index}>{project}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </>
         )}
       </CustomModal>
