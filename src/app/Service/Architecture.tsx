@@ -13,12 +13,12 @@ const Architecture = () => (
           work closely with you to design and build a custom home that reflects
           your unique style and taste.
         </p>
-        <img
-          src={img.src}
-          alt='Architecture and Interior Design'
-          className='architecture-image'
-        />
       </div>
+      <img
+        src={img.src}
+        alt='Architecture and Interior Design'
+        className='architecture-image'
+      />
       <div className='architecture-services'>
         <div className='architecture-item'>
           ✔ Architectural design and planning

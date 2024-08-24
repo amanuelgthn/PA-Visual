@@ -13,16 +13,10 @@ const Acquisitions = () => (
         finish.
       </p>
       <div className='acquisitions-services'>
-        <div className='service-item'> ✔️Property search and selection</div>
-        <div className='service-item'>
-          {' '}
-          ✔️Market analysis and pricing strategy
-        </div>
-        <div className='service-item'>
-          {' '}
-          ✔️Negotiation and closing assistance
-        </div>
-        <div className='service-item'> ✔️Property marketing and promotion</div>
+        <div className='service-item'>Property search and selection</div>
+        <div className='service-item'>Market analysis and pricing strategy</div>
+        <div className='service-item'>Negotiation and closing assistance</div>
+        <div className='service-item'>Property marketing and promotion</div>
       </div>
     </div>
   </div>

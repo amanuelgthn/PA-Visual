@@ -2,12 +2,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
 }
 
 .relocation-container {
     width: 100%;
-    background-image: url(./relocation.png);
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(145, 160, 182, 0.5)),
+                url('relocation.png') no-repeat center center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,44 +20,70 @@
 }
 
 .relocation {
-    background: transparent;
-    max-width: 900px;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .relocation-title {
-    background: transparent;
+    margin-right: 50%;
+    font-family: Montserrat;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 55.9px;
+    letter-spacing: 0.06em;
+    text-align: center;
     font-size: 70px;
     font-weight: 500;
     line-height: 54.9px;
     letter-spacing: 0.06em;
     text-align: center;
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    text-shadow: 1px 0px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 8%;
+
 }
 
 .relocation-content {
-    background: transparent;
-    background-color: rgba(255, 255, 255, 0.5);
-    ;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25%;
+}
+.relocation-content-body {
+    background-color: rgba(255, 255, 255, 0.5);;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 40px;
+    box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.3);
+    border: 3px solid white;
+    border-radius: 15px;
 }
 
 .relocation-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: transparent;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 30px;
     color: #333;
     margin-bottom: 20px;
-    padding: 15px 20px;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 443px;
+height: 367px;
+border-radius: 15px 0px 0px 0px;
+border: 3px 0px 0px 0px;
+opacity: 0px;
+background: radial-gradient(97.57% 210.75% at 0.9% 2.98%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+border-image-source: radial-gradient(97.57% 210.75% at 0.9% 2.98%, #D9967E 0%, #FFFFFF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+radial-gradient(97.09% 224.61% at 1.38% 96.94%, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+linear-gradient(114.55deg, #8FB1BF 2.13%, rgba(255, 255, 255, 0) 98.14%);
+
+
+
+
 }
 
 .relocation-image {
@@ -69,17 +96,24 @@
 .relocation-services {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
 }
 
 .relocation-item {
+    font-family: 'DM Sans';
+    height: 48px;
     background-color: #FFFFFF;
     border-radius: 5px;
-    padding: 15px 20px;
-    font-size: 16px;
+    padding: 15px;
+    text-align: start;
+    left: 0;
+    font-size: 22px;
     font-weight: 400;
     color: #333;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-wrap: nowrap;
+    align-items: flex-start;
 }
 
 @media screen and (max-width: 768px) {
