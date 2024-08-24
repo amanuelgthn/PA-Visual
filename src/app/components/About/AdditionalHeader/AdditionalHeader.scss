@@ -1,0 +1,44 @@
+.additional_wrapper{
+    width: 100%;
+    display: flex;
+    .text-shuffle{
+        width: 50%;
+        text-align: center;
+        color: #bf8654;
+        font-size: 30px;
+        p{
+            color: #fff;
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 1.7;
+            text-align: start;
+            margin-top: 60px;
+        }
+    }
+    .mission-text{
+        padding-right: 30px;
+    }
+    .vision-text{
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 768px){
+    .additional_wrapper{
+        flex-direction: column;
+        .text-shuffle{
+            width: 100%;
+            p{
+                margin-top: 30px;
+            }
+        }
+        .mission-text{
+            padding-right: 0;
+        }
+        .vision-text{
+            margin-top: 30px;
+            padding-left: 0;
+        }
+    }
+    
+}

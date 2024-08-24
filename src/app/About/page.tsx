@@ -3,7 +3,8 @@ import './About.scss'
 import { ImageHeader } from '../components/About/ImageHeader/ImageHeader'
 import { HistoryHeader } from '../components/About/HistoryHeader/HistoryHeader'
 import { MilestonesHeader } from '../components/About/MilestonesHeader/MinestonesHeader'
-// import { TeamHeader } from '../components/About/TeamHeader/TeamHeader'
+import { AdditionalHeader } from '../components/About/AdditionalHeader/AdditionalHeader'
+import { TeamHeader } from '../components/About/TeamHeader/TeamHeader'
 
 const About = () => {
   return (
@@ -14,7 +15,9 @@ const About = () => {
           <ImageHeader />
           <HistoryHeader />
           <MilestonesHeader />
+          <AdditionalHeader />
         </Flex>
+        <TeamHeader />
       </Flex>
     </>
   )
