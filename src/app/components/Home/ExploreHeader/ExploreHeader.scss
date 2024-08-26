@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 50vh;
     padding: 10vh 0;
-    background: #C98E59;
+    background: #2A2E30;
     .explore-header-header {
         color: #fff;
         font-size: 2vw;
@@ -11,6 +11,7 @@
         letter-spacing: 3px;
         text-align: center;
         width: 50%;
+        font-family: "Montserrat", sans-serif;
     }
 
     .explore-header-text {
@@ -20,6 +21,7 @@
         letter-spacing: 1px;
         color: #fff;
         font-weight: 300;
+        font-family: "Montserrat", sans-serif;
     }
 
     button {
@@ -31,6 +33,7 @@
         border-radius: 10px;
         color:#fff;
         cursor: pointer;
+        font-family: "Montserrat", sans-serif;
         &:hover {
             background: #74471F;
         }

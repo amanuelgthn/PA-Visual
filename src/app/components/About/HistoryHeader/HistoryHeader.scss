@@ -1,42 +1,59 @@
 .history-container {
-    gap: 5vh;
-    padding: 5vh;
-    background: rgba(143, 177, 191, 0.8);
-    // background: #000;
-    z-index: 999999;
-
-    .history-container-header-container {
-        width: 100%;
-        justify-content: left;
-        .history-container-header {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4vh;
-            font-weight: 500;
-            text-align: center;
-            color: #FFFFFF;
-            text-shadow: -2px -2px #0000004D;
-
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+    &-header-container {
+        margin-bottom: 20px;
+    }
+    &-header {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .pagination-dots{
+        position: absolute;
+        bottom: 30px;
+        gap: 10px;
+        .dot{
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            background-color: #fff;
+            border-radius: 50%;
+            &.active{
+                background: linear-gradient(90deg, #C98E59 0%, #734124 100%);
+            }
         }
     }
-    // box-shadow: 0px 4px 4px 0px #0000004D inset;
+}
 
-
-    .historyheader-textbox {
-        width: 90%;
-        // height: 200px;
-        background: rgba(255, 255, 255, 0.4);
-        border: 1px solid white;
-        border-radius: 12px;
-        padding: 3vh;
-
-        
-        .historyheader-textbox-p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 300;
-            line-height: 26.66px;
-            text-align: justify;
-
-        }
+.history-container-header-container{
+    width: 100%;
+    text-align: start;
+    .history-container-header{
+        font-family: "Montserrat", sans-serif;
+        font-size: 60px;
+        letter-spacing: 6%;
+        color: #fff;
     }
+}
+
+.historyheader-textbox {
+    background: linear-gradient(90deg, #555859 0%, #2a2e30 100%);
+    padding: 100px 60px;
+    border-radius: 20px;
+    width: 100%;
+    margin: 0 !important;
+    border: 1px solid #fff;
+    &-p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 22px;
+        font-weight: 300;
+        color: #fff;
+        margin: 0;
+        line-height: 1.6;
+    }
+}
+
+.history-pagination {
+    margin-top: 20px;
 }

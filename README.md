@@ -1,4 +1,5 @@
 # This is frontend (NEXT.JS) repository
+## If you run `npm rum prepare` (just once!!), the pre-commit will install. It will check & format your code for you before committing :)
 
 ### Project uses:
  - https://ant.design/
