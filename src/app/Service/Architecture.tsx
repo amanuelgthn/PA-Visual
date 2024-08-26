@@ -21,16 +21,14 @@ const Architecture = () => (
       />
       <div className='architecture-services'>
         <div className='architecture-item'>
-          ✔ Architectural design and planning
+          Architectural design and planning
         </div>
         <div className='architecture-item'>
-          ✔ Interior space planning and layout
+          Interior space planning and layout
         </div>
+        <div className='architecture-item'>Material and finish selection</div>
         <div className='architecture-item'>
-          ✔ Material and finish selection
-        </div>
-        <div className='architecture-item'>
-          ✔ Project management and construction oversight
+          Project management and construction oversight
         </div>
       </div>
     </div>
