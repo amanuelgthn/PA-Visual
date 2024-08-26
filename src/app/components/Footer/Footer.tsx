@@ -1,7 +1,7 @@
 import './Footer.scss'
 import { Button, Divider, Flex } from 'antd'
 import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa'
 
 interface IFooterMenu {
   header: string
@@ -36,14 +36,15 @@ const FooterSubscribe = () => {
       gap={15}
     >
       <h4>Subscribe!</h4>
-      <div className="input-container">
-        <input type="text" placeholder='Email address' name="" id="" />
+      <div className='input-container'>
+        <input type='text' placeholder='Email address' name='' id='' />
         <Button href='/Newsletter' className='button-subscribe'>
-          <FaArrowRight className="icon"/>
+          <FaArrowRight className='icon' />
         </Button>
       </div>
       <p>
-        Stay connected with us on social media for the latest updates and inspirations.
+        Stay connected with us on social media for the latest updates and
+        inspirations.
       </p>
     </Flex>
   )
@@ -83,43 +84,45 @@ export const Footer = () => {
       align='center'
       className='footer-main-container'
     >
-      <div className="wrapper">
-        <div className="wrapper-assist">
-          <Flex className='footer-logo-container' justify='center' align='center'>
-            <Flex className='footer-logos' justify='space-evenly' align='center'>
+      <div className='wrapper'>
+        <div className='wrapper-assist'>
+          <Flex
+            className='footer-logo-container'
+            justify='center'
+            align='center'
+          >
+            <Flex
+              className='footer-logos'
+              justify='space-evenly'
+              align='center'
+            >
               <Link
                 href='https://globalproperty-group.com/'
                 target='_blank'
                 className='smaller-logo'
               >
-                <img
-                  src='./other_logo/globalproperty.svg'
-                  alt='Global Property Logo'
-                />
+                <img src='./other_logo/GPLogo.png' alt='Global Property Logo' />
               </Link>
               <Link
                 href='https://www.globalfunding-group.com/'
                 target='_blank'
                 className='smaller-logo'
               >
-                <img
-                  src='./other_logo/globalfunding.svg'
-                  alt='Global Funding Logo'
-                />
+                <img src='./other_logo/NTLogo.png' alt='Global Funding Logo' />
               </Link>
               <Link
                 href='https://newtechnology-group.com/'
                 target='_blank'
                 className='smaller-logo'
               >
-                <img src='./other_logo/newtech.svg' alt='New Tech Logo' />
+                <img src='./other_logo/ATLogo.png' alt='New Tech Logo' />
               </Link>
               <Link
                 href='https://aitouch-consulting.com/'
                 target='_blank'
                 className='smaller-logo'
               >
-                <img src='./other_logo/aitouch.svg' alt='AI Touch Logo' />
+                <img src='./other_logo/GFLogo.png' alt='AI Touch Logo' />
               </Link>
               <Link
                 href='https://proadvisor-group.com/'
@@ -127,8 +130,9 @@ export const Footer = () => {
                 className='main-logo'
               >
                 <img
-                  src='./other_logo/proadvisor.svg'
+                  src='./other_logo/proadvisorlogofooter.png'
                   alt='Pro Advisor Group Logo'
+                  className='proadvisor-logo-footer'
                 />
               </Link>
             </Flex>
@@ -139,15 +143,23 @@ export const Footer = () => {
               <FooterMenu {...ServicesMenu} />
               <FooterMenu {...InformationMenu} />
               <FooterMenu {...CompanyMenu} />
-              <Flex className='footer-subscribe' justify='center' align='center'>
+              <Flex
+                className='footer-subscribe'
+                justify='center'
+                align='center'
+              >
                 <FooterSubscribe />
               </Flex>
             </Flex>
           </Flex>
-          
+
           <Divider style={{ backgroundColor: '#fff', margin: '5vh 0 0 0' }} />
           <Flex className='footer-footer' justify='space-evenly' align='center'>
-            <Flex className='footer-footer-logo footer-bottom' justify='center' align='center'>
+            <Flex
+              className='footer-footer-logo footer-bottom'
+              justify='center'
+              align='center'
+            >
               <img src='./logo/logoFooter.svg' alt='Global Property Logo' />
             </Flex>
             <Flex
@@ -155,11 +167,8 @@ export const Footer = () => {
               justify='space-evenly'
               align='center'
             >
-              <Link href='/terms' className='terms-element'>
-                Terms
-              </Link>
               <Link href='/privacy' className='terms-element'>
-                Privacy
+                Terms & Conditions
               </Link>
               <Link href='/cookies' className='terms-element'>
                 Cookies

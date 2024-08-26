@@ -1,0 +1,85 @@
+.milestones-wrapper{
+    padding: 50px 0;
+    .container-header{
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 22px;
+        text-align: center;
+        padding: 40px 0;
+        font-weight: 300;
+    }
+    .container-milestones {
+        position: relative;
+        height: 800px;
+        width: 100%;
+        .content {
+            height: 100%;
+            padding-left: 200px;
+            font-size: 18px;
+            .milestone_content{
+                height: 25%;
+                .milestone_title{
+                    font-family: 'DM Sans' sans-serif;
+                    font-size: 22px;
+                    font-weight: 400;
+                    color: #C98E59;
+                    padding-bottom: 20px;
+                }
+                .milestone_content_paragraph{
+                    font-family: 'Montserrat',sans-serif;
+                    font-size: 22px;
+                    font-weight: 300;
+                    color: #fff;
+                }
+            }
+        }
+        .follow-stick{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            background-color: #3c4042;
+            height: 100%;
+            border-radius: 20px;
+        }
+        .follow-dot {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 26px;
+            height: 26px;
+            background: linear-gradient(90deg, #C98E59 0%, #734124 100%);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 99;
+            border: 3px solid #2A2E30;
+        }
+    }
+    
+}
+
+@media screen and (max-width:800px) {
+    .follow-stick,
+    .follow-dot{
+        display: none;
+    }
+    .container-header{
+        font-size: 20px !important;
+    }
+    .container-milestones{
+        height: auto !important;
+        .content{
+            width: 100%;
+            padding: 0 !important;
+            .milestone_content{
+                padding: 30px 0;
+                .milestone_title{
+                    font-size: 20px !important;
+                }
+                .milestone_content_paragraph{
+                    font-size: 18px !important;
+                }
+            }
+        }
+    }
+}
