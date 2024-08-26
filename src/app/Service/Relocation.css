@@ -116,6 +116,13 @@ linear-gradient(114.55deg, #8FB1BF 2.13%, rgba(255, 255, 255, 0) 98.14%);
     align-items: flex-start;
 }
 
+.relocation-item::before {
+    content: '✔️'; /* Adds checkmark before the text */
+    font-size: 1em; /* Adjust the size of the checkmark */
+    color: #030303; /* Colour of the checkmark */
+    align-self: center; /* Centers the checkmark vertically */
+}
+
 @media screen and (max-width: 768px) {
     .relocation {
         padding: 20px;

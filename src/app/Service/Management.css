@@ -92,6 +92,12 @@ p {
     color: #333;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+.management-item::before {
+    content: '✔️'; /* Adds checkmark before the text */
+    font-size: 1em; /* Adjust the size of the checkmark */
+    color: #030303; /* Colour of the checkmark */
+    align-self: center; /* Centers the checkmark vertically */
+}
 
 @media screen and (max-width: 768px) {
     .management {

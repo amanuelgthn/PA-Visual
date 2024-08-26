@@ -51,11 +51,12 @@
     margin-left: 10%;
     margin-right: 10%;
     grid-template-columns: repeat(2, 1fr); 
-    gap: 40px; 
-    justify-content: center;
+    gap: 40px;
+    
 }
 
-.service-item { 
+.service-item {
+    justify-content: left;
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -72,7 +73,6 @@
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 10px; /* Adjusts spacing between checkmark and text */
-    align-items: center; /* Aligns content vertically */
 }
 
 .service-item::before {

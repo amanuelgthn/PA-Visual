@@ -16,16 +16,16 @@ const Relocation = () => (
         </div>
         <div className='relocation-services'>
           <div className='relocation-item'>
-            ✔Destination orientation and area tours
+            Destination orientation and area tours
           </div>
           <div className='relocation-item'>
-            ✔ Home search and rental assistance
+            Home search and rental assistance
           </div>
           <div className='relocation-item'>
-            ✔ School placement and education consulting
+            School placement and education consulting
           </div>
           <div className='relocation-item'>
-            ✔ Settling-in support and concierge services
+            Settling-in support and concierge services
           </div>
         </div>
       </div>
