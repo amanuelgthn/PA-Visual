@@ -6,12 +6,13 @@ import { MilestonesHeader } from '../components/About/MilestonesHeader/Minestone
 import { AdditionalHeader } from '../components/About/AdditionalHeader/AdditionalHeader'
 import { TeamHeader } from '../components/About/TeamHeader/TeamHeader'
 import { IconsHeader } from '../components/About/IconsHeader/IconsHeader'
+import { BackGroundVideo } from '../components/About/BackGroundImage/BackGroundVideo'
 
 const About = () => {
   return (
     <>
       <Flex vertical className='wrapper-about'>
-        <img className='bg_image' src='/about/bg.jpg' alt='' />
+        <BackGroundVideo />
         <Flex className='wrapper-assist-about'>
           <ImageHeader />
           <HistoryHeader />
