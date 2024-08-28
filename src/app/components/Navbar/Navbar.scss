@@ -168,11 +168,11 @@
   height: 5px;
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
-  background-color: #74471f;
+  background-color: #fff;
   border-radius: 30px;
 
   &.active {
-    background-color: #74471f;
+    background-color: #000;
   }
 }
 
