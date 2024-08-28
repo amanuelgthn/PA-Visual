@@ -1,0 +1,61 @@
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.view-more-jobs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+
+    h1 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 29px;
+        letter-spacing: 6px;
+        text-align: center;
+        text-transform: uppercase;
+
+
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 13.02px;
+        line-height: 18px;
+        text-align: center;
+    }
+}
+
+
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    // img {
+    //     max-width: fit-content;
+    //     height: auto;
+
+    // }
+}
+
+.view-more-jobs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
