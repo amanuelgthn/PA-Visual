@@ -1,12 +1,14 @@
-.wrapper{
+.wrapper-footer{
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
-.wrapper-assist{
+.wrapper-assist-footer{
   width: 1400px;
-  
+  padding: 50px 0px;
 }
 
 .footer-main-container {
@@ -170,7 +172,7 @@
       align-items: center;
     }
     .footer-footer-terms {
-      width: 70%;
+      width: 70% !important;
       justify-content: center;
       align-items: center;
       gap: 3vh;
@@ -228,4 +230,11 @@
     }
   }
 
+}
+
+@media (max-width:1400px) {
+  .wrapper-assist-footer{
+    width: 100%;
+    padding: 50px 20px !important;
+  }
 }
