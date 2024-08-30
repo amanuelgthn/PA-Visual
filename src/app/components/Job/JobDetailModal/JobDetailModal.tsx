@@ -38,8 +38,6 @@ export type JobDetailModalProps = {
 const JobDetailModal = ({ jobData, isOpen, isClose }: JobDetailModalProps) => {
   const [isClient, setIsClient] = useState(false)
 
-  console.log('jobData', jobData)
-
   useEffect(() => {
     setIsClient(true)
   }, [])
@@ -49,7 +47,7 @@ const JobDetailModal = ({ jobData, isOpen, isClose }: JobDetailModalProps) => {
   }
 
   return (
-    <JobModal isOpen={isOpen} onClose={isClose}>
+    <JobModal isOpen={isOpen} onClose={isClose} width={800}>
       <JobHeader
         JobTitle={jobData.JobTitle}
         jobLocation={jobData?.jobLocation}
