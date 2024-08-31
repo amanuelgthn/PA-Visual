@@ -2,107 +2,100 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat';
 }
 
 .realestate-container {
-    margin-top: 100px;
+    background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px;
-    color: #8FB1BF;
-    width: 100%;
+    padding: 3em;
+    color: rgba(143, 177, 191, 1);
     text-align: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-                url('realestate.jpeg') no-repeat center center;
-    background-size: cover;
 }
 
 .realestate {
     background: transparent;
-    width: 1000px;
-    border-radius: 8px;
+    max-width: 75em;
+    width: 100%;
 }
 
 .realestate-title {
-    background: transparent;
-    color: rgba(166, 104, 68, 1);
-    font-size: 60px; 
+    font-family: 'Montserrat', sans-serif !important;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75em;
+    text-wrap-style:balance;
+    text-align: center;
+    font-size: 3.75em; 
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 56px;
     letter-spacing: 0.05em;
     margin-bottom: 20px;
+    color: #ffffff;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5%;
+    padding: 29px 18px 29px 18px;
+    gap: 10px;
+    border-radius: 151px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    
+    background: linear-gradient(135.72deg, rgba(255, 255, 255, 0.27) 8.53%, rgba(255, 255, 255, 0) 60.59%, rgba(255, 255, 255, 0.33) 93.17%);
+
+
+
 }
 
 .realestate-body {
-    border-radius: 15px;
-    padding: 20px;
-    font-family: Montserrat;
-    font-size: 22px;
+    max-width: 50em;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-top: 2.5em;
+    text-align:justify;
+    font-size: 20px; 
     font-weight: 300;
     line-height: 30px;
-   
-    text-align: center;
-    color: rgba(66, 62, 62, 1);
-    margin-bottom: 40px;
-    border: 3px solid white;
-    border-image-source: radial-gradient(97.57% 210.75% at 0.9% 2.98%, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-    radial-gradient(97.09% 224.61% at 1.38% 96.94%, rgba(255, 255, 255, 0) 0%, #8FB1BF 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-    linear-gradient(114.55deg, #FFFFFF 2.13%, rgba(255, 255, 255, 0) 98.14%);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
 }
 
 .realestate-services {
-    display: grid; 
+    display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
     grid-template-columns: repeat(2, 1fr); 
-    gap: 40px; 
-    justify-content: center;
+    gap: 2.5em;
+    
 }
 
-.realestate-item { 
+.realestate-item {
+    text-align: start;
     font-family: "DM Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
     background-color: #FFFFFF;
-    border-radius: 10px;
-    padding: 10px 10px;
+    border-radius: 0.625em;
+    padding: 0.625em 0.625em;
     font-size: 22px;
     font-weight: 400;
-    color: #333;
+    color: #000000;
     line-height: 29px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     text-wrap: nowrap;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px; /* Adjusts spacing between checkmark and text */
-    align-items: center; /* Aligns content vertically */
 }
 
-@media screen and (max-width: 768px) {
-    .realestate-container {
-        padding: 30px 10px;
-    }
+.realestate-item::before {
+    content: url('./Checkmark.svg'); /* Adds checkmark before the text */
+    font-size: 1em; /* Adjust the size of the checkmark */
+    color: #030303; /* Colour of the checkmark */
+}
 
-    .realestate {
-        width: 100%;
-    }
 
-    .realestate-title {
-        font-size: 32px;
-    }
 
-    .realestate-body {
-        font-size: 16px;
-    }
-
-    .realestate-item {
-        font-size: 16px;
-        padding: 10px 15px;
+@media screen and (max-width: 1200px) {
+    .realestate-services {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
     }
 }

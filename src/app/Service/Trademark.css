@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.Trademark-container {
+    margin-top: 12em;
+    display: flex;
+    flex-direction: column;
+    height: 72.5vh;
+    background: rgba(216, 216, 216, 1);
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+img {
+    max-width: 100%; /* Makes sure the image width scales down with the screen size */
+    height: auto; /* Keeps the aspect ratio intact */
+    display: block; /* Removes any extra space below the image */
+}
+
+

@@ -12,12 +12,12 @@ const RealEstate = () => (
         tailored investment strategy to meet your financial goals
       </p>
       <div className='realestate-services'>
-        <div className='realestate-item'> ✔️Investment property analysis</div>
-        <div className='realestate-item'> ✔️Risk assessment and mitigation</div>
+        <div className='realestate-item'>Investment property analysis</div>
+        <div className='realestate-item'>Risk assessment and mitigation</div>
         <div className='realestate-item'>
-          ✔️Portfolio diversification strategy
+          Portfolio diversification strategy
         </div>
-        <div className='realestate-item'> ✔️Rental property management</div>
+        <div className='realestate-item'>Rental property management</div>
       </div>
     </div>
   </div>

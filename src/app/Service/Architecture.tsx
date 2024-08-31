@@ -1,6 +1,5 @@
 import React from 'react'
 import './Architecture.css'
-import img from './architecture.jpeg'
 
 const Architecture = () => (
   <div className='architecture-container'>
@@ -14,11 +13,7 @@ const Architecture = () => (
           your unique style and taste.
         </p>
       </div>
-      <img
-        src={img.src}
-        alt='Architecture and Interior Design'
-        className='architecture-image'
-      />
+
       <div className='architecture-services'>
         <div className='architecture-item'>
           Architectural design and planning

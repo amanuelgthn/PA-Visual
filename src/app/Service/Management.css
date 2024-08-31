@@ -2,126 +2,98 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
 }
 
 .management-container {
-    background-image: url(./management.png);
-    background-repeat: no-repeat;
-    background-size:cover;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3em;
+    color: rgba(143, 177, 191, 1);
+    text-align: center;
 }
 
 .management {
+    background: transparent;
+    max-width: 75em;
     width: 100%;
-    padding: 40px;
-    border-radius: 10px;
-   
 }
 
 .management-title {
-    align-items: center;
+    font-family: 'Montserrat', sans-serif !important;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
-    line-height: 66px;
-    letter-spacing: 0.06em;
+    max-width: 75em;
+    text-wrap-style:balance;
     text-align: center;
-    color: rgba(255, 255, 255, 1);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 3.75em; 
     font-weight: 500;
-    font-size: 60px;
+    line-height: 56px;
+    letter-spacing: 0.05em;
     margin-bottom: 20px;
-    text-wrap-mode:wrap;
+    color: #ffffff;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 29px 18px 29px 18px;
+    gap: 10px;
+    border-radius: 151px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    
+    background: linear-gradient(135.72deg, rgba(255, 255, 255, 0.27) 8.53%, rgba(255, 255, 255, 0) 60.59%, rgba(255, 255, 255, 0.33) 93.17%);
+
+
+
 }
 
-.management-content {
-    all: revert;
-    background-size: cover;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.5);;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
-    background-size: cover;
-}
-p {
-    all:revert;
-}
 .management-body {
-    all: revert;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px; /* Consolidating font size */
-    font-weight: 400;
+    max-width: 50em;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-top: 2.5em;
+    text-align:justify;
+    font-size: 20px; 
+    font-weight: 300;
     line-height: 30px;
-    text-align: justify;
-    color: #333;
-    padding: 30px 30%; /* This will maintain 50px padding on both sides */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
-.management-image {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
 }
 
 .management-services {
-    font-family: "DM Sans";
-    margin-right: auto;
-    margin-left: 35%;
-    margin-right: 35%;
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-    gap: 20px;
-    align-items: left;
+    display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2.5em;
+    
 }
 
 .management-item {
-    font-family: "DM Sans";
-    text-wrap: nowrap;
+    text-align: start;
+    font-family: "DM Sans", sans-serif;
     background-color: #FFFFFF;
-    border-radius: 5px;
-    padding: 15px 20px;
+    border-radius: 0.625em;
+    padding: 0.625em 0.625em;
     font-size: 22px;
     font-weight: 400;
+    color: #000000;
     line-height: 29px;
-    color: #333;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-wrap: nowrap;
 }
+
 .management-item::before {
-    content: '✔️'; /* Adds checkmark before the text */
+    content: url('./Checkmark.svg'); /* Adds checkmark before the text */
     font-size: 1em; /* Adjust the size of the checkmark */
     color: #030303; /* Colour of the checkmark */
-    align-self: center; /* Centers the checkmark vertically */
 }
 
-@media screen and (max-width: 768px) {
-    .management {
-        padding: 20px;
-    }
-
-    .management-title {
-        font-size: 32px;
-    }
-
-    .management-body {
-        font-size: 16px;
-    }
-
-    .management-item {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-
-    .management-content {
+@media screen and (max-width: 1200px) {
+    .management-services {
+        display: flex;
         flex-direction: column;
-    }
-
-    .management-image {
-        margin-top: 20px;
+        width: 70%;
     }
 }
