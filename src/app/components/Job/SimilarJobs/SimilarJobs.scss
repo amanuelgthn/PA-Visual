@@ -1,7 +1,7 @@
 .similar-job-section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 
     h2 {
         font-family: "Montserrat" !important;
@@ -21,7 +21,7 @@
 .simmilarjobs-left {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
 
     h3 {
         font-family: "Montserrat" !important;
@@ -69,6 +69,41 @@
         font-size: 13.02px;
         line-height: 19px;
         color: #F2F2F2;
+
+        &:hover {
+            background-color: #BF8654 !important;
+            color: #F2F2F2 !important;
+        }
     }
 
+}
+
+@media (max-width: 768px) {
+    .similar-job-section {
+        h2 {
+
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 42px;
+            text-align: center;
+        }
+    }
+
+    .simmilarjobs-left {
+        h3 {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 27.24px;
+            text-align: left;
+        }
+    }
+
+    .simmilarjobs-left-span {
+        p {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 19px;
+            text-align: left;
+        }
+    }
 }
