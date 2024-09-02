@@ -39,7 +39,7 @@ const ForgotPasswordForm = ({ title, note }: SignUpFormProps) => {
         <div className='back-to-login-wrapper'>
           <p>
             <Button type='link'>
-              <Link href='/dashboard/auth/login'>Back to login</Link>
+              <Link href='/admin/auth/login'>Back to login</Link>
             </Button>{' '}
           </p>
         </div>

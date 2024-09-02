@@ -50,19 +50,15 @@ const DashboardAuthForm: React.FC<DashboardAuthFormProps> = ({
 
   return (
     <>
-      {isModalOpen && (
-        <div className='div-background'>
-          <Modal
-            className='auth-modal'
-            open={isModalOpen}
-            onCancel={handleCancel}
-            footer={null}
-            {...modalProps}
-          >
-            {renderForm()}
-          </Modal>
-        </div>
-      )}
+      <Modal
+        className='auth-modal'
+        open={isModalOpen}
+        onCancel={handleCancel}
+        footer={null}
+        {...modalProps}
+      >
+        {renderForm()}
+      </Modal>
     </>
   )
 }

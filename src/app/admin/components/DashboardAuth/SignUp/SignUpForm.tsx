@@ -64,7 +64,7 @@ const SignUpForm = ({ title, note }: SignUpFormProps) => {
           <p>
             Already have an account?{' '}
             <Button type='link'>
-              <Link href='/dashboard/auth/login'>Log in</Link>
+              <Link href='/admin/auth/login'>Log in</Link>
             </Button>{' '}
           </p>
         </div>

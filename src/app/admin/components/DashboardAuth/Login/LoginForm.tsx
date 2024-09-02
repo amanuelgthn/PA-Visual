@@ -34,10 +34,10 @@ const LoginForm = ({ title }: LoginFormProps) => {
       </Form>
       <div className='link-buttons-wrapper'>
         <Button className='link-button ' type='link'>
-          <Link href='/dashboard/auth/password-reset'>Forgot Password?</Link>
+          <Link href='/admin/auth/password-reset'>Forgot Password?</Link>
         </Button>
         <Button className='link-button ' type='link'>
-          <Link href='/dashboard/auth/signup'>Create Account</Link>
+          <Link href='/admin/auth/signup'>Create Account</Link>
         </Button>
       </div>
     </div>
