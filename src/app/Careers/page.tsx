@@ -1,12 +1,14 @@
 import React from 'react'
-import Careers from './careers'
+import CareersHeader from '../components/Careers/CareersHeader/CareersHeader'
+import CareersJobPositions from '../components/Careers/CareersJobPositions/CareersJobPositions'
 
-const CareersPage = () => {
+const Careers = () => {
   return (
     <div>
-      <Careers />
+      <CareersHeader />
+      <CareersJobPositions />
     </div>
   )
 }
 
-export default CareersPage
+export default Careers
