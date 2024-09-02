@@ -1,4 +1,4 @@
-import DashboardAuthForm from '@/app/components/DashboardAuth/AuthModal/DashboardAuthForm'
+import DashboardAuthForm from '@/app/admin/components/DashboardAuth/AuthModal/DashboardAuthForm'
 import React from 'react'
 
 const page = () => {
