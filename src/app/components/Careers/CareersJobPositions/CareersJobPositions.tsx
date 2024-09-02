@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Button, Cascader, Dropdown, Menu, Input } from 'antd'
 import '@fontsource/montserrat'
-import './CareersSectionTwo.scss'
+import './CareersJobPositions.scss'
 
 // Generates a list of job positions with dummy data
 const generateJobPositions = (count: number) => {
