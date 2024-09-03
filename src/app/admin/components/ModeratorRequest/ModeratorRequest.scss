@@ -1,0 +1,131 @@
+.table-wrapper {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+
+    .buttons-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 20px;
+        background: rgba(236, 240, 241, 1);
+        border-bottom: 1px solid rgba(189, 195, 199, 1)
+    }
+
+    .buttons {
+        background: linear-gradient(94.8deg, #7C4D24 10.12%, #C98E59 93.81%);
+        font-family: "Inter", sans-serif !important;
+        font-size: 12.88px;
+        font-weight: 400;
+        line-height: 15.59px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+
+    }
+
+    .status-pending {
+        background-color: rgba(243, 156, 18, 1);
+        border-radius: 20px;
+        padding: 5px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 14.4px;
+        font-weight: 700;
+        line-height: 17.55px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+
+    }
+
+    .status-approved {
+        background-color: rgba(46, 204, 113, 1);
+        border-radius: 20px;
+        padding: 5px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 14.4px;
+        font-weight: 700;
+        line-height: 17.55px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+    }
+
+    .status-rejected {
+        background-color: rgba(231, 76, 60, 1);
+        border-radius: 20px;
+        padding: 5px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 14.4px;
+        font-weight: 700;
+        line-height: 17.55px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+    }
+
+    .approve-button {
+        background: rgba(46, 204, 113, 1);
+        font-family: "Inter", sans-serif !important;
+        font-size: 12.57px;
+        font-weight: 400;
+        line-height: 15.22px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        width: 70px;
+    }
+
+    .reject-button {
+        background: rgba(231, 76, 60, 1);
+        font-family: "Inter", sans-serif !important;
+        font-size: 12.57px;
+        font-weight: 400;
+        line-height: 15.22px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        width: 70px;
+    }
+
+    .request-id-column {
+
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.5px;
+        text-align: left;
+    }
+
+    .type-column {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.5px;
+        text-align: left;
+        color: rgba(51, 51, 51, 1);
+    }
+
+    .submitted-by-column {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.5px;
+        text-align: left;
+        color: rgba(51, 51, 51, 1);
+    }
+
+    .date-column {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.5px;
+        text-align: left;
+        color: rgba(51, 51, 51, 1);
+    }
+
+}
