@@ -128,9 +128,9 @@ const ProfileSettings = () => {
         onProfilePicChange={handleProfilePicChange}
       />
       <AboutMe
-        aboutMe={profileData.aboutMe}
+        aboutMe={profileData.aboutMe} // Passing the updated aboutMe prop
         isEditable={true}
-        onSave={handleAboutMeChange}
+        onSave={handleAboutMeChange} // Updating the parent state with new aboutMe value
       />
       <Interest
         interests={profileData.interests}
