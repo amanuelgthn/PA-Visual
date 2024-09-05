@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface AboutMeProps {
   aboutMe: string
@@ -13,6 +13,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   onSave,
 }) => {
   const [aboutMeText, setAboutMeText] = useState<string>(aboutMe)
+
+  // Sync internal state with props when aboutMe prop changes
+  useEffect(() => {
+    setAboutMeText(aboutMe)
+  }, [aboutMe])
 
   const handleSave = () => {
     if (onSave) {
