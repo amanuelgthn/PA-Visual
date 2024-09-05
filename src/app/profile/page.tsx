@@ -61,29 +61,33 @@ const Profile = () => {
 
   return (
     <div className='profile-page'>
-      {/* Pass profileData to Header */}
-      <Header profileData={profileData} isEditable={false} />
+      <div className='ProfileWrapper'>
+        {/* Pass profileData to Header */}
+        <Header profileData={profileData} isEditable={false} />
 
-      {/* Pass "aboutMe" prop to AboutMe component */}
-      <AboutMe aboutMe={profileData.aboutMe} isEditable={false} />
+        {/* Pass "aboutMe" prop to AboutMe component */}
+        <AboutMe aboutMe={profileData.aboutMe} isEditable={false} />
 
-      {/* Pass "interests" prop to Interest component */}
-      <Interest interests={profileData.interests} isEditable={false} />
+        {/* Pass "interests" prop to Interest component */}
+        <Interest interests={profileData.interests} isEditable={false} />
 
-      {/* Pass "personalInfo" prop to PersonalInfo component */}
-      <PersonalInfo
-        personalInfo={profileData.personalInfo}
-        isEditable={false}
-      />
+        {/* Pass "personalInfo" prop to PersonalInfo component */}
+        <PersonalInfo
+          personalInfo={profileData.personalInfo}
+          isEditable={false}
+        />
 
-      {/* Pass "membership" prop to Membership component */}
-      <Membership membership={profileData.membership} isEditable={false} />
+        {/* Pass "membership" prop to Membership component */}
+        <Membership membership={profileData.membership} isEditable={false} />
 
-      {/* Pass "reviewedProperties" prop to ReviewedProperties component */}
-      <ReviewedProperties reviewedProperties={profileData.reviewedProperties} />
+        {/* Pass "reviewedProperties" prop to ReviewedProperties component */}
+        <ReviewedProperties
+          reviewedProperties={profileData.reviewedProperties}
+        />
 
-      {/* Testimonial component does not seem to need specific props */}
-      <Testimonial />
+        {/* Testimonial component does not seem to need specific props */}
+        <Testimonial />
+      </div>
     </div>
   )
 }
