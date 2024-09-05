@@ -1,0 +1,18 @@
+.blog-carousel-container {
+    width: 100%;
+}
+
+.blog-carousel {
+    .slick-list {
+        overflow: visible;
+    }
+
+    .carousel-slide {
+        width: 100%;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+
+    }
+}
