@@ -1,8 +1,8 @@
 'use client'
 import { ProfileData } from '@/app/Types/Profile/ProfileTypes'
 import { useState, useEffect } from 'react'
-import { FiSettings, FiLogOut, FiCamera } from 'react-icons/fi'
-import { BsFillPersonFill } from 'react-icons/bs'
+import { FiSettings, FiLogOut, FiCamera } from 'react-icons/fi' // Added Camera Icon for edit mode
+import { BsFillPersonFill } from 'react-icons/bs' // Icons for Premium Member and User
 import './Header.scss'
 import { FaCrown } from 'react-icons/fa'
 
@@ -38,9 +38,9 @@ export const Header: React.FC<HeaderProps> = ({
 
       const reader = new FileReader()
       reader.onloadend = () => {
-        setImagePreview(reader.result as string)
+        setImagePreview(reader.result as string) // Preview the new image
         if (onProfilePicChange) {
-          onProfilePicChange(file)
+          onProfilePicChange(file) // Simulate saving the new profile picture
         }
       }
       reader.readAsDataURL(file)
@@ -48,12 +48,14 @@ export const Header: React.FC<HeaderProps> = ({
   }
 
   const handleDeleteAccount = () => {
-    console.log('Account deleted')
+    console.log('Account deleted') // Simulate account deletion
   }
 
   return (
     <div className='header'>
-      <div className='profile-container'>
+      {/* Container for profile details */}
+      <div className='profile-content'>
+        {/* image wrapper */}
         <div className='image-wrapper'>
           <img src={imagePreview} alt='Profile' className='profile-pic' />
           {isEditable && (
@@ -70,6 +72,7 @@ export const Header: React.FC<HeaderProps> = ({
             </>
           )}
         </div>
+        {/* profile details */}
         <div className='profile-details'>
           <h2>{profileData.personalInfo.name}</h2>
           <div className='user-info'>
@@ -83,19 +86,20 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           </div>
         </div>
+        {/* stat */}
+        <div className='stats'>
+          <div className='stat-item'>
+            <span>{profileData.reviewedProperties.length}</span>
+            <span>Properties Reviewed</span>
+          </div>
+          <div className='stat-item'>
+            <span>99.3%</span>
+            <span>Accuracy Rate</span>
+          </div>
+        </div>
       </div>
 
-      <div className='stats'>
-        <div className='stat-item'>
-          <span>{profileData.reviewedProperties.length}</span>
-          <span>Properties Reviewed</span>
-        </div>
-        <div className='stat-item'>
-          <span>99.3%</span>
-          <span>Accuracy Rate</span>
-        </div>
-      </div>
-
+      {/* Container for actions */}
       <div className='actions'>
         {!isEditable ? (
           <>
@@ -107,11 +111,9 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </>
         ) : (
-          <>
-            <button onClick={handleDeleteAccount} className='delete-button'>
-              DELETE ACCOUNT
-            </button>
-          </>
+          <button onClick={handleDeleteAccount} className='delete-button'>
+            DELETE ACCOUNT
+          </button>
         )}
       </div>
     </div>
