@@ -13,52 +13,62 @@ import { ProfileData } from '../Types/Profile/ProfileTypes'
 import './ProfileSettings.scss'
 
 const ProfileSettings = () => {
-  // Load from localStorage or provide default data
-  const [profileData, setProfileData] = useState<ProfileData>(() => {
-    const savedProfile = localStorage.getItem('profileData')
-    return savedProfile
-      ? JSON.parse(savedProfile)
-      : {
-          profilePic: '/path-to-profile-pic.jpg',
-          aboutMe: 'With over 10 years of experience in real estate...',
-          interests: ['Luxury Properties', 'Market Analysis'],
-          personalInfo: {
-            name: 'John Doe',
-            email: 'johndoe@example.com',
-            phone: '+1 (555) 23-4567',
-            location: 'Spain, Europe',
-            languages: ['Spanish', 'English', 'French'],
-          },
-          membership: {
-            plan: 'Premium',
-            joinedOn: 'August 15, 2023',
-          },
-          reviewedProperties: [
-            {
-              title: 'Luxury Condo',
-              price: '$1,200,000',
-              location: 'New York, NY',
+  const [profileData, setProfileData] = useState<ProfileData | null>(null)
+
+  // Check if the component is rendered on the client-side
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedProfile = localStorage.getItem('profileData')
+      const defaultProfileData: ProfileData = savedProfile
+        ? JSON.parse(savedProfile)
+        : {
+            profilePic: '/path-to-profile-pic.jpg',
+            aboutMe: 'With over 10 years of experience in real estate...',
+            interests: ['Luxury Properties', 'Market Analysis'],
+            personalInfo: {
+              name: 'John Doe',
+              email: 'johndoe@example.com',
+              phone: '+1 (555) 23-4567',
+              location: 'Spain, Europe',
+              languages: ['Spanish', 'English', 'French'],
             },
-            {
-              title: 'Beachfront Villa',
-              price: '$3,500,000',
-              location: 'Miami, FL',
+            membership: {
+              plan: 'Premium',
+              joinedOn: 'August 15, 2023',
             },
-          ],
-        }
-  })
+            reviewedProperties: [
+              {
+                title: 'Luxury Condo',
+                price: '$1,200,000',
+                location: 'New York, NY',
+              },
+              {
+                title: 'Beachfront Villa',
+                price: '$3,500,000',
+                location: 'Miami, FL',
+              },
+            ],
+          }
+
+      setProfileData(defaultProfileData)
+    }
+  }, [])
 
   // Sync profileData with localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('profileData', JSON.stringify(profileData))
+    if (profileData) {
+      localStorage.setItem('profileData', JSON.stringify(profileData))
+    }
   }, [profileData])
+
+  if (!profileData) return null // Prevent rendering until profileData is loaded
 
   // Handlers for updating the profile data fields
   const handleProfilePicChange = (file: File) => {
     const reader = new FileReader()
     reader.onloadend = () => {
       const newProfilePic = reader.result as string
-      const updatedProfile = {
+      const updatedProfile: ProfileData = {
         ...profileData,
         profilePic: newProfilePic,
       }
@@ -76,11 +86,21 @@ const ProfileSettings = () => {
   }
 
   const handleAboutMeChange = (newAboutMeText: string) => {
-    setProfileData((prev) => ({ ...prev, aboutMe: newAboutMeText }))
+    setProfileData((prev) => {
+      if (prev) {
+        return { ...prev, aboutMe: newAboutMeText }
+      }
+      return prev
+    })
   }
 
   const handleInterestsChange = (newInterests: string[]) => {
-    setProfileData((prev) => ({ ...prev, interests: newInterests }))
+    setProfileData((prev) => {
+      if (prev) {
+        return { ...prev, interests: newInterests }
+      }
+      return prev
+    })
   }
 
   const handlePersonalInfoChange = (newPersonalInfo: {
@@ -90,29 +110,28 @@ const ProfileSettings = () => {
     location: string
     languages: string[]
   }) => {
-    setProfileData((prev) => ({
-      ...prev,
-      personalInfo: newPersonalInfo,
-    }))
+    setProfileData((prev) => {
+      if (prev) {
+        return { ...prev, personalInfo: newPersonalInfo }
+      }
+      return prev
+    })
   }
 
   const handleMembershipChange = (newPlan: string) => {
-    setProfileData((prev) => ({
-      ...prev,
-      membership: {
-        ...prev.membership,
-        plan: newPlan,
-      },
-    }))
+    setProfileData((prev) => {
+      if (prev) {
+        return {
+          ...prev,
+          membership: {
+            ...prev.membership,
+            plan: newPlan,
+          },
+        }
+      }
+      return prev
+    })
   }
-
-  // When the page reloads, check if there's an updated profile picture in localStorage
-  useEffect(() => {
-    const savedProfile = localStorage.getItem('profileData')
-    if (savedProfile) {
-      setProfileData(JSON.parse(savedProfile)) // Sync profileData with localStorage on reload
-    }
-  }, [])
 
   return (
     <div className='profile-settings-page'>
@@ -123,9 +142,9 @@ const ProfileSettings = () => {
           onProfilePicChange={handleProfilePicChange}
         />
         <AboutMe
-          aboutMe={profileData.aboutMe}
+          aboutMe={profileData.aboutMe} // Passing the updated aboutMe prop
           isEditable={true}
-          onSave={handleAboutMeChange}
+          onSave={handleAboutMeChange} // Updating the parent state with new aboutMe value
         />
         <Interest
           interests={profileData.interests}

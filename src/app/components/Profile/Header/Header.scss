@@ -13,16 +13,15 @@
       position: relative;
       display: inline-block;
       background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
-      padding: 3px; // Thickness of the border
-      border-radius: 50%; // Make the wrapper a circle
-
+      padding: 3px;
+      border-radius: 50%;
       .profile-pic {
         width: 100px;
         height: 100px;
         border-radius: 50%;
         object-fit: cover;
-        display: block; // Ensures no extra space inside
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Optional: Add shadow for depth
+        display: block;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
       .edit-icon {
@@ -39,16 +38,16 @@
         justify-content: center;
         transition:
           transform 0.3s ease,
-          filter 0.3s ease; // Smooth transition for the hover effect
+          filter 0.3s ease;
 
         &:hover {
-          transform: scale(1.1); // Slightly increase the size on hover
-          filter: brightness(1.2); // Increase brightness on hover
+          transform: scale(1.1);
+          filter: brightness(1.2);
         }
       }
 
       input[type='file'] {
-        display: none; // Hide file input
+        display: none;
       }
     }
 
@@ -67,16 +66,16 @@
         span {
           display: flex;
           align-items: center;
-          color: #ffba00; // Orange color for "Premium Member"
           margin-top: 5px;
 
           &:last-child {
-            color: #f0f0f0; // Grey color for "User"
+            color: #f0f0f0;
           }
 
           .icon {
             margin-right: 5px;
             font-size: 1.2rem;
+            color: #c98e59;
           }
         }
       }
@@ -117,21 +116,21 @@
     .actionsFlex {
       display: inline-flex;
       align-items: center;
-      gap: 8px; // Space between icon and text
+      gap: 8px;
     }
 
     span {
       color: #fff;
       cursor: pointer;
       font-size: 1rem;
-      line-height: 1; // Ensure proper line height for the text
+      line-height: 1;
     }
 
     .icon {
       font-size: 1.5rem;
       color: #fff;
       cursor: pointer;
-      vertical-align: middle; // Align icon with text vertically
+      vertical-align: middle;
     }
 
     .file-input {

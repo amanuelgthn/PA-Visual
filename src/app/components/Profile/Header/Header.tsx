@@ -1,9 +1,10 @@
 'use client'
 import { ProfileData } from '@/app/Types/Profile/ProfileTypes'
 import { useState, useEffect } from 'react'
-import { FiSettings, FiLogOut, FiCamera } from 'react-icons/fi' // Added Camera Icon for edit mode
-import { BsFillPersonFill, BsAwardFill } from 'react-icons/bs' // Icons for Premium Member and User
+import { FiSettings, FiLogOut, FiCamera } from 'react-icons/fi'
+import { BsFillPersonFill } from 'react-icons/bs'
 import './Header.scss'
+import { FaCrown } from 'react-icons/fa'
 
 interface HeaderProps {
   profileData: ProfileData
@@ -20,19 +21,26 @@ export const Header: React.FC<HeaderProps> = ({
     profileData.profilePic,
   )
 
-  // Profile/Header.tsx
+  // Ensure the preview updates with new profilePic
   useEffect(() => {
     setImagePreview(profileData.profilePic)
-  }, [profileData.profilePic]) // This ensures the preview updates with new profilePic
+  }, [profileData.profilePic])
 
   const handleProfilePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
+      // Limit file size to prevent large images from exceeding localStorage limits
+      if (file.size > 5000000) {
+        // 5MB limit
+        alert('File size too large. Please select an image under 5MB.')
+        return
+      }
+
       const reader = new FileReader()
       reader.onloadend = () => {
-        setImagePreview(reader.result as string) // Preview the new image
+        setImagePreview(reader.result as string)
         if (onProfilePicChange) {
-          onProfilePicChange(file) // Simulate saving the new profile picture
+          onProfilePicChange(file)
         }
       }
       reader.readAsDataURL(file)
@@ -40,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
   }
 
   const handleDeleteAccount = () => {
-    console.log('Account deleted') // Simulate account deletion
+    console.log('Account deleted')
   }
 
   return (
@@ -66,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({
           <h2>{profileData.personalInfo.name}</h2>
           <div className='user-info'>
             <span>
-              <BsAwardFill className='icon' />
+              <FaCrown className='icon' />
               Premium Member
             </span>
             <span>

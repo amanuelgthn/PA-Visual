@@ -1,4 +1,5 @@
 'use client'
+
 import { useState, useEffect } from 'react'
 import PersonalInfo from '../components/Profile/PersonalInfo/PersonalInfo'
 import Membership from '../components/Profile/Membership/Membership'
@@ -11,9 +12,11 @@ import Interest from '../components/Profile/Interest/Interest'
 import { ProfileData } from '../Types/Profile/ProfileTypes'
 
 const Profile = () => {
-  const [profileData, setProfileData] = useState<ProfileData>(() => {
+  const [profileData, setProfileData] = useState<ProfileData | null>(null)
+
+  useEffect(() => {
     const savedProfile = localStorage.getItem('profileData')
-    return savedProfile
+    const defaultProfileData: ProfileData = savedProfile
       ? JSON.parse(savedProfile)
       : {
           profilePic: '/path-to-profile-pic.jpg',
@@ -44,48 +47,50 @@ const Profile = () => {
             },
           ],
         }
-  })
 
-  // Listen for changes in localStorage and update the profile data accordingly
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const updatedProfile = localStorage.getItem('profileData')
-      if (updatedProfile) {
-        setProfileData(JSON.parse(updatedProfile))
-      }
+    setProfileData(defaultProfileData)
+
+    // Listen for the 'profileDataChanged' event to update the profile data
+    const handleProfileDataChanged = (e: Event) => {
+      const customEvent = e as CustomEvent<ProfileData>
+      setProfileData(customEvent.detail)
     }
 
-    window.addEventListener('storage', handleStorageChange)
-    return () => window.removeEventListener('storage', handleStorageChange)
+    window.addEventListener(
+      'profileDataChanged',
+      handleProfileDataChanged as EventListener,
+    )
+
+    return () => {
+      window.removeEventListener(
+        'profileDataChanged',
+        handleProfileDataChanged as EventListener,
+      )
+    }
   }, [])
+
+  if (!profileData) return null // Wait until profileData is loaded
 
   return (
     <div className='profile-page'>
       <div className='ProfileWrapper'>
-        {/* Pass profileData to Header */}
         <Header profileData={profileData} isEditable={false} />
 
-        {/* Pass "aboutMe" prop to AboutMe component */}
         <AboutMe aboutMe={profileData.aboutMe} isEditable={false} />
 
-        {/* Pass "interests" prop to Interest component */}
         <Interest interests={profileData.interests} isEditable={false} />
 
-        {/* Pass "personalInfo" prop to PersonalInfo component */}
         <PersonalInfo
           personalInfo={profileData.personalInfo}
           isEditable={false}
         />
 
-        {/* Pass "membership" prop to Membership component */}
         <Membership membership={profileData.membership} isEditable={false} />
 
-        {/* Pass "reviewedProperties" prop to ReviewedProperties component */}
         <ReviewedProperties
           reviewedProperties={profileData.reviewedProperties}
         />
 
-        {/* Testimonial component does not seem to need specific props */}
         <Testimonial />
       </div>
     </div>
