@@ -46,11 +46,11 @@ const Profile = () => {
               location: 'Miami, FL',
             },
           ],
+          isPublic: true, // Add this field to the default profile
         }
 
     setProfileData(defaultProfileData)
 
-    // Listen for the 'profileDataChanged' event to update the profile data
     const handleProfileDataChanged = (e: Event) => {
       const customEvent = e as CustomEvent<ProfileData>
       setProfileData(customEvent.detail)
@@ -69,6 +69,13 @@ const Profile = () => {
     }
   }, [])
 
+  const handleTogglePublic = (isPublic: boolean) => {
+    if (!profileData) return
+    const updatedProfileData = { ...profileData, isPublic }
+    localStorage.setItem('profileData', JSON.stringify(updatedProfileData))
+    setProfileData(updatedProfileData)
+  }
+
   if (!profileData) return null // Wait until profileData is loaded
 
   return (
@@ -83,6 +90,8 @@ const Profile = () => {
         <PersonalInfo
           personalInfo={profileData.personalInfo}
           isEditable={false}
+          isPublic={profileData.isPublic} // Pass the public state from profileData
+          onTogglePublic={handleTogglePublic} // Pass the toggle handler
         />
 
         <Membership membership={profileData.membership} isEditable={false} />

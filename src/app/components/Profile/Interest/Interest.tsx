@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import './Interest.scss'
 
 interface InterestProps {
   interests?: string[]
@@ -13,7 +14,6 @@ export const Interest: React.FC<InterestProps> = ({
   onSave,
 }) => {
   const [currentInterests, setCurrentInterests] = useState<string[]>([]) // Default to empty array
-  const [newInterest, setNewInterest] = useState<string>('')
 
   const availableInterests = [
     'Luxury Properties',
@@ -27,37 +27,58 @@ export const Interest: React.FC<InterestProps> = ({
     setCurrentInterests(interests || [])
   }, [interests])
 
-  const handleAddInterest = () => {
-    if (newInterest && !currentInterests.includes(newInterest)) {
-      setCurrentInterests([...currentInterests, newInterest])
-      setNewInterest('') // Clear the input after adding
+  // Automatically add interest when user selects from the dropdown
+  const handleInterestSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedInterest = e.target.value
+    if (selectedInterest && !currentInterests.includes(selectedInterest)) {
+      const updatedInterests = [...currentInterests, selectedInterest]
+      setCurrentInterests(updatedInterests)
+      e.target.value = '' // Reset the dropdown after selection
+      if (onSave) {
+        onSave(updatedInterests) // Save automatically after adding
+      }
     }
   }
 
+  // Remove selected interest
   const handleRemoveInterest = (interestToRemove: string) => {
-    setCurrentInterests(
-      currentInterests.filter((interest) => interest !== interestToRemove),
+    const updatedInterests = currentInterests.filter(
+      (interest) => interest !== interestToRemove,
     )
-  }
-
-  const handleSave = () => {
+    setCurrentInterests(updatedInterests)
     if (onSave) {
-      onSave(currentInterests) // Pass the updated interests to parent
+      onSave(updatedInterests) // Save after removing an interest
     }
   }
 
   return (
     <div className='interest'>
       <h3>Interests</h3>
+      {isEditable && (
+        <select onChange={handleInterestSelect}>
+          <option value=''>Select Interest</option>
+          {availableInterests.map((interest, index) => (
+            <option key={index} value={interest}>
+              {interest}
+            </option>
+          ))}
+        </select>
+      )}
+
       <div className='current-interests'>
         {/* Map over currentInterests array */}
         {currentInterests.length > 0 ? (
           currentInterests.map((interest, index) => (
-            <span key={index}>
+            <span
+              key={index}
+              style={{
+                backgroundColor: isEditable ? '#828282' : '#BF8654', // Apply background based on isEditable
+              }}
+            >
               {interest}{' '}
               {isEditable && (
                 <button onClick={() => handleRemoveInterest(interest)}>
-                  Remove
+                  X
                 </button>
               )}
             </span>
@@ -66,24 +87,6 @@ export const Interest: React.FC<InterestProps> = ({
           <p>No interests added yet.</p> // Handle empty array case
         )}
       </div>
-
-      {isEditable && (
-        <>
-          <select
-            value={newInterest}
-            onChange={(e) => setNewInterest(e.target.value)}
-          >
-            <option value=''>Select Interest</option>
-            {availableInterests.map((interest, index) => (
-              <option key={index} value={interest}>
-                {interest}
-              </option>
-            ))}
-          </select>
-          <button onClick={handleAddInterest}>Add Interest</button>
-          <button onClick={handleSave}>Save Interests</button>
-        </>
-      )}
     </div>
   )
 }

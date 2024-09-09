@@ -24,4 +24,5 @@ export interface ProfileData {
   personalInfo: PersonalInfo
   membership: Membership
   reviewedProperties: ReviewedProperty[]
+  isPublic: boolean
 }
