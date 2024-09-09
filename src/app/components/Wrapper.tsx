@@ -11,7 +11,6 @@ interface IWrapper {
 
 const WrapperStyles: React.CSSProperties = {
   width: '100%',
-  backgroundColor: '#F2F2F2',
   minHeight: '40vh',
   zIndex: '-999999',
 }

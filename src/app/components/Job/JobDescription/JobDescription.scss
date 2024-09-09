@@ -1,0 +1,51 @@
+.description-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    h2 {
+        font-family: "Montserrat" !important;
+        font-weight: 500;
+        font-size: 14.3px;
+        line-height: 15px;
+        text-align: center;
+        color: #F2F2F2;
+        text-transform: uppercase;
+
+    }
+
+    p {
+        font-family: "Montserrat" !important;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 25px;
+        color: #F2F2F2;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .description-section {
+
+        h2 {
+
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 15px;
+            text-align: center;
+        }
+
+        p {
+            font-family: Montserrat;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: left;
+        }
+
+    }
+}
