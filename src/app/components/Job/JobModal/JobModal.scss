@@ -1,0 +1,47 @@
+.job-modal {
+
+
+    .ant-modal-content {
+        background: linear-gradient(180deg, #839096 -101.48%, #2A2E30 47.66%);
+        border-radius: 60px;
+
+
+
+
+
+    }
+
+    .ant-modal-header {
+        background: linear-gradient(180deg, #839096 -101.48%, #2A2E30 47.66%);
+
+    }
+
+    .ant-modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px;
+
+    }
+
+
+
+
+    .ant-modal-close-x {
+        color: #F2F2F2;
+    }
+
+    color: #F2F2F2;
+
+
+}
+
+@media (max-width: 768px) {
+
+    .ant-modal-body {
+
+        padding: 0px !important;
+        padding-bottom: 20px !important;
+
+    }
+}

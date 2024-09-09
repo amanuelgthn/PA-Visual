@@ -52,7 +52,8 @@
   position: fixed;
   right: -200%;
   top: 0;
-  background-color: white;
+  background-color: #2a2e3094;
+  backdrop-filter: blur(10px);
   width: 360px;
   height: 786px;
   transition: 0.3s;
@@ -64,27 +65,27 @@
   ul {
     margin-top: 50px;
     list-style: none;
-
     li {
+      margin: 10px 0;
       a {
         margin: 10px 0;
         font-size: 20px;
         font-family: "DM Sans", sans-serif;
         text-decoration: none;
-        color: #c98e59;
+        color: #fff;
         transition: color 0.3s ease;
         font-weight: 500;
       }
 
       &.active {
         a {
-          color: #74471f;
+          color: #bbbbbb;
         }
       }
 
       &:hover {
         a {
-          transform: scale(1.07);
+          color: #bbbbbb;
         }
       }
     }
@@ -113,19 +114,19 @@
 .login-container,
 .login-container-inside {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-
-  button {
+  gap: 20px;
+  button {  
     color: #fff;
     font-family: "DM Sans", sans-serif;
     font-size: 20px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin: 0 10px;
     transition: color 0.3s;
     font-weight: 500;
+    padding: 0;
 
     &:hover {
       color: #bbbbbb !important;
@@ -168,11 +169,11 @@
   height: 5px;
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
-  background-color: #74471f;
+  background-color: #fff;
   border-radius: 30px;
 
   &.active {
-    background-color: #74471f;
+    background-color: #fff;
   }
 }
 

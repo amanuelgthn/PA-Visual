@@ -1,0 +1,108 @@
+.job-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h1 {
+        font-family: "Montserrat" !important;
+        font-weight: 500;
+        font-size: 13.95px;
+        line-height: 15px;
+        text-align: center;
+    }
+
+    p {
+        font-family: "Montserrat" !important;
+        font-weight: 400;
+        font-size: 12.02px;
+        line-height: 25px;
+        text-align: center;
+    }
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    gap: 10px;
+    text-align: right;
+
+    .label {
+        text-align: left;
+        width: 200px;
+
+
+    }
+
+    .value {
+        text-align: left;
+        width: 200px;
+
+
+    }
+
+}
+
+.button-span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        background-color: #BF8654;
+        width: 270px;
+        height: 56px;
+        border: 1px solid #F2F2F2;
+
+        &:hover {
+            background-color: #F2F2F2 !important;
+            color: #F2F2F2 !important;
+        }
+
+
+
+    }
+
+
+
+}
+
+@media (max-width: 768px) {
+    .job-info-wrapper {
+        h1 {
+
+            font-size: 13.95px;
+            font-weight: 500;
+            line-height: 15px;
+            text-align: center;
+
+        }
+    }
+
+    .info {
+        .value {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: left;
+        }
+
+        .label {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: left;
+        }
+
+
+    }
+
+    .apply-button {
+        border: 1px solid var(--ANTI-FLASH-WHITE, #F2F2F2);
+        background: var(--DEER, #BF8654);
+        width: 50% !important;
+
+    }
+}
