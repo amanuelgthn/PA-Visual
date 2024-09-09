@@ -1,0 +1,118 @@
+.account-security {
+    color: #f0f0f0;
+    margin-top: 20px;
+    padding: 20px 0;
+    width: 100%;
+  
+    h3 {
+      font-size: 2rem;
+      color: #e5e5e5;
+      margin-bottom: 10px;
+  
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          #d7a86e 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        margin-top: 10px;
+      }
+    }
+  
+    .form {
+      display: grid;
+      gap: 20px;
+      margin-top: 20px;
+  
+     
+  
+      input {
+        max-width: 600px; /* Limit input width on larger screens */
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #d7a86e;
+        border-radius: 15px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1.1rem;
+  
+        &::placeholder {
+          color: #ddd;
+        }
+      }
+    }
+
+    input:first-of-type {
+        margin-top: 20px;
+    }
+  
+    button {
+        // max-width: 60px;
+        display: block;
+          margin-top: 15px;
+        padding: 10px 15px;
+        background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all background-color 0.3s ease;
+  
+        &:hover {
+          background: white;
+          padding: 8px 15px;
+          color: #74471f;
+          border: 2px solid #74471f;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+      }
+    
+  
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+      h3 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+  
+      .form {
+        input {
+          width: 100%; /* Full width on mobile */
+          font-size: 1rem;
+        }
+  
+        button {
+          font-size: 0.9rem;
+          padding: 8px 10px;
+        }
+      }
+  
+      button {
+        max-width: 100%; /* Button full width on mobile */
+        text-align: center;
+      }
+    }
+  
+    @media (max-width: 385px) {
+      h3 {
+        font-size: 1.3rem;
+      }
+  
+      .form {
+        input {
+          font-size: 0.9rem;
+        }
+  
+        button {
+          font-size: 0.8rem;
+          padding: 6px 8px;
+        }
+      }
+    }
+  }
+  

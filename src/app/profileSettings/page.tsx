@@ -14,44 +14,43 @@ import './ProfileSettings.scss'
 
 const ProfileSettings = () => {
   const [profileData, setProfileData] = useState<ProfileData | null>(null)
+  const [isProfilePublic, setIsProfilePublic] = useState<boolean>(true) // Manage profile visibility
 
-  // Check if the component is rendered on the client-side
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedProfile = localStorage.getItem('profileData')
-      const defaultProfileData: ProfileData = savedProfile
-        ? JSON.parse(savedProfile)
-        : {
-            profilePic: '/path-to-profile-pic.jpg',
-            aboutMe: 'With over 10 years of experience in real estate...',
-            interests: ['Luxury Properties', 'Market Analysis'],
-            personalInfo: {
-              name: 'John Doe',
-              email: 'johndoe@example.com',
-              phone: '+1 (555) 23-4567',
-              location: 'Spain, Europe',
-              languages: ['Spanish', 'English', 'French'],
+    const savedProfile = localStorage.getItem('profileData')
+    const defaultProfileData: ProfileData = savedProfile
+      ? JSON.parse(savedProfile)
+      : {
+          profilePic: '/path-to-profile-pic.jpg',
+          aboutMe: 'With over 10 years of experience in real estate...',
+          interests: ['Luxury Properties', 'Market Analysis'],
+          personalInfo: {
+            name: 'John Doe',
+            email: 'johndoe@example.com',
+            phone: '+1 (555) 23-4567',
+            location: 'Spain, Europe',
+            languages: ['Spanish', 'English', 'French'],
+          },
+          membership: {
+            plan: 'Premium',
+            joinedOn: 'August 15, 2023',
+          },
+          reviewedProperties: [
+            {
+              title: 'Luxury Condo',
+              price: '$1,200,000',
+              location: 'New York, NY',
             },
-            membership: {
-              plan: 'Premium',
-              joinedOn: 'August 15, 2023',
+            {
+              title: 'Beachfront Villa',
+              price: '$3,500,000',
+              location: 'Miami, FL',
             },
-            reviewedProperties: [
-              {
-                title: 'Luxury Condo',
-                price: '$1,200,000',
-                location: 'New York, NY',
-              },
-              {
-                title: 'Beachfront Villa',
-                price: '$3,500,000',
-                location: 'Miami, FL',
-              },
-            ],
-          }
+          ],
+          isPublic: true,
+        }
 
-      setProfileData(defaultProfileData)
-    }
+    setProfileData(defaultProfileData)
   }, [])
 
   // Sync profileData with localStorage whenever it changes
@@ -133,6 +132,13 @@ const ProfileSettings = () => {
     })
   }
 
+  const handleTogglePublic = (isPublic: boolean) => {
+    setIsProfilePublic(isPublic)
+    const updatedProfileData = { ...profileData, isPublic }
+    localStorage.setItem('profileData', JSON.stringify(updatedProfileData))
+    setProfileData(updatedProfileData)
+  }
+
   return (
     <div className='profile-settings-page'>
       <div className='ProfileWrapper'>
@@ -155,6 +161,8 @@ const ProfileSettings = () => {
           personalInfo={profileData.personalInfo}
           isEditable={true}
           onSave={handlePersonalInfoChange}
+          isPublic={isProfilePublic} // Pass the public state
+          onTogglePublic={handleTogglePublic} // Pass the toggle handler
         />
         <AccountSecurity />
         <Membership

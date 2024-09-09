@@ -1,0 +1,155 @@
+.interest {
+    color: #f0f0f0;
+    margin-top: 20px;
+    padding: 20px 0;
+    width: 100%;
+  
+    h3 {
+      font-size: 2rem;
+      color: #f0f0f0;
+      margin-bottom: 10px;
+  
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          #d7a86e 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        margin-top: 10px;
+      }
+    }
+  
+    .current-interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+  
+      span {
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 1.2rem;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+  
+        button {
+          background: none;
+          border: none;
+          color: #fff;
+          font-size: 1rem;
+          cursor: pointer;
+          position: absolute;
+          right: 2px;
+          top: -10px;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: #b08858;
+          }
+        }
+      }
+    }
+  
+    select {
+      padding: 8px 12px;
+      font-size: 1.2rem;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      background-color: #2a2e30;
+      color: white;
+      border: 1px solid #74471f;
+      border-radius: 15px;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    select option {
+      background-color: #2a2e30;
+      color: white;
+      padding: 8px 12px;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
+    }
+  }
+  
+  /* Responsive Styles for Mobile */
+  @media (max-width: 768px) {
+    .interest {
+      h3 {
+        text-align: center;
+        font-size: 1.5rem;
+      }
+  
+      select {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 300px;
+      }
+  
+      .current-interests {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        span {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 385px) {
+    .interest {
+      h3 {
+        font-size: 1.3rem;
+      }
+  
+      select {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 300px;
+        font-size: 1rem;
+        
+      }
+  
+      .current-interests {
+        gap: 5px;
+  
+        span {
+          font-size: 1rem;
+          padding: 5px 10px;
+  
+          button {
+            font-size: 1rem;
+            right: -8px;
+            top: -8px;
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+  
+      button {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  
