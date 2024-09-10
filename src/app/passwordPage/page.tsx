@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Button, Form, Input, Tag } from 'antd'
 import '@fontsource/montserrat'
 import './passwordPage.scss'
+import PopUpWindow from '../components/passwordPage/PopUpWindow/PopUpWindow'
 
 type RequiredMark = boolean | 'optional' | 'customize'
 
@@ -25,6 +26,7 @@ const customizeRequiredMark = (
 const ForgotPassword: React.FC = () => {
   const [form] = Form.useForm()
   const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional')
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false)
 
   const onRequiredTypeChange = ({
     requiredMarkValue,
@@ -32,6 +34,14 @@ const ForgotPassword: React.FC = () => {
     requiredMarkValue: RequiredMark
   }) => {
     setRequiredMarkType(requiredMarkValue)
+  }
+
+  const handleResetPassword = () => {
+    setIsPopUpVisible(true)
+  }
+
+  const handleClosePopUp = () => {
+    setIsPopUpVisible(false)
   }
 
   return (
@@ -69,7 +79,11 @@ const ForgotPassword: React.FC = () => {
                 />
               </Form.Item>
               <Form.Item>
-                <Button type='primary' className='primaryButton'>
+                <Button
+                  type='primary'
+                  className='primaryButton'
+                  onClick={handleResetPassword}
+                >
                   Send link to email
                 </Button>
               </Form.Item>
@@ -133,6 +147,11 @@ const ForgotPassword: React.FC = () => {
             />
           </div>
         </section>
+        {isPopUpVisible && (
+          <div className='ConfirmationPopUpWindow'>
+            <PopUpWindow onClose={handleClosePopUp} />
+          </div>
+        )}
       </section>
     </>
   )
