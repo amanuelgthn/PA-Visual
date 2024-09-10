@@ -47,6 +47,7 @@ const Profile = () => {
             },
           ],
           isPublic: true, // Add this field to the default profile
+          testimonial: '', // Add default testimonial
         }
 
     setProfileData(defaultProfileData)
@@ -100,7 +101,7 @@ const Profile = () => {
           reviewedProperties={profileData.reviewedProperties}
         />
 
-        <Testimonial />
+        <Testimonial testimonial={profileData.testimonial} isEditable={false} />
       </div>
     </div>
   )

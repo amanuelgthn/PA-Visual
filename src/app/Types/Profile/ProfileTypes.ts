@@ -25,4 +25,5 @@ export interface ProfileData {
   membership: Membership
   reviewedProperties: ReviewedProperty[]
   isPublic: boolean
+  testimonial: string
 }
