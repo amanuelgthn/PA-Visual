@@ -11,10 +11,13 @@ import BillingHistory from '../components/ProfileSettings/BillingHistory/Billing
 import Header from '../components/Profile/Header/Header'
 import { ProfileData } from '../Types/Profile/ProfileTypes'
 import './ProfileSettings.scss'
+import NotificationSettings from '../components/ProfileSettings/NotificationSettings/NotificationSettings'
+import SavedProperties from '../components/ProfileSettings/SavedProperties/SavedProperties'
+import Testimonial from '../components/Profile/Testimonial/Testimonial'
 
 const ProfileSettings = () => {
   const [profileData, setProfileData] = useState<ProfileData | null>(null)
-  const [isProfilePublic, setIsProfilePublic] = useState<boolean>(true) // Manage profile visibility
+  const [isProfilePublic, setIsProfilePublic] = useState<boolean>(true)
 
   useEffect(() => {
     const savedProfile = localStorage.getItem('profileData')
@@ -48,6 +51,7 @@ const ProfileSettings = () => {
             },
           ],
           isPublic: true,
+          testimonial: '', // Default empty testimonial field
         }
 
     setProfileData(defaultProfileData)
@@ -60,7 +64,7 @@ const ProfileSettings = () => {
     }
   }, [profileData])
 
-  if (!profileData) return null // Prevent rendering until profileData is loaded
+  if (!profileData) return null
 
   // Handlers for updating the profile data fields
   const handleProfilePicChange = (file: File) => {
@@ -72,10 +76,7 @@ const ProfileSettings = () => {
         profilePic: newProfilePic,
       }
 
-      // Save to localStorage
       localStorage.setItem('profileData', JSON.stringify(updatedProfile))
-
-      // Update the state to reflect the new profile picture
       setProfileData(updatedProfile)
     }
 
@@ -139,6 +140,15 @@ const ProfileSettings = () => {
     setProfileData(updatedProfileData)
   }
 
+  const handleTestimonialChange = (newTestimonial: string) => {
+    setProfileData((prev) => {
+      if (prev) {
+        return { ...prev, testimonial: newTestimonial }
+      }
+      return prev
+    })
+  }
+
   return (
     <div className='profile-settings-page'>
       <div className='ProfileWrapper'>
@@ -148,9 +158,9 @@ const ProfileSettings = () => {
           onProfilePicChange={handleProfilePicChange}
         />
         <AboutMe
-          aboutMe={profileData.aboutMe} // Passing the updated aboutMe prop
+          aboutMe={profileData.aboutMe}
           isEditable={true}
-          onSave={handleAboutMeChange} // Updating the parent state with new aboutMe value
+          onSave={handleAboutMeChange}
         />
         <Interest
           interests={profileData.interests}
@@ -161,8 +171,8 @@ const ProfileSettings = () => {
           personalInfo={profileData.personalInfo}
           isEditable={true}
           onSave={handlePersonalInfoChange}
-          isPublic={isProfilePublic} // Pass the public state
-          onTogglePublic={handleTogglePublic} // Pass the toggle handler
+          isPublic={isProfilePublic}
+          onTogglePublic={handleTogglePublic}
         />
         <AccountSecurity />
         <Membership
@@ -171,7 +181,14 @@ const ProfileSettings = () => {
           onSave={handleMembershipChange}
         />
         <PaymentMethods />
+        <NotificationSettings />
+        <SavedProperties />
         <BillingHistory />
+        <Testimonial
+          testimonial={profileData.testimonial}
+          isEditable={true}
+          onSave={handleTestimonialChange}
+        />
       </div>
     </div>
   )

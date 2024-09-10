@@ -1,10 +1,12 @@
 'use client'
 import { FC, useState, useEffect } from 'react'
+import './Membership.scss'
 
 interface MembershipProps {
   membership?: {
     plan: string
     joinedOn: string
+    nextBillingDate?: string
   }
   isEditable: boolean
   onSave?: (newPlan: string) => void
@@ -13,47 +15,51 @@ interface MembershipProps {
 export const Membership: FC<MembershipProps> = ({
   membership,
   isEditable,
-  onSave,
+  // onSave,
 }) => {
-  const availablePlans = ['Basic', 'Premium', 'Pro'] // Example membership plans
+  // const availablePlans = ['Basic', 'Premium', 'Pro'] // Example membership plans
 
-  // Check if membership is defined, otherwise use a default value
   const [selectedPlan, setSelectedPlan] = useState<string>(
     membership?.plan || 'Basic',
   )
 
   useEffect(() => {
-    // Update selectedPlan if the membership plan changes
     setSelectedPlan(membership?.plan || 'Basic')
   }, [membership?.plan])
 
-  const handleSave = () => {
-    if (onSave) {
-      onSave(selectedPlan) // Pass the selected plan back to the parent component
-    }
+  // const handleSave = () => {
+  //   if (onSave) {
+  //     onSave(selectedPlan)
+  //   }
+  // }
+
+  const handleCancelMembership = () => {
+    console.log('Cancel membership')
   }
 
   return (
-    <div className='membership'>
-      <h3>Membership</h3>
-      {/* Safely access membership properties */}
-      <p>Joined On: {membership?.joinedOn || 'N/A'}</p>
-      {isEditable ? (
-        <>
-          <select
-            value={selectedPlan}
-            onChange={(e) => setSelectedPlan(e.target.value)}
-          >
-            {availablePlans.map((plan, index) => (
-              <option key={index} value={plan}>
-                {plan}
-              </option>
-            ))}
-          </select>
-          <button onClick={handleSave}>Save Plan</button>
-        </>
-      ) : (
-        <p>Plan: {membership?.plan || 'No plan selected'}</p>
+    <div className='membership-management'>
+      <h3>Membership Management</h3>
+      <div className='membership-info'>
+        <p>
+          <strong>Current Plan:</strong>{' '}
+          {membership?.plan || 'No plan selected'}
+        </p>
+        <p>
+          <strong>Next Billing Date:</strong>{' '}
+          {membership?.nextBillingDate || 'N/A'}
+        </p>
+      </div>
+
+      {isEditable && (
+        <div className='membership-actions'>
+          <button className='upgrade-btn'>Upgrade Plan</button>
+          <button className='change-btn'>Change Plan</button>
+          <button className='cancel-btn' onClick={handleCancelMembership}>
+            Cancel Membership
+          </button>
+          <button>{selectedPlan}</button>
+        </div>
       )}
     </div>
   )
