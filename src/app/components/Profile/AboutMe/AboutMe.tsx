@@ -30,13 +30,16 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     <div className='about-me'>
       <h3>About Me</h3>
       {isEditable ? (
-        <>
+        <div className='about-me-edit'>
           <textarea
             value={aboutMeText}
             onChange={(e) => setAboutMeText(e.target.value)}
+            placeholder='Tell us about yourself...'
           />
-          <button onClick={handleSave}>Save</button>
-        </>
+          <button className='save-button' onClick={handleSave}>
+            Save
+          </button>
+        </div>
       ) : (
         <p>{aboutMeText}</p>
       )}

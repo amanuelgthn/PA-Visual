@@ -67,7 +67,13 @@
             color: #d7a86e;
 
             &:hover {
-              background-color: #d7a86e;
+              background: linear-gradient(
+                230.7deg,
+                #c98e59 20.6%,
+                #734124 82.34%
+              );
+              padding: 11px 20px;
+              border: none;
               color: #fff;
             }
           }
@@ -119,10 +125,6 @@
           flex: 1;
           width: 100%;
           text-align: center;
-
-          &.view-details {
-            margin-bottom: 10px;
-          }
         }
       }
     }

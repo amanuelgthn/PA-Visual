@@ -17,7 +17,7 @@ export const Membership: FC<MembershipProps> = ({
   isEditable,
   // onSave,
 }) => {
-  // const availablePlans = ['Basic', 'Premium', 'Pro'] // Example membership plans
+  // const availablePlans = ['Basic', 'Premium', 'Pro'] /
 
   const [selectedPlan, setSelectedPlan] = useState<string>(
     membership?.plan || 'Basic',
@@ -58,7 +58,8 @@ export const Membership: FC<MembershipProps> = ({
           <button className='cancel-btn' onClick={handleCancelMembership}>
             Cancel Membership
           </button>
-          <button>{selectedPlan}</button>
+          {/* hiding the state for now  */}
+          {selectedPlan === null && <button>{selectedPlan}</button>}
         </div>
       )}
     </div>

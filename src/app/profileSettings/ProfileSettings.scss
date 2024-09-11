@@ -49,3 +49,95 @@
     width: 100%;
   }
 }
+
+.profile-page,
+.profile-settings-page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(180deg, #839096 -90.55%, #2a2e30 63.25%);
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 60px;
+  height: auto;
+
+  .ProfileWrapper {
+    width: 100%;
+    background: #2a2e30;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    padding: 20px;
+    max-width: 1400px;
+  }
+
+  .back-button-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  .back-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    transition: color 0.3s ease;
+
+    .icon {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      color: #d7a86e;
+    }
+  }
+}
+
+// Responsive for Tablets (iPad-sized screens)
+@media (max-width: 1024px) {
+  .profile-page,
+  .profile-settings-page {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 100px;
+  }
+
+  .ProfileWrapper {
+    padding: 30px;
+    width: 100%;
+  }
+}
+
+// Responsive for Mobile
+@media (max-width: 768px) {
+  .profile-page,
+  .profile-settings-page {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 80px;
+  }
+
+  .ProfileWrapper {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .back-button-container {
+    justify-content: center;
+  }
+
+  .back-button {
+    font-size: 1rem;
+
+    .icon {
+      font-size: 1.2rem;
+    }
+  }
+}

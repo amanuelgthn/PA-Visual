@@ -13,7 +13,7 @@ export const Interest: React.FC<InterestProps> = ({
   isEditable,
   onSave,
 }) => {
-  const [currentInterests, setCurrentInterests] = useState<string[]>([]) // Default to empty array
+  const [currentInterests, setCurrentInterests] = useState<string[]>([])
 
   const availableInterests = [
     'Luxury Properties',
@@ -33,9 +33,9 @@ export const Interest: React.FC<InterestProps> = ({
     if (selectedInterest && !currentInterests.includes(selectedInterest)) {
       const updatedInterests = [...currentInterests, selectedInterest]
       setCurrentInterests(updatedInterests)
-      e.target.value = '' // Reset the dropdown after selection
+      e.target.value = ''
       if (onSave) {
-        onSave(updatedInterests) // Save automatically after adding
+        onSave(updatedInterests)
       }
     }
   }
@@ -46,8 +46,9 @@ export const Interest: React.FC<InterestProps> = ({
       (interest) => interest !== interestToRemove,
     )
     setCurrentInterests(updatedInterests)
+    // Save after removing an interest
     if (onSave) {
-      onSave(updatedInterests) // Save after removing an interest
+      onSave(updatedInterests)
     }
   }
 
@@ -72,7 +73,7 @@ export const Interest: React.FC<InterestProps> = ({
             <span
               key={index}
               style={{
-                backgroundColor: isEditable ? '#828282' : '#BF8654', // Apply background based on isEditable
+                backgroundColor: isEditable ? '#828282' : '#BF8654',
               }}
             >
               {interest}{' '}
@@ -84,7 +85,7 @@ export const Interest: React.FC<InterestProps> = ({
             </span>
           ))
         ) : (
-          <p>No interests added yet.</p> // Handle empty array case
+          <p>No interests added yet.</p>
         )}
       </div>
     </div>
