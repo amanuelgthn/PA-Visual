@@ -1,10 +1,11 @@
 'use client'
+import './Header.scss'
 import { ProfileData } from '@/app/Types/Profile/ProfileTypes'
 import { useState, useEffect } from 'react'
-import { FiSettings, FiLogOut, FiCamera } from 'react-icons/fi' // Added Camera Icon for edit mode
-import { BsFillPersonFill } from 'react-icons/bs' // Icons for Premium Member and User
-import './Header.scss'
+import { FiSettings, FiLogOut, FiCamera } from 'react-icons/fi'
+import { BsFillPersonFill } from 'react-icons/bs'
 import { FaCrown } from 'react-icons/fa'
+import { useRouter } from 'next/navigation'
 
 interface HeaderProps {
   profileData: ProfileData
@@ -21,7 +22,8 @@ export const Header: React.FC<HeaderProps> = ({
     profileData.profilePic,
   )
 
-  // Ensure the preview updates with new profilePic
+  const router = useRouter()
+
   useEffect(() => {
     setImagePreview(profileData.profilePic)
   }, [profileData.profilePic])
@@ -29,18 +31,16 @@ export const Header: React.FC<HeaderProps> = ({
   const handleProfilePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      // Limit file size to prevent large images from exceeding localStorage limits
       if (file.size > 5000000) {
-        // 5MB limit
         alert('File size too large. Please select an image under 5MB.')
         return
       }
 
       const reader = new FileReader()
       reader.onloadend = () => {
-        setImagePreview(reader.result as string) // Preview the new image
+        setImagePreview(reader.result as string)
         if (onProfilePicChange) {
-          onProfilePicChange(file) // Simulate saving the new profile picture
+          onProfilePicChange(file)
         }
       }
       reader.readAsDataURL(file)
@@ -48,14 +48,17 @@ export const Header: React.FC<HeaderProps> = ({
   }
 
   const handleDeleteAccount = () => {
-    console.log('Account deleted') // Simulate account deletion
+    console.log('Account deleted')
+  }
+
+  const handleSettingsClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    router.push('/profileSettings')
   }
 
   return (
     <div className='header'>
-      {/* Container for profile details */}
       <div className='profile-content'>
-        {/* image wrapper */}
         <div className='image-wrapper'>
           <img src={imagePreview} alt='Profile' className='profile-pic' />
           {isEditable && (
@@ -72,7 +75,6 @@ export const Header: React.FC<HeaderProps> = ({
             </>
           )}
         </div>
-        {/* profile details */}
         <div className='profile-details'>
           <h2>{profileData.personalInfo.name}</h2>
           <div className='user-info'>
@@ -86,7 +88,6 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           </div>
         </div>
-        {/* stat */}
         <div className='stats'>
           <div className='stat-item'>
             <span>{profileData.reviewedProperties.length}</span>
@@ -99,13 +100,12 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Container for actions */}
       <div className='actions'>
         {!isEditable ? (
           <>
-            <div className='actionsFlex'>
+            <button className='actionsFlex' onClick={handleSettingsClick}>
               <FiSettings className='icon' /> <span>Settings</span>
-            </div>
+            </button>
             <div className='actionsFlex'>
               <FiLogOut className='icon' /> <span>Logout</span>
             </div>

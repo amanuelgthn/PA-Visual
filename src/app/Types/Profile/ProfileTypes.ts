@@ -6,12 +6,19 @@ export interface PersonalInfo {
   languages: string[]
 }
 
+export interface Comment {
+  property: string
+  comment: string
+  rating: number
+}
+
 export interface Membership {
   plan: string
   joinedOn: string
 }
 
 export interface ReviewedProperty {
+  imageUrl: string
   title: string
   price: string
   location: string
@@ -26,4 +33,5 @@ export interface ProfileData {
   reviewedProperties: ReviewedProperty[]
   isPublic: boolean
   testimonial: string
+  comments: Comment[]
 }

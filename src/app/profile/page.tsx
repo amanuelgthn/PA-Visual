@@ -10,47 +10,19 @@ import Header from '../components/Profile/Header/Header'
 import AboutMe from '../components/Profile/AboutMe/AboutMe'
 import Interest from '../components/Profile/Interest/Interest'
 import { ProfileData } from '../Types/Profile/ProfileTypes'
+import Comments from '../components/Profile/Comments/Comments'
+import { defaultProfileData } from '../Utils/mockProfileData/mockProfileData'
 
 const Profile = () => {
   const [profileData, setProfileData] = useState<ProfileData | null>(null)
 
   useEffect(() => {
     const savedProfile = localStorage.getItem('profileData')
-    const defaultProfileData: ProfileData = savedProfile
+    const profileDataToUse: ProfileData = savedProfile
       ? JSON.parse(savedProfile)
-      : {
-          profilePic: '/path-to-profile-pic.jpg',
-          aboutMe: 'With over 10 years of experience in real estate...',
-          interests: [
-            'Luxury Properties',
-            'Market Analysis',
-            'Urban Development',
-          ],
-          personalInfo: {
-            name: 'John Doe',
-            email: 'johndoe@example.com',
-            phone: '+1 (555) 23-4567',
-            location: 'Spain, Europe',
-            languages: ['Spanish', 'English', 'French'],
-          },
-          membership: { plan: 'Premium', joinedOn: 'August 15, 2023' },
-          reviewedProperties: [
-            {
-              title: 'Luxury Condo',
-              price: '$1,200,000',
-              location: 'New York, NY',
-            },
-            {
-              title: 'Beachfront Villa',
-              price: '$3,500,000',
-              location: 'Miami, FL',
-            },
-          ],
-          isPublic: true, // Add this field to the default profile
-          testimonial: '', // Add default testimonial
-        }
+      : defaultProfileData
 
-    setProfileData(defaultProfileData)
+    setProfileData(profileDataToUse)
 
     const handleProfileDataChanged = (e: Event) => {
       const customEvent = e as CustomEvent<ProfileData>
@@ -77,7 +49,7 @@ const Profile = () => {
     setProfileData(updatedProfileData)
   }
 
-  if (!profileData) return null // Wait until profileData is loaded
+  if (!profileData) return null
 
   return (
     <div className='profile-page'>
@@ -91,8 +63,8 @@ const Profile = () => {
         <PersonalInfo
           personalInfo={profileData.personalInfo}
           isEditable={false}
-          isPublic={profileData.isPublic} // Pass the public state from profileData
-          onTogglePublic={handleTogglePublic} // Pass the toggle handler
+          isPublic={profileData.isPublic}
+          onTogglePublic={handleTogglePublic}
         />
 
         <Membership membership={profileData.membership} isEditable={false} />
@@ -100,8 +72,12 @@ const Profile = () => {
         <ReviewedProperties
           reviewedProperties={profileData.reviewedProperties}
         />
-
         <Testimonial testimonial={profileData.testimonial} isEditable={false} />
+
+        <Comments
+          comments={profileData.comments}
+          profilePic={profileData.profilePic}
+        />
       </div>
     </div>
   )
