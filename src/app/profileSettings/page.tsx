@@ -30,6 +30,7 @@ const ProfileSettings = () => {
       : defaultProfileData
 
     setProfileData(profileDataToUse)
+    setIsProfilePublic(profileDataToUse.isPublic) // Set the initial state
   }, [])
 
   useEffect(() => {
@@ -52,6 +53,15 @@ const ProfileSettings = () => {
       setProfileData(updatedProfile)
     }
     if (file) reader.readAsDataURL(file)
+  }
+
+  const handleTogglePublic = (isPublic: boolean) => {
+    setIsProfilePublic(isPublic)
+    if (profileData) {
+      const updatedProfileData = { ...profileData, isPublic }
+      localStorage.setItem('profileData', JSON.stringify(updatedProfileData))
+      setProfileData(updatedProfileData)
+    }
   }
 
   const handleGoBack = (e: React.MouseEvent) => {
@@ -88,19 +98,10 @@ const ProfileSettings = () => {
             setProfileData({ ...profileData, personalInfo: newPersonalInfo })
           }
           isPublic={isProfilePublic}
-          onTogglePublic={setIsProfilePublic}
+          onTogglePublic={handleTogglePublic}
         />
         <AccountSecurity />
-        <Membership
-          membership={profileData.membership}
-          isEditable={true}
-          // onSave={(newPlan) =>
-          //   setProfileData({
-          //     ...profileData,
-          //     membership: { ...profileData.membership, plan: newPlan },
-          //   })
-          // }
-        />
+        <Membership membership={profileData.membership} isEditable={true} />
         <PaymentMethods />
         <NotificationSettings />
         <SavedProperties />
