@@ -47,6 +47,9 @@
       }
 
       .user-profile {
+        img {
+          object-fit: cover;
+        }
         .profile-pic {
           border-radius: 50%;
           background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
@@ -109,6 +112,7 @@
         .comment-content {
           p {
             font-size: 1rem;
+            text-align: center;
           }
 
           .stars {

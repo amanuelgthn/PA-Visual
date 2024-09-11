@@ -1,13 +1,24 @@
 'use client'
 import { FC, useState, useEffect } from 'react'
 import './PersonalInfo.scss'
-import { PersonalInfo as PersonalInfoType } from '@/app/Types/Profile/ProfileTypes'
 
 interface PersonalInfoProps {
-  personalInfo: PersonalInfoType
+  personalInfo: {
+    name: string
+    email: string
+    phone: string
+    location: string
+    languages: string[]
+  }
   isEditable: boolean
   isPublic?: boolean
-  onSave?: (newPersonalInfo: PersonalInfoType) => void
+  onSave?: (newPersonalInfo: {
+    name: string
+    email: string
+    phone: string
+    location: string
+    languages: string[]
+  }) => void
   onTogglePublic?: (isPublic: boolean) => void
 }
 
