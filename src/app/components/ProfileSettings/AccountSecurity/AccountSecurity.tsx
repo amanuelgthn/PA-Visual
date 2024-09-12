@@ -53,7 +53,9 @@ const AccountSecurity = () => {
         />
       </div>
 
-      <button onClick={handleChangePassword}>Change Password</button>
+      <button className='Acc-btn' onClick={handleChangePassword}>
+        Change Password
+      </button>
       {isModalVisible && (
         <ProfileModal
           title='Change Password'

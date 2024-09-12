@@ -35,7 +35,7 @@ const ProfileModal: React.FC<ModalProps> = ({
           <button className='confirm-btn' onClick={onConfirm}>
             {confirmLabel}
           </button>
-          <button className='cancel-btn' onClick={onCancel}>
+          <button className='cancel-btn ' onClick={onCancel}>
             {cancelLabel}
           </button>
         </div>

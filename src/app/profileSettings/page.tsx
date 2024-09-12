@@ -30,7 +30,7 @@ const ProfileSettings = () => {
       : defaultProfileData
 
     setProfileData(profileDataToUse)
-    setIsProfilePublic(profileDataToUse.isPublic) // Set the initial state
+    setIsProfilePublic(profileDataToUse.isPublic)
   }, [])
 
   useEffect(() => {

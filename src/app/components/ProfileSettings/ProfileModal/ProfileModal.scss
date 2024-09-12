@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 300 !important;
+  z-index: 100 !important;
   padding: 20px;
 }
 
@@ -59,26 +59,27 @@
     margin-top: 20px;
   }
 
-  .modal-box .confirm-btn {
+  .confirm-btn {
     display: block;
     padding: 10px 15px;
     background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     color: white;
-    border: none;
+    // border: none;
+    border: 2px solid transparent;
     cursor: pointer;
     transition: all background-color 0.3s ease;
     &:hover {
       background: white;
-      padding: 8px 13px;
+      // padding: 8px 13px;
       color: #74471f;
       border: 2px solid #74471f;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
   }
 
-  .modal-box .cancel-btn {
+  .cancel-btn {
     background: #999999 !important;
     padding: 10px 20px;
     border-radius: 15px;

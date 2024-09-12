@@ -43,37 +43,41 @@
     gap: 15px;
     justify-content: flex-start;
 
-    button {
+    .member-upgrade-btn,
+    .member-change-btn {
+      background-color: transparent;
       padding: 10px 15px;
       border-radius: 15px;
       border: 1px solid #d7a86e;
-      background: transparent;
       color: #f0f0f0;
       cursor: pointer;
       transition: background-color 0.3s ease;
       font-size: 1rem;
+      border: 1px solid #d7a86e !important;
+      transition: background-color 0.3s ease;
 
       &:hover {
         background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
         color: #fff;
         border: none;
-        padding: 11px 16px;
+        // padding: 11px 16px;
       }
     }
 
-    .upgrade-btn,
-    .change-btn {
-      border: 1px solid #d7a86e;
-    }
-
-    .cancel-btn {
+    .member-cancel-btn {
+      padding: 10px 15px;
+      border-radius: 15px;
+      color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
       border: none;
       background: #e74c3c;
 
       &:hover {
-        background-color: #d34545;
+        background-color: #d34545 !important;
         color: #fff;
-        padding: 11px 15px;
+        // padding: 11px 15px;
       }
     }
   }
@@ -89,7 +93,7 @@
       flex-direction: column;
       align-items: center;
 
-      button {
+      .m-btn {
         width: 100%;
         max-width: 100%;
         margin-top: 10px;
@@ -108,7 +112,7 @@
       }
     }
 
-    .membership-actions button {
+    .membership-actions .m-btn {
       font-size: 0.9rem;
     }
   }
