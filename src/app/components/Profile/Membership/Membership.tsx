@@ -1,6 +1,7 @@
 'use client'
 import { FC, useState, useEffect } from 'react'
 import './Membership.scss'
+import ProfileModal from '@/app/components/ProfileSettings/ProfileModal/ProfileModal' // Assuming you have this path
 
 interface MembershipProps {
   membership?: {
@@ -9,32 +10,55 @@ interface MembershipProps {
     nextBillingDate?: string
   }
   isEditable: boolean
-  onSave?: (newPlan: string) => void
 }
 
-export const Membership: FC<MembershipProps> = ({
-  membership,
-  isEditable,
-  // onSave,
-}) => {
-  // const availablePlans = ['Basic', 'Premium', 'Pro'] /
-
+export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
   const [selectedPlan, setSelectedPlan] = useState<string>(
     membership?.plan || 'Basic',
   )
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [modalType, setModalType] = useState('') // To differentiate between different actions
 
   useEffect(() => {
     setSelectedPlan(membership?.plan || 'Basic')
   }, [membership?.plan])
 
-  // const handleSave = () => {
-  //   if (onSave) {
-  //     onSave(selectedPlan)
-  //   }
-  // }
+  // Handlers for each action
+  const handleUpgradePlan = () => {
+    setModalType('upgrade')
+    setIsModalVisible(true)
+  }
+
+  const handleChangePlan = () => {
+    setModalType('change')
+    setIsModalVisible(true)
+  }
 
   const handleCancelMembership = () => {
-    console.log('Cancel membership')
+    setModalType('cancel')
+    setIsModalVisible(true)
+  }
+
+  // Modal Confirm and Cancel actions
+  const handleConfirmAction = () => {
+    switch (modalType) {
+      case 'upgrade':
+        console.log('Plan upgraded')
+        break
+      case 'change':
+        console.log('Plan changed')
+        break
+      case 'cancel':
+        console.log('Membership canceled')
+        break
+      default:
+        break
+    }
+    setIsModalVisible(false)
+  }
+
+  const handleCancelAction = () => {
+    setIsModalVisible(false)
   }
 
   return (
@@ -53,14 +77,51 @@ export const Membership: FC<MembershipProps> = ({
 
       {isEditable && (
         <div className='membership-actions'>
-          <button className='upgrade-btn'>Upgrade Plan</button>
-          <button className='change-btn'>Change Plan</button>
-          <button className='cancel-btn' onClick={handleCancelMembership}>
+          <button
+            className='member-upgrade-btn m-btn'
+            onClick={handleUpgradePlan}
+          >
+            Upgrade Plan
+          </button>
+          <button
+            className='member-change-btn  m-btn'
+            onClick={handleChangePlan}
+          >
+            Change Plan
+          </button>
+          <button
+            className='member-cancel-btn m-btn'
+            onClick={handleCancelMembership}
+          >
             Cancel Membership
           </button>
-          {/* hiding the state for now  */}
-          {selectedPlan === null && <button>{selectedPlan}</button>}
+          {selectedPlan === null && <p>{selectedPlan}</p>}
         </div>
+      )}
+
+      {/* Conditionally rendering the modal */}
+      {isModalVisible && (
+        <ProfileModal
+          title={
+            modalType === 'upgrade'
+              ? 'Upgrade Plan'
+              : modalType === 'change'
+                ? 'Change Plan'
+                : 'Cancel Membership'
+          }
+          message={
+            modalType === 'upgrade'
+              ? 'Are you sure you want to upgrade your plan?'
+              : modalType === 'change'
+                ? 'Are you sure you want to change your plan?'
+                : 'Are you sure you want to cancel your membership?'
+          }
+          confirmLabel='Confirm'
+          cancelLabel='Cancel'
+          onConfirm={handleConfirmAction}
+          onCancel={handleCancelAction}
+          isVisible={isModalVisible}
+        />
       )}
     </div>
   )

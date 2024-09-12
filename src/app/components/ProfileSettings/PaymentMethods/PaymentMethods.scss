@@ -33,18 +33,33 @@
       margin: 0;
     }
 
-    .delete-card {
-      background: #e74c3c;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 15px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    .card-btn-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
 
-      &:hover {
-        background-color: #d34545;
+      .delete-card,
+      .add-new-card {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #d34545;
+        }
+      }
+
+      .add-new-card {
+        background: #2ecc71;
+
+        &:hover {
+          background-color: #27ae60;
+        }
       }
     }
   }
@@ -137,10 +152,15 @@
       flex-direction: column;
       align-items: flex-start;
 
-      .delete-card {
-        align-self: center;
-        margin-top: 10px;
+      .card-btn-actions {
+        flex-direction: column;
         width: 100%;
+
+        .delete-card,
+        .add-new-card {
+          width: 100%;
+          margin-top: 10px;
+        }
       }
     }
 
