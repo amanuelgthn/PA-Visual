@@ -40,8 +40,8 @@ const PopUpWindow: React.FC<PopUpWindowProps> = ({ onClose }) => {
           <div className='descriptionContainer'>
             <p>Hello John Doe,</p>
             <p>
-              We have received your request to reset your password. If it’s you
-              please click on the button below
+              We have received your request to reset your password. If it&apos;s
+              you please click on the button below
             </p>
           </div>
           <button
