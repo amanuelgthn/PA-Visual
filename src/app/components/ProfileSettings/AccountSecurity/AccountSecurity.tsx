@@ -1,15 +1,27 @@
 'use client'
 import React, { useState } from 'react'
 import './AccountSecurity.scss'
+import ProfileModal from '@/app/components/ProfileSettings/ProfileModal/ProfileModal'
 
 const AccountSecurity = () => {
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
+  // / ACTION
   const handleChangePassword = () => {
-    // Handle password change functionality here
+    setIsModalVisible(true)
+  }
+
+  const handleConfirmChangePassword = () => {
+    // Handle actual password change functionality here
     console.log('Password Changed')
+    setIsModalVisible(false)
+  }
+
+  const handleCancelChangePassword = () => {
+    setIsModalVisible(false)
   }
 
   return (
@@ -42,6 +54,17 @@ const AccountSecurity = () => {
       </div>
 
       <button onClick={handleChangePassword}>Change Password</button>
+      {isModalVisible && (
+        <ProfileModal
+          title='Change Password'
+          message='Are you sure you want to change your password?'
+          confirmLabel='Confirm'
+          cancelLabel='Cancel'
+          onConfirm={handleConfirmChangePassword}
+          onCancel={handleCancelChangePassword}
+          isVisible={isModalVisible}
+        />
+      )}
     </div>
   )
 }
