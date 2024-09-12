@@ -19,27 +19,29 @@ const ForgotPassword: React.FC = () => {
   }
 
   return (
-    <section className='backgroundColor'>
-      <section className='forgotPasswordForm'>
-        <div className='formContainer'>
-          <div className='headerContainer'>
-            <h1 className='forgotPasswordTitle'>FORGOT PASSWORD</h1>
-            <p className='forgotPasswordDescription'>
-              Enter your email address below. We'll send you instructions to
-              reset your password.
-            </p>
+    <div className='wrapper backgroundColor'>
+      <div className='wrapper-assist'>
+        <section className='forgotPasswordForm'>
+          <div className='formContainer'>
+            <div className='headerContainer'>
+              <h1 className='forgotPasswordTitle'>FORGOT PASSWORD</h1>
+              <p className='forgotPasswordDescription'>
+                Enter your email address below. We&apos;ll send you instructions
+                to reset your password.
+              </p>
+            </div>
+            <ForgotPasswordForm handleResetPassword={handleResetPassword} />
           </div>
-          <ForgotPasswordForm handleResetPassword={handleResetPassword} />
-        </div>
-        <ForgotPasswordImage />
-      </section>
+          <ForgotPasswordImage />
+        </section>
+        {isPopUpVisible && (
+          <div className='ConfirmationPopUpWindow'>
+            <PopUpWindow onClose={handleClosePopUp} />
+          </div>
+        )}
+      </div>
       <FollowUsNavigation />
-      {isPopUpVisible && (
-        <div className='ConfirmationPopUpWindow'>
-          <PopUpWindow onClose={handleClosePopUp} />
-        </div>
-      )}
-    </section>
+    </div>
   )
 }
 
