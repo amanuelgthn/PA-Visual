@@ -30,10 +30,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
         ]}
         className='emailAdress'
       >
-        <Input
-          placeholder='Enter your email'
-          style={{ height: '3.75rem', width: '100%' }}
-        />
+        <Input placeholder='Enter your email' style={{ height: '3.75rem' }} />
       </Form.Item>
       <Form.Item>
         <Button
