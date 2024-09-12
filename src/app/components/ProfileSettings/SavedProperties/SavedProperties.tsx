@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import './SavedProperties.scss'
+import Link from 'next/link'
 
 const SavedProperties = () => {
   const savedProperties = [
@@ -32,7 +33,8 @@ const SavedProperties = () => {
         ))}
       </div>
       <div className='view-all'>
-        <a href='#'>View all</a>
+        {/*  to  redirect to saved properties  */}
+        <Link href='#'>View all</Link>
       </div>
     </div>
   )

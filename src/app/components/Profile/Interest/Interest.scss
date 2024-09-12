@@ -37,6 +37,11 @@
       display: inline-flex;
       align-items: center;
       position: relative;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.01);
+      }
 
       button {
         background: none;
@@ -70,7 +75,7 @@
     margin-bottom: 10px;
     background-color: #2a2e30;
     color: white;
-    border: 1px solid #74471f;
+    border: 1px solid #d7a86e;
     border-radius: 15px;
     display: block;
     width: 100%;

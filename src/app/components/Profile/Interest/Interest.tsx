@@ -67,7 +67,6 @@ export const Interest: React.FC<InterestProps> = ({
       )}
 
       <div className='current-interests'>
-        {/* Map over currentInterests array */}
         {currentInterests.length > 0 ? (
           currentInterests.map((interest, index) => (
             <span
