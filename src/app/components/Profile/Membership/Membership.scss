@@ -50,13 +50,14 @@
       background: transparent;
       color: #f0f0f0;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease;
       font-size: 1rem;
 
       &:hover {
         background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
         color: #fff;
         border: none;
+        padding: 11px 16px;
       }
     }
 
@@ -70,8 +71,9 @@
       background: #e74c3c;
 
       &:hover {
-        background: #ff6b5f;
+        background-color: #d34545;
         color: #fff;
+        padding: 11px 15px;
       }
     }
   }

@@ -106,9 +106,9 @@ export const Header: React.FC<HeaderProps> = ({
             <button className='actionsFlex' onClick={handleSettingsClick}>
               <FiSettings className='icon' /> <span>Settings</span>
             </button>
-            <div className='actionsFlex'>
+            <button className='actionsFlex'>
               <FiLogOut className='icon' /> <span>Logout</span>
-            </div>
+            </button>
           </>
         ) : (
           <button onClick={handleDeleteAccount} className='delete-button'>

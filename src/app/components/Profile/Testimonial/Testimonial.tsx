@@ -15,7 +15,8 @@ const Testimonial: FC<TestimonialProps> = ({
 }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(testimonial)
 
-  const handleSave = () => {
+  const handleSave = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault()
     if (onSave) {
       onSave(currentTestimonial)
     }
@@ -31,7 +32,7 @@ const Testimonial: FC<TestimonialProps> = ({
             onChange={(e) => setCurrentTestimonial(e.target.value)}
             placeholder='Write your testimonial...'
           />
-          <button className='save-button' onClick={handleSave}>
+          <button type='button' className='save-button' onClick={handleSave}>
             Save
           </button>
         </div>

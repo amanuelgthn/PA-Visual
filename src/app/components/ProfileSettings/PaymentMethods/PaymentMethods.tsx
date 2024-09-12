@@ -59,7 +59,11 @@ const PaymentMethods = () => {
           </div>
         </div>
       </div>
-      <button className='add-payment' onClick={handleAddPaymentMethod}>
+      <button
+        type='button'
+        className='add-payment'
+        onClick={handleAddPaymentMethod}
+      >
         Add Payment Method
       </button>
     </div>
