@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
       <nav>
         <Link href='/admin' passHref>
           <div className={styles.logo}>
-            <Image src='logo/logo.svg' alt='logo' width={90} height={38} />
+            <Image src='/logo/logo.svg' alt='logo' width={90} height={38} />
           </div>
         </Link>
         <ul className={styles.nav}>
