@@ -21,12 +21,12 @@ const Testimonial: FC<TestimonialProps> = ({
     if (onSave) {
       onSave(currentTestimonial)
     }
-    setIsEditMode(false) // Hide the form after saving
+    setIsEditMode(false)
   }
 
   const handleCancel = () => {
-    setCurrentTestimonial(testimonial) // Reset to the original testimonial
-    setIsEditMode(false) // Hide the form when cancel is clicked
+    setCurrentTestimonial(testimonial)
+    setIsEditMode(false)
   }
 
   return (

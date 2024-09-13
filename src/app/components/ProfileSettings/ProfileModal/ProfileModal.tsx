@@ -26,16 +26,16 @@ const ProfileModal: React.FC<ModalProps> = ({
   return (
     <div className='modal-overlay'>
       <div className='modal-box'>
-        <button className='close-btn' onClick={onCancel}>
+        <button className='m-close-btn' onClick={onCancel}>
           ✖
         </button>
         <h3>{title}</h3>
         <p>{message}</p>
         <div className='modal-actions'>
-          <button className='confirm-btn' onClick={onConfirm}>
+          <button className='m-confirm-btn' onClick={onConfirm}>
             {confirmLabel}
           </button>
-          <button className='cancel-btn ' onClick={onCancel}>
+          <button className='m-cancel-btn ' onClick={onCancel}>
             {cancelLabel}
           </button>
         </div>
