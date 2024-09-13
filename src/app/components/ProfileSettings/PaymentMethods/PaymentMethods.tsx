@@ -19,7 +19,28 @@ const PaymentMethods = () => {
     cvv: '',
   })
 
-  // Detect card type based on the first few digits (Visa starts with 4, MasterCard starts with 5)
+  // Load card details from localStorage when the component mounts
+  useEffect(() => {
+    const storedCard = localStorage.getItem('cardDetails')
+    if (storedCard) {
+      const cardData = JSON.parse(storedCard)
+      setCardNumber(cardData.cardNumber)
+      setExpiryDate(cardData.expiryDate)
+      setCvv(cardData.cvv)
+      setCardholderName(cardData.cardholderName)
+      setCardType(cardData.cardType)
+      setCardExists(true)
+    }
+  }, [])
+
+  const resetForm = () => {
+    setCardNumber('')
+    setExpiryDate('')
+    setCvv('')
+    setCardholderName('')
+    setErrors({ cardNumber: '', expiryDate: '', cvv: '' })
+  }
+
   const detectCardType = (number: string) => {
     const cleanedNumber = number.replace(/\s/g, '')
     if (cleanedNumber.startsWith('4')) return 'Visa'
@@ -27,7 +48,6 @@ const PaymentMethods = () => {
     return null
   }
 
-  // Validate if card number is 16 digits and detect the card type
   const validateCardNumber = (number: string) => {
     const cardNumberRegex = /^[0-9]{16}$/
     const isValid = cardNumberRegex.test(number.replace(/\s/g, ''))
@@ -44,21 +64,6 @@ const PaymentMethods = () => {
     return expiryRegex.test(date)
   }
 
-  // Load card details from localStorage when the component is mounted
-  useEffect(() => {
-    const storedCard = localStorage.getItem('cardDetails')
-    if (storedCard) {
-      const cardData = JSON.parse(storedCard)
-      setCardNumber(cardData.cardNumber)
-      setExpiryDate(cardData.expiryDate)
-      setCvv(cardData.cvv)
-      setCardholderName(cardData.cardholderName)
-      setCardType(cardData.cardType)
-      setCardExists(true)
-    }
-  }, [])
-
-  // Add card and save to localStorage
   const handleAddPaymentMethod = () => {
     const validationErrors = { cardNumber: '', expiryDate: '', cvv: '' }
 
@@ -95,30 +100,41 @@ const PaymentMethods = () => {
     }
   }
 
+  const handleCancelAddCard = () => {
+    resetForm()
+    setIsAddingCard(false)
+  }
+
   const handleDeleteCard = () => {
     setIsModalVisible(true)
   }
 
   const handleConfirmDelete = () => {
-    console.log('Card Deleted')
+    localStorage.removeItem('cardDetails')
     setCardExists(false)
     setIsModalVisible(false)
-    localStorage.removeItem('cardDetails') // Remove card details from localStorage
   }
 
   const handleCancelDelete = () => {
     setIsModalVisible(false)
   }
 
-  const toggleAddNewCard = () => {
-    setIsAddingCard(!isAddingCard)
-  }
-
   return (
     <div className='payment-methods'>
       <h3>Payment Methods</h3>
 
-      {/* If a card exists and we're not adding a new one, show the card details */}
+      {!cardExists && !isAddingCard && (
+        <div className='no-card'>
+          <p>No card added</p>
+          <button
+            className='add-new-card'
+            onClick={() => setIsAddingCard(true)}
+          >
+            Add New Card
+          </button>
+        </div>
+      )}
+
       {cardExists && !isAddingCard ? (
         <div className='card-details'>
           {cardType && (
@@ -127,91 +143,104 @@ const PaymentMethods = () => {
             </p>
           )}
           <div className='card-btn-actions'>
-            {/* Delete button should only be visible if card exists */}
-            {cardExists && (
-              <button className='delete-card' onClick={handleDeleteCard}>
-                Delete card
-              </button>
-            )}
-            <button className='add-new-card' onClick={toggleAddNewCard}>
+            <button className='delete-card' onClick={handleDeleteCard}>
+              Delete card
+            </button>
+            <button
+              className='add-new-card'
+              onClick={() => setIsAddingCard(true)}
+            >
               Add New Card
             </button>
           </div>
         </div>
       ) : (
-        // If there's no card or the user is adding a new card, show the form
-        <div className='form'>
-          <div className='form-group'>
-            <label htmlFor='card-number'>Card number</label>
-            <div className='input-with-icon'>
-              <input
-                type='text'
-                id='card-number'
-                placeholder='0000 0000 0000 0000'
-                value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value)}
-              />
-              <FaCreditCard className='icon' />
-            </div>
-            {errors.cardNumber && (
-              <span className='error'>{errors.cardNumber}</span>
-            )}
-          </div>
-          <div className='form-row'>
+        isAddingCard && (
+          <div className='form'>
             <div className='form-group'>
-              <label htmlFor='expiry-date'>Expiry date</label>
+              <label htmlFor='card-number'>Card number</label>
               <div className='input-with-icon'>
                 <input
                   type='text'
-                  id='expiry-date'
-                  placeholder='MM / YY'
-                  value={expiryDate}
-                  onChange={(e) => setExpiryDate(e.target.value)}
+                  id='card-number'
+                  placeholder='0000 0000 0000 0000'
+                  value={cardNumber}
+                  onChange={(e) => setCardNumber(e.target.value)}
                 />
-                <FaCalendarAlt className='icon' />
+                <FaCreditCard className='icon' />
               </div>
-              {errors.expiryDate && (
-                <span className='error'>{errors.expiryDate}</span>
+              {errors.cardNumber && (
+                <span className='error'>{errors.cardNumber}</span>
               )}
             </div>
+
+            <div className='form-row'>
+              <div className='form-group'>
+                <label htmlFor='expiry-date'>Expiry date</label>
+                <div className='input-with-icon'>
+                  <input
+                    type='text'
+                    id='expiry-date'
+                    placeholder='MM / YY'
+                    value={expiryDate}
+                    onChange={(e) => setExpiryDate(e.target.value)}
+                  />
+                  <FaCalendarAlt className='icon' />
+                </div>
+                {errors.expiryDate && (
+                  <span className='error'>{errors.expiryDate}</span>
+                )}
+              </div>
+
+              <div className='form-group'>
+                <label htmlFor='cvv'>CVC / CVV</label>
+                <div className='input-with-icon'>
+                  <input
+                    type='text'
+                    id='cvv'
+                    placeholder='CVC / CVV'
+                    value={cvv}
+                    onChange={(e) => setCvv(e.target.value)}
+                  />
+                  <FaInfoCircle className='icon' />
+                </div>
+                {errors.cvv && <span className='error'>{errors.cvv}</span>}
+              </div>
+            </div>
+
             <div className='form-group'>
-              <label htmlFor='cvv'>CVC / CVV</label>
+              <label htmlFor='cardholder-name'>Cardholder name</label>
               <div className='input-with-icon'>
                 <input
                   type='text'
-                  id='cvv'
-                  placeholder='CVC / CVV'
-                  value={cvv}
-                  onChange={(e) => setCvv(e.target.value)}
+                  id='cardholder-name'
+                  placeholder="Enter cardholder's full name"
+                  value={cardholderName}
+                  onChange={(e) => setCardholderName(e.target.value)}
                 />
-                <FaInfoCircle className='icon' />
               </div>
-              {errors.cvv && <span className='error'>{errors.cvv}</span>}
+            </div>
+
+            <div className='button-group'>
+              <button
+                type='button'
+                className='add-payment'
+                onClick={handleAddPaymentMethod}
+              >
+                Add Payment Method
+              </button>
+              <button
+                type='button'
+                className='cancel-btn'
+                onClick={handleCancelAddCard}
+              >
+                Cancel
+              </button>
             </div>
           </div>
-          <div className='form-group'>
-            <label htmlFor='cardholder-name'>Cardholder name</label>
-            <div className='input-with-icon'>
-              <input
-                type='text'
-                id='cardholder-name'
-                placeholder="Enter cardholder's full name"
-                value={cardholderName}
-                onChange={(e) => setCardholderName(e.target.value)}
-              />
-            </div>
-          </div>
-          <button
-            type='button'
-            className='add-payment'
-            onClick={handleAddPaymentMethod}
-          >
-            Add Payment Method
-          </button>
-        </div>
+        )
       )}
 
-      {/* Modal for deleting card */}
       {isModalVisible && (
         <ProfileModal
           title='Delete Card'

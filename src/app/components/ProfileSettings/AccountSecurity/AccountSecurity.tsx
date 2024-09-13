@@ -8,54 +8,100 @@ const AccountSecurity = () => {
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isFormVisible, setIsFormVisible] = useState(false)
+  const [passwordError, setPasswordError] = useState('')
 
-  // / ACTION
+  const resetForm = () => {
+    setCurrentPassword('')
+    setNewPassword('')
+    setConfirmPassword('')
+  }
+
   const handleChangePassword = () => {
+    // Validate password
+    if (newPassword !== confirmPassword) {
+      setPasswordError('Passwords do not match.')
+      return
+    }
+    if (newPassword.length < 6) {
+      setPasswordError('Password must be at least 6 characters long.')
+      return
+    }
+    setPasswordError('')
     setIsModalVisible(true)
   }
 
   const handleConfirmChangePassword = () => {
     // Handle actual password change functionality here
     console.log('Password Changed')
+    resetForm()
     setIsModalVisible(false)
+    setIsFormVisible(false) // Hide the form after changing the password
   }
 
-  const handleCancelChangePassword = () => {
-    setIsModalVisible(false)
+  const handleCancelForm = () => {
+    resetForm()
+    setIsModalVisible(false) // Hide the modal if it's visible
+    setIsFormVisible(false) // Hide the form
   }
 
   return (
     <div className='account-security'>
       <h3>Account Security</h3>
-      <div className='form'>
-        <input
-          type='password'
-          id='current-password'
-          value={currentPassword}
-          onChange={(e) => setCurrentPassword(e.target.value)}
-          placeholder='Enter current password'
-        />
 
-        <input
-          type='password'
-          id='new-password'
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          placeholder='Enter new password'
-        />
+      {!isFormVisible ? (
+        <button
+          className='view-btn-actions'
+          onClick={() => setIsFormVisible(true)}
+        >
+          View Change Password Form
+        </button>
+      ) : (
+        <>
+          <div className='form'>
+            <input
+              type='password'
+              id='current-password'
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              placeholder='Enter current password'
+            />
 
-        <input
-          type='password'
-          id='confirm-password'
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder='Confirm new password'
-        />
-      </div>
+            <input
+              type='password'
+              id='new-password'
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder='Enter new password'
+            />
+            {newPassword && newPassword.length < 6 && (
+              <p className='helper-text'>
+                Password must be at least 6 characters long.
+              </p>
+            )}
 
-      <button className='Acc-btn' onClick={handleChangePassword}>
-        Change Password
-      </button>
+            <input
+              type='password'
+              id='confirm-password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder='Confirm new password'
+            />
+
+            {passwordError && <p className='error-text'>{passwordError}</p>}
+          </div>
+
+          <div className='button-group'>
+            <button className='save-btn' onClick={handleChangePassword}>
+              Save
+            </button>
+            <button className='cancel-btn' onClick={handleCancelForm}>
+              Cancel
+            </button>
+          </div>
+        </>
+      )}
+
       {isModalVisible && (
         <ProfileModal
           title='Change Password'
@@ -63,7 +109,7 @@ const AccountSecurity = () => {
           confirmLabel='Confirm'
           cancelLabel='Cancel'
           onConfirm={handleConfirmChangePassword}
-          onCancel={handleCancelChangePassword}
+          onCancel={handleCancelForm} // Ensures modal closes on cancel
           isVisible={isModalVisible}
         />
       )}

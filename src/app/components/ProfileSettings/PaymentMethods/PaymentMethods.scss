@@ -22,6 +22,34 @@
     }
   }
 
+  .no-card {
+    text-align: left;
+
+    button.add-new-card {
+      margin-top: 10px;
+      background: #2ecc71;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #27ae60;
+      }
+
+      /* Default width for desktop and tablet */
+      width: auto;
+
+      @media (max-width: 768px) {
+        /* Full width on mobile */
+        width: 100%;
+      }
+    }
+  }
+
   .card-details {
     display: flex;
     justify-content: space-between;
@@ -36,14 +64,13 @@
     .card-btn-actions {
       display: flex;
       gap: 10px;
-      justify-content: flex-end;
 
       .delete-card,
       .add-new-card {
         background: #e74c3c;
         color: white;
-        border: none;
         padding: 10px 15px;
+        border: none;
         border-radius: 15px;
         font-size: 0.9rem;
         cursor: pointer;
@@ -51,6 +78,11 @@
 
         &:hover {
           background-color: #d34545;
+        }
+
+        @media (max-width: 768px) {
+          /* Full width on mobile */
+          width: 100%;
         }
       }
 
@@ -77,7 +109,6 @@
       label {
         font-size: 1.1rem;
         color: #ddd;
-
         margin: 10px 0;
       }
 
@@ -119,26 +150,57 @@
     }
   }
 
-  .add-payment {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    display: block;
-    max-width: 200px;
-    padding: 10px 15px;
-    border-radius: 15px;
-    border: 1px solid #d7a86e;
-    background: transparent;
-    color: #f0f0f0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
+  .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
 
-    &:hover {
+    .add-payment {
       background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
-      color: #fff;
-      border: none;
-      padding: 11px 16px;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: white;
+        color: #74471f;
+        border: 2px solid #74471f;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        /* Full width on mobile */
+        width: 100%;
+      }
     }
+
+    .cancel-btn {
+      background: #999999;
+      padding: 10px 15px;
+      border-radius: 15px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #e5e5e5;
+        color: #734124;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        /* Full width on mobile */
+        width: 100%;
+      }
+    }
+  }
+
+  .error {
+    color: #ff6666;
+    font-size: 0.9rem;
   }
 
   /* Mobile styles */
@@ -164,10 +226,15 @@
       }
     }
 
-    .add-payment {
-      max-width: 100%;
+    .button-group {
+      flex-direction: column;
       width: 100%;
-      display: block;
+
+      .add-payment,
+      .cancel-btn {
+        width: 100%;
+        max-width: none;
+      }
     }
 
     .form-row {
@@ -189,7 +256,8 @@
         font-size: 0.9rem;
       }
 
-      .add-payment {
+      .add-payment,
+      .cancel-btn {
         font-size: 0.8rem;
         padding: 6px 8px;
       }

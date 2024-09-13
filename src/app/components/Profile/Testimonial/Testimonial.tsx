@@ -14,28 +14,55 @@ const Testimonial: FC<TestimonialProps> = ({
   onSave,
 }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(testimonial)
+  const [isEditMode, setIsEditMode] = useState(false)
 
   const handleSave = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     if (onSave) {
       onSave(currentTestimonial)
     }
+    setIsEditMode(false) // Hide the form after saving
+  }
+
+  const handleCancel = () => {
+    setCurrentTestimonial(testimonial) // Reset to the original testimonial
+    setIsEditMode(false) // Hide the form when cancel is clicked
   }
 
   return (
     <div className='testimonial'>
       <h3>Testimonial</h3>
+
       {isEditable ? (
-        <div className='testimonial-edit'>
-          <textarea
-            value={currentTestimonial}
-            onChange={(e) => setCurrentTestimonial(e.target.value)}
-            placeholder='Write your testimonial...'
-          />
-          <button type='button' className='save-button' onClick={handleSave}>
-            Save
+        isEditMode ? (
+          <div className='testimonial-edit'>
+            <textarea
+              value={currentTestimonial}
+              onChange={(e) => setCurrentTestimonial(e.target.value)}
+              placeholder='Write your testimonial...'
+            />
+            <div className='button-group'>
+              <button type='button' className='save-btn' onClick={handleSave}>
+                Save
+              </button>
+              <button
+                type='button'
+                className='cancel-btn'
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            type='button'
+            className='edit-btn'
+            onClick={() => setIsEditMode(true)}
+          >
+            Edit Testimonial
           </button>
-        </div>
+        )
       ) : (
         <p>{testimonial}</p>
       )}

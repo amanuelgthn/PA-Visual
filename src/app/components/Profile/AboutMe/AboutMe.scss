@@ -31,6 +31,24 @@
     margin-top: 15px;
   }
 
+  .edit-button {
+    padding: 10px 20px;
+    border-radius: 15px;
+    background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    margin-top: 20px;
+
+    &:hover {
+      background: white;
+      color: #74471f;
+      border: 2px solid #74471f;
+    }
+  }
+
   .about-me-edit {
     display: flex;
     flex-direction: column;
@@ -54,24 +72,40 @@
       }
     }
 
-    .save-button {
-      width: 150px;
-      display: block;
-      padding: 10px 15px;
-      background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
-      box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
-      border-radius: 15px;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: all background-color 0.3s ease;
+    .button-group {
+      display: flex;
+      gap: 10px;
 
-      &:hover {
-        background: white;
-        padding: 8px 15px;
-        color: #74471f;
-        border: 2px solid #74471f;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      .save-button,
+      .cancel-button {
+        width: 150px;
+        padding: 10px 15px;
+        border-radius: 15px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .save-button {
+        background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+          background: white;
+          color: #74471f;
+          border: 2px solid #74471f;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      .cancel-button {
+        background: #999;
+        &:hover {
+          background: #e5e5e5;
+          color: #74471f;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
       }
     }
   }
@@ -93,10 +127,18 @@
         height: 120px;
       }
 
-      .save-button {
-        width: 100%;
-        padding: 8px;
+      .button-group {
+        flex-direction: column;
+
+        .save-button,
+        .cancel-button {
+          width: 100%;
+        }
       }
+    }
+
+    .edit-button {
+      width: 100%;
     }
   }
 
@@ -115,10 +157,18 @@
         height: 100px;
       }
 
-      .save-button {
-        padding: 6px 8px;
-        font-size: 0.9rem;
+      .button-group {
+        .save-button,
+        .cancel-button {
+          padding: 6px 8px;
+          font-size: 0.9rem;
+        }
       }
+    }
+
+    .edit-button {
+      padding: 8px 10px;
+      font-size: 0.9rem;
     }
   }
 }

@@ -14,6 +14,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   onSave,
 }) => {
   const [aboutMeText, setAboutMeText] = useState<string>(aboutMe)
+  const [isEditing, setIsEditing] = useState<boolean>(false) // State to control the editing mode
 
   // Sync internal state with props when aboutMe prop changes
   useEffect(() => {
@@ -24,25 +25,47 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     if (onSave) {
       onSave(aboutMeText)
     }
+    setIsEditing(false) // Exit editing mode after saving
+  }
+
+  const handleCancel = () => {
+    setAboutMeText(aboutMe) // Revert to original aboutMe text on cancel
+    setIsEditing(false) // Exit editing mode
+  }
+
+  const handleEdit = () => {
+    setIsEditing(true) // Enter editing mode
   }
 
   return (
     <div className='about-me'>
       <h3>About Me</h3>
-      {isEditable ? (
+      {/* Only show the "Edit" button in edit mode and when not editing */}
+      {isEditable && !isEditing && (
+        <button className='edit-button' onClick={handleEdit}>
+          Edit About Me
+        </button>
+      )}
+      {/* Show the text area and save/cancel buttons when editing */}
+      {isEditable && isEditing && (
         <div className='about-me-edit'>
           <textarea
             value={aboutMeText}
             onChange={(e) => setAboutMeText(e.target.value)}
             placeholder='Tell us about yourself...'
           />
-          <button className='save-button' onClick={handleSave}>
-            Save
-          </button>
+          <div className='button-group'>
+            <button className='save-button' onClick={handleSave}>
+              Save
+            </button>
+            <button className='cancel-button' onClick={handleCancel}>
+              Cancel
+            </button>
+          </div>
         </div>
-      ) : (
-        <p>{aboutMeText}</p>
       )}
+      {/* Show the About Me content when not in edit mode */}
+      {!isEditable && <p>{aboutMeText}</p>}
     </div>
   )
 }
