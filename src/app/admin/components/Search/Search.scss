@@ -1,0 +1,43 @@
+.custom-input .ant-input {
+    background: var(--DARK-GREEN, rgba(42, 46, 48, 1)) !important;
+    border: none !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 16.94px !important;
+    letter-spacing: 0.15000000596046448px !important;
+    text-align: left !important;
+    color: rgba(168, 168, 168, 1) !important;
+    padding: 10px 0 !important;
+    border: 0.25px solid var(--Neutral-Color, rgba(51, 51, 51, 1)) !important;
+
+    &::placeholder {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 16.94px !important;
+        letter-spacing: 0.15000000596046448px !important;
+        text-align: left !important;
+        color: rgba(168, 168, 168, 1) !important;
+    }
+
+    &:focus {
+        background: var(--DARK-GREEN, rgba(42, 46, 48, 1)) !important;
+    }
+
+    &:hover {
+        background: var(--DARK-GREEN, rgba(42, 46, 48, 1)) !important;
+    }
+}
+
+.custom-input .ant-input-prefix,
+.custom-input .ant-input-suffix {
+    color: rgba(168, 168, 168, 1) !important;
+
+}
+
+:where(.css-dev-only-do-not-override-d2lrxs).ant-input-affix-wrapper {
+    background: var(--DARK-GREEN, rgba(42, 46, 48, 1)) !important;
+    border: none !important;
+    border: 0.25px solid var(--Neutral-Color, rgba(51, 51, 51, 1)) !important;
+}

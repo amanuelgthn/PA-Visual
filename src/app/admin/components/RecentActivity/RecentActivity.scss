@@ -1,0 +1,93 @@
+.activity-wraper {
+    width: 529px;
+    height: 299px;
+    border-radius: 20px;
+    opacity: 0px;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--DARK-GREEN, rgba(42, 46, 48, 1));
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    .title-button {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        .view-all {
+            font-family: "Montserrat", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 14.63px;
+            text-align: left;
+            background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            &:hover {
+                background: white;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+
+        h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 24.38px;
+            text-align: left;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+        }
+    }
+
+
+
+    .activity {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+
+
+        .activity-info {
+            h3 {
+                //styleName: 2;
+                font-family: "Montserrat", sans-serif;
+                font-size: 18.13px;
+                font-weight: 400;
+                line-height: 27.24px;
+                text-align: left;
+                color: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+
+                }
+            }
+
+            p {
+                font-family: "Montserrat", sans-serif;
+                font-size: 12.19px;
+                font-weight: 400;
+                line-height: 13px;
+                text-align: left;
+                color: var(--DARK-GREY, rgba(130, 130, 130, 1));
+            }
+        }
+
+        .activity-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 10px;
+        }
+
+    }
+}
