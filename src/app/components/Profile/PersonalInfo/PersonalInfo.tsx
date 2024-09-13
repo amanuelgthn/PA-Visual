@@ -37,8 +37,8 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
     personalInfo.languages || [],
   )
   const [isPublic, setIsPublic] = useState<boolean>(initialIsPublic)
+  const [isEditMode, setIsEditMode] = useState<boolean>(false)
 
-  // Avoid updating isPublic in a way that leads to re-render loops
   useEffect(() => {
     if (initialIsPublic !== isPublic && onTogglePublic) {
       onTogglePublic(isPublic)
@@ -49,58 +49,93 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
     if (onSave) {
       onSave({ name, email, phone, location, languages })
     }
+    setIsEditMode(false)
+  }
+
+  const handleCancel = () => {
+    setName(personalInfo.name)
+    setEmail(personalInfo.email)
+    setPhone(personalInfo.phone)
+    setLocation(personalInfo.location)
+    setLanguages(personalInfo.languages || [])
+    setIsEditMode(false)
   }
 
   return (
     <div className='personal-info'>
-      {isEditable || isPublic ? (
+      {/* Show the header and personal info when:
+          - isEditable is true (Profile Settings)
+          - OR isPublic is true (Profile Page)
+      */}
+      {(isEditable || isPublic) && (
         <>
           <h3>Personal Information</h3>
-          {isEditable ? (
-            <div className='edit-items'>
-              <div className='publicToggle-btn'>
-                <span>{isPublic ? 'Public' : 'Private'}</span>
-                <input
-                  type='checkbox'
-                  checked={isPublic}
-                  onChange={() => setIsPublic(!isPublic)}
-                  className='toggle-switch'
-                />
-              </div>
-              <div className='edit-details'>
-                <input
-                  type='text'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder='Name'
-                />
-                <input
-                  type='text'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder='Email'
-                />
-                <input
-                  type='text'
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder='Phone'
-                />
-                <input
-                  type='text'
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  placeholder='Location'
-                />
-                <input
-                  type='text'
-                  value={languages.join(', ')}
-                  onChange={(e) => setLanguages(e.target.value.split(', '))}
-                  placeholder='Languages (comma-separated)'
-                />
-              </div>
-              <button onClick={handleSave}>Save</button>
+
+          {/* Public/Private toggle only in profile settings and placed below the header */}
+          {isEditable && (
+            <div className='publicToggle-btn'>
+              <span>{isPublic ? 'Public' : 'Private'}</span>
+              <input
+                type='checkbox'
+                checked={isPublic}
+                onChange={() => setIsPublic(!isPublic)}
+                className='toggle-switch'
+              />
             </div>
+          )}
+
+          {isEditable ? (
+            isEditMode ? (
+              <div className='edit-items'>
+                <div className='edit-details'>
+                  <input
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder='Name'
+                  />
+                  <input
+                    type='text'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder='Email'
+                  />
+                  <input
+                    type='text'
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder='Phone'
+                  />
+                  <input
+                    type='text'
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    placeholder='Location'
+                  />
+                  <input
+                    type='text'
+                    value={languages.join(', ')}
+                    onChange={(e) => setLanguages(e.target.value.split(', '))}
+                    placeholder='Languages (comma-separated)'
+                  />
+                </div>
+                <div className='button-group'>
+                  <button className='save-button' onClick={handleSave}>
+                    Save
+                  </button>
+                  <button className='cancel-button' onClick={handleCancel}>
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                className='edit-button'
+                onClick={() => setIsEditMode(true)}
+              >
+                Edit Details
+              </button>
+            )
           ) : (
             <>
               <p>
@@ -121,7 +156,7 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
             </>
           )}
         </>
-      ) : null}
+      )}
     </div>
   )
 }

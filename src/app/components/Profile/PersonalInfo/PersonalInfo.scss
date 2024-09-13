@@ -20,25 +20,18 @@
     }
   }
 
-  /* Styling for inputs when editing */
-  .edit-items {
+  /* Public/Private toggle */
+  .publicToggle-btn {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
 
-    .publicToggle-btn {
-      margin-top: 20px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-bottom: 10px;
-
-      span {
-        margin-right: 10px;
-      }
+    span {
+      margin-right: 10px;
     }
 
-    /* Public toggle switch */
     .toggle-switch {
       width: 60px;
       height: 30px;
@@ -70,6 +63,13 @@
         transform: translateX(28px);
       }
     }
+  }
+
+  /* Edit mode styling */
+  .edit-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
     .edit-details {
       display: grid;
@@ -92,25 +92,57 @@
       }
     }
 
-    button {
-      max-width: 150px;
-      display: block;
-      //   margin-top: 10px;
-      padding: 10px 15px;
-      background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
-      box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
-      border-radius: 15px;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: all background-color 0.3s ease;
+    .button-group {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
 
-      &:hover {
-        background: white;
-        padding: 8px 15px;
-        color: #74471f;
-        border: 2px solid #74471f;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      /* Save Button */
+      .save-button {
+        padding: 10px 15px;
+        background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all background-color 0.3s ease;
+
+        &:hover {
+          background: white;
+          color: #74471f;
+          border: 2px solid #74471f;
+        }
+      }
+
+      /* Cancel Button */
+      .cancel-button {
+        background: #999999 !important;
+        padding: 10px 20px;
+        border-radius: 15px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #e5e5e5 !important;
+          color: #734124 !important;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+      }
+    }
+
+    /* Mobile responsive buttons */
+    @media (max-width: 768px) {
+      .button-group {
+        flex-direction: column;
+        width: 100%;
+
+        button {
+          width: 100%; /* Ensure full width for buttons on mobile */
+          max-width: none; /* Remove max-width */
+        }
       }
     }
   }
@@ -128,6 +160,29 @@
 
   p:first-of-type {
     margin-top: 18px;
+  }
+
+  /* Edit button styling (using the same style as Save button) */
+  .edit-button {
+    padding: 10px 15px;
+    background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all background-color 0.3s ease;
+
+    &:hover {
+      background: white;
+      color: #74471f;
+      border: 2px solid #74471f;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: none;
+    }
   }
 
   /* Mobile responsive styles */
