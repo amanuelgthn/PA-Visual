@@ -14,7 +14,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   onSave,
 }) => {
   const [aboutMeText, setAboutMeText] = useState<string>(aboutMe)
-  const [isEditing, setIsEditing] = useState<boolean>(false) // State to control the editing mode
+  const [isEditing, setIsEditing] = useState<boolean>(false)
 
   // Sync internal state with props when aboutMe prop changes
   useEffect(() => {
@@ -25,16 +25,16 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     if (onSave) {
       onSave(aboutMeText)
     }
-    setIsEditing(false) // Exit editing mode after saving
+    setIsEditing(false)
   }
 
   const handleCancel = () => {
-    setAboutMeText(aboutMe) // Revert to original aboutMe text on cancel
-    setIsEditing(false) // Exit editing mode
+    setAboutMeText(aboutMe)
+    setIsEditing(false)
   }
 
   const handleEdit = () => {
-    setIsEditing(true) // Enter editing mode
+    setIsEditing(true)
   }
 
   return (
