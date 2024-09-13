@@ -60,11 +60,11 @@ export const Header: React.FC<HeaderProps> = ({
 
   const handleConfirmDelete = () => {
     console.log('Account deleted')
-    setIsModalVisible(false) // Close the modal after confirming the delete
+    setIsModalVisible(false)
   }
 
   const handleCancelDelete = () => {
-    setIsModalVisible(false) // Close the modal if the user cancels
+    setIsModalVisible(false)
   }
 
   return (
@@ -123,7 +123,7 @@ export const Header: React.FC<HeaderProps> = ({
           </>
         ) : (
           <>
-            <button onClick={handleDeleteAccount} className='delete-button'>
+            <button onClick={handleDeleteAccount} className='delete-button-s'>
               DELETE ACCOUNT
             </button>
             {/* Modal for confirming account deletion */}

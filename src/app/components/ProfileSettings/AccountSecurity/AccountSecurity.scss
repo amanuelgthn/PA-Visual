@@ -4,23 +4,24 @@
   padding: 20px 0;
   width: 100%;
 
-  /* View Button */
   .view-btn-actions {
+    width: auto;
+    box-sizing: border-box;
     margin-top: 20px;
     padding: 10px 15px;
-    background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+    background: linear-gradient(111.44deg, #74471f 11%, #c98e59 98.18%);
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     color: white;
-    border: none;
+    border: 2px solid #986335;
     cursor: pointer;
-    transition: all background-color 0.3s ease;
-    width: auto;
+    transition: all 0.3s ease;
+    font-size: 1rem;
 
     &:hover {
       background: white;
-      color: #74471f;
-      border: 2px solid #74471f;
+      color: #986335;
+      border: 2px solid #986335;
     }
   }
 
@@ -84,24 +85,27 @@
 
     /* Save Button */
     .save-btn {
+      width: 150px;
+      box-sizing: border-box;
       padding: 10px 15px;
-      background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+      background: linear-gradient(111.44deg, #74471f 11%, #c98e59 98.18%);
       box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
       border-radius: 15px;
       color: white;
-      border: none;
+      border: 2px solid #986335;
       cursor: pointer;
       transition: all background-color 0.3s ease;
 
       &:hover {
         background: white;
-        color: #74471f;
-        border: 2px solid #74471f;
+        color: #986335;
+        border: 2px solid #986335;
       }
     }
 
     /* Cancel Button */
     .cancel-btn {
+      width: 150px;
       background: #999999;
       padding: 10px 15px;
       border-radius: 15px;
@@ -112,7 +116,7 @@
 
       &:hover {
         background-color: #e5e5e5;
-        color: #734124;
+        color: #986335;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
     }
@@ -124,19 +128,18 @@
       flex-direction: column;
       width: 100%;
 
-      button {
-        width: 100%; /* Ensure full width for buttons on mobile */
-        max-width: none;
+      .save-btn,
+      .cancel-btn,
+      .view-btn-actions {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.9rem;
+        padding: 8px 10px;
       }
     }
 
-    .save-btn,
-    .cancel-btn,
     .view-btn-actions {
-      width: 100%; /* Ensure full width */
-      max-width: none;
-      font-size: 0.9rem;
-      padding: 8px 10px;
+      width: 100%;
     }
   }
 
@@ -154,7 +157,7 @@
       .save-btn,
       .cancel-btn,
       .view-btn-actions {
-        width: 100%; /* Full width on very small screens */
+        width: 100%;
         font-size: 0.8rem;
         padding: 6px 8px;
       }

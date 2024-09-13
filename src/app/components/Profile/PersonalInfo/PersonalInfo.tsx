@@ -63,10 +63,6 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
 
   return (
     <div className='personal-info'>
-      {/* Show the header and personal info when:
-          - isEditable is true (Profile Settings)
-          - OR isPublic is true (Profile Page)
-      */}
       {(isEditable || isPublic) && (
         <>
           <h3>Personal Information</h3>
@@ -133,7 +129,7 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
                 className='edit-button'
                 onClick={() => setIsEditMode(true)}
               >
-                Edit Details
+                Update Profile
               </button>
             )
           ) : (

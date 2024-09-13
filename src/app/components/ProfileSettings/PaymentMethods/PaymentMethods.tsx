@@ -92,7 +92,7 @@ const PaymentMethods = () => {
         cardType: detectCardType(cardNumber),
       }
 
-      localStorage.setItem('cardDetails', JSON.stringify(cardData)) // Save card details in localStorage
+      localStorage.setItem('cardDetails', JSON.stringify(cardData))
       setCardExists(true)
       setIsAddingCard(false)
     } else {

@@ -40,11 +40,8 @@
         background-color: #27ae60;
       }
 
-      /* Default width for desktop and tablet */
       width: auto;
-
       @media (max-width: 768px) {
-        /* Full width on mobile */
         width: 100%;
       }
     }
@@ -158,6 +155,7 @@
     .add-payment {
       background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
       color: white;
+      border: 2px solid #986335;
       padding: 10px 15px;
       border-radius: 15px;
       cursor: pointer;
@@ -165,8 +163,8 @@
 
       &:hover {
         background: white;
-        color: #74471f;
-        border: 2px solid #74471f;
+        color: #986335;
+        border: 2px solid #986335;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
 
@@ -177,6 +175,7 @@
     }
 
     .cancel-btn {
+      width: 150px;
       background: #999999;
       padding: 10px 15px;
       border-radius: 15px;
@@ -187,7 +186,7 @@
 
       &:hover {
         background-color: #e5e5e5;
-        color: #734124;
+        color: #986335;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
 

@@ -36,13 +36,13 @@ const AccountSecurity = () => {
     console.log('Password Changed')
     resetForm()
     setIsModalVisible(false)
-    setIsFormVisible(false) // Hide the form after changing the password
+    setIsFormVisible(false)
   }
 
   const handleCancelForm = () => {
     resetForm()
-    setIsModalVisible(false) // Hide the modal if it's visible
-    setIsFormVisible(false) // Hide the form
+    setIsModalVisible(false)
+    setIsFormVisible(false)
   }
 
   return (

@@ -20,7 +20,6 @@
     }
   }
 
-  /* Public/Private toggle */
   .publicToggle-btn {
     display: flex;
     justify-content: flex-end;
@@ -65,7 +64,6 @@
     }
   }
 
-  /* Edit mode styling */
   .edit-items {
     display: flex;
     flex-direction: column;
@@ -97,26 +95,26 @@
       gap: 10px;
       justify-content: flex-start;
 
-      /* Save Button */
       .save-button {
+        width: 150px;
         padding: 10px 15px;
         background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
         border-radius: 15px;
         color: white;
-        border: none;
+        border: 2px solid #986335;
         cursor: pointer;
         transition: all background-color 0.3s ease;
 
         &:hover {
           background: white;
-          color: #74471f;
-          border: 2px solid #74471f;
+          color: #986335;
+          border: 2px solid #986335;
         }
       }
 
-      /* Cancel Button */
       .cancel-button {
+        width: 150px;
         background: #999999 !important;
         padding: 10px 20px;
         border-radius: 15px;
@@ -127,7 +125,7 @@
 
         &:hover {
           background-color: #e5e5e5 !important;
-          color: #734124 !important;
+          color: #986335 !important;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
         }
       }
@@ -139,15 +137,14 @@
         flex-direction: column;
         width: 100%;
 
-        button {
-          width: 100%; /* Ensure full width for buttons on mobile */
-          max-width: none; /* Remove max-width */
+        .save-button,
+        .cancel-button {
+          width: 100%;
         }
       }
     }
   }
 
-  /* Non-edit mode styling */
   p {
     font-size: 1.1rem;
     margin-bottom: 8px;
@@ -162,21 +159,21 @@
     margin-top: 18px;
   }
 
-  /* Edit button styling (using the same style as Save button) */
   .edit-button {
+    margin-top: 10px;
     padding: 10px 15px;
     background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
     box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     color: white;
-    border: none;
+    border: 2px solid #986335;
     cursor: pointer;
     transition: all background-color 0.3s ease;
-
+    font-size: 1rem;
     &:hover {
       background: white;
-      color: #74471f;
-      border: 2px solid #74471f;
+      color: #986335;
+      border: 2px solid #986335;
     }
 
     @media (max-width: 768px) {
@@ -205,6 +202,11 @@
         width: 100%;
         text-align: center;
       }
+    }
+
+    .save-button,
+    .cancel-button {
+      width: 100%;
     }
 
     p {
