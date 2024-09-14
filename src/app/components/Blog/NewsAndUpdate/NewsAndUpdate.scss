@@ -1,0 +1,271 @@
+.news-update-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(116, 113, 113, 0.6) 0%, rgba(0, 0, 0, 0.6) 74.5%);
+
+    .news-title {
+        font-family: Montserrat;
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 55.9px;
+        text-align: center;
+        color: rgba(255, 252, 252, 1);
+        padding: 40px;
+
+    }
+
+    .carousel-container {
+        width: 100%;
+        padding-bottom: 0.5;
+    }
+
+    .buttons-position {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 5rem;
+    }
+
+    .buttons-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        border-radius: 12px;
+        background: rgba(245, 245, 245, 1);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+        padding: 7px;
+
+        .news-button {
+            background: var(--DARK-GREY, rgba(130, 130, 130, 1));
+            border-radius: 8px;
+            font-family: DM Sans;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+        }
+
+        .blog-button {
+            background: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+            font-family: DM Sans;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-align: left;
+            color: var(--DARK-GREY, rgba(130, 130, 130, 1));
+        }
+
+        .events-button {
+            background: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+            font-family: DM Sans;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-align: left;
+            color: var(--DARK-GREY, rgba(130, 130, 130, 1));
+        }
+    }
+
+    .insight-wrapper {
+        padding: 5rem;
+
+        .expert-insight-title {
+            font-family: Montserrat;
+            font-size: 60px;
+            font-weight: 800;
+            line-height: 55.9px;
+            text-align: center;
+            color: rgba(255, 252, 252, 1);
+            padding: 40px;
+        }
+
+        .insight-p {
+            font-family: Montserrat;
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+            padding: 40px;
+        }
+    }
+
+    .featured-properties {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 5rem 20rem 5rem 20rem;
+        text-align: center;
+
+        h1 {
+            font-family: Montserrat;
+            font-size: 43px;
+            font-weight: 600;
+            line-height: 55.9px;
+            letter-spacing: 6px;
+            text-align: center;
+            color: rgba(242, 242, 242, 1);
+        }
+
+        p {
+            font-family: Montserrat;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 25.6px;
+            letter-spacing: 1px;
+            text-align: justified;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .featured-properties-button {
+            font-family: DM Sans;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 23.32px;
+            letter-spacing: 1.399999976158142px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+            border: 3px solid;
+            background: linear-gradient(155.73deg, #74471F 20.4%, #C98E59 197.04%);
+            cursor: pointer;
+            border: none;
+            padding: 1.4rem;
+        }
+    }
+
+    .blog-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 5rem 20rem 5rem 20rem;
+
+
+
+        h1 {
+            font-family: Montserrat;
+            font-size: 43px;
+            font-weight: 600;
+            line-height: 55.9px;
+            letter-spacing: 6px;
+            text-align: center;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        p {
+            font-family: Montserrat;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 25.6px;
+            letter-spacing: 1px;
+            text-align: justified;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+        }
+
+        .contact-us-button {
+            font-family: DM Sans;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 23.32px;
+            letter-spacing: 1.399999976158142px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+            border: 3px solid;
+            background: linear-gradient(155.73deg, #74471F 20.4%, #C98E59 197.04%);
+            cursor: pointer;
+            border: none;
+            padding: 1.4rem;
+
+        }
+    }
+
+    .divider {
+        width: 10%;
+
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .news-update-section {
+        .news-title {
+            font-size: 25px;
+        }
+
+        .buttons-position {
+            padding: 0 1rem;
+            width: 100%;
+
+            .buttons-wrapper {
+                width: 100%;
+
+                button {
+                    width: 50%;
+                }
+            }
+        }
+
+        .insight-wrapper {
+            padding: 0;
+
+            .expert-insight-title {
+                font-size: 25px;
+            }
+
+            .insight-p {
+                font-size: 20px;
+            }
+        }
+
+        .featured-properties {
+            padding: 1rem;
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .featured-properties-button {
+                width: 100%;
+                padding: 1.2rem;
+                border: none
+            }
+        }
+
+        .blog-footer {
+            padding: 1rem;
+
+            h1 {
+                font-size: 18px;
+
+            }
+
+            p {
+                text-align: center;
+                font-size: 16px;
+            }
+
+            .contact-us-button {
+                width: 100%;
+                padding: 1.2rem;
+                border: none
+            }
+        }
+    }
+
+
+
+
+}

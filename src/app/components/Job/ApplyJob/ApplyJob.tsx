@@ -5,9 +5,19 @@ import { ApplyJobForm } from './ApplyJobForm/ApplyJobForm'
 
 type ApplyJobProps = {
   isOpen: boolean
+  jobTitle: string
+  jobOverview: string
+  jobId: string
+  onClose: () => void
 }
 
-const ApplyJob = ({ isOpen }: ApplyJobProps) => {
+const ApplyJob = ({
+  isOpen,
+  onClose,
+  jobId,
+  jobOverview,
+  jobTitle,
+}: ApplyJobProps) => {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -18,14 +28,13 @@ const ApplyJob = ({ isOpen }: ApplyJobProps) => {
     return null
   }
   return (
-    <div>
-      <JobModal isOpen={isOpen} width={800}>
-        <ApplyJobForm
-          jobTitle='Property Manager'
-          jobOverview='Manage high-end properties in the heart of Manhattan as part of our dynamic Residential Properties team in New York.'
-        />
-      </JobModal>
-    </div>
+    <JobModal onClose={onClose} isOpen={isOpen} width={800}>
+      <ApplyJobForm
+        jobTitle={jobTitle}
+        jobOverview={jobOverview}
+        jobId={jobId}
+      />
+    </JobModal>
   )
 }
 
