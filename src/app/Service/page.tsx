@@ -1,24 +1,28 @@
 import React from 'react'
-import Acquisitions from '../components/Service/Acquisitions/Acquisitions.tsx'
-import Architecture from '../components/Service/Architecture/Architecture.tsx'
-import OurServices from '../components/Service/OurServices/OurServices.tsx'
-import RealEstate from '../components/Service/RealEstate/RealEstate.tsx'
-import Relocation from '../components/Service/Relocation/Relocation.tsx'
-import Management from '../components/Service/Management/Management.tsx'
+import Acquisitions from '../components/Service/Acquisitions/Acquisitions'
+import Architecture from '../components/Service/Architecture/Architecture'
+import OurServices from '../components/Service/OurServices/OurServices'
+import RealEstate from '../components/Service/RealEstate/RealEstate'
+import Relocation from '../components/Service/Relocation/Relocation'
+import Management from '../components/Service/Management/Management'
 import './Services.css'
-import Testimonials from '../components/Service/Testimonials/Testimonials.tsx'
-import Trademark from '../components/Service/Trademark/Trademark.tsx'
+import Testimonials from '../components/Service/Testimonials/Testimonials'
+import Trademark from '../components/Service/Trademark/Trademark'
 
 const Service = () => (
   <div className='Service-Page-container'>
-    <OurServices />
-    <Acquisitions />
-    <RealEstate />
-    <Architecture />
-    <Management />
-    <Relocation />
-    <Testimonials />
-    <Trademark />
+    <div className='wrapper'>
+      <div className='wrapper-assist'>
+        <OurServices />
+        <Acquisitions />
+        <RealEstate />
+        <Architecture />
+        <Management />
+        <Relocation />
+        <Testimonials />
+        <Trademark />
+      </div>
+    </div>
   </div>
 )
 

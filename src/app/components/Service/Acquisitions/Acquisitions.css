@@ -11,14 +11,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3em;
     color: rgba(143, 177, 191, 1);
     text-align: center;
 }
 
 .acquisitions {
     background: transparent;
-    max-width: 75em;
     width: 100%;
 }
 
