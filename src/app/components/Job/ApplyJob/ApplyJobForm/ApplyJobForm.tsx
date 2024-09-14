@@ -8,9 +8,15 @@ import TextArea from 'antd/es/input/TextArea'
 type ApplyJobFormProps = {
   jobTitle: string
   jobOverview: string
+  jobId: string
 }
 
-export const ApplyJobForm = ({ jobOverview, jobTitle }: ApplyJobFormProps) => {
+export const ApplyJobForm = ({
+  jobOverview,
+  jobTitle,
+  jobId,
+}: ApplyJobFormProps) => {
+  console.log('jobid', jobId)
   return (
     <div className='apply-job-form'>
       <h2>Apply for {jobTitle}</h2>
