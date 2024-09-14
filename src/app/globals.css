@@ -71,3 +71,9 @@ html {
   width: 1400px;
   padding: 50px 0;
 }
+@media (max-width:1400px) {
+  .wrapper-assist{
+    width: 100%;
+    padding: 50px 20px;
+  }
+}
