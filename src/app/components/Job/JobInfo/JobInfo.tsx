@@ -1,6 +1,5 @@
 import React from 'react'
 import './JobInfo.scss'
-import { Button } from 'antd'
 
 type JobInfoProps = {
   jobInfo: {
@@ -10,7 +9,10 @@ type JobInfoProps = {
     jobSchedule: string
     joblocation: string
     jobPayRange: string
+    jobTitle: string
+    jobOverview: string
   }
+  onClose: () => void
 }
 
 const JobInfo = ({ jobInfo }: JobInfoProps) => {
@@ -45,11 +47,6 @@ const JobInfo = ({ jobInfo }: JobInfoProps) => {
           <div className='value'>{jobDetail.value}</div>
         </div>
       ))}
-      <span className='button-span'>
-        <Button type='primary' className='apply-button'>
-          Apply Now
-        </Button>
-      </span>
     </main>
   )
 }
