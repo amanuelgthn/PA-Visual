@@ -8,7 +8,7 @@
 
     .join-span {
         p {
-            font-family: Montserrat !important;
+            font-family: "Montserrat", sans-serif;
             font-size: 20px;
             font-weight: 500;
             line-height: 18px;
@@ -37,7 +37,7 @@
         }
 
         h3 {
-            font-family: Montserrat !important;
+            font-family: "Montserrat", sans-serif;
             font-size: 30px;
             font-weight: 700;
             line-height: 42px;
@@ -69,7 +69,7 @@
     }
 
     h2 {
-        font-family: DM Sans !important;
+        font-family: " DM Sans", sans-serif;
         font-size: 32px;
         font-weight: 700;
         line-height: 29px;
@@ -157,7 +157,7 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        font-family: DM Sans !important;
+        font-family: "DM Sans", sans-serif;
         font-size: 16px;
         font-weight: 400;
         line-height: 20.83px;
@@ -197,7 +197,7 @@
 .apply-linkeden {
     box-shadow: 0px 0px 4px 0px #00000040;
     background: #4F5CFD;
-    font-family: Montserrat !important;
+    font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 42px;
@@ -227,7 +227,7 @@
 
 
     .ant-input[type='file'] {
-        font-family: Montserrat !important;
+        font-family: "Montserrat", sans-serif;
         font-size: 14px;
         font-weight: 500;
         line-height: 23px;
@@ -236,7 +236,7 @@
         border: 2px solid #d9d9d9;
 
         &::file-selector-button {
-            font-family: Montserrat !important;
+            font-family: "Montserrat", sans-serif;
             font-size: 14px;
             font-weight: 500;
             line-height: 23px;
