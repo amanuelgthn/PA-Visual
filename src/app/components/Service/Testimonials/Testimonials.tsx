@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image' // Using Next.js Image component
 import image1 from '../../../../../public/Service/Person1.png'
 import image2 from '../../../../../public/Service/Person2.png'
 import image3 from '../../../../../public/Service/Person3.png'
@@ -46,12 +47,13 @@ const Testimonials = () => {
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [animate, setAnimate] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
 
   const triggerAnimation = () => {
-    setAnimate(true)
-    setTimeout(() => setAnimate(false), 5000)
+    setIsAnimating(true)
+    setTimeout(() => setIsAnimating(false), 1000)
   }
+
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? quotes.length - 1 : prevIndex - 1,
@@ -65,68 +67,77 @@ const Testimonials = () => {
     )
     triggerAnimation()
   }
-  // Auto-slide every 5 seconds
+
   useEffect(() => {
-    const intervalId = setInterval(handleNext, 5000) // Change every 5 seconds
-    return () => clearInterval(intervalId) // Cleanup the interval on component unmount
+    const autoSlideInterval = 5000
+    const intervalId = setInterval(() => {
+      handleNext()
+    }, autoSlideInterval)
+
+    return () => clearInterval(intervalId)
   }, [currentIndex])
 
-  // Calculate the three visible images around the current index
+  const handleThumbnailClick = (index: number) => {
+    setCurrentIndex(index)
+    triggerAnimation()
+  }
+
   const visibleImages = [
-    quotes[(currentIndex - 1 + quotes.length) % quotes.length], // Image to the left
-    quotes[currentIndex], // Active image in the middle
-    quotes[(currentIndex + 1) % quotes.length], // Image to the right
+    quotes[(currentIndex - 1 + quotes.length) % quotes.length],
+    quotes[currentIndex],
+    quotes[(currentIndex + 1) % quotes.length],
   ]
 
   return (
-    <>
-      <div className='testimonials-container'>
-        <div className='testimonials-title-container'>
-          <h1 className='testimonials-title'>CLIENT TESTIMONIALS</h1>
-        </div>
-        <div
-          className={`testimonials-body ${animate ? 'fade-in' : 'fade-out'}`}
-        >
-          <p>{quotes[currentIndex].text}</p>
-          <p>Outcome: {quotes[currentIndex].outcome}</p>
-        </div>
-        <div
-          className={`testimonials-owner ${animate ? 'fade-in' : 'fade-out'}`}
-        >
-          <h1 className='testimonials-owner-title'>
-            {quotes[currentIndex].name}
-          </h1>
-        </div>
-        <div className='testimonials-thumbnail'>
-          <div
-            className={`testimonials-owner-image ${animate ? 'fade-in' : 'fade-out'}`}
-          >
-            {visibleImages.map((quote, index) => (
-              <img
-                id='testimonials-image'
-                key={index}
-                src={quote.image.src}
-                className={index === 1 ? 'active' : ''}
-                onClick={() =>
-                  setCurrentIndex(
-                    (currentIndex + index - 1 + quotes.length) % quotes.length,
-                  )
-                }
-                alt='testimonials-image'
+    <div className='testimonials-container'>
+      <div className='testimonials-title-container'>
+        <h1 className='testimonials-title'>CLIENT TESTIMONIALS</h1>
+      </div>
+
+      <div className={`testimonials-body ${isAnimating ? 'fade-in' : ''}`}>
+        <p>{quotes[currentIndex].text}</p>
+        <p>Outcome: {quotes[currentIndex].outcome}</p>
+      </div>
+
+      <div className={`testimonials-owner ${isAnimating ? 'fade-in' : ''}`}>
+        <h1 className='testimonials-owner-title'>
+          {quotes[currentIndex].name}
+        </h1>
+      </div>
+
+      <div className='testimonials-thumbnail'>
+        <div className='testimonials-owner-image'>
+          {visibleImages.map((quote, index) => (
+            <div
+              key={index}
+              className={`testimonial-thumbnail-item ${index === 1 ? 'active' : ''}`}
+              onClick={() =>
+                handleThumbnailClick(
+                  (currentIndex + index - 1 + quotes.length) % quotes.length,
+                )
+              }
+            >
+              <Image
+                src={quote.image}
+                alt={`${quote.name} testimonial`}
+                width={100}
+                height={100}
+                className={`testimonial-image ${index === 1 ? 'active' : ''}`}
               />
-            ))}
-          </div>
-        </div>
-        <div className='handle-buttons'>
-          <button className='testimonials-prev' onClick={handlePrev}>
-            <img src={PrevIcon.src} alt='Previous' />
-          </button>
-          <button className='testimonials-next' onClick={handleNext}>
-            <img src={NextIcon.src} alt='Next' />
-          </button>
+            </div>
+          ))}
         </div>
       </div>
-    </>
+
+      <div className='handle-buttons'>
+        <button className='testimonials-prev' onClick={handlePrev}>
+          <Image src={PrevIcon} alt='Previous' width={30} height={30} />
+        </button>
+        <button className='testimonials-next' onClick={handleNext}>
+          <Image src={NextIcon} alt='Next' width={30} height={30} />
+        </button>
+      </div>
+    </div>
   )
 }
 

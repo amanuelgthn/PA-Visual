@@ -20,8 +20,8 @@ const Service = () => (
         <Management />
         <Relocation />
         <Testimonials />
-        <Trademark />
       </div>
+      <Trademark />
     </div>
   </div>
 )

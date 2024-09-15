@@ -13,6 +13,7 @@
     justify-content: center;
     color: rgba(143, 177, 191, 1);
     text-align: center;
+    margin-top: 100px;
 }
 
 .acquisitions {
@@ -24,7 +25,6 @@
     font-family: 'Montserrat', sans-serif !important;
     margin-left: auto;
     margin-right: auto;
-    max-width: 75em;
     text-wrap-style:balance;
     text-align: center;
     font-size: 3.75em; 
@@ -38,11 +38,7 @@
     gap: 10px;
     border-radius: 151px;
     border: 2px solid rgba(255, 255, 255, 0.05);
-    
     background: linear-gradient(135.72deg, rgba(255, 255, 255, 0.27) 8.53%, rgba(255, 255, 255, 0) 60.59%, rgba(255, 255, 255, 0.33) 93.17%);
-
-
-
 }
 
 .acquisitions-body {
@@ -61,8 +57,7 @@
 
 .acquisitions-services {
     display: grid;
-    margin-left: 7%;
-    margin-right: 7%;
+    margin: 0 50px;
     grid-template-columns: repeat(2, 1fr); 
     gap: 2vw;
 }
