@@ -11,14 +11,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3em;
+    padding: 3em 0px;
     color: rgba(143, 177, 191, 1);
     text-align: center;
 }
 
 .architecture {
     background: transparent;
-    max-width: 75em;
     width: 100%;
 }
 
@@ -63,8 +62,7 @@
 
 .architecture-services {
     display: grid;
-    margin-left: 7%;
-    margin-right: 7%;
+    margin: 0 50px;
     grid-template-columns: repeat(2, 1fr); 
     gap: 2vw;
     
