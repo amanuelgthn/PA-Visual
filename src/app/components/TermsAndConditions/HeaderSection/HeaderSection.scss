@@ -1,0 +1,32 @@
+.headerSection {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    .title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 5.62rem;
+        line-height: 7.5rem;
+        letter-spacing: 2.4px;
+        color: #F2F2F2;
+        padding: 10rem 4rem 0 4rem;
+    }
+
+    .description {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 1.75rem;
+        line-height: 2.5rem;
+        color: #F2F2F2;
+        padding: 2rem 4rem 0 4rem;
+    }
+}
