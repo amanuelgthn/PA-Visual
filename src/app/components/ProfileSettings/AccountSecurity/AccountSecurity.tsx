@@ -11,6 +11,11 @@ const AccountSecurity = () => {
   const [isFormVisible, setIsFormVisible] = useState(false)
   const [passwordError, setPasswordError] = useState('')
 
+  // Separate states for each password field visibility
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false)
+  const [showNewPassword, setShowNewPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
   const resetForm = () => {
     setCurrentPassword('')
     setNewPassword('')
@@ -18,7 +23,6 @@ const AccountSecurity = () => {
   }
 
   const handleChangePassword = () => {
-    // Validate password
     if (newPassword !== confirmPassword) {
       setPasswordError('Passwords do not match.')
       return
@@ -32,7 +36,6 @@ const AccountSecurity = () => {
   }
 
   const handleConfirmChangePassword = () => {
-    // Handle actual password change functionality here
     console.log('Password Changed')
     resetForm()
     setIsModalVisible(false)
@@ -54,39 +57,61 @@ const AccountSecurity = () => {
           className='view-btn-actions'
           onClick={() => setIsFormVisible(true)}
         >
-          View Change Password Form
+          Change Password
         </button>
       ) : (
         <>
           <div className='form'>
-            <input
-              type='password'
-              id='current-password'
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.target.value)}
-              placeholder='Enter current password'
-            />
+            {/* Current Password Field */}
+            <div className='password-field'>
+              <input
+                type={showCurrentPassword ? 'text' : 'password'}
+                id='current-password'
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                placeholder='Enter current password'
+              />
+              <span
+                onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+                className='password-toggle'
+              >
+                {showCurrentPassword ? '🙈' : '👁️'}
+              </span>
+            </div>
 
-            <input
-              type='password'
-              id='new-password'
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              placeholder='Enter new password'
-            />
-            {newPassword && newPassword.length < 6 && (
-              <p className='helper-text'>
-                Password must be at least 6 characters long.
-              </p>
-            )}
+            {/* New Password Field */}
+            <div className='password-field'>
+              <input
+                type={showNewPassword ? 'text' : 'password'}
+                id='new-password'
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder='Enter new password'
+              />
+              <span
+                onClick={() => setShowNewPassword(!showNewPassword)}
+                className='password-toggle'
+              >
+                {showNewPassword ? '🙈' : '👁️'}
+              </span>
+            </div>
 
-            <input
-              type='password'
-              id='confirm-password'
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder='Confirm new password'
-            />
+            {/* Confirm Password Field */}
+            <div className='password-field'>
+              <input
+                type={showConfirmPassword ? 'text' : 'password'}
+                id='confirm-password'
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder='Confirm new password'
+              />
+              <span
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className='password-toggle'
+              >
+                {showConfirmPassword ? '🙈' : '👁️'}
+              </span>
+            </div>
 
             {passwordError && <p className='error-text'>{passwordError}</p>}
           </div>
@@ -109,7 +134,7 @@ const AccountSecurity = () => {
           confirmLabel='Confirm'
           cancelLabel='Cancel'
           onConfirm={handleConfirmChangePassword}
-          onCancel={handleCancelForm} // Ensures modal closes on cancel
+          onCancel={handleCancelForm}
           isVisible={isModalVisible}
         />
       )}

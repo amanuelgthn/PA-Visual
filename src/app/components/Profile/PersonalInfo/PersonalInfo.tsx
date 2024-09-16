@@ -66,8 +66,6 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
       {(isEditable || isPublic) && (
         <>
           <h3>Personal Information</h3>
-
-          {/* Public/Private toggle only in profile settings and placed below the header */}
           {isEditable && (
             <div className='publicToggle-btn'>
               <span>{isPublic ? 'Public' : 'Private'}</span>
