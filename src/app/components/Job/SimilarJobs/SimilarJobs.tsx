@@ -1,25 +1,61 @@
 import { Button } from 'antd'
 import './SimilarJobs.scss'
-type SimilarJob = {
-  jobId: string
-  jobTitle: string
-  jobLocation: string
-  jobPostDate: string
-}
 
 type SimilarJobsProps = {
-  similarJobs: SimilarJob[]
+  similarJobs: {
+    jobId: string
+    JobTitle: string
+    jobLocation: string
+    jobDescription: string
+    jobResponsibilities: string
+    jobRequirements: string
+    jobCategory: string
+    jobPostDate: string
+    jobSchedule: string
+    jobPayRange: string
+    jobOverview: string
+  }[]
+  onJobClick: (job: {
+    jobId: string
+    JobTitle: string
+    jobLocation: string
+    jobDescription: string
+    jobResponsibilities: string
+    jobRequirements: string
+    jobCategory: string
+    jobPostDate: string
+    jobSchedule: string
+    jobPayRange: string
+    jobOverview: string
+    similarJobs: {
+      jobId: string
+      JobTitle: string
+      jobLocation: string
+      jobDescription: string
+      jobResponsibilities: string
+      jobRequirements: string
+      jobCategory: string
+      jobPostDate: string
+      jobSchedule: string
+      jobPayRange: string
+      jobOverview: string
+    }[]
+  }) => void
 }
 
-const SimilarJobs = ({ similarJobs }: SimilarJobsProps) => {
+const SimilarJobs = ({ similarJobs, onJobClick }: SimilarJobsProps) => {
   return (
     <main className='similar-job-section'>
       <h2>Similar Jobs</h2>
 
       {similarJobs?.map((job) => (
-        <div key={job.jobId} className='similar-jobs-flex'>
+        <div
+          key={job.jobId}
+          className='similar-jobs-flex'
+          onClick={() => onJobClick({ ...job, similarJobs: [] })}
+        >
           <div className='simmilarjobs-left'>
-            <h3>{job.jobTitle}</h3>
+            <h3>{job.JobTitle}</h3>
             <span className='simmilarjobs-left-span'>
               <p>{job.jobLocation}</p> .<p>Posted on {job.jobPostDate}</p>
             </span>
