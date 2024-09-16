@@ -64,7 +64,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           </div>
         </div>
       )}
-      {/* Show the About Me content when not in edit mode */}
+      {/* Show the Aboutme content when not in edit mode */}
       {!isEditable && <p>{aboutMeText}</p>}
     </div>
   )

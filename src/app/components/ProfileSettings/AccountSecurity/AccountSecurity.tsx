@@ -11,7 +11,6 @@ const AccountSecurity = () => {
   const [isFormVisible, setIsFormVisible] = useState(false)
   const [passwordError, setPasswordError] = useState('')
 
-  // Separate states for each password field visibility
   const [showCurrentPassword, setShowCurrentPassword] = useState(false)
   const [showNewPassword, setShowNewPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
