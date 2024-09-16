@@ -5,7 +5,16 @@ import './TeamHeader.scss'
 import CustomModal from '../CustomModal/CustomModal'
 const { Title, Paragraph } = Typography
 
-const teamMembers = [
+interface TeamMember {
+  image: string
+  name: string
+  title: string
+  description: string
+  Languages: string[]
+  Projects: string[]
+}
+
+const teamMembers: TeamMember[] = [
   {
     image: '/contact/bg.jpg',
     name: 'John Doe',
@@ -128,6 +137,7 @@ export const TeamHeader = () => {
                           e.stopPropagation()
                           showModal(member)
                         }}
+                        aria-label={`Learn more about ${member.name}`}
                       >
                         <span className='plus-icon'></span>
                       </button>
