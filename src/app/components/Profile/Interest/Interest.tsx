@@ -22,7 +22,7 @@ export const Interest: React.FC<InterestProps> = ({
     'Urban Development',
   ]
 
-  // Initialize currentInterests state when interests prop changes
+  //  currentInterests state when interests prop changes
   useEffect(() => {
     setCurrentInterests(interests || [])
   }, [interests])

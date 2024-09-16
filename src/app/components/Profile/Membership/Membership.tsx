@@ -1,8 +1,7 @@
 'use client'
 import { FC, useState, useEffect } from 'react'
 import './Membership.scss'
-import ProfileModal from '@/app/components/ProfileSettings/ProfileModal/ProfileModal' // Assuming you have this path
-
+import ProfileModal from '@/app/components/ProfileSettings/ProfileModal/ProfileModal'
 interface MembershipProps {
   membership?: {
     plan: string
@@ -17,7 +16,7 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
     membership?.plan || 'Basic',
   )
   const [isModalVisible, setIsModalVisible] = useState(false)
-  const [modalType, setModalType] = useState('') // To differentiate between different actions
+  const [modalType, setModalType] = useState('')
 
   useEffect(() => {
     setSelectedPlan(membership?.plan || 'Basic')
@@ -43,13 +42,10 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
   const handleConfirmAction = () => {
     switch (modalType) {
       case 'upgrade':
-        console.log('Plan upgraded')
         break
       case 'change':
-        console.log('Plan changed')
         break
       case 'cancel':
-        console.log('Membership canceled')
         break
       default:
         break
@@ -99,7 +95,6 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
         </div>
       )}
 
-      {/* Conditionally rendering the modal */}
       {isModalVisible && (
         <ProfileModal
           title={
