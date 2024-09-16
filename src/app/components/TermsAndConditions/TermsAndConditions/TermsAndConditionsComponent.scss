@@ -1,77 +1,147 @@
 .TermsAndConditionsSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  text-align: left;
+  position: relative;
+  padding: 2rem;
+
+  .leftContainer {
+    font-family: Montserrat;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 2.5rem;
     text-align: left;
-    position: relative;
-    padding: 2rem;
-  
-    .leftContainer {
-      font-family: Montserrat;
-      font-size: 1.125rem;
-      font-weight: 600;
-      line-height: 2.5rem;
-      text-align: left;
-      color: #FFFFFF;
-      gap: 3.05rem;
-      margin: 0 4rem 2rem 2rem;
-      list-style: none;
-  
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        padding: 0;
-        margin: 0;
-      }
-  
-      li {
-        white-space: nowrap;
-        list-style: none;
-        width: auto;
-        padding: 0;
-        cursor: pointer;
-        position: relative; /* Needed for :before pseudo-element */
-  
-        &:before {
-          content: '';
-          position: absolute;
-          left: -15px; /* Adjust the distance from the text */
-          top: 0;
-          bottom: 0;
-          width: 6px; /* Adjust the thickness of the vertical line */
-          background-color: transparent; /* Default to transparent */
-          transition: background-color 0.3s ease-in-out; /* Smooth transition */
-        }
-  
-        &.active:before {
-          background-color: #C98E59; /* The vertical line color */
-        }
-  
-        &:hover {
-          color: #C98E59; /* Optional hover color for the text */
-        }
-      }
+    color: #FFFFFF;
+    gap: 3.05rem;
+    margin: 2rem 4rem 2rem 3rem;
+    list-style: none;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
     }
-  
-    .rightContainer {
-      h1 {
-        font-family: Montserrat;
-        font-size: 1.75rem;
-        font-weight: 400;
-        line-height: 2.5rem;
-        text-align: left;
-        color: #FFFFFF;
+
+    li {
+      white-space: nowrap;
+      list-style: none;
+      width: auto;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
       }
-  
-      p {
-        font-family: Montserrat;
-        font-size: 1.38rem;
-        font-weight: 300;
-        line-height: 2.5rem;
-        text-align: left;
-        color: #FFFFFF;
+
+      &.active:before {
+        background-color: #C98E59;
+      }
+
+      &:hover {
+        color: #C98E59;
       }
     }
   }
-  
+
+  .rightContainer {
+    h1 {
+      font-family: Montserrat;
+      font-size: 1.75rem;
+      font-weight: 400;
+      line-height: 2.5rem;
+      text-align: left;
+      color: #FFFFFF;
+      padding: 1.5rem 0 1.5rem 0;
+    }
+
+    li {
+      font-family: Montserrat;
+      font-size: 1.38rem;
+      font-weight: 300;
+      line-height: 2.5rem;
+      text-align: left;
+      color: #FFFFFF;
+      padding-right: 8rem;
+    }
+  }
+
+ 
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column; 
+    padding: 1rem;
+
+    .leftContainer {
+      margin: 2rem 0 2rem 0;
+      gap: 2rem;
+      font-size: 1.5rem; 
+      justify-content: center;
+      text-align: center;
+    }
+
+    .rightContainer {
+      h1 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        justify-content: center;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      li {
+        font-size: 1.2rem;
+        line-height: 2rem;
+        justify-content: center;
+        text-align: center;
+        padding-right: 0;
+        list-style: none;
+      }
+    }
+  }
+
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column; 
+    padding: 1rem;
+
+    .leftContainer {
+      font-size: 1rem;
+      margin: 1.5rem 0 1.5rem 0;
+      gap: 1.5rem;
+
+      ul {
+        gap: 1rem; 
+      }
+
+      li {
+        font-size: 0.9rem; 
+        &:before {
+          left: -10px;
+          width: 4px; 
+        }
+      }
+    }
+
+    .rightContainer {
+      h1 {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+      }
+
+      li {
+        font-size: 1rem;
+        line-height: 1.8rem;
+      }
+    }
+  }
+}
