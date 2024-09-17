@@ -1,0 +1,247 @@
+.personal-info {
+  color: #f0f0f0;
+  margin-top: 20px;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        #d7a86e 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      margin-top: 10px;
+    }
+  }
+
+  .publicToggle-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+
+    span {
+      margin-right: 10px;
+    }
+
+    .toggle-switch {
+      width: 60px;
+      height: 30px;
+      appearance: none;
+      background: #ddd;
+      border-radius: 15px;
+      position: relative;
+      outline: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:checked {
+        background: #34c759;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 3px;
+        background: white;
+        border-radius: 50%;
+        transition: transform 0.3s;
+      }
+
+      &:checked::before {
+        transform: translateX(28px);
+      }
+    }
+  }
+
+  .edit-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .edit-details {
+      display: grid;
+      gap: 15px;
+
+      input {
+        max-width: 600px;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #d7a86e;
+        border-radius: 15px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1.1rem;
+        text-align: left;
+
+        &::placeholder {
+          color: #ddd;
+        }
+      }
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+
+      .save-button {
+        width: 150px;
+        padding: 10px 15px;
+        background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        color: white;
+        border: 2px solid #986335;
+        cursor: pointer;
+        transition: all background-color 0.3s ease;
+
+        &:hover {
+          background: white;
+          color: #986335;
+          border: 2px solid #986335;
+        }
+        &:disabled {
+          background: #999999;
+          color: #fff;
+          cursor: not-allowed;
+          box-shadow: none;
+          border: 2px solid #ccc;
+        }
+      }
+
+      .cancel-button {
+        width: 150px;
+        background: #999999 !important;
+        padding: 10px 20px;
+        border-radius: 15px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #e5e5e5 !important;
+          color: #986335 !important;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+      }
+    }
+
+    /* Mobile responsive buttons */
+    @media (max-width: 768px) {
+      .button-group {
+        flex-direction: column;
+        width: 100%;
+
+        .save-button,
+        .cancel-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+
+    strong {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  }
+
+  p:first-of-type {
+    margin-top: 18px;
+  }
+
+  .edit-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    color: white;
+    border: 2px solid #986335;
+    cursor: pointer;
+    transition: all background-color 0.3s ease;
+    font-size: 1rem;
+    &:hover {
+      background: white;
+      color: #986335;
+      border: 2px solid #986335;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .edit-items {
+      .edit-details input {
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .save-button,
+    .cancel-button {
+      width: 100%;
+    }
+
+    p {
+      font-size: 1rem;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 385px) {
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    .edit-items {
+      .edit-details input {
+        width: 100%;
+        font-size: 0.9rem;
+        text-align: left;
+      }
+
+      button {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
