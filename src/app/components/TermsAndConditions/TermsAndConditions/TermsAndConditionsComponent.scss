@@ -26,11 +26,25 @@
     }
 
     li {
-      white-space: nowrap;
       list-style: none;
       width: auto;
       padding: 0;
+      position: relative;
+      display: flex;
+      justify-content: center; 
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit;
+      font-size: inherit;
+      text-align: left;
       cursor: pointer;
+      padding: 0;
+      width: 100%;
+      white-space: nowrap;
       position: relative;
 
       &:before {
@@ -42,6 +56,10 @@
         width: 6px;
         background-color: transparent;
         transition: background-color 0.3s ease-in-out;
+      }
+
+      &:focus {
+        outline-offset: 2px;
       }
 
       &.active:before {
@@ -76,18 +94,30 @@
     }
   }
 }
- 
-  @media (max-width: 1024px) {
-    .TermsAndConditionsSection {
-    flex-direction: column; 
-    padding: 2rem 1rem 2rem 1rem;
+
+@media (max-width: 1024px) {
+  .TermsAndConditionsSection {
+    flex-direction: column;
+    padding: 2rem 1rem;
 
     .leftContainer {
-      margin: 2rem 0 2rem 0;
+      margin: 2rem 0;
       gap: 2rem;
-      font-size: 1.5rem; 
+      font-size: 1.5rem;
       justify-content: center;
       text-align: center;
+
+      ul {
+        align-items: center; 
+      }
+
+      li {
+        justify-content: center; 
+      }
+
+      button {
+        text-align: center; 
+      }
     }
 
     .rightContainer {
@@ -111,25 +141,30 @@
   }
 }
 
-  @media (max-width: 768px) {
-    .TermsAndConditionsSection {
-    flex-direction: column; 
+@media (max-width: 768px) {
+  .TermsAndConditionsSection {
+    flex-direction: column;
     padding: 1rem;
 
     .leftContainer {
       font-size: 1rem;
-      margin: 1.5rem 0 1.5rem 0;
+      margin: 1.5rem 0;
       gap: 1.5rem;
 
       ul {
-        gap: 1rem; 
+        align-items: center; 
       }
 
       li {
-        font-size: 0.9rem; 
+        font-size: 0.9rem;
+        justify-content: center; 
+      }
+
+      button {
+        text-align: center; 
         &:before {
           left: -10px;
-          width: 4px; 
+          width: 4px;
         }
       }
     }
@@ -146,4 +181,4 @@
       }
     }
   }
-  }
+}
