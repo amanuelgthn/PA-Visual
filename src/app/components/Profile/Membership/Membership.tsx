@@ -1,7 +1,8 @@
 'use client'
-import { FC, useState, useEffect } from 'react'
+import { FC, useState } from 'react'
 import './Membership.scss'
 import ProfileModal from '@/app/components/ProfileSettings/ProfileModal/ProfileModal'
+
 interface MembershipProps {
   membership?: {
     plan: string
@@ -12,15 +13,8 @@ interface MembershipProps {
 }
 
 export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
-  const [selectedPlan, setSelectedPlan] = useState<string>(
-    membership?.plan || 'Basic',
-  )
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [modalType, setModalType] = useState('')
-
-  useEffect(() => {
-    setSelectedPlan(membership?.plan || 'Basic')
-  }, [membership?.plan])
 
   // Handlers for each action
   const handleUpgradePlan = () => {
@@ -42,10 +36,13 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
   const handleConfirmAction = () => {
     switch (modalType) {
       case 'upgrade':
+        // Handle upgrade logic here
         break
       case 'change':
+        // Handle change logic here
         break
       case 'cancel':
+        // Handle cancel logic here
         break
       default:
         break
@@ -57,6 +54,34 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
     setIsModalVisible(false)
   }
 
+  // Function to get modal title and message based on modalType
+  const getModalContent = (modalType: string) => {
+    switch (modalType) {
+      case 'upgrade':
+        return {
+          title: 'Upgrade Plan',
+          message: 'Are you sure you want to upgrade your plan?',
+        }
+      case 'change':
+        return {
+          title: 'Change Plan',
+          message: 'Are you sure you want to change your plan?',
+        }
+      case 'cancel':
+        return {
+          title: 'Cancel Membership',
+          message: 'Are you sure you want to cancel your membership?',
+        }
+      default:
+        return {
+          title: '',
+          message: '',
+        }
+    }
+  }
+
+  const { title, message } = getModalContent(modalType)
+
   return (
     <div className='membership-management'>
       <h3>Membership Management</h3>
@@ -65,10 +90,19 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
           <strong>Current Plan:</strong>{' '}
           {membership?.plan || 'No plan selected'}
         </p>
-        <p>
-          <strong>Next Billing Date:</strong>{' '}
-          {membership?.nextBillingDate || 'N/A'}
-        </p>
+
+        {!isEditable && (
+          <p>
+            <strong>Joined On:</strong> {membership?.joinedOn || 'N/A'}
+          </p>
+        )}
+
+        {isEditable && (
+          <p>
+            <strong>Next Billing Date:</strong>{' '}
+            {membership?.nextBillingDate || 'N/A'}
+          </p>
+        )}
       </div>
 
       {isEditable && (
@@ -80,7 +114,7 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
             Upgrade Plan
           </button>
           <button
-            className='member-change-btn  m-btn'
+            className='member-change-btn m-btn'
             onClick={handleChangePlan}
           >
             Change Plan
@@ -91,26 +125,13 @@ export const Membership: FC<MembershipProps> = ({ membership, isEditable }) => {
           >
             Cancel Membership
           </button>
-          {selectedPlan === null && <p>{selectedPlan}</p>}
         </div>
       )}
 
       {isModalVisible && (
         <ProfileModal
-          title={
-            modalType === 'upgrade'
-              ? 'Upgrade Plan'
-              : modalType === 'change'
-                ? 'Change Plan'
-                : 'Cancel Membership'
-          }
-          message={
-            modalType === 'upgrade'
-              ? 'Are you sure you want to upgrade your plan?'
-              : modalType === 'change'
-                ? 'Are you sure you want to change your plan?'
-                : 'Are you sure you want to cancel your membership?'
-          }
+          title={title}
+          message={message}
           confirmLabel='Confirm'
           cancelLabel='Cancel'
           onConfirm={handleConfirmAction}

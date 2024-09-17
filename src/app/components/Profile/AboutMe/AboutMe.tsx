@@ -40,13 +40,13 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   return (
     <div className='about-me'>
       <h3>About Me</h3>
-      {/* Only show the "Edit" button in edit mode and when not editing */}
+
       {isEditable && !isEditing && (
         <button className='edit-button' onClick={handleEdit}>
           Edit About Me
         </button>
       )}
-      {/* Show the text area and save/cancel buttons when editing */}
+
       {isEditable && isEditing && (
         <div className='about-me-edit'>
           <textarea
@@ -55,7 +55,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             placeholder='Tell us about yourself...'
           />
           <div className='button-group'>
-            <button className='save-button' onClick={handleSave}>
+            <button
+              className='save-button'
+              onClick={handleSave}
+              disabled={aboutMeText === aboutMe}
+            >
               Save
             </button>
             <button className='cancel-button' onClick={handleCancel}>
@@ -64,7 +68,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           </div>
         </div>
       )}
-      {/* Show the Aboutme content when not in edit mode */}
+
       {!isEditable && <p>{aboutMeText}</p>}
     </div>
   )

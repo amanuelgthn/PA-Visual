@@ -15,6 +15,7 @@ export interface Comment {
 export interface Membership {
   plan: string
   joinedOn: string
+  nextBillingDate: string
 }
 
 export interface ReviewedProperty {

@@ -29,13 +29,14 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
   onSave,
   onTogglePublic,
 }) => {
-  const [name, setName] = useState<string>(personalInfo.name)
-  const [email, setEmail] = useState<string>(personalInfo.email)
-  const [phone, setPhone] = useState<string>(personalInfo.phone)
-  const [location, setLocation] = useState<string>(personalInfo.location)
-  const [languages, setLanguages] = useState<string[]>(
-    personalInfo.languages || [],
-  )
+  const [personalDetails, setPersonalDetails] = useState({
+    name: personalInfo.name,
+    email: personalInfo.email,
+    phone: personalInfo.phone,
+    location: personalInfo.location,
+    languages: personalInfo.languages || [],
+  })
+
   const [isPublic, setIsPublic] = useState<boolean>(initialIsPublic)
   const [isEditMode, setIsEditMode] = useState<boolean>(false)
 
@@ -45,19 +46,39 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
     }
   }, [isPublic, initialIsPublic, onTogglePublic])
 
+  // Check if changes were made
+  const isSaveDisabled =
+    personalDetails.name === personalInfo.name &&
+    personalDetails.email === personalInfo.email &&
+    personalDetails.phone === personalInfo.phone &&
+    personalDetails.location === personalInfo.location &&
+    personalDetails.languages.join(', ') === personalInfo.languages.join(', ')
+
+  // change handler for form inputs
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    const { name, value } = e.target
+    setPersonalDetails({
+      ...personalDetails,
+      [name]: name === 'languages' ? value.split(', ') : value,
+    })
+  }
+
   const handleSave = () => {
     if (onSave) {
-      onSave({ name, email, phone, location, languages })
+      onSave(personalDetails)
     }
     setIsEditMode(false)
   }
 
   const handleCancel = () => {
-    setName(personalInfo.name)
-    setEmail(personalInfo.email)
-    setPhone(personalInfo.phone)
-    setLocation(personalInfo.location)
-    setLanguages(personalInfo.languages || [])
+    setPersonalDetails({
+      name: personalInfo.name,
+      email: personalInfo.email,
+      phone: personalInfo.phone,
+      location: personalInfo.location,
+      languages: personalInfo.languages || [],
+    })
     setIsEditMode(false)
   }
 
@@ -84,37 +105,46 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
                 <div className='edit-details'>
                   <input
                     type='text'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    name='name'
+                    value={personalDetails.name}
+                    onChange={handleInputChange}
                     placeholder='Name'
                   />
                   <input
                     type='text'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name='email'
+                    value={personalDetails.email}
+                    onChange={handleInputChange}
                     placeholder='Email'
                   />
                   <input
                     type='text'
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    name='phone'
+                    value={personalDetails.phone}
+                    onChange={handleInputChange}
                     placeholder='Phone'
                   />
                   <input
                     type='text'
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    name='location'
+                    value={personalDetails.location}
+                    onChange={handleInputChange}
                     placeholder='Location'
                   />
                   <input
                     type='text'
-                    value={languages.join(', ')}
-                    onChange={(e) => setLanguages(e.target.value.split(', '))}
+                    name='languages'
+                    value={personalDetails.languages.join(', ')}
+                    onChange={handleInputChange}
                     placeholder='Languages (comma-separated)'
                   />
                 </div>
                 <div className='button-group'>
-                  <button className='save-button' onClick={handleSave}>
+                  <button
+                    className='save-button'
+                    onClick={handleSave}
+                    disabled={isSaveDisabled}
+                  >
                     Save
                   </button>
                   <button className='cancel-button' onClick={handleCancel}>
@@ -133,19 +163,20 @@ export const PersonalInfo: FC<PersonalInfoProps> = ({
           ) : (
             <>
               <p>
-                <strong>Name:</strong> {name}
+                <strong>Name:</strong> {personalDetails.name}
               </p>
               <p>
-                <strong>Email:</strong> {email}
+                <strong>Email:</strong> {personalDetails.email}
               </p>
               <p>
-                <strong>Phone:</strong> {phone}
+                <strong>Phone:</strong> {personalDetails.phone}
               </p>
               <p>
-                <strong>Location:</strong> {location}
+                <strong>Location:</strong> {personalDetails.location}
               </p>
               <p>
-                <strong>Languages:</strong> {languages.join(', ')}
+                <strong>Languages:</strong>{' '}
+                {personalDetails.languages.join(', ')}
               </p>
             </>
           )}

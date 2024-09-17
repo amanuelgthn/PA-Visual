@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import './Testimonial.scss'
 
 interface TestimonialProps {
@@ -16,9 +16,14 @@ const Testimonial: FC<TestimonialProps> = ({
   const [currentTestimonial, setCurrentTestimonial] = useState(testimonial)
   const [isEditMode, setIsEditMode] = useState(false)
 
+  // Sync currentTestimonial with prop if it changes
+  useEffect(() => {
+    setCurrentTestimonial(testimonial)
+  }, [testimonial])
+
   const handleSave = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
-    if (onSave) {
+    if (onSave && currentTestimonial !== testimonial) {
       onSave(currentTestimonial)
     }
     setIsEditMode(false)
@@ -42,7 +47,12 @@ const Testimonial: FC<TestimonialProps> = ({
               placeholder='Write your testimonial...'
             />
             <div className='button-group'>
-              <button type='button' className='save-btn' onClick={handleSave}>
+              <button
+                type='button'
+                className='save-btn'
+                onClick={handleSave}
+                disabled={currentTestimonial === testimonial}
+              >
                 Save
               </button>
               <button

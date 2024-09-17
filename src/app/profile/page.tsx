@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import PersonalInfo from '../components/Profile/PersonalInfo/PersonalInfo'
 import Membership from '../components/Profile/Membership/Membership'
 import ReviewedProperties from '../components/Profile/ReviewedProperties/ReviewedProperties'
@@ -42,12 +42,15 @@ const Profile = () => {
     }
   }, [])
 
-  const handleTogglePublic = (isPublic: boolean) => {
-    if (!profileData) return
-    const updatedProfileData = { ...profileData, isPublic }
-    localStorage.setItem('profileData', JSON.stringify(updatedProfileData))
-    setProfileData(updatedProfileData)
-  }
+  const handleTogglePublic = useCallback(
+    (isPublic: boolean) => {
+      if (!profileData) return
+      const updatedProfileData = { ...profileData, isPublic }
+      localStorage.setItem('profileData', JSON.stringify(updatedProfileData))
+      setProfileData(updatedProfileData)
+    },
+    [profileData],
+  )
 
   if (!profileData) return null
 

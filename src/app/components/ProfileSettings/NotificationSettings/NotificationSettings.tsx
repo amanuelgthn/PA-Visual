@@ -18,6 +18,7 @@ const NotificationSettings = () => {
             type='checkbox'
             checked={emailAlerts}
             onChange={() => setEmailAlerts(!emailAlerts)}
+            aria-label={`Email alerts ${emailAlerts ? 'enabled' : 'disabled'}`}
           />
           <span className='slider'></span>
         </label>
@@ -30,6 +31,7 @@ const NotificationSettings = () => {
             type='checkbox'
             checked={smsNotification}
             onChange={() => setSmsNotification(!smsNotification)}
+            aria-label={`SMS notifications ${smsNotification ? 'enabled' : 'disabled'}`}
           />
           <span className='slider'></span>
         </label>
@@ -42,6 +44,7 @@ const NotificationSettings = () => {
             type='checkbox'
             checked={propertyUpdates}
             onChange={() => setPropertyUpdates(!propertyUpdates)}
+            aria-label={`Property updates ${propertyUpdates ? 'enabled' : 'disabled'}`}
           />
           <span className='slider'></span>
         </label>

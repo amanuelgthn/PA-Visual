@@ -3,7 +3,12 @@ import { ProfileData } from '@/app/Types/Profile/ProfileTypes'
 export const defaultProfileData: ProfileData = {
   profilePic: '/profile/profileCover.jpg',
   aboutMe: 'With over 10 years of experience in real estate...',
-  interests: ['Luxury Properties', 'Market Analysis', 'Urban Development'],
+  interests: [
+    'Luxury Properties',
+    'Market Analysis',
+    'Urban Development',
+    'Property Investment',
+  ],
   personalInfo: {
     name: 'John Doe',
     email: 'johndoe@example.com',
@@ -11,7 +16,11 @@ export const defaultProfileData: ProfileData = {
     location: 'Spain, Europe',
     languages: ['Spanish', 'English', 'French'],
   },
-  membership: { plan: 'Premium', joinedOn: 'August 15, 2023' },
+  membership: {
+    plan: 'Premium',
+    joinedOn: 'August 15, 2024',
+    nextBillingDate: 'September 15, 2024',
+  },
   reviewedProperties: [
     {
       imageUrl: '/profile/LuxuryCondo.jpg',

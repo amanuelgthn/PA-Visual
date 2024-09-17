@@ -1,6 +1,5 @@
 'use client'
-
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { FaArrowLeft } from 'react-icons/fa'
 import AboutMe from '../components/Profile/AboutMe/AboutMe'
@@ -39,35 +38,50 @@ const ProfileSettings = () => {
     }
   }, [profileData])
 
-  if (!profileData) return null
+  const handleProfilePicChange = useCallback(
+    (file: File) => {
+      const reader = new FileReader()
 
-  const handleProfilePicChange = (file: File) => {
-    const reader = new FileReader()
-    reader.onloadend = () => {
-      const newProfilePic = reader.result as string
-      const updatedProfile: ProfileData = {
-        ...profileData,
-        profilePic: newProfilePic,
+      reader.onloadend = () => {
+        const newProfilePic = reader.result as string
+        const updatedProfile: ProfileData = {
+          ...profileData!,
+          profilePic: newProfilePic,
+        }
+        localStorage.setItem('profileData', JSON.stringify(updatedProfile))
+        setProfileData(updatedProfile)
       }
-      localStorage.setItem('profileData', JSON.stringify(updatedProfile))
-      setProfileData(updatedProfile)
-    }
-    if (file) reader.readAsDataURL(file)
-  }
 
-  const handleTogglePublic = (isPublic: boolean) => {
-    setIsProfilePublic(isPublic)
-    if (profileData) {
-      const updatedProfileData = { ...profileData, isPublic }
-      localStorage.setItem('profileData', JSON.stringify(updatedProfileData))
-      setProfileData(updatedProfileData)
-    }
-  }
+      reader.onerror = () => {
+        console.error('Error reading file:', reader.error)
+      }
 
-  const handleGoBack = (e: React.MouseEvent) => {
-    e.preventDefault()
-    router.push('/profile')
-  }
+      if (file) reader.readAsDataURL(file)
+    },
+    [profileData],
+  )
+
+  const handleTogglePublic = useCallback(
+    (isPublic: boolean) => {
+      if (profileData) {
+        setIsProfilePublic(isPublic)
+        const updatedProfileData = { ...profileData, isPublic }
+        localStorage.setItem('profileData', JSON.stringify(updatedProfileData))
+        setProfileData(updatedProfileData)
+      }
+    },
+    [profileData],
+  )
+
+  const handleGoBack = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault()
+      router.push('/profile')
+    },
+    [router],
+  )
+
+  if (!profileData) return null
 
   return (
     <div className='profile-settings-page'>
@@ -115,7 +129,7 @@ const ProfileSettings = () => {
         />
 
         <div className='back-button-container'>
-          <button type='submit' className='back-button' onClick={handleGoBack}>
+          <button type='button' className='back-button' onClick={handleGoBack}>
             <FaArrowLeft className='icon' />
             <span>Back to Profile</span>
           </button>

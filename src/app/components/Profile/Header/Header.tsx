@@ -1,12 +1,13 @@
 'use client'
 import './Header.scss'
 import { ProfileData } from '@/app/Types/Profile/ProfileTypes'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { FiSettings, FiLogOut, FiCamera } from 'react-icons/fi'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { FaCrown } from 'react-icons/fa'
 import { useRouter } from 'next/navigation'
 import ProfileModal from '@/app/components/ProfileSettings/ProfileModal/ProfileModal'
+import Image from 'next/image'
 interface HeaderProps {
   profileData: ProfileData
   isEditable: boolean
@@ -53,28 +54,43 @@ export const Header: React.FC<HeaderProps> = ({
   }
 
   // ACTION FOR MODAL
-  const handleDeleteAccount = () => {
+  const handleDeleteAccount = useCallback(() => {
     console.log('Account deleted')
     setIsModalVisible(true)
-  }
+  }, [])
 
-  const handleConfirmDelete = () => {
+  const handleConfirmDelete = useCallback(() => {
     console.log('Account deleted')
     setIsModalVisible(false)
-  }
+  }, [])
 
-  const handleCancelDelete = () => {
+  const handleCancelDelete = useCallback(() => {
     setIsModalVisible(false)
+  }, [])
+
+  const handleLogout = () => {
+    console.log('Logging out...')
+    router.push('/Login')
   }
 
   return (
     <div className='header'>
       <div className='profile-content'>
         <div className='image-wrapper'>
-          <img src={imagePreview} alt='Profile' className='profile-pic' />
+          <Image
+            src={imagePreview}
+            width={100}
+            height={100}
+            alt='Profile'
+            className='profile-pic'
+          />
           {isEditable && (
             <>
-              <label htmlFor='upload-pic' className='edit-icon'>
+              <label
+                htmlFor='upload-pic'
+                className='edit-icon'
+                aria-label='Upload profile picture'
+              >
                 <FiCamera />
               </label>
               <input
@@ -117,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button className='actionsFlex' onClick={handleSettingsClick}>
               <FiSettings className='icon' /> <span>Settings</span>
             </button>
-            <button className='actionsFlex'>
+            <button className='actionsFlex' onClick={handleLogout}>
               <FiLogOut className='icon' /> <span>Logout</span>
             </button>
           </>

@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import './Interest.scss'
 
 interface InterestProps {
@@ -13,7 +13,9 @@ export const Interest: React.FC<InterestProps> = ({
   isEditable,
   onSave,
 }) => {
-  const [currentInterests, setCurrentInterests] = useState<string[]>([])
+  const [currentInterests, setCurrentInterests] = useState<string[]>(
+    interests || [],
+  )
 
   const availableInterests = [
     'Luxury Properties',
@@ -41,16 +43,21 @@ export const Interest: React.FC<InterestProps> = ({
   }
 
   // Remove selected interest
-  const handleRemoveInterest = (interestToRemove: string) => {
-    const updatedInterests = currentInterests.filter(
-      (interest) => interest !== interestToRemove,
-    )
-    setCurrentInterests(updatedInterests)
-    // Save after removing an interest
-    if (onSave) {
-      onSave(updatedInterests)
-    }
-  }
+  const handleRemoveInterest = useCallback(
+    (interestToRemove: string) => {
+      const updatedInterests = currentInterests.filter(
+        (interest) => interest !== interestToRemove,
+      )
+      setCurrentInterests(updatedInterests)
+
+      if (onSave) {
+        onSave(updatedInterests)
+      } else {
+        console.error('Unable to save interests.')
+      }
+    },
+    [currentInterests, onSave],
+  )
 
   return (
     <div className='interest'>
