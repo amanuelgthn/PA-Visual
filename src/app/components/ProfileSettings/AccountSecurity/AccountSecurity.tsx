@@ -73,6 +73,11 @@ const AccountSecurity = () => {
               <span
                 onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                 className='password-toggle'
+                aria-label={
+                  showCurrentPassword
+                    ? 'Hide current password'
+                    : 'Show current password'
+                }
               >
                 {showCurrentPassword ? '🙈' : '👁️'}
               </span>
@@ -90,6 +95,9 @@ const AccountSecurity = () => {
               <span
                 onClick={() => setShowNewPassword(!showNewPassword)}
                 className='password-toggle'
+                aria-label={
+                  showNewPassword ? 'Hide new password' : 'Show new password'
+                }
               >
                 {showNewPassword ? '🙈' : '👁️'}
               </span>
@@ -107,6 +115,11 @@ const AccountSecurity = () => {
               <span
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 className='password-toggle'
+                aria-label={
+                  showConfirmPassword
+                    ? 'Hide confirm password'
+                    : 'Show confirm password'
+                }
               >
                 {showConfirmPassword ? '🙈' : '👁️'}
               </span>

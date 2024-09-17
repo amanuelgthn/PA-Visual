@@ -167,6 +167,13 @@
         border: 2px solid #986335;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
+      &:disabled {
+        background: #999999;
+        color: #fff;
+        cursor: not-allowed;
+        box-shadow: none;
+        border: 2px solid #ccc;
+      }
 
       @media (max-width: 768px) {
         /* Full width on mobile */
