@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useRef } from 'react'
 import '@fontsource/montserrat'
 import './TermsAndConditionsComponent.scss'
 
@@ -40,15 +40,11 @@ const sectionData = [
 const TermsAndConditionsSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  // Create refs array using useMemo to prevent re-creation on every render
-  const sectionRefs = useMemo(
-    () => sectionData.map(() => React.createRef<HTMLHeadingElement>()),
-    [],
-  )
+  const sectionRefs = useRef<(HTMLHeadingElement | null)[]>([])
 
   const handleClick = (index: number) => {
     setActiveIndex(index)
-    sectionRefs[index].current?.scrollIntoView({ behavior: 'smooth' })
+    sectionRefs.current[index]?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -56,12 +52,15 @@ const TermsAndConditionsSection: React.FC = () => {
       <div className='leftContainer'>
         <ul>
           {sectionData.map((section, index) => (
-            <li
-              key={index}
-              className={activeIndex === index ? 'active' : ''}
-              onClick={() => handleClick(index)}
-            >
-              {section.title}
+            <li key={index}>
+              <button
+                className={activeIndex === index ? 'active' : ''}
+                onClick={() => handleClick(index)}
+                aria-expanded={activeIndex === index}
+                aria-controls={`section-content-${index}`}
+              >
+                {section.title}
+              </button>
             </li>
           ))}
         </ul>
@@ -70,7 +69,13 @@ const TermsAndConditionsSection: React.FC = () => {
       <div className='rightContainer'>
         {sectionData.map((section, index) => (
           <div key={index}>
-            <h1 ref={sectionRefs[index]}>{section.title}</h1>
+            <h1
+              ref={(el) => {
+                sectionRefs.current[index] = el
+              }}
+            >
+              {section.title}
+            </h1>
             <ul>
               {section.content.map((item, itemIndex) => (
                 <li key={itemIndex}>{item}</li>
