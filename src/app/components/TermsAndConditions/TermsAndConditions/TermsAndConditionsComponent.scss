@@ -75,11 +75,12 @@
       padding-right: 8rem;
     }
   }
-
+}
  
-  @media only screen and (max-width: 1024px) {
+  @media (max-width: 1024px) {
+    .TermsAndConditionsSection {
     flex-direction: column; 
-    padding: 1rem;
+    padding: 2rem 1rem 2rem 1rem;
 
     .leftContainer {
       margin: 2rem 0 2rem 0;
@@ -108,9 +109,10 @@
       }
     }
   }
+}
 
-
-  @media only screen and (max-width: 768px) {
+  @media (max-width: 768px) {
+    .TermsAndConditionsSection {
     flex-direction: column; 
     padding: 1rem;
 
@@ -144,4 +146,4 @@
       }
     }
   }
-}
+  }
