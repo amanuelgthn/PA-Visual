@@ -1,0 +1,123 @@
+.recent-payments {
+  .payments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 30px;
+
+    h2 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .view-all {
+      color: #74471F;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      font-weight: bold;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #C98E59;
+      }
+    }
+  }
+
+  .table-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    border: 0.5px solid #8A8878; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden; 
+  }
+
+  .payments-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #323638; 
+
+    thead {
+      background-color: #323638;
+      color: #fff;
+
+      th {
+        padding: 20px 0px 20px 30px;
+        text-align: left;
+        font-weight: bold;
+      }
+    }
+
+    tbody {
+      tr {
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding: 15px 0px 20px 30px;
+          color: white;
+
+          .client-name {
+            font-weight: bold;
+          }
+
+          .client-contact {
+            color: #bbb;
+          }
+
+          .property-info {
+            display: flex;
+            align-items: center;
+
+            .img {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              border-radius: 8px;
+              margin-right: 10px;
+              object-fit: cover;
+            }
+
+            .property-name {
+              font-weight: bold;
+              color: white;
+            }
+
+            .property-location {
+              color: #bbb;
+            }
+          }
+
+          .dots-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .dot {
+              width: 5px;
+              height: 5px;
+              background-color: rgba(109, 109, 109, 0.8); 
+                border-radius: 50%;
+              transition: all 0.3s ease;
+              }
+
+          &:hover .dot {
+            background-color: rgba(255, 255, 255, 1); 
+             }
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: 1024px) {
+//   .recent-payments {
+//     display: none;
+//   }
+// }
