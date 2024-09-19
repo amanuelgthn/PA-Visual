@@ -11,8 +11,33 @@
   flex: 1;
   margin-left: 250px;
   padding: 20px;
-  background-color: #ecf0f1;
+  background: rgb(53, 58, 61);
+  background: linear-gradient(
+    180deg,
+    rgba(53, 58, 61, 1) 1%,
+    rgba(40, 43, 45, 1) 100%
+  );
+
   transition: margin-left 0.3s ease;
+}
+
+.headerText {
+  width: 200px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.26px;
+  text-align: left;
+  color: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
+}
+
+.highlight {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.5px;
+  text-align: left;
+  color: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
 }
 
 @media (max-width: 1024px) {

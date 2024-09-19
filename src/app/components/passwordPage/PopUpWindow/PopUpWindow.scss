@@ -1,0 +1,73 @@
+.PopUpWindow {
+    position: fixed;  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    z-index: 1000;  
+    justify-content: center;
+    align-items: flex-start;
+    width: 60.56rem;
+    height: 25rem;
+    border-radius: 10px;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: rgb(36,39,41);
+    background: linear-gradient(180deg, rgba(36,39,41,1) 10%, rgba(39,42,43,1) 90%);
+    box-shadow: 0px 4px 20px 0px rgba(255, 255, 255, 0.1);
+
+
+    .mainContainer {
+      padding: 2rem 6rem 2rem 6rem;
+
+      .titleContainer {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 1.81rem;
+        letter-spacing: 6px;
+        color: #F2F2F2;
+        text-align: center;
+        padding-bottom: 2rem;
+      }
+
+      .descriptionContainer {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 100;
+        font-size: 1.37rem;
+        line-height: 2.5rem;
+        color: #FFFFFF;
+        text-align: left;
+      }
+
+      .resetPasswordButton {
+        width: 11.43rem;
+        height: 2.87rem;
+        border: none; 
+        border-radius: 0.5rem;
+        box-shadow: 0px 1px 20px 0px #0000004D;
+        background-color: #74471F;
+        color: #FFFFFF;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.88rem;
+        line-height: 1.5rem;
+        margin-top: 2rem;
+        cursor: pointer;
+      }
+      
+    }
+  }
+
+  .ConfirmationPopUpWindow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+  }

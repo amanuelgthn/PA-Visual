@@ -1,0 +1,104 @@
+.BlogCarouselCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(42, 46, 48, 0.7);
+    border-radius: 24px;
+    padding: 10px; // Increased padding
+    width: 350px;
+    height: 400px;
+    box-sizing: border-box;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease; // Add transition for smooth animation
+
+    &:hover {
+        background: radial-gradient(97.57% 210.75% at 0.9% 2.98%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.57) 100%);
+        cursor: pointer;
+        border: 3px solid;
+
+
+        border-image-source: radial-gradient(97.57% 210.75% at 0.9% 2.98%, #FFFFFF 0%, #FFFFFF 100%),
+            radial-gradient(97.09% 224.61% at 1.38% 96.94%, #FFFFFF 0%, #74471F 100%),
+            linear-gradient(114.55deg, rgba(255, 255, 255, 0.9) 2.13%, rgba(255, 255, 255, 0) 98.14%);
+        box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.25);
+
+        h3,
+        p,
+        h1 {
+            color: rgba(116, 71, 31, 1);
+        }
+    }
+
+
+
+    img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 1px solid;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-image-source: radial-gradient(97.57% 210.75% at 0.9% 2.98%,
+                rgba(255, 255, 255, 0.6) 0%,
+                rgba(255, 255, 255, 0.57) 100%);
+    }
+
+    .posting-date {
+        font-family: 'Montserrat';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #f2f2f2;
+    }
+
+    .card-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 26.82px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+    }
+
+    .card-description {
+        font-family: 'Montserrat';
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 1.5;
+        color: #f2f2f2;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+    }
+
+    .read-more-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .read-more {
+            font-family: 'Montserrat';
+            font-size: 15px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: left;
+            background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%);
+            background-clip: text;
+            color: transparent;
+
+            &:hover {
+                text-decoration: underline;
+                color: #f2f2f2;
+            }
+        }
+    }
+}

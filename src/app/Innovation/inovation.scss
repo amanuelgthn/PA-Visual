@@ -1,0 +1,14 @@
+.wrapper-service{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #2A2E30;
+    z-index: -1;
+}
+.second-image-container{
+    width: 100%;
+    position: relative;
+    z-index: -1;
+}

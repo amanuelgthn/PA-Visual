@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @font-face {
   font-family: 'Catchye Demo';
   src: url('/fonts/Catchye.otf') format('truetype');
@@ -12,6 +13,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Inter', sans-serif;
+  src: url('/fonts/Inter/ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
@@ -32,7 +40,7 @@ h4,
 h5,
 h6,
 a {
-  font-family: "DM Sans", sans-serif !important;
+  font-family: 'DM Sans', sans-serif;
 }
 
 body,
@@ -44,11 +52,29 @@ html {
 :root {
   --nav-link: #c98e59;
   --nav-link-active: #74471f;
-  --footer-primary: #2A2E30;
+  --footer-primary: #2a2e30;
   --button-primary: #bf8654;
 }
 
 .remove-scrolling {
   height: 100%;
   overflow: hidden;
+}
+.wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: -1;
+}
+.wrapper-assist{
+  width: 1400px;
+  padding: 50px 0;
+}
+@media (max-width:1400px) {
+  .wrapper-assist{
+    width: 100%;
+    padding: 50px 20px;
+  }
 }
