@@ -1,13 +1,14 @@
 import React from 'react'
 import CareersHeader from '../components/Careers/CareersHeader/CareersHeader'
 import CareersJobPositions from '../components/Careers/CareersJobPositions/CareersJobPositions'
+import './careersglobalstyles.scss'
 
 const Careers = () => {
   return (
-    <div>
+    <section className='globalStyles'>
       <CareersHeader />
       <CareersJobPositions />
-    </div>
+    </section>
   )
 }
 
