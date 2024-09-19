@@ -84,8 +84,8 @@ export const Footer = () => {
       align='center'
       className='footer-main-container'
     >
-      <div className='wrapper'>
-        <div className='wrapper-assist'>
+      <div className='wrapper-footer'>
+        <div className='wrapper-assist-footer'>
           <Flex
             className='footer-logo-container'
             justify='center'

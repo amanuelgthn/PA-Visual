@@ -18,6 +18,7 @@ export const Navbar: React.FC = () => {
   const closeMenu = () => {
     setIsActive(false)
     toggleBodyOverflow(false)
+    window.scrollTo(0, window.scrollY) // Maintain the current scroll position
   }
 
   const toggleBodyOverflow = (shouldOverflow: boolean) => {
@@ -41,6 +42,21 @@ export const Navbar: React.FC = () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = 200
+      if (window.scrollY > scrollHeight && isActive) {
+        closeMenu()
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isActive])
 
   const handleLogin = () => {
     router.push('/login')

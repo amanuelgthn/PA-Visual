@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.Trademark-container {
+    margin-top: 12em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(216, 216, 216, 1);
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    height: 600px;
+}
+
+.Trademark-container img{
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .Trademark-container{
+        padding: 0 50px;
+    }
+}

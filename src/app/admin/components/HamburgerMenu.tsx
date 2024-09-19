@@ -21,7 +21,7 @@ const HamburgerMenu: React.FC = () => {
         <div className={styles.closeButton} onClick={toggleMenu}>
           <Link href='/admin' passHref>
             <Image
-              src='/homelogo.svg'
+              src='/logo/logo.svg'
               alt='logo'
               width={61}
               height={26}

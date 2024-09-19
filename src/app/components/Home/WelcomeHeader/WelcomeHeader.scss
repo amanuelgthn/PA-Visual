@@ -3,7 +3,7 @@
     min-height: 50vh;
     padding: 2vh 0;
     .welcome-header-header {
-        color: #C98E59;
+        color: #fff;
         font-size: 21px;
         font-weight: 600;
         line-height: 31.5px;
@@ -19,7 +19,7 @@
         line-height: 25.6px;
         letter-spacing: 1px;
         text-align: center;
-
+        color: #fff;
     }
 
     .welcome-header-nodes-container {
@@ -31,7 +31,7 @@
                 font-weight: 700;
                 line-height: 29px;
                 letter-spacing: 6px;
-                color: #74471F;
+                color: #fff;
             }
 
             .welcome-header-node-text {
@@ -48,7 +48,7 @@
 .DividerStyle {
     content: "";
     display: block;
-    background: #C98E59;
+    background: #fff;
     width: 12%;
     height: 1px;
 }

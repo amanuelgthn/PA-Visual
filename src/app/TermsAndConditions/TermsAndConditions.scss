@@ -1,0 +1,19 @@
+.globalStyles {
+    background: 
+    linear-gradient(180deg, #525A5E 0%, #2A2E30 100%), 
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    width: 100%;
+    margin: 0;
+    padding: 4rem 4rem 0 4rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: 1024px) {
+    .globalStyles {
+      padding: 0;
+    }
+  }

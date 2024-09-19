@@ -1,3 +1,8 @@
+.wrapper-body{
+  width: 100%;
+  background: linear-gradient(180deg, #839096 -115.32%, #2A2E30 100%);
+}
+
 .wrapper{
   width: 100%;
   display: flex;

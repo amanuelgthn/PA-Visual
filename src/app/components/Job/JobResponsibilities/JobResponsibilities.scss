@@ -1,0 +1,45 @@
+.responsibilities-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h2 {
+        text-align: left;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 13.67px;
+        line-height: 25px;
+        color: #F2F2F2;
+    }
+
+    p {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 25px;
+        color: #F2F2F2;
+        padding-left: 0.5rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .responsibilities-section {
+        h2 {
+
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: left;
+        }
+
+        p {
+            font-size: 12.25px;
+            font-weight: 400;
+            line-height: 25px;
+            text-align: left;
+        }
+
+    }
+}

@@ -1,0 +1,307 @@
+.table-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+
+    .title-date-picker {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .custom-date-picker.ant-picker.ant-picker-small.ant-picker-outlined.css-dev-only-do-not-override-d2lrxs {
+            background-color: transparent;
+            border: none;
+            color: rgba(236, 240, 241, 1);
+            border: 1px solid rgba(236, 240, 241, 1);
+
+            svg {
+                fill: rgba(236, 240, 241, 1);
+            }
+
+
+
+        }
+
+
+        h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 10.49px;
+            text-align: left;
+            color: rgba(236, 240, 241, 1);
+        }
+    }
+
+
+    .custom-ant-table {
+
+        .ant-table {
+            background: rgba(50, 54, 56, 1);
+            border: none;
+            font-family: Montserrat;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 14.63px;
+            letter-spacing: 0.004em;
+            text-align: left;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+            border: 0.15px solid rgba(138, 136, 136, 1);
+
+        }
+
+
+
+
+        .ant-table-thead>tr>th {
+            background: rgba(50, 54, 56, 1);
+            border: none;
+            font-family: Montserrat;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 14.63px;
+            letter-spacing: 0.004em;
+            text-align: left;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+
+            ::before {
+                background-color: none;
+            }
+
+
+
+        }
+
+        .ant-table-tbody>tr>td {
+            background: rgba(50, 54, 56, 1);
+            border: none;
+            font-family: Montserrat;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 14.63px;
+            letter-spacing: 0.004em;
+            text-align: left;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+
+
+
+
+        }
+    }
+
+    .ant-table-cell.ant-table-cell-row-hover {
+        background-color: rgba(50, 54, 56, 1) !important; // Keep the background color the same on hover
+    }
+
+    .status-pending {
+        background-color: rgba(243, 156, 18, 1);
+        border-radius: 20px;
+        padding: 5px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 14.4px;
+        font-weight: 700;
+        line-height: 17.55px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+
+    }
+
+    .status-approved {
+        background-color: rgba(46, 204, 113, 1);
+        border-radius: 20px;
+        padding: 5px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 14.4px;
+        font-weight: 700;
+        line-height: 17.55px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+
+    }
+
+    .status-rejected {
+        background-color: rgba(231, 76, 60, 1);
+        border-radius: 20px;
+        padding: 5px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 14.4px;
+        font-weight: 700;
+        line-height: 17.55px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+    }
+
+    .approve-reject {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .approve-button {
+        background: rgba(46, 204, 113, 1);
+        font-family: "Inter", sans-serif !important;
+        font-size: 12.57px;
+        font-weight: 400;
+        line-height: 15.22px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        width: 70px;
+        border: none;
+    }
+
+    .reject-button {
+        background: rgba(231, 76, 60, 1);
+        font-family: "Inter", sans-serif !important;
+        font-size: 12.57px;
+        font-weight: 400;
+        line-height: 15.22px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        width: 70px;
+        border: none;
+    }
+
+
+    .cards-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .status-count-card {
+            width: 251px;
+            height: 120px;
+            border-radius: 10px;
+            background: var(--DARK-GREEN, rgba(42, 46, 48, 1));
+            box-shadow: 13px 15px 6px 0px rgba(0, 0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+
+            &:hover {
+                background: linear-gradient(94.25deg, #7C4D24 2.37%, #C98E59 93.3%);
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+
+
+
+            h1 {
+                font-family: "Montserrat", sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 21.94px;
+                text-align: left;
+                color: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
+
+            }
+
+            .count-rejected {
+                color: var(--Colors-Red, rgba(255, 59, 48, 1));
+            }
+
+            .count-approved {
+                color: var(--Colors-Green, rgba(52, 199, 89, 1));
+            }
+
+            h2 {
+                font-family: "Montserrat", sans-serif;
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 29.26px;
+                text-align: left;
+                color: var(--LIGHT-GREY, rgba(216, 216, 216, 1));
+            }
+        }
+    }
+}
+
+.card-selected {
+    width: 251px;
+    height: 120px;
+    border-radius: 10px;
+    background: linear-gradient(94.25deg, #7C4D24 2.37%, #C98E59 93.3%);
+    box-shadow: 13px 15px 6px 0px rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 21.94px;
+        text-align: left;
+        color: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
+
+    }
+
+    .count-rejected {
+        color: var(--Colors-Red, rgba(255, 59, 48, 1));
+    }
+
+    .count-approved {
+        color: var(--Colors-Green, rgba(52, 199, 89, 1));
+    }
+
+    h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29.26px;
+        text-align: left;
+        color: var(--LIGHT-GREY, rgba(216, 216, 216, 1));
+    }
+
+}
+
+.ant-picker-year-panel {
+    background: rgba(50, 54, 56, 1);
+
+
+
+    .ant-picker-cell-inner {
+        color: var(--LIGHT-GREY, rgba(216, 216, 216, 1))
+    }
+
+
+
+    .ant-picker-header-view {
+        button {
+            color: var(--LIGHT-GREY, rgba(216, 216, 216, 1));
+        }
+    }
+
+    .ant-picker-header {
+
+        button.ant-picker-header-super-next-btn[aria-label="super-next-year"],
+        button.ant-picker-header-super-prev-btn[aria-label="super-prev-year"] {
+            color: #C98E59;
+        }
+    }
+}
+
+:where(.css-dev-only-do-not-override-d2lrxs).ant-table-wrapper .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before,
+:where(.css-dev-only-do-not-override-d2lrxs).ant-table-wrapper .ant-table-thead>tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    display: none;
+}
+
+:where(.css-dev-only-do-not-override-d2lrxs).ant-picker-dropdown .ant-picker-panel-container {
+    background: none;
+}

@@ -2,9 +2,8 @@
     width: 100%;
     min-height: 50vh;
     padding: 10vh 0;
-    background: #F2F2F2;
     .contact-header-header {
-        color: #74471F;
+        color: #fff;
         font-size: 2vw;
         font-weight: 600;
         line-height: 31.5px;
@@ -18,7 +17,7 @@
         font-size: 0.8vw;
         text-align: center;
         letter-spacing: 1px;
-        color: #74471F;
+        color: #fff;
         font-weight: 300;
     }
 
@@ -41,7 +40,7 @@
 .DividerStylecontact {
     content: "";
     display: block;
-    background: #74471F;
+    background: #fff;
     width: 12%;
     height: 1px;
 }

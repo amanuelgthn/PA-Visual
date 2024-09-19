@@ -5,8 +5,6 @@ export const ImageHeader = () => {
   return (
     <Flex className='about-image-header-container'>
       <Flex className='about_image_comtainer'>
-        <img src='./home/logo.svg' alt='Global Property Logo' />
-
         <h1 className='about_main_header'>About us</h1>
         <p className='about_main_paragraph'>
           We are committed to providing exceptional service and expertise in the
