@@ -68,9 +68,10 @@ const RecentPaymments = () => {
                     <Image
                       src={payment.image}
                       alt='Property'
-                      width={50}
-                      height={50}
+                      width={500}
+                      height={500}
                       className='img'
+                      objectFit='cover'
                     />
                     <div>
                       <p className='property-name'>{payment.property}</p>

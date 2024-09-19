@@ -1,0 +1,80 @@
+.revenue-overview {
+  background-color: #323638;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      color: #fff;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+
+      .control-btn {
+        padding: 5px 10px;
+        background-color: #444;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #666;
+        }
+
+        &.active {
+          background-color: #c27c49;
+        }
+      }
+    }
+  }
+
+  .chart {
+    margin: 20px 0;
+
+    .chart-placeholder {
+      background-color: #292929;
+      border-radius: 8px;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 24px;
+    }
+  }
+
+  .year-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+
+    button {
+      background-color: #444;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #666;
+      }
+    }
+
+    span {
+      color: #fff;
+    }
+  }
+}

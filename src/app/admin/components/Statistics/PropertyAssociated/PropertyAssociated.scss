@@ -1,0 +1,84 @@
+.property-associated {
+  background-color: #323638;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  width: auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h3 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .view-all {
+      color: #f39c12;
+      text-decoration: none;
+      font-size: 14px;
+
+      &:hover {
+        color: #d35400;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    thead {
+      background-color: transparent;
+      color: #fff;
+
+      th {
+        padding: 15px;
+        text-align: left;
+        font-weight: bold;
+      }
+    }
+
+    tbody {
+      tr {
+        // border-bottom: 1px solid #444;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding: 15px;
+          color: #fff;
+
+          .property-info {
+            display: flex;
+            align-items: center;
+
+            img {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              border-radius: 8px;
+              margin-right: 10px;
+            }
+
+            .property-name {
+              font-weight: bold;
+              color: #fff;
+            }
+
+            .associate {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@
     }
 
     .view-all {
-      color: #74471F;
+      color: #74471f;
       text-decoration: none;
       font-size: 14px;
       transition: color 0.3s ease;
@@ -20,7 +20,7 @@
       transition: all 0.3s ease;
 
       &:hover {
-        color: #C98E59;
+        color: #c98e59;
       }
     }
   }
@@ -28,15 +28,15 @@
   .table-wrapper {
     width: 100%;
     border-radius: 8px;
-    border: 0.5px solid #8A8878; 
+    border: 0.5px solid #8a8878;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    overflow: hidden; 
+    overflow: hidden;
   }
 
   .payments-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #323638; 
+    background-color: #323638;
 
     thead {
       background-color: #323638;
@@ -77,7 +77,6 @@
               object-fit: cover;
               border-radius: 8px;
               margin-right: 10px;
-              object-fit: cover;
             }
 
             .property-name {
@@ -101,14 +100,14 @@
             .dot {
               width: 5px;
               height: 5px;
-              background-color: rgba(109, 109, 109, 0.8); 
-                border-radius: 50%;
+              background-color: rgba(109, 109, 109, 0.8);
+              border-radius: 50%;
               transition: all 0.3s ease;
-              }
+            }
 
-          &:hover .dot {
-            background-color: rgba(255, 255, 255, 1); 
-             }
+            &:hover .dot {
+              background-color: rgba(255, 255, 255, 1);
+            }
           }
         }
       }
