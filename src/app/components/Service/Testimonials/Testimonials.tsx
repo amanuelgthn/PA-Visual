@@ -6,6 +6,7 @@ import image1 from '../../../../../public/Service/Person1.png'
 import image2 from '../../../../../public/Service/Person2.png'
 import image3 from '../../../../../public/Service/Person3.png'
 import image4 from '../../../../../public/Service/Person4.jpg'
+import image5 from '../../../../../public/Service/Person5.jpg'
 import './Testimonials.css'
 import PrevIcon from '../../../../../public/Service/prev_icon.svg'
 import NextIcon from '../../../../../public/Service/next_icon.svg'
@@ -13,36 +14,58 @@ import NextIcon from '../../../../../public/Service/next_icon.svg'
 const Testimonials = () => {
   const quotes = [
     {
-      text: `Global Property helped us sell our luxury villa in Marbella quickly and for top dollar.
-                Their marketing expertise and negotiation skills were instrumental in closing the deal. We couldn't
-                be happier with the outcome.`,
-      outcome: 'Sold above asking price within 30 days of listing.',
+      text: `Investing in a luxury penthouse in Eixample was a transformative experience. The vibrant cultural 
+              scene and stunning architecture drew me to the area. After purchasing, I renovated the space to 
+              enhance its appeal. Within three years, I sold it for a 30% profit, capitalizing on the growing 
+              demand for high-end properties. The entire process was seamless, thanks to a knowledgeable real 
+              estate agent who understood the local market.`,
+      Success: `A couple bought a historic villa in Gràcia, which they converted into a vacation rental. By 
+                leveraging Barcelona's booming tourism, they achieved a 50% increase in rental income within 
+                two years, demonstrating the city's strong appeal to international travelers.`,
       image: image1,
-      name: 'John and Emily Smith',
+      Location: 'Barcelona, Spain',
     },
     {
-      text: `Global Property helped us sell our luxury villa in Marbella quickly and for top dollar.
-                Their marketing expertise and negotiation skills were instrumental in closing the deal. We couldn't
-                be happier with the outcome.`,
-      outcome: 'Sold above asking price within 30 days of listing.',
+      text: `Selling my luxury beachfront property in Viña del Mar was surprisingly straightforward. The market 
+              was hot, and I received multiple offers above the asking price within weeks. With the help of an 
+              experienced agent, I closed the sale in under a month, allowing me to reinvest in another property. 
+              The entire experience exceeded my expectations!`,
+      Success: `An investor purchased a luxury apartment in Santiago. With the rise of remote work, they rented 
+                it out to expatriates, achieving an annual rental yield of 8%. The property’s value appreciated 
+                significantly, reflecting the increasing demand for upscale rentals in urban areas.`,
       image: image2,
-      name: 'Tony Button',
+      Location: 'Chile',
     },
     {
-      text: `Global Property made the sale of our penthouse in Miami a seamless experience.
-                    Their market insights and strong negotiation skills were key to securing an excellent deal.
-                    We're extremely satisfied with how it turned out.`,
-      outcome: 'Sold at full asking price in just 25 days.',
+      text: `The luxury market in Miami is incredibly vibrant! I sold my waterfront condo in Brickell in less than 
+              two weeks, thanks to the high demand from international buyers. The sale price exceeded my expectations, 
+              allowing me to invest in another property. The entire process was efficient and rewarding.`,
+      Success: `A couple renovated a luxury home in Coral Gables and listed it as a short-term rental. Within a year, 
+                they reported a 40% increase in property value and significant rental income, benefiting from Miami’s year-round tourism and strong rental market.`,
       image: image3,
-      name: 'Michael and Sarah Johnson',
+      Location: 'Miami, Florida',
     },
     {
-      text: `We entrusted Global Property with selling our city loft in London, and they delivered beyond
-                    our expectations. Their expertise in marketing luxury properties and their sharp negotiation approach
-                    ensured a successful sale.`,
-      outcome: 'Sold above asking price within 15 days of listing.',
+      text: `Investing in a luxury apartment in Downtown Dubai was a game-changer for my finances. The property’s 
+              value soared due to major developments and events like Expo 2020. I sold it for a 60% profit in just
+              two years, which was beyond my expectations. The entire process was smooth, and I felt well-informed 
+              at every step.`,
+      Success: `An investor acquired a villa in Palm Jumeirah, turning it into a luxury rental. With the growing 
+                expat community, they enjoyed a consistent 12% rental yield, showcasing Dubai's appeal in the 
+                global luxury market.`,
       image: image4,
-      name: 'Amanda Martinez',
+      Location: 'Dubai, UAE',
+    },
+    {
+      text: `Purchasing a luxury apartment in Santiago has proven to be one of my best investment decisions. 
+              The growing demand for high-end rentals allowed me to achieve excellent rental yields while the 
+              property appreciated in value. Working with a knowledgeable agent made the process seamless and 
+              enjoyable`,
+      Success: `After acquiring a luxury apartment, the investor capitalized on the influx of expatriates and
+                tourists in Santiago, resulting in a rental yield of 10% annually. The property’s value increased 
+                significantly, reflecting the city's expanding real estate market.`,
+      image: image5,
+      Location: 'Santiago, Chile',
     },
   ]
 
@@ -96,12 +119,12 @@ const Testimonials = () => {
 
       <div className={`testimonials-body ${isAnimating ? 'fade-in' : ''}`}>
         <p>{quotes[currentIndex].text}</p>
-        <p>Outcome: {quotes[currentIndex].outcome}</p>
+        <p>Success Story: {quotes[currentIndex].Success}</p>
       </div>
 
       <div className={`testimonials-owner ${isAnimating ? 'fade-in' : ''}`}>
         <h1 className='testimonials-owner-title'>
-          {quotes[currentIndex].name}
+          {quotes[currentIndex].Location}
         </h1>
       </div>
 
@@ -119,7 +142,7 @@ const Testimonials = () => {
             >
               <Image
                 src={quote.image}
-                alt={`${quote.name} testimonial`}
+                alt={`${quote.Location} testimonial`}
                 width={100}
                 height={100}
                 className={`testimonial-image ${index === 1 ? 'active' : ''}`}
