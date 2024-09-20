@@ -1,50 +1,77 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import '@fontsource/montserrat'
 import './TermsAndConditionsComponent.scss'
 
 const sectionData = [
   {
-    title: 'Introduction',
+    title: 'TERMS AND CONDITIONS',
     content: [
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad',
+      `These Terms and Conditions outline Global Property's commitment to protecting the privacy and security of personal data provided by its clients. We handle all personal data in accordance with applicable data protection laws, including but not limited to the General Data Protection Regulation (GDPR), where applicable.`,
     ],
   },
   {
-    title: 'Information Collection and Use',
+    title: 'DATA COLLECTION AND USE',
     content: [
-      'We accept no liability and will not be liable for any loss or damage arising directly or indirectly (including special, incidental or consequential loss or damage) from your use of this website, howsoever arising, including any loss, damage or expense arising from, but not limited to, any defect, error, imperfection, fault, mistake or inaccuracy with this website, its contents or associated services, or due to any unavailability of the website or any part thereof or any contents or associated services, where such events arose out of circumstances outside our reasonable control.',
+      'Global Property collects personal data from clients only to the extent necessary for providing agreed services. This data may include, but is not limited to, names, contact details, financial information, and any other details required for the fulfillment of contractual obligations.',
+      'Clients’ personal data will be used strictly for the purposes outlined in the agreement between the parties. These purposes may include the provision of services, communication with clients, and compliance with legal requirements.',
+      'Global Property ensures that personal data will not be used for other purposes unless explicit consent has been provided by the client.',
     ],
   },
   {
-    title: 'Disclosure of your information',
+    title: 'DATA RETENTION',
     content: [
-      'We accept no liability and will not be liable for any loss or damage arising directly or indirectly (including special, incidental or consequential loss or damage) from your use of this website, howsoever arising, including any loss, damage or expense arising from, but not limited to, any defect, error, imperfection, fault, mistake or inaccuracy with this website, its contents or associated services, or due to any unavailability of the website or any part thereof or any contents or associated services, where such events arose out of circumstances outside our reasonable control.',
+      "Global Property will retain clients' personal data for [a time period], or as required by applicable laws and regulations.",
+      'Once the retention period has expired, personal data will be securely deleted or anonymized to prevent unauthorized access or further use.',
     ],
   },
   {
-    title: 'General inquiries',
+    title: 'DATA SHARING AND DISCLOSURE',
     content: [
-      'We accept no liability and will not be liable for any loss or damage arising directly or indirectly (including special, incidental or consequential loss or damage) from your use of this website, howsoever arising, including any loss, damage or expense arising from, but not limited to, any defect, error, imperfection, fault, mistake or inaccuracy with this website, its contents or associated services, or due to any unavailability of the website or any part thereof or any contents or associated services, where such events arose out of circumstances outside our reasonable control.',
+      "Global Property will not share clients' personal data with third parties without obtaining prior consent unless required by law or for the performance of services as outlined in the agreement.",
+      'In cases where third-party processors are engaged to handle personal data on behalf of Global Property, they will be required to adhere to strict confidentiality and data protection standards.',
     ],
   },
   {
-    title: 'Data Security',
+    title: "CLIENT'S RIGHTS",
     content: [
-      'We accept no liability and will not be liable for any loss or damage arising directly or indirectly (including special, incidental or consequential loss or damage) from your use of this website, howsoever arising, including any loss, damage or expense arising from, but not limited to, any defect, error, imperfection, fault, mistake or inaccuracy with this website, its contents or associated services, or due to any unavailability of the website or any part thereof or any contents or associated services, where such events arose out of circumstances outside our reasonable control.',
+      'Clients have the right to access, correct, erase, or restrict the processing of their personal data at any time, in accordance with applicable data protection laws. Clients also have the right to object to the processing of their personal data and to request data portability.',
+      'Any requests to exercise these rights must be submitted in writing to Global Property. We will respond to such requests within the legally required timeframes.',
+    ],
+  },
+  {
+    title: 'DATA SECURITY',
+    content: [
+      "Global Property implements appropriate technical and organizational measures to protect clients' personal data from unauthorized access, accidental loss, or disclosure. We continuously review our data protection practices to ensure the highest standards of security.",
+    ],
+  },
+  {
+    title: 'DATA BREACH NOTIFICATION',
+    content: [
+      "In the event of a data breach involving clients' personal data, Global Property will notify affected clients as soon as possible, and no later than [a number] days after becoming aware of the breach. The notification will include information about the nature of the breach, the data involved, and the steps being taken to mitigate any potential impact.",
+    ],
+  },
+  {
+    title: 'AMENDMENTS',
+    content: [
+      'Global Property reserves the right to update or modify these terms and conditions at any time in response to changes in applicable laws or internal practices. Clients will be notified of any significant changes in writing or through the company’s official communication channels.',
+    ],
+  },
+  {
+    title: 'GOVERNING LAW',
+    content: [
+      'These terms and conditions are governed by the laws of [jurisdiction]. Any disputes relating to data privacy shall be resolved in the courts of [jurisdiction].',
+      "By using Global Property's services, clients agree to the collection, use, and protection of their personal data as outlined in these terms and conditions.",
     ],
   },
 ]
 
 const TermsAndConditionsSection: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-
-  const sectionRefs = useRef<(HTMLHeadingElement | null)[]>([])
+  const [activeIndex, setActiveIndex] = useState<number>(0)
 
   const handleClick = (index: number) => {
     setActiveIndex(index)
-    sectionRefs.current[index]?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -67,22 +94,16 @@ const TermsAndConditionsSection: React.FC = () => {
       </div>
 
       <div className='rightContainer'>
-        {sectionData.map((section, index) => (
-          <div key={index}>
-            <h1
-              ref={(el) => {
-                sectionRefs.current[index] = el
-              }}
-            >
-              {section.title}
-            </h1>
+        {activeIndex !== null && (
+          <div>
+            <h1>{sectionData[activeIndex].title}</h1>
             <ul>
-              {section.content.map((item, itemIndex) => (
+              {sectionData[activeIndex].content.map((item, itemIndex) => (
                 <li key={itemIndex}>{item}</li>
               ))}
             </ul>
           </div>
-        ))}
+        )}
       </div>
     </section>
   )
