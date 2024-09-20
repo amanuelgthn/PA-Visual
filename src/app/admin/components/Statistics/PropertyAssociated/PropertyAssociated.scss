@@ -4,7 +4,9 @@
   padding: 20px;
   border-radius: 8px;
   margin-top: 30px;
-  width: auto;
+  max-width: 50%;
+  width: 100%;
+  flex: 1;
 
   .header {
     display: flex;
@@ -18,12 +20,14 @@
     }
 
     .view-all {
-      color: #f39c12;
+      color: #74471f;
       text-decoration: none;
       font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
 
       &:hover {
-        color: #d35400;
+        color: #c98e59;
       }
     }
   }
