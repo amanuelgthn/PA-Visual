@@ -23,7 +23,10 @@ const Service = () => {
 
       <div className='wrapper-assist'>
         <DataAnalytics />
-        <OnHover />
+        <OnHover
+          title='Hover over me!'
+          content='This content is revealed when you hover over the title.'
+        />
       </div>
     </div>
   )
