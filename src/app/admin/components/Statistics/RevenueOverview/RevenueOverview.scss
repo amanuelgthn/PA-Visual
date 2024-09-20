@@ -1,10 +1,12 @@
 .revenue-overview {
-  background-color: #323638;
+  background-color: #2a2e30;
   padding: 20px;
   border-radius: 8px;
   margin-top: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  width: auto;
+  max-width: 50%;
+  width: 100%;
+  flex: 1;
 
   .header {
     display: flex;
@@ -16,47 +18,49 @@
     }
 
     .controls {
+      background-color: #323638;
+      border-radius: 11.154px;
       display: flex;
       gap: 10px;
+      padding: 10px 10px;
 
       .control-btn {
         padding: 5px 10px;
-        background-color: #444;
+
+        background-color: transparent;
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 20px;
         cursor: pointer;
         transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: #666;
+          background-color: transparent;
         }
 
         &.active {
-          background-color: #c27c49;
+          background-color: #bf8654;
+          border-radius: 10px;
         }
       }
     }
   }
 
-  .chart {
+  .chart-container {
     margin: 20px 0;
+    padding: 20px;
 
-    .chart-placeholder {
-      background-color: #292929;
-      border-radius: 8px;
-      padding: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      font-size: 24px;
+    border-radius: 8px;
+    height: 300px;
+
+    canvas {
+      height: 100%;
     }
   }
 
   .year-selector {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
     align-items: center;
 
@@ -75,6 +79,7 @@
 
     span {
       color: #fff;
+      font-size: 16px;
     }
   }
 }
