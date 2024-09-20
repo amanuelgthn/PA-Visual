@@ -59,11 +59,11 @@ export const Navbar: React.FC = () => {
   }, [isActive])
 
   const handleLogin = () => {
-    router.push('/login')
+    router.push('/Login')
   }
 
   const handleSignup = () => {
-    router.push('/signup')
+    router.push('/UserSignup')
   }
 
   const menuItems = [
@@ -72,10 +72,8 @@ export const Navbar: React.FC = () => {
     { label: 'Properties', path: '/Properties' },
     { label: 'Service', path: '/Service' },
     { label: 'Innovation', path: '/Innovation' },
-    { label: 'Clients', path: '/Clients' },
-    { label: 'Blog', path: '/Blog' },
+    { label: 'Subscription', path: '/Subscription' },
     { label: 'Contact', path: '/Contact' },
-    { label: 'Social Media', path: '/Social' },
   ]
 
   return (
