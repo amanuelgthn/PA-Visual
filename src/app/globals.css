@@ -66,11 +66,11 @@ html {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: -1;
 }
 .wrapper-assist{
   width: 1400px;
   padding: 50px 0;
+  z-index: 1;
 }
 @media (max-width:1400px) {
   .wrapper-assist{
