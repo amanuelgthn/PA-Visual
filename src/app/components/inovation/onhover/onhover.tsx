@@ -1,7 +1,5 @@
 import './onhover.scss'
 
-//to make
-
 interface OnHoverCardProps {
   title: string
   content: string
@@ -27,10 +25,13 @@ export const OnHover = () => {
     <div className='wrapper-onhover'>
       {cardsData.map((card, index) => (
         <div key={index} className='card-onhover'>
-          <div className='card-header'>{card.title}</div>
-          {/* <div className="card-content">
-                        <p>{card.content}</p>
-                    </div> */}
+          <div className='card-header'>
+            <h1>{card.title}</h1>
+            <div className='circle'></div>
+          </div>
+          <div className='card-content'>
+            <p>{card.content}</p>
+          </div>
         </div>
       ))}
     </div>
