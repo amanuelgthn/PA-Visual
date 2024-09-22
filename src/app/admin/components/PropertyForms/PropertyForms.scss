@@ -1,0 +1,178 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    .form-container-custom {
+
+        height: 90px;
+        box-sizing: border-box;
+
+        .ant-form-item-explain-error {
+            font-family: "Montserrat", sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 19.5px;
+            text-align: left;
+            color: rgba(231, 76, 60, 1)
+        }
+
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background: rgba(50, 54, 57, 1);
+        border: 0.17px solid var(--Progress, rgba(138, 136, 136, 1));
+        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+
+
+    }
+
+    .form-cotainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background: rgba(50, 54, 57, 1);
+        border: 0.17px solid var(--Progress, rgba(138, 136, 136, 1));
+        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        width: 100%;
+    }
+
+    .ant-form.ant-form-horizontal.css-dev-only-do-not-override-d2lrxs.custom-form {
+
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+
+        .ant-row.ant-form-item-row.css-dev-only-do-not-override-d2lrxs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+
+
+        }
+
+        .ant-form-item-label {
+            display: flex;
+            flex-direction: column;
+
+
+            label {
+                font-family: "Montserrat", sans-serif;
+                font-size: 15.38px;
+                font-weight: 700;
+                line-height: 18.74px;
+                text-align: left;
+                color: rgba(255, 255, 255, 1);
+
+            }
+        }
+
+        .ant-input,
+        .ant-input-number,
+        .ant-input-textarea {
+            font-family: "Inter", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 18.15px;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+            background: rgba(63, 69, 72, 1);
+            border: 0.15px solid rgba(221, 221, 221, 1);
+
+
+        }
+
+        .ant-input:focus,
+        .ant-input-number:focus,
+        .ant-input-textarea:focus {
+            border-color: rgba(191, 134, 84, 1);
+
+        }
+
+        .ant-btn {
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .ant-btn-primary {
+            background-color: rgba(191, 134, 84, 1);
+            font-family: "Montserrat", sans-serif;
+            font-size: 15px;
+            border-radius: 5px;
+            font-weight: 400;
+            line-height: 18.29px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+            margin-right: 20px;
+        }
+
+        .ant-btn-primary:hover {
+            background-color: rgba(191, 134, 84, 0.9);
+        }
+
+        .ant-btn-default {
+            background-color: rgba(217, 217, 217, 1);
+            border-radius: 5px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 15.25px;
+            font-weight: 400;
+            line-height: 18.59px;
+            text-align: center;
+            color: rgba(116, 71, 31, 1);
+            margin-right: 20px;
+        }
+
+        .ant-btn-default:hover {
+            background-color: rgba(217, 217, 217, 0.9);
+
+
+        }
+    }
+
+    .buttons-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+
+    }
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        .ant-form-item {
+            flex: 1 1 calc(50% - 16px);
+        }
+
+        .dropdown-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(63, 69, 72, 1) !important;
+            font-family: "Inter", sans-serif;
+            font-size: 15.38px;
+            font-weight: 400;
+            line-height: 17px;
+            text-align: left;
+            color: rgba(255, 255, 255, 1) !important;
+
+        }
+
+
+    }
+}

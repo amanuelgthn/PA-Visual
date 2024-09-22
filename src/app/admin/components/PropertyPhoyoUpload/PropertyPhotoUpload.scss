@@ -1,0 +1,106 @@
+.photo-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        font-family: "Inter", sans-serif;
+        font-size: 12.47px;
+        font-weight: 700;
+        line-height: 15.09px;
+        letter-spacing: 0.004em;
+        text-align: right;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .left {
+        width: 503px;
+        height: 343px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(50, 54, 57, 1);
+        border: 0.17px solid var(--Progress, rgba(138, 136, 136, 1));
+        border-radius: 15px;
+
+        img {
+            width: 432px;
+            height: 215px;
+            border: 0.16px solid rgba(255, 255, 255, 1);
+            border-radius: 4px;
+
+        }
+    }
+
+    .right {
+        width: 503px;
+        height: 343px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(50, 54, 57, 1);
+        border: 0.17px solid var(--Progress, rgba(138, 136, 136, 1));
+        border-radius: 15px;
+
+
+
+        .photo-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+
+            img {
+                width: 207px;
+                height: 103px;
+                border: 0.16px solid rgba(255, 255, 255, 1);
+                border-radius: 4px;
+            }
+        }
+    }
+
+    .upload-input-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+
+    input {
+        display: none;
+    }
+
+    .upload-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        margin-top: 10px;
+        background: none;
+        color: rgba(217, 129, 50, 1);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17.07px;
+        text-align: right;
+    }
+
+    .upload-button:hover {
+        background-color: rgba(217, 129, 50, 0.1);
+    }
+
+    .upload-button svg {
+        margin-right: 8px;
+    }
+
+}
