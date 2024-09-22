@@ -4,6 +4,10 @@ import React from 'react'
 import './ForgotPass.scss'
 import Link from 'next/link'
 import { LeftOutlined } from '@ant-design/icons'
+
+// this is going to need to be fixed
+// and to use the correct design as the login page and signup page
+
 const ForgotPass = () => {
   const [form] = Form.useForm()
   const HandleSubmit = () => {

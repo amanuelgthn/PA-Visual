@@ -1,0 +1,130 @@
+.wrapper-onhover {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100vh;
+  margin-top: 100px;
+}
+
+.card-onhover {
+  width: 800px;
+  height: 33.33%; 
+  overflow: hidden;
+  transition: height 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    height: 350px;
+  }
+
+  .card-header {
+    text-align: center;
+    border-radius: 60px;
+    background: #D8D8D8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    h1{
+      font-family: "DM Sans";
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 29px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 50px !important;
+    }
+  }
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    transition: left 0.5s ease, background-color 0.5s ease;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  &:hover .circle {
+    left: calc(100% - 50px); 
+    background-color: #000;
+  }
+
+  &:hover .card-header{
+    background-color: #2A2E30;
+    color: #424344;
+  }
+
+  &:hover .card-header h1{
+    color: #424344;
+  }
+
+  .card-content {
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 0px 20px;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      margin: 0;
+      color:#000;
+      text-align: justify;
+      font-family: "Montserrat";
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 40px;
+    }
+  }
+
+  &:hover .card-content {
+    opacity: 1;
+    height: auto;
+    padding: 10px;
+  }
+  &:nth-child(2) {
+    align-self: center;
+  }
+  &:nth-child(3) {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width:830px) {
+  .card-onhover{
+    width: 100%;
+    .card-header{
+      font-size: 20px !important;
+      line-height: 20px;
+    }
+    .circle{
+      width: 30px;
+      height: 30px;
+    }
+    .card-content{
+      p{
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+.virtualBlockchain-container{
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    .virtual_header{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        .virtual_section{
+            width: 994px;
+            h1{
+                color: #2A2E30;
+                background-color: #fff;
+                text-align: center;
+                font-family: "Montserrat";
+                font-size: 59px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 55.9px;
+                letter-spacing: 3.54px;
+                padding: 10px;
+                border-radius: 30px;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+            }
+            .description{
+                color: #FFF;
+                text-align: justify;
+                font-family: "Montserrat";
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 40px;
+                background-color: #2a2e306e;
+                border-radius: 151px;
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                padding: 50px;
+                margin-top: 40px;
+            }
+        }
+    }
+    .blockchain_header{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        .blockchain_section{
+            width: 994px;
+            h1{
+                color: #2A2E30;
+                background-color: #fff;
+                text-align: center;
+                font-family: "Montserrat";
+                font-size: 59px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 55.9px;
+                letter-spacing: 3.54px;
+                padding: 10px;
+                border-radius: 30px;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+            }
+            .description{
+                color: #FFF;
+                text-align: justify;
+                font-family: "Montserrat";
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 40px;
+                background-color: #2a2e306e;
+                border-radius: 151px;
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                padding: 50px;
+                margin-top: 40px;
+            }
+        }
+        .virtual_section{
+            width: 800px;
+            h1{
+                color: #2A2E30;
+                background-color: #fff;
+                text-align: center;
+                font-family: "Montserrat";
+                font-size: 59px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 55.9px;
+                letter-spacing: 3.54px;
+                padding: 10px;
+                border-radius: 30px;
+            }
+            .description{
+                color: #FFF;
+                text-align: justify;
+                font-family: "Montserrat";
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 40px;
+                background-color: #2a2e306e;
+                border-radius: 151px;
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                padding: 50px;
+                margin-top: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width:1000px) {
+    .virtual_header{
+        .virtual_section{
+            width: 100%;
+            h1{
+                font-size: 40px !important;
+            }
+            .description{
+                font-size: 18px !important;
+            }
+        }
+    }
+    .blockchain_header{
+        .blockchain_section{
+            width: 100%;
+            h1{
+                font-size: 40px !important;
+            }
+            .description{
+                font-size: 18px !important;
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .virtual_header{
+        .virtual_section{
+            width: 100%;
+            h1{
+                font-size: 30px !important;
+            }
+            .description{
+                font-size: 16px !important;
+                border-radius: 70px !important;
+                padding: 30px 40px !important;
+            }
+        }
+    }
+    .blockchain_header{
+        .blockchain_section{
+            width: 100%;
+            h1{
+                font-size: 30px !important;
+            }
+            .description{
+                font-size: 16px !important;
+                border-radius: 70px !important;
+                padding: 30px 40px !important;
+            }
+        }
+    }
+}

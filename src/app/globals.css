@@ -19,6 +19,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Poppins',  sans-serif;
+  src: url('/fonts/Poppins/ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 *,
 *::before,
@@ -70,6 +76,7 @@ html {
 .wrapper-assist{
   width: 1400px;
   padding: 50px 0;
+  z-index: 1;
 }
 @media (max-width:1400px) {
   .wrapper-assist{
