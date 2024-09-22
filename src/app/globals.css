@@ -19,6 +19,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Poppins',  sans-serif;
+  src: url('/fonts/Poppins/ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 *,
 *::before,

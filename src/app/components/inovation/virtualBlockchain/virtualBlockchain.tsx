@@ -24,7 +24,7 @@ export const VirtualBlockchain = () => {
         <div className='blockchain_header'>
           <Section
             title='BLOCKCHAIN TECHNOLOGY'
-            description='Blockchain technologies provide secure, transparent, and immutable records for transactions, making it easier to track and verify property deals and contracts. Our use of blockchain ensures that clients have trust in the process, offering them peace of mind with every transaction.'
+            description='Blockchain technology is revolutionizing the real estate industry by providing a secure and transparent platform for property transactions, title deeds, and smart contracts. We explore the potential of blockchain to streamline transactions, reduce fraud, and increase trust and transparency in the real estate market.'
             sectionClass='blockchain_section'
           />
         </div>
