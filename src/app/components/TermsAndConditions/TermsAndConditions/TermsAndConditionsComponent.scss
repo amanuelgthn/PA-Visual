@@ -1,0 +1,202 @@
+.TermsAndConditionsSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  text-align: left;
+  position: relative;
+  padding: 2rem;
+
+  .leftContainer {
+    font-family: Montserrat;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    text-align: left;
+    color: #FFFFFF;
+    gap: 3.05rem;
+    margin: 2rem 4rem 2rem 3rem;
+    list-style: none;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      width: auto;
+      padding: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit;
+      font-size: inherit;
+      text-align: left;
+      cursor: pointer;
+      padding: 0;
+      width: 100%;
+      white-space: nowrap;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      &:focus {
+        outline-offset: 2px;
+      }
+
+      &.active:before {
+        background-color: #C98E59;
+      }
+
+      &:hover {
+        color: #C98E59;
+      }
+    }
+  }
+
+  .rightContainer {
+    h1 {
+      font-family: Montserrat;
+      font-size: 1.75rem;
+      font-weight: 400;
+      line-height: 2.5rem;
+      text-align: left;
+      color: #FFFFFF;
+      padding: 1.5rem 0 0 0;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem; 
+      margin: 0;
+    }
+
+    li {
+      font-family: Montserrat;
+      font-size: 1.38rem;
+      font-weight: 300;
+      line-height: 2.5rem;
+      text-align: left;
+      color: #FFFFFF;
+      padding-right: 8rem;
+      padding-top: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .TermsAndConditionsSection {
+    flex-direction: column;
+    padding: 2rem 1rem;
+
+    .leftContainer {
+      margin: 2rem 0;
+      gap: 2rem;
+      font-size: 1.5rem;
+      justify-content: center;
+      text-align: center;
+
+      ul {
+        align-items: center;
+      }
+
+      li {
+        justify-content: center;
+      }
+
+      button {
+        text-align: center;
+      }
+    }
+
+    .rightContainer {
+      h1 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        justify-content: center;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin: 0;
+      }
+
+      li {
+        font-size: 1.2rem;
+        line-height: 2rem;
+        justify-content: center;
+        text-align: left; 
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .TermsAndConditionsSection {
+    flex-direction: column;
+    padding: 1rem;
+
+    .leftContainer {
+      font-size: 1rem;
+      margin: 1.5rem 0;
+      gap: 1.5rem;
+
+      ul {
+        align-items: center;
+      }
+
+      li {
+        font-size: 0.9rem;
+        justify-content: center;
+      }
+
+      button {
+        text-align: center;
+        &:before {
+          left: -10px;
+          width: 4px;
+        }
+      }
+    }
+
+    .rightContainer {
+      h1 {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin: 0;
+      }
+
+      li {
+        font-size: 1rem;
+        line-height: 1.8rem;
+      }
+    }
+  }
+}

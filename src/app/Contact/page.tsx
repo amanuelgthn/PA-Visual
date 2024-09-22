@@ -1,14 +1,18 @@
-import { Flex } from 'antd'
 import './Contact.scss'
 import { ImageHeader } from '../components/Contact/ImageHeader/ImageHeader'
-import { FormSection } from '../components/Contact/FormSection/FormSection'
-import { FollowSection } from '../components/Contact/FollowSection/FollowSection'
-export default function Contact() {
+import { Followus } from '../components/Contact/Followus/Followus'
+
+const Contact = () => {
   return (
-    <Flex className='contact-container' vertical>
-      <ImageHeader />
-      <FormSection />
-      <FollowSection />
-    </Flex>
+    <>
+      <div className='wrapper background'>
+        <div className='wrapper-assist'>
+          <ImageHeader />
+          <Followus />
+        </div>
+      </div>
+    </>
   )
 }
+
+export default Contact

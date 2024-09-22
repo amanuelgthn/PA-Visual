@@ -1,0 +1,117 @@
+.membership-management {
+  color: #f0f0f0;
+  margin-top: 20px;
+  padding: 20px 0;
+  width: 100%;
+
+  h3 {
+    font-size: 2rem;
+    color: #e5e5e5;
+    margin-bottom: 10px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        #d7a86e 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      margin-top: 10px;
+    }
+  }
+
+  .membership-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+
+      strong {
+        color: #ddd;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .membership-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+
+    .member-upgrade-btn,
+    .member-change-btn {
+      background-color: transparent;
+      padding: 10px 15px;
+      border-radius: 15px;
+      border: 1px solid #d7a86e;
+      color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+      border: 1px solid #d7a86e !important;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+        color: #fff;
+        border: none;
+      }
+    }
+
+    .member-cancel-btn {
+      padding: 10px 15px;
+      border-radius: 15px;
+      color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+      border: none;
+      background: #e74c3c;
+
+      &:hover {
+        background-color: #d34545 !important;
+        color: #fff;
+      }
+    }
+  }
+
+  /* Responsive styles for mobile */
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .membership-actions {
+      flex-direction: column;
+      align-items: center;
+
+      .m-btn {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 385px) {
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    .membership-info {
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .membership-actions .m-btn {
+      font-size: 0.9rem;
+    }
+  }
+}
