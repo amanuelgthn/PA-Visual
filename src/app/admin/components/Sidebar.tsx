@@ -3,8 +3,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../adminStyles/sidebar.module.css'
 import { Divider } from 'antd'
+import { usePathname } from 'next/navigation'
 
 const Sidebar: React.FC = () => {
+  const path = usePathname()
+
+  const isActive = (pathname: string) => {
+    return path === pathname
+  }
+
   return (
     <div className={styles.sidebar}>
       <nav>
@@ -14,7 +21,9 @@ const Sidebar: React.FC = () => {
           </div>
         </Link>
         <ul className={styles.nav}>
-          <li className={styles.navItem}>
+          <li
+            className={`${styles.navItem} ${isActive('/admin') ? styles.active : ''}`}
+          >
             <Link href='/admin' className={styles.navLink}>
               <img
                 src='/icons/dashboard.png'
@@ -25,7 +34,9 @@ const Sidebar: React.FC = () => {
               Dashboard
             </Link>
           </li>
-          <li className={styles.navItem}>
+          <li
+            className={`${styles.navItem} ${isActive('/admin/users') ? styles.active : ''}`}
+          >
             <Link href='/admin/users' className={styles.navLink}>
               <img
                 src='/icons/user-managment.png'
@@ -36,7 +47,9 @@ const Sidebar: React.FC = () => {
               Users Management
             </Link>
           </li>
-          <li className={styles.navItem}>
+          <li
+            className={`${styles.navItem} ${isActive('/admin/properties') ? styles.active : ''}`}
+          >
             <Link href='/admin/properties' className={styles.navLink}>
               <img
                 src='/icons/property-managment.png'
@@ -47,7 +60,9 @@ const Sidebar: React.FC = () => {
               Properties Management
             </Link>
           </li>
-          <li className={styles.navItem}>
+          <li
+            className={`${styles.navItem} ${isActive('/admin/statistics') ? styles.active : ''}`}
+          >
             <Link href='/admin/statistics' className={styles.navLink}>
               <img
                 src='/icons/statistics.png'
@@ -58,7 +73,9 @@ const Sidebar: React.FC = () => {
               Statistics
             </Link>
           </li>
-          <li className={styles.navItem}>
+          <li
+            className={`${styles.navItem} ${isActive('/admin/requests') ? styles.active : ''}`}
+          >
             <Link href='/admin/requests' className={styles.navLink}>
               <img
                 src='/icons/moderator.png'
@@ -77,7 +94,9 @@ const Sidebar: React.FC = () => {
             backgroundColor: 'var(--Sec-client-Color, rgba(240, 240, 240, 1))',
           }}
         />
-        <div className={styles.navItem}>
+        <div
+          className={`${styles.navItem} ${isActive('/admin/settings') ? styles.active : ''}`}
+        >
           <Link href='/admin/settings' className={styles.navLink}>
             <img
               src='/icons/setting.png'
@@ -88,16 +107,20 @@ const Sidebar: React.FC = () => {
             Settings
           </Link>
         </div>
-        <Link href='/admin/logout' className={styles.navLink}>
-          <img
-            src='/icons/logout.png'
-            alt='dashboard icon'
-            width={16}
-            height={16}
-          />
-          Logout
-        </Link>
-        <div>
+        <div
+          className={`${styles.navItem} ${isActive('/admin/logout') ? styles.active : ''}`}
+        >
+          <Link href='/admin/logout' className={styles.navLink}>
+            <img
+              src='/icons/logout.png'
+              alt='dashboard icon'
+              width={16}
+              height={16}
+            />
+            Logout
+          </Link>
+        </div>
+        <div className={styles.sideBarFooter}>
           <img
             style={{
               borderRadius: '50%',
@@ -108,14 +131,15 @@ const Sidebar: React.FC = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
-            src='https://www.befunky.com/images/wp/wp-2021-01-linkedin-profile-picture-focus-face.jpg?auto=avif,webp&format=jpg&width=944
-          '
+            src='https://www.befunky.com/images/wp/wp-2021-01-linkedin-profile-picture-focus-face.jpg?auto=avif,webp&format=jpg&width=944'
             alt='profile picture'
-            width={50}
-            height={50}
+            width={40}
+            height={40}
           />
-          <h3>Test Test</h3>
-          <p>Email:test@gmail.com</p>
+          <span>
+            <h3 className={styles.adminName}>Sam Wheeler</h3>
+            <p className={styles.adminEmail}>Email:test@gmail.com</p>
+          </span>
         </div>
       </div>
     </div>
