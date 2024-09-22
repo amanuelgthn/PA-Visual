@@ -1,0 +1,244 @@
+.property-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    border-top: 0.15px solid rgba(130, 130, 130, 1);
+
+    .property-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        width: 100%;
+        padding: 15px;
+        border-bottom: 0.15px solid rgba(130, 130, 130, 1);
+
+        .image-tittle-edit-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .image-tittle-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+            }
+
+            .edit-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 5px;
+                border-radius: 5px;
+
+                &:hover {
+                    cursor: pointer;
+                    background: rgb(80, 80, 79);
+                }
+
+
+
+
+                p {
+                    color: rgba(231, 141, 59, 1);
+                    font-family: "Inter", sans-serif;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16.94px;
+                    text-align: right;
+                }
+            }
+        }
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 29.26px;
+            text-align: left;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+        }
+
+        img {
+            width: 114px;
+            height: 91px;
+            border-radius: 18px;
+
+        }
+    }
+
+    .location-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 17.07px;
+            letter-spacing: 0.15000000596046448px;
+            text-align: right;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+        }
+    }
+
+    .status-available {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17.07px;
+        letter-spacing: 0.15000000596046448px;
+        text-align: left;
+        color: rgba(31, 215, 60, 1);
+    }
+
+    .status-pending {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17.07px;
+        letter-spacing: 0.15000000596046448px;
+        text-align: left;
+        color: rgba(201, 142, 89, 1);
+    }
+
+    .status-sold {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17.07px;
+        letter-spacing: 0.15000000596046448px;
+        text-align: left;
+        color: rgba(255, 0, 0, 1);
+    }
+
+    .agent-wrapper {
+        display: flex;
+        align-content: center;
+        gap: 10px;
+
+        p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 17.07px;
+            letter-spacing: 0.15000000596046448px;
+            text-align: right;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+        }
+
+    }
+
+    .property-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+        padding: 15px;
+        border-bottom: 0.15px solid rgba(130, 130, 130, 1);
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 17.07px;
+            letter-spacing: 0.004em;
+            text-align: left;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+        }
+
+        p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 17.07px;
+            letter-spacing: 0.15000000596046448px;
+            text-align: right;
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+        }
+
+        span {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            padding-left: 15px;
+        }
+
+        li {
+            font-family: "Montserrat", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 17.07px;
+            letter-spacing: 0.15000000596046448px;
+            text-align: right;
+
+            color: var(--sec-Color, rgba(244, 244, 244, 1));
+        }
+
+    }
+
+    .photo-wrapper {
+        width: 433px;
+        height: 264px;
+        border-radius: 12px;
+        display: grid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border: 0.15px solid var(--Progress, rgba(138, 136, 136, 1));
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 10.73px;
+            font-weight: 700;
+            line-height: 13.08px;
+            letter-spacing: 0.004em;
+            text-align: right;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .photos {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            img {
+                width: 160px;
+                height: 100px;
+                border-radius: 12px;
+                border: 0.13px solid rgba(255, 255, 255, 1)
+            }
+        }
+
+    }
+
+}
+
+:where(.css-dev-only-do-not-override-1yp5dpd).ant-table-wrapper .ant-table-thead>tr>th,
+:where(.css-dev-only-do-not-override-1yp5dpd).ant-table-wrapper .ant-table-thead>tr>td {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.63px;
+    letter-spacing: 0.004em;
+    text-align: left;
+    color: var(--sec-Color, rgba(244, 244, 244, 1));
+}

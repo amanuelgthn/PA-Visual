@@ -1,15 +1,13 @@
 'use client'
-import { useParams } from 'next/navigation'
+import PropertyForms from '@/app/admin/components/PropertyForms/PropertyForms'
+import { PropertyListTableTypes } from '@/app/admin/components/ProperTyListTable/PropertyListTable'
 import React, { useEffect, useMemo, useState } from 'react'
-import { PropertyListTableTypes } from '../../components/ProperTyListTable/PropertyListTable'
-import './page.scss'
-import PropertyDetails from '../../components/PropertyDetail/PropertyDetail'
 
-const EditProperty: React.FC = () => {
-  const params = useParams()
-  const { id } = params
-  const [property, setProperty] = useState<PropertyListTableTypes | null>(null)
+type ParamsType = {
+  propertyId: string
+}
 
+const EditPorperty = ({ params }: { params: ParamsType }) => {
   const properties: PropertyListTableTypes[] = useMemo(
     () => [
       {
@@ -35,6 +33,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 5,
         propertyGarageSpace: 2,
         propertyArea: 2500,
+        propertyPostingDate: '2023-11-01',
       },
       {
         propertyId: '2',
@@ -59,6 +58,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 3,
         propertyGarageSpace: 1,
         propertyArea: 1200,
+        propertyPostingDate: '2023-11-05',
       },
       {
         propertyId: '3',
@@ -83,6 +83,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 2,
         propertyGarageSpace: 0,
         propertyArea: 800,
+        propertyPostingDate: '2022-11-10',
       },
       {
         propertyId: '4',
@@ -107,6 +108,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 6,
         propertyGarageSpace: 3,
         propertyArea: 5000,
+        propertyPostingDate: '2024-05-15',
       },
       {
         propertyId: '5',
@@ -131,6 +133,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 4,
         propertyGarageSpace: 2,
         propertyArea: 3000,
+        propertyPostingDate: '2024-06-20',
       },
       {
         propertyId: '6',
@@ -155,6 +158,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 3,
         propertyGarageSpace: 2,
         propertyArea: 1500,
+        propertyPostingDate: '2021-07-25',
       },
       {
         propertyId: '7',
@@ -179,6 +183,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 2,
         propertyGarageSpace: 0,
         propertyArea: 1000,
+        propertyPostingDate: '2021-08-15',
       },
       {
         propertyId: '8',
@@ -203,6 +208,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 4,
         propertyGarageSpace: 2,
         propertyArea: 2000,
+        propertyPostingDate: '2023-09-20',
       },
       {
         propertyId: '9',
@@ -227,6 +233,7 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 3,
         propertyGarageSpace: 1,
         propertyArea: 1800,
+        propertyPostingDate: '2024-01-10',
       },
       {
         propertyId: '10',
@@ -251,23 +258,29 @@ const EditProperty: React.FC = () => {
         propertyBedRooms: 2,
         propertyGarageSpace: 0,
         propertyArea: 900,
+        propertyPostingDate: '2023-10-05',
       },
     ],
     [],
   )
+  const [initialData, setInitialData] = useState<
+    PropertyListTableTypes | undefined
+  >(undefined)
 
   useEffect(() => {
-    if (properties && id) {
-      const property = properties.find((property) => property.propertyId === id)
-      if (property) {
-        setProperty(property)
-      } else {
-        console.log('Property not found')
-      }
+    const property = properties.find(
+      (property) => property.propertyId === params.propertyId,
+    )
+    if (property) {
+      setInitialData(property)
     }
-  }, [id, properties])
+  }, [params.propertyId, properties])
 
-  return <PropertyDetails property={property} />
+  return (
+    <div>
+      <PropertyForms initialData={initialData} />
+    </div>
+  )
 }
 
-export default EditProperty
+export default EditPorperty
