@@ -162,7 +162,7 @@ export const Form: FC = () => {
           </button>
         </div>
         <h3 className='login'>
-          Have an account? <a href='/login'>Log in</a>
+          Have an account? <a href='/Login'>Log in</a>
         </h3>
       </form>
     </>
