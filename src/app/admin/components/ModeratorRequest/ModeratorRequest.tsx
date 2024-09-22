@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import './ModeratorRequest.scss'
 import { Button, Table } from 'antd'
-import { DatePicker } from 'antd'
 import type { DatePickerProps } from 'antd'
 import dayjs from 'dayjs'
+import YearPickerComponent from '../YearPicker/YearPicker'
 
 export type ModeratorTypes = {
   requestId: string
@@ -172,19 +172,11 @@ const ModeratorRequest: React.FC<ModeratorRequestProps> = ({
 
   return (
     <div className='table-wrapper'>
-      <div className='title-date-picker'>
-        <h3>Moderator Request Summary </h3>
-        <DatePicker
-          onChange={onChange}
-          picker='year'
-          mode='year'
-          size='small'
-          defaultValue={dayjs()}
-          className='custom-date-picker'
-          disabledDate={(current) => current.year() > dayjs().year()}
-          popupClassName='custom-date-picker-popup'
-        />
-      </div>
+      <YearPickerComponent
+        title='Moderator Request Summary '
+        onChange={onChange}
+      />
+
       <div className='cards-wrapper'>
         {data.map((item, index) => (
           <div
