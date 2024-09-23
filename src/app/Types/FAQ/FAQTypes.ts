@@ -23,3 +23,18 @@ export interface PopularFAQProps {
   }
   toggleVisibility: boolean
 }
+
+export interface SearchBarProps {
+  searchTerm: string
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>
+}
+
+export interface CategoryListProps {
+  FAQs: Record<FAQCategory, FAQData>
+  setSelectedCategory: React.Dispatch<React.SetStateAction<FAQCategory | null>>
+}
+
+export interface FAQItemProps {
+  filteredFAQs: { category: FAQCategory; content: FAQContent }[]
+  toggleVisibility: (faqCategory: FAQCategory, originalIndex: number) => void
+}
