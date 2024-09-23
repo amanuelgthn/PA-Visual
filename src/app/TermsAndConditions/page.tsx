@@ -9,9 +9,13 @@ const TermsAndConditionsPage: React.FC = () => {
   return (
     <>
       <section className='globalStyles'>
-        <HeaderSection />
-        <TermsAndConditions />
-        <ContactUs />
+        <div className='wrapper'>
+          <div className='wrapper-assist'>
+            <HeaderSection />
+            <TermsAndConditions />
+            <ContactUs />
+          </div>
+        </div>
       </section>
     </>
   )

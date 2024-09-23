@@ -1,35 +1,36 @@
 'use client'
-import Image from 'next/image'
 import styles from './adminStyles/layout.module.css'
 import HamburgerMenu from './components/HamburgerMenu'
 import Search from './components/Search/Search'
 import Sidebar from './components/Sidebar'
 import { usePathname } from 'next/navigation'
+import { FaRegBell } from 'react-icons/fa'
 
 const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pathname = usePathname()
 
   const getHeaderText = () => {
-    switch (pathname) {
-      case '/admin':
+    if (pathname.startsWith('/admin')) {
+      if (pathname === '/admin') {
         return (
           <>
             <span className={styles.highlight}>Hello Sam Wheeler</span> Welcome
           </>
         )
-      case '/admin/users':
+      } else if (pathname.startsWith('/admin/users')) {
         return 'Users Management'
-      case '/admin/properties':
+      } else if (pathname.startsWith('/admin/properties')) {
         return 'Properties Management'
-      case '/admin/statistics':
+      } else if (pathname.startsWith('/admin/statistics')) {
         return 'Statistics'
-      case '/admin/requests':
+      } else if (pathname.startsWith('/admin/requests')) {
         return 'Moderator Requests'
-      case '/admin/settings':
+      } else if (pathname.startsWith('/admin/settings')) {
         return 'Settings'
-      default:
-        return ''
+      }
     }
+
+    return ''
   }
 
   return (
@@ -49,7 +50,10 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <h3 className={styles.headerText}>{getHeaderText()}</h3>
           </span>
           <Search />
-          <Image src='/icons/bell.png' alt='bell' width={24} height={27} />
+          <div className={styles.bellWrapper}>
+            <FaRegBell size={30} color='white' />
+            <span className={styles.badge}>5</span>
+          </div>
         </div>
         {children}
       </main>

@@ -45,7 +45,7 @@
 }
 
 .testimonials-owner-title {
-  font-size: 20px;
+  font-size: 23px;
   font-style: italic;
   font-weight: 500;
   line-height: 24.38px;
@@ -114,6 +114,18 @@
 .testimonials-thumbnail img.active {
   opacity: 1;
   transform: scale(1.1);
+}
+.testimonial-sucess {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  font-weight:500;
+  font-size: 24px;
+  font-style: italic;
+}
+.testimonial-sucess-story {
+  font-style: italic;
+  text-align: center;
 }
 
 .testimonials-thumbnail img {

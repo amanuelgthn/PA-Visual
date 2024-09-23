@@ -118,7 +118,7 @@ const Admin = () => {
   ]
   return (
     <main className={styles.adminwrapper}>
-      <PerformanceOverView data={data} />
+      <PerformanceOverView pageType='dashboard' data={data} />
       <div className={styles.trends}>
         <PropertyOverViewChart dataSets={propertyOverViewData} />
         <RevenueOverViewChart dataSets={revenueData} />

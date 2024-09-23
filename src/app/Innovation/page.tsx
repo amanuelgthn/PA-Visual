@@ -6,6 +6,7 @@ import { AboutSection } from '../components/inovation/aboutsection/aboutSection'
 import { SecondBackground } from '../components/inovation/secondbackground/secondbackground'
 import { DataAnalytics } from '../components/inovation/dataAnalytics/dataAnalytics'
 import { OnHover } from '../components/inovation/onhover/onhover'
+import { VirtualBlockchain } from '../components/inovation/virtualBlockchain/virtualBlockchain'
 
 const Service = () => {
   return (
@@ -27,6 +28,7 @@ const Service = () => {
           title='Hover over me!'
           content='This content is revealed when you hover over the title.'
         />
+        <VirtualBlockchain />
       </div>
     </div>
   )

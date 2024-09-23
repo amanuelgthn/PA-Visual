@@ -1,0 +1,115 @@
+.status-available {
+    color: rgba(31, 215, 60, 1);
+}
+
+.status-pending {
+    color: rgba(201, 142, 89, 1)
+}
+
+.status-sold {
+    color: rgba(255, 0, 0, 1)
+}
+
+.img-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    img {
+
+        border-radius: 8px;
+
+    }
+
+    .link {
+        color: var(--sec-Color, rgba(244, 244, 244, 1));
+    }
+
+    .agent-span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17.07px;
+        letter-spacing: 0.15000000596046448px;
+        text-align: left;
+
+        &:hover {
+            color: rgba(201, 142, 89, 1);
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+    }
+
+    p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.63px;
+        letter-spacing: 0.004em;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .address-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+
+}
+
+:where(.css-dev-only-do-not-override-1p7kxr2).ant-table-wrapper .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before,
+:where(.css-dev-only-do-not-override-1p7kxr2).ant-table-wrapper .ant-table-thead>tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    display: none;
+}
+
+.dott {
+    cursor: pointer;
+    color: rgba(109, 109, 109, 1);
+
+    &:hover {
+        color: rgba(201, 142, 89, 1);
+    }
+}
+
+.popover-conent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        width: 100%;
+
+        &:hover {
+            background: rgb(139, 140, 142);
+            cursor: pointer;
+        }
+    }
+
+    p {
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.52px;
+        letter-spacing: 0.004em;
+        text-align: left;
+        color: rgba(255, 255, 255, 1)
+    }
+
+
+}
