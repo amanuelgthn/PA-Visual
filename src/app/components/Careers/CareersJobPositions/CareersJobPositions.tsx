@@ -1,403 +1,302 @@
+// CareersSection.tsx
 'use client'
+
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { Button, Cascader, Dropdown, Menu, Input } from 'antd'
+import { Button, Input, Cascader, Dropdown, Menu } from 'antd'
+import { DownOutlined } from '@ant-design/icons'
+import JobDetailModal from '../../Job/JobDetailModal/JobDetailModal'
+import { jobData, JobType } from '../../Job/jobData/jobData'
 import '@fontsource/montserrat'
 import './CareersJobPositions.scss'
-import JobDetailModal from '../../Job/JobDetailModal/JobDetailModal'
+
 export default function CareersSection() {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedJob, setSelectedJob] = useState<null | {
-    JobTitle: string
-    jobLocation: string
-    jobDescription: string
-    jobResponsibilities: string
-    jobRequirements: string
-    jobId: string
-    jobCategory: string
-    jobPostDate: string
-    jobSchedule: string
-    jobPayRange: string
-    jobOverview: string
-    similarJobs: {
-      jobId: string
-      JobTitle: string
-      jobLocation: string
-      jobDescription: string
-      jobResponsibilities: string
-      jobRequirements: string
-      jobCategory: string
-      jobPostDate: string
-      jobSchedule: string
-      jobPayRange: string
-      jobOverview: string
-    }[]
-  }>(null)
-  const jobData = [
-    {
-      JobTitle: 'Software Engineer',
-      jobLocation: 'San Francisco, CA',
-      jobDescription:
-        'We are looking for a skilled Software Engineer to join our team. You will be responsible for developing high-quality applications.',
-      jobResponsibilities:
-        'Design, develop, and maintain software applications. Collaborate with cross-functional teams. Write clean, scalable code.',
-      jobRequirements:
-        "Bachelor's degree in Computer Science or related field. 3+ years of experience in software development. Proficiency in JavaScript, React, and Node.js.",
-      jobId: '12345',
-      jobCategory: 'Engineering',
-      jobPostDate: '2023-10-01',
-      jobSchedule: 'Full-time',
-      jobPayRange: '$100,000 - $120,000',
-      jobOverview:
-        'We are looking for a skilled Software Engineer to join our team. You will be responsible for developing high-quality applications.',
-      similarJobs: [
-        {
-          JobTitle: 'Frontend Developer',
-          jobLocation: 'San Francisco, CA',
-          jobDescription:
-            'We are looking for a skilled Frontend Developer to join our team. You will be responsible for developing high-quality applications.',
-          jobResponsibilities:
-            'Design, develop, and maintain software applications. Collaborate with cross-functional teams. Write clean, scalable code.',
-          jobRequirements:
-            "Bachelor's degree in Computer Science or related field. 3+ years of experience in software development. Proficiency in JavaScript, React, and Node.js.",
-          jobId: '12346',
-          jobCategory: 'Engineering',
-          jobPostDate: '2023-09-25',
-          jobSchedule: 'Full-time',
-          jobPayRange: '$90,000 - $110,000',
-          jobOverview:
-            'We are looking for a skilled Frontend Developer to join our team. You will be responsible for developing high-quality applications.',
-        },
-        {
-          JobTitle: 'Backend Developer',
-          jobLocation: 'San Francisco, CA',
-          jobDescription:
-            'We are looking for a skilled Backend Developer to join our team. You will be responsible for developing high-quality applications.',
-          jobResponsibilities:
-            'Design, develop, and maintain software applications. Collaborate with cross-functional teams. Write clean, scalable code.',
-          jobRequirements:
-            "Bachelor's degree in Computer Science or related field. 3+ years of experience in software development. Proficiency in JavaScript, React, and Node.js.",
-          jobId: '12347',
-          jobCategory: 'Engineering',
-          jobPostDate: '2023-09-20',
-          jobSchedule: 'Full-time',
-          jobPayRange: '$95,000 - $115,000',
-          jobOverview:
-            'We are looking for a skilled Backend Developer to join our team. You will be responsible for developing high-quality applications.',
-        },
-        {
-          JobTitle: 'Full Stack Developer',
-          jobLocation: 'San Francisco, CA',
-          jobDescription:
-            'We are looking for a skilled Full Stack Developer to join our team. You will be responsible for developing high-quality applications.',
-          jobResponsibilities:
-            'Design, develop, and maintain software applications. Collaborate with cross-functional teams. Write clean, scalable code.',
-          jobRequirements:
-            "Bachelor's degree in Computer Science or related field. 3+ years of experience in software development. Proficiency in JavaScript, React, and Node.js.",
-          jobId: '12348',
-          jobCategory: 'Engineering',
-          jobPostDate: '2023-09-15',
-          jobSchedule: 'Full-time',
-          jobPayRange: '$100,000 - $120,000',
-          jobOverview:
-            'We are looking for a skilled Full Stack Developer to join our team. You will be responsible for developing high-quality applications.',
-        },
-      ],
-    },
-    {
-      JobTitle: 'Product Manager',
-      jobLocation: 'New York, NY',
-      jobDescription:
-        'We are looking for an experienced Product Manager to lead our product development team. You will be responsible for the product roadmap and strategy.',
-      jobResponsibilities:
-        'Define product vision and strategy. Work with cross-functional teams. Analyze market trends and competition.',
-      jobRequirements:
-        "Bachelor's degree in Business or related field. 5+ years of experience in product management. Strong analytical and communication skills.",
-      jobId: '12346',
-      jobCategory: 'Product Management',
-      jobPostDate: '2023-09-25',
-      jobSchedule: 'Full-time',
-      jobPayRange: '$120,000 - $140,000',
-      jobOverview:
-        'We are looking for an experienced Product Manager to lead our product development team. You will be responsible for the product roadmap and strategy.',
-      similarJobs: [
-        {
-          JobTitle: 'Senior Product Manager',
-          jobLocation: 'New York, NY',
-          jobDescription:
-            'We are looking for an experienced Senior Product Manager to lead our product development team. You will be responsible for the product roadmap and strategy.',
-          jobResponsibilities:
-            'Define product vision and strategy. Work with cross-functional teams. Analyze market trends and competition.',
-          jobRequirements:
-            "Bachelor's degree in Business or related field. 5+ years of experience in product management. Strong analytical and communication skills.",
-          jobId: '12347',
-          jobCategory: 'Product Management',
-          jobPostDate: '2023-09-20',
-          jobSchedule: 'Full-time',
-          jobPayRange: '$130,000 - $150,000',
-          jobOverview:
-            'We are looking for an experienced Senior Product Manager to lead our product development team. You will be responsible for the product roadmap and strategy.',
-        },
-        {
-          JobTitle: 'Technical Product Manager',
-          jobLocation: 'New York, NY',
-          jobDescription:
-            'We are looking for an experienced Technical Product Manager to lead our product development team. You will be responsible for the product roadmap and strategy.',
-          jobResponsibilities:
-            'Define product vision and strategy. Work with cross-functional teams. Analyze market trends and competition.',
-          jobRequirements:
-            "Bachelor's degree in Business or related field. 5+ years of experience in product management. Strong analytical and communication skills.",
-          jobId: '12348',
-          jobCategory: 'Product Management',
-          jobPostDate: '2023-09-15',
-          jobSchedule: 'Full-time',
-          jobPayRange: '$125,000 - $145,000',
-          jobOverview:
-            'We are looking for an experienced Technical Product Manager to lead our product development team. You will be responsible for the product roadmap and strategy.',
-        },
-        {
-          JobTitle: 'Product Owner',
-          jobLocation: 'New York, NY',
-          jobDescription:
-            'We are looking for an experienced Product Owner to lead our product development team. You will be responsible for the product roadmap and strategy.',
-          jobResponsibilities:
-            'Define product vision and strategy. Work with cross-functional teams. Analyze market trends and competition.',
-          jobRequirements:
-            "Bachelor's degree in Business or related field. 5+ years of experience in product management. Strong analytical and communication skills.",
-          jobId: '12349',
-          jobCategory: 'Product Management',
-          jobPostDate: '2023-09-10',
-          jobSchedule: 'Full-time',
-          jobPayRange: '$120,000 - $140,000',
-          jobOverview:
-            'We are looking for an experienced Product Owner to lead our product development team. You will be responsible for the product roadmap and strategy.',
-        },
-      ],
-    },
-  ]
-  // State for filtered job positions
-  const [filteredPositions, setFilteredPositions] = useState(jobData)
-  // State for search text input
+  const [selectedJob, setSelectedJob] = useState<null | JobType>(null)
+  const [filteredPositions, setFilteredPositions] = useState<JobType[]>(jobData)
   const [searchText, setSearchText] = useState('')
-  // State for selected location filter
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
-  // State for sorting order by posting date
   const [sortAscending, setSortAscending] = useState(true)
-  // Applies filters based on search text and selected location
-  const applyFilters = (searchText: string, location: string | null) => {
+  const [activeFilters, setActiveFilters] = useState<string[]>([])
+
+  const jobCategories = [
+    'Engineering',
+    'Product Management',
+    'Design',
+    'Marketing',
+  ]
+  const jobFunctions = ['Development', 'Management', 'Design', 'Sales']
+  const workLocations = ['Remote', 'On-site', 'Hybrid']
+  const postingDates = [
+    'Last 24 hours',
+    'Last 7 days',
+    'Last 14 days',
+    'Last 30 days',
+  ]
+
+  // Apply Filters
+  const applyFilters = (
+    search: string,
+    location: string | null,
+    filters: string[],
+  ) => {
     let filtered = jobData
-    // Filter by search text
-    if (searchText) {
+
+    // Search Filter
+    if (search) {
       filtered = filtered.filter((job) =>
-        job.JobTitle.toLowerCase().includes(searchText.toLowerCase()),
+        job.JobTitle.toLowerCase().includes(search.toLowerCase()),
       )
     }
-    // Filter by location
+
+    // Location Filter
     if (location) {
       filtered = filtered.filter((job) => job.jobLocation === location)
     }
+
+    // Apply all other filters
+    filters.forEach((filter) => {
+      const [filterType, filterValue] = filter.split(':')
+      switch (filterType) {
+        case 'Category':
+          filtered = filtered.filter((job) => job.jobCategory === filterValue)
+          break
+        case 'JobFunction':
+          filtered = filtered.filter((job) => job.jobFunctions === filterValue)
+          break
+        case 'Location':
+          filtered = filtered.filter((job) => job.jobLocation === filterValue)
+          break
+        case 'PostingDate':
+          filtered = filtered.filter((job) =>
+            new Date(job.jobPostDate)
+              .toLocaleDateString('en-US')
+              .includes(filterValue),
+          )
+          break
+        default:
+          break
+      }
+    })
+
     setFilteredPositions(filtered)
   }
-  // Handles changes in the search input field
+
+  // Handle Search
   const handleSearch = (value: string) => {
     setSearchText(value)
-    applyFilters(value, selectedLocation)
+    applyFilters(value, selectedLocation, activeFilters)
   }
-  // Handles changes in the location dropdown
+
+  // Handle Location Change
   const handleLocationChange = (value: string[]) => {
     const selected = value[0] || null
     setSelectedLocation(selected)
-    applyFilters(searchText, selected)
-  }
-  // Handles button clicks for different filter types
-  const handleButtonClick = (filterType: string) => {
-    switch (filterType) {
-      case 'locations':
-        setFilteredPositions(jobData)
-        break
-      case 'workLocations':
-        setFilteredPositions(jobData)
-        break
-      case 'jobFunctions':
-        // Placeholder for future implementation
-        break
-      case 'categories':
-        // Placeholder for future implementation
-        break
-      case 'postingDates':
-        // Placeholder for future implementation
-        break
-      default:
-        setFilteredPositions(jobData)
+
+    // Update filters to reflect location
+    const updatedFilters = activeFilters.filter(
+      (filter) => !filter.startsWith('Location:'),
+    )
+    if (selected) {
+      updatedFilters.push(`Location:${selected}`)
     }
+
+    setActiveFilters(updatedFilters)
+    applyFilters(searchText, selected, updatedFilters)
   }
-  // Toggles sorting order and sorts job positions by posting date
+
+  // Sort by Posting Date
   const handleSortByPostingDate = () => {
     const newSortOrder = !sortAscending
     setSortAscending(newSortOrder)
     const sortedPositions = [...filteredPositions].sort((a, b) => {
-      if (newSortOrder) {
-        return (
-          new Date(a.jobPostDate).getTime() - new Date(b.jobPostDate).getTime()
-        )
-      } else {
-        return (
-          new Date(b.jobPostDate).getTime() - new Date(a.jobPostDate).getTime()
-        )
-      }
+      const dateA = new Date(a.jobPostDate).getTime()
+      const dateB = new Date(b.jobPostDate).getTime()
+      return newSortOrder ? dateA - dateB : dateB - dateA
     })
     setFilteredPositions(sortedPositions)
   }
-  // Clears all filters and resets to initial job positions
+
+  // Handle Filter Click
+  const handleFilterClick = (filterType: string, value: string) => {
+    let updatedFilters = [...activeFilters]
+
+    // Remove any existing filter for the same filter type
+    updatedFilters = updatedFilters.filter(
+      (filter) => !filter.startsWith(`${filterType}:`),
+    )
+
+    // Add the new filter key
+    updatedFilters.push(`${filterType}:${value}`)
+
+    // Update the active filters
+    setActiveFilters(updatedFilters)
+    applyFilters(searchText, selectedLocation, updatedFilters)
+  }
+
+  // Clear All Filters
   const clearFilters = () => {
     setSearchText('')
     setSelectedLocation(null)
+    setActiveFilters([])
     setFilteredPositions(jobData)
   }
-  // Count job positions per location for displaying in the menu
-  const locationCounts = jobData.reduce(
-    (acc, job) => {
-      acc[job.jobLocation] = (acc[job.jobLocation] || 0) + 1
-      return acc
-    },
-    {} as Record<string, number>,
-  )
-  // Get unique locations from job positions
-  const uniqueLocations = Array.from(
-    new Set(jobData.map((job) => job.jobLocation)),
-  )
-  // Menu for selecting locations
-  const locationMenu = (
-    <Menu onClick={({ key }) => handleLocationChange([key])}>
-      {uniqueLocations.map((location) => (
-        <Menu.Item key={location}>
-          {`${location} (${locationCounts[location]})`}
+
+  // Dropdown Menus for Filters
+  const createMenu = (items: string[], filterType: string) => (
+    <Menu>
+      {items.map((item) => (
+        <Menu.Item
+          key={item}
+          onClick={() => handleFilterClick(filterType, item)}
+        >
+          {item}
         </Menu.Item>
       ))}
     </Menu>
   )
+
+  // Unique Locations
+  const uniqueLocations = Array.from(
+    new Set(jobData.map((job) => job.jobLocation)),
+  )
+
   return (
     <div>
-      <section className='backgroundColorSection'>
-        <section className='jobSearchEngineSection'>
-          <form className='jobSearchForm'>
-            <Input
-              placeholder='FIND JOBS'
-              value={searchText}
-              onChange={(e) => handleSearch(e.target.value)}
-              className='custom-jobs-input'
-            />
-            <div className='separator' />
-            <Cascader
-              options={uniqueLocations.map((location) => ({
-                value: location,
-                label: location,
-              }))}
-              onChange={handleLocationChange}
-              placeholder='NEAR LOCATION'
-              className='custom-location-cascader'
-            />
-          </form>
-        </section>
-        <section className='buttonsSection'>
-          <div className='buttonGroup'>
-            <button
-              className='buttonOpenJobs'
-              onClick={() => handleButtonClick('openJobs')}
-            >
-              {filteredPositions.length} OPEN JOBS
-            </button>
-            <div className='separator-between-buttons' />
-            <Dropdown overlay={locationMenu} trigger={['click']}>
-              <Button className='button locations'>LOCATIONS</Button>
-            </Dropdown>
-            <button
-              className='button workLocations'
-              onClick={() => handleButtonClick('workLocations')}
-            >
-              WORK LOCATIONS
-            </button>
-            <button
-              className='button jobFunctions'
-              onClick={() => handleButtonClick('jobFunctions')}
-            >
-              JOB FUNCTIONS
-            </button>
-            <button
-              className='button categories'
-              onClick={() => handleButtonClick('categories')}
-            >
-              CATEGORIES
-            </button>
-            <button
-              className='button postingDates'
-              onClick={() => handleButtonClick('postingDates')}
-            >
-              POSTING DATES
-            </button>
-          </div>
-          <div className='clearGroup'>
-            <button className='button clearFilters' onClick={clearFilters}>
-              CLEAR FILTERS
-            </button>
-          </div>
-        </section>
-        <section className='jobPositionsSection'>
-          <div className='dateFilter'>
-            <Button
-              className='PostingDateFilter'
-              onClick={handleSortByPostingDate}
-            >
-              Posting Date {sortAscending ? '⮃' : '⮁'}
-            </Button>
-          </div>
-          <div className='jobPositionsContainer'>
-            <div className='jobPositions'>
-              {filteredPositions.map((job, index) => (
-                <div
-                  onClick={() => {
-                    setSelectedJob(job)
-                    setIsOpen(true)
-                  }}
-                  key={job.jobId}
-                  className={`jobPosition ${
-                    index % 2 === 0 ? 'jobPositionLight' : 'jobPositionDark'
-                  }`}
-                >
-                  <div className='titleContainer'>
-                    <h1 className='title'>{job.JobTitle}</h1>
-                    <p className='description'>
-                      {job.jobLocation} • Posting Date:{' '}
-                      {new Date(job.jobPostDate).toLocaleDateString('en-US')}
-                    </p>
-                  </div>
-                  <div className='iconsContainer'>
-                    <div className='starIcon'>
-                      <Image
-                        src='/careers/careersicon1.png'
-                        width={18}
-                        height={17}
-                        alt='starIcon'
-                      />
-                    </div>
-                    <div className='arrowIcon'>
-                      <Image
-                        src='/careers/careersicon2.png'
-                        width={10}
-                        height={21}
-                        alt='arrowIcon'
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* Job Search Engine Section */}
+      <section className='jobSearchEngineSection'>
+        <form className='jobSearchForm'>
+          <Input
+            placeholder='FIND JOBS'
+            value={searchText}
+            onChange={(e) => handleSearch(e.target.value)}
+            className='custom-jobs-input'
+          />
+          <div className='separator' />
+          <Cascader
+            options={uniqueLocations.map((location) => ({
+              value: location,
+              label: location,
+            }))}
+            onChange={handleLocationChange}
+            placeholder='NEAR LOCATION'
+            className='custom-location-cascader'
+          />
+        </form>
       </section>
 
+      {/* Buttons Section */}
+      <section className='buttonsSection'>
+        <div className='buttonGroup'>
+          <button className='buttonOpenJobs' onClick={clearFilters}>
+            {filteredPositions.length} OPEN JOBS
+          </button>
+          <Dropdown
+            overlay={createMenu(uniqueLocations, 'Location')}
+            trigger={['click']}
+          >
+            <button className='button'>
+              LOCATIONS <DownOutlined />
+            </button>
+          </Dropdown>
+          <Dropdown
+            overlay={createMenu(workLocations, 'WorkLocation')}
+            trigger={['click']}
+          >
+            <button className='button'>
+              WORK LOCATIONS <DownOutlined />
+            </button>
+          </Dropdown>
+          <Dropdown
+            overlay={createMenu(jobFunctions, 'JobFunction')}
+            trigger={['click']}
+          >
+            <button className='button'>
+              JOB FUNCTIONS <DownOutlined />
+            </button>
+          </Dropdown>
+          <Dropdown
+            overlay={createMenu(jobCategories, 'Category')}
+            trigger={['click']}
+          >
+            <button className='button'>
+              CATEGORIES <DownOutlined />
+            </button>
+          </Dropdown>
+          <Dropdown
+            overlay={createMenu(postingDates, 'PostingDate')}
+            trigger={['click']}
+          >
+            <button className='button'>
+              POSTING DATES <DownOutlined />
+            </button>
+          </Dropdown>
+        </div>
+        <div className='clearGroup'>
+          <button className='button clearFilters' onClick={clearFilters}>
+            CLEAR FILTERS
+          </button>
+        </div>
+      </section>
+
+      {/* Job Positions Section */}
+      <section className='jobPositionsSection'>
+        <div className='dateFilter'>
+          <Button
+            className='PostingDateFilter'
+            onClick={handleSortByPostingDate}
+          >
+            Posting Date {sortAscending ? '⮃' : '⮁'}
+          </Button>
+        </div>
+        <div className='jobPositionsContainer'>
+          <div className='jobPositions'>
+            {filteredPositions.map((job, index) => (
+              <div
+                onClick={() => {
+                  setSelectedJob(job)
+                  setIsOpen(true)
+                }}
+                key={job.jobId}
+                className={`jobPosition ${
+                  index % 2 === 0 ? 'jobPositionLight' : 'jobPositionDark'
+                }`}
+              >
+                <div className='titleContainer'>
+                  <h1 className='title'>{job.JobTitle}</h1>
+                  <p className='description'>
+                    {job.jobLocation} • Posting Date:{' '}
+                    {new Date(job.jobPostDate).toLocaleDateString('en-US')}
+                  </p>
+                </div>
+                <div className='iconsContainer'>
+                  <div className='starIcon'>
+                    <Image
+                      src='/careers/careersicon1.png'
+                      width={18}
+                      height={17}
+                      alt='starIcon'
+                    />
+                  </div>
+                  <div className='arrowIcon'>
+                    <Image
+                      src='/careers/careersicon2.png'
+                      width={10}
+                      height={21}
+                      alt='arrowIcon'
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Updated JobDetailModal invocation with key prop */}
       {selectedJob && (
         <JobDetailModal
+          key={selectedJob.jobId} // Add this line to reset the modal state when selectedJob changes
           jobData={selectedJob}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}

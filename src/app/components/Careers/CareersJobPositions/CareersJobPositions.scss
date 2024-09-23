@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 .jobSearchEngineSection {
   display: flex;
@@ -6,7 +11,6 @@
   width: 100vw;
   padding: 0;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
 
   .jobSearchForm {
     display: flex;
@@ -28,6 +32,14 @@
       color: black !important;
       background: #eeeeee !important;
       box-shadow: none !important;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #999999;
+      }
     }
 
     .separator {
@@ -50,13 +62,18 @@
       font-size: 1rem;
       color: black !important;
       background: #eeeeee !important;
-    }
 
-    .ant-select-selector {
-      border: none !important;
-      color: black !important;
-      background: #eeeeee !important;
-      box-shadow: none !important;
+      .ant-select-selector {
+        border: none !important;
+        color: black !important;
+        background: #eeeeee !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+
+      .ant-select-selection-placeholder {
+        color: #999999 !important;
+      }
     }
   }
 }
@@ -66,39 +83,38 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   width: 100vw;
-  padding: 1rem;
+  padding: 2.5rem;
   padding-bottom: 8rem;
-  height: auto;
 
   .buttonGroup {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    width: 65%;
-    flex-wrap: nowrap;
 
     .buttonOpenJobs {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.70rem;
+      font-size: 0.7rem;
       line-height: 0.75rem;
       border-radius: 2rem;
       border: none;
       background-color: transparent;
       color: #ffffff;
       font-weight: 700;
-      transition: none;
       padding: 0.5rem 1.3rem;
       margin: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
       &:hover {
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, 0.1);
       }
     }
 
     .button {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.70rem;
+      font-size: 0.7rem;
       line-height: 0.75rem;
       letter-spacing: 0.36px;
       font-weight: 500;
@@ -113,37 +129,13 @@
       transition: background-color 0.3s ease;
       display: flex;
       align-items: center;
-      justify-content: center;
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
 
-      &::after {
-        content: '\25BC';
-        font-size: 0.75rem;
+      svg {
         margin-left: 0.5rem;
-        display: inline-block;
-        vertical-align: middle;
-      }
-    }
-
-    .button.locations .ant-dropdown-menu,
-    .button.near-location .ant-dropdown-menu {
-      border-radius: 0.5rem;
-      background-color: #eeeeee;
-      color: #333333;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .ant-dropdown-menu-item {
-      border-bottom: 1px solid #cccccc;
-      color: #333333;
-      &:last-child {
-        border-bottom: none;
-      }
-      &:hover {
-        background-color: #dddddd;
       }
     }
 
@@ -162,14 +154,19 @@
     width: 100%;
 
     .clearFilters {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      line-height: 0.75rem;
       border-radius: 2rem;
       border: none;
-      margin: 0.5rem;
-      padding: 0.5rem 1.3rem;
       background-color: transparent;
       color: #828282;
+      font-weight: 500;
+      padding: 0.5rem 1.3rem;
+      margin: 0.5rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
+
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
@@ -177,50 +174,65 @@
   }
 }
 
+.ant-dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ant-dropdown-menu-item {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: #333333;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
 .jobPositionsSection {
   width: 100vw;
   padding: 0;
-  height: auto;
-  justify-content: center;
-  align-items: center;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
   background: transparent;
 
   .dateFilter {
     width: 100%;
     max-width: 64em;
     padding-bottom: 2rem;
-    height: auto;
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    flex-wrap: nowrap;
 
     .PostingDateFilter {
-      border-radius: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      line-height: 1rem;
+      border-radius: 2rem;
       border: none;
-      margin: 0.5rem;
-      padding: 0.5rem 1.3rem;
       background-color: transparent;
       color: #ffffff;
-      transition: none;
+      font-weight: 500;
+      padding: 0.5rem 1.3rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
       &:hover {
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, 0.1);
       }
     }
   }
 
   .jobPositionsContainer {
-    justify-content: center;
-    align-items: center;
     display: flex;
     flex-direction: column;
-    position: relative;
+    align-items: center;
     width: 100%;
-    max-width: 1200px;
+    height: auto;
     margin: 0 auto;
 
     .jobPositions {
@@ -232,26 +244,30 @@
       .jobPosition {
         width: 100%;
         max-width: 62.5rem;
-        height: auto;
         border-radius: 1.87rem;
         display: flex;
         flex-direction: row;
         margin: 0.5rem 0;
         background-color: #525558;
         padding: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #6b6e70;
+        }
 
         .titleContainer {
-          width: 100%;
+          flex: 1;
           padding: 1rem;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
 
           .title {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.13rem;
             font-weight: 400;
-            line-height: 1.70rem;
+            line-height: 1.7rem;
             color: #ffffff;
           }
 
@@ -265,11 +281,9 @@
         }
 
         .iconsContainer {
-          padding: 0.5rem;
           display: flex;
-          flex-direction: row;
           align-items: center;
-          justify-content: center;
+          padding: 0.5rem;
 
           .starIcon,
           .arrowIcon {
@@ -297,9 +311,10 @@
       flex-direction: row;
       align-items: center;
       overflow-x: auto;
-      
-      .button, .buttonOpenJobs {
-        font-size: 0.60rem;
+
+      .button,
+      .buttonOpenJobs {
+        font-size: 0.6rem;
         padding: 0.4rem 1.1rem;
         margin: 0.4rem;
       }
@@ -313,11 +328,14 @@
       width: 90%;
       flex-direction: column;
       align-items: stretch;
-      .button, .buttonOpenJobs {
+
+      .button,
+      .buttonOpenJobs {
         font-size: 0.75rem;
         padding: 0.6rem 1.2rem;
         margin: 0.5rem 0;
       }
+
       .separator-between-buttons {
         display: none;
       }
@@ -329,11 +347,14 @@
   .buttonsSection {
     .buttonGroup {
       width: 100%;
-      .button, .buttonOpenJobs {
+
+      .button,
+      .buttonOpenJobs {
         font-size: 0.85rem;
         padding: 0.75rem 1.5rem;
         margin: 0.5rem 0;
       }
+
       .separator-between-buttons {
         display: none;
       }
