@@ -2,10 +2,12 @@
 import React, { useState } from 'react'
 import './statistics.scss'
 import PropertyTrends from '../components/Statistics/PropertyTrends/PropertyTrends'
-import RevenueOverview from '../components/Statistics/RevenueOverview/RevenueOverview'
-import PropertyAssociated from '../components/Statistics/PropertyAssociated/PropertyAssociated'
+// import RevenueOverview from '../components/Statistics/RevenueOverview/RevenueOverview'
+// import PropertyAssociated from '../components/Statistics/PropertyAssociated/PropertyAssociated'
 import RecentPaymments from '../components/Statistics/RecentPaymments/RecentPaymments'
 import StatisticsSummary from '../components/Statistics/StatisticsSummary/StatisticsSummary'
+import PaymentStatus from '../components/Statistics/PaymentStatus/PaymentStatus'
+import Transaction from '../components/Statistics/Transaction/Transaction'
 
 const StatisticPage: React.FC = () => {
   const [trends, setTrends] = useState([
@@ -48,8 +50,10 @@ const StatisticPage: React.FC = () => {
         <RecentPaymments />
       </div>
       <div className='section-2'>
-        <PropertyAssociated />
-        <RevenueOverview />
+        <PaymentStatus />
+        <Transaction />
+        {/* <PropertyAssociated /> */}
+        {/* <RevenueOverview /> */}
       </div>
     </div>
   )
