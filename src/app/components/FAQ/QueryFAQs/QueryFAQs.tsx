@@ -2,14 +2,15 @@
 
 import React, { useState } from 'react'
 import { FAQCategory, FAQData, FAQContent } from '@/app/Types/FAQ/FAQTypes.ts'
-import DropDown from '../../../../../public/FAQ/DropDown.svg'
-import PopUp from '../../../../../public/FAQ/PopUp.svg'
 import generalIcon from '../../../../../public/FAQ/General.svg'
 import accountIcon from '../../../../../public/FAQ/Account.svg'
 import billingIcon from '../../../../../public/FAQ/Billing.svg'
 import technicalIcon from '../../../../../public/FAQ/Technical.svg'
 import PopularFAQ from '../PopularFAQ/PopularFAQ.tsx'
+import SearchBar from '../SearchBar/SearchBar.tsx'
 import './QueryFAQs.scss'
+import CategoryList from '../CategoryList/CategoryList.tsx'
+import FAQItem from '../FAQItems/FAQItems.tsx'
 
 const QueryFAQs = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')
@@ -168,103 +169,18 @@ const QueryFAQs = () => {
   return (
     <>
       <div className='QueryFAQs-container'>
-        <input
-          type='search'
-          className='QueryFAQ-input'
-          placeholder='Search FAQs...'
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)} // Update the search term state
-        />
-        <div className='FAQ-Category'>
-          <ul className='FAQ-Category-listing'>
-            {Object.keys(FAQs).map((key) => {
-              const categoryKey = key as FAQCategory // Explicitly cast key as FAQCategory
-              return (
-                <li key={categoryKey} className='FAQ-Category-lists'>
-                  <button
-                    className='FAQ-Category-button'
-                    onClick={() => setSelectedCategory(categoryKey)}
-                  >
-                    {/* Set selected category on click */}
-                    <img
-                      className='FAQ-category-icon'
-                      src={FAQs[categoryKey].icon.src}
-                      alt={`${FAQs[categoryKey].category} icon`}
-                    />
-                    <h3 className='FAQ-Category-Name'>
-                      {FAQs[categoryKey].category}
-                    </h3>
-                  </button>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <CategoryList FAQs={FAQs} setSelectedCategory={setSelectedCategory} />
         <button
           className='FAQ-Category-Backall'
           onClick={() => setSelectedCategory(null)}
         >
           Back to all
         </button>
-        <div className='FAQ-answers'>
-          <ul className='FAQ-answer-listing'>
-            {Object.keys(
-              filteredFAQs.reduce((acc, { category }) => {
-                if (!acc[category]) acc[category] = true
-                return acc
-              }, {}),
-            ).map((categoryKey) => {
-              const categoryFAQs = filteredFAQs.filter(
-                ({ category }) => category === categoryKey,
-              ) // Group FAQs by category
-              return (
-                <div className='FAQ-answer-lists' key={categoryKey}>
-                  <h3 className='FAQ-Category-answers-Name'>{categoryKey}</h3>{' '}
-                  {/* Render the category name once */}
-                  {categoryFAQs.map(({ content }, index) => {
-                    const isLastquestion = index === categoryFAQs.length - 1
-                    const isFirstquestion = index === 0
-                    return (
-                      <div key={index} className='FAQ-item'>
-                        <button
-                          className='FAQ-question'
-                          id='FAQ-dropdown'
-                          onClick={() => toggleVisibility(categoryKey, index)}
-                          style={{
-                            borderRadius:
-                              !content.Visibility && isLastquestion
-                                ? '0 0 30px 30px'
-                                : '0',
-                            borderBottom: isFirstquestion
-                              ? '1px solid rgba(224, 224, 224, 0.5)'
-                              : 'none',
-                          }}
-                        >
-                          <p className='FAQ-question-content'>
-                            {content.Question}
-                          </p>
-                          <img
-                            className='dropdown-icon'
-                            src={content.Visibility ? PopUp.src : DropDown.src}
-                            alt='dropDown'
-                          />
-                        </button>
-                        <p
-                          className='FAQ-answer'
-                          style={{
-                            display: content.Visibility ? 'block' : 'none',
-                          }}
-                        >
-                          {content.Answer}
-                        </p>
-                      </div>
-                    )
-                  })}
-                </div>
-              )
-            })}
-          </ul>
-        </div>
+        <FAQItem
+          filteredFAQs={filteredFAQs}
+          toggleVisibility={toggleVisibility}
+        />
         <PopularFAQ
           topQuestions={topQuestions}
           toggleVisibility={toggleVisibility}
