@@ -1,31 +1,17 @@
 'use client'
 
 import React, { useState } from 'react'
-import { StaticImageData } from 'next/image'
+import { FAQCategory, FAQData, FAQContent } from '@/app/Types/FAQ/FAQTypes.ts'
 import DropDown from '../../../../../public/FAQ/DropDown.svg'
 import PopUp from '../../../../../public/FAQ/PopUp.svg'
 import generalIcon from '../../../../../public/FAQ/General.svg'
 import accountIcon from '../../../../../public/FAQ/Account.svg'
 import billingIcon from '../../../../../public/FAQ/Billing.svg'
 import technicalIcon from '../../../../../public/FAQ/Technical.svg'
+import PopularFAQ from '../PopularFAQ/PopularFAQ.tsx'
 import './QueryFAQs.scss'
 
 const QueryFAQs = () => {
-  type FAQCategory = 'General' | 'Account' | 'Billing' | 'Technical'
-
-  type FAQContent = {
-    Question: string
-    Answer: string
-    Visibility: boolean
-    Visited: number
-  }
-
-  type FAQData = {
-    category: string
-    content: FAQContent[]
-    icon: StaticImageData
-  }
-
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [selectedCategory, setSelectedCategory] = useState<FAQCategory | null>(
     null,
@@ -250,7 +236,7 @@ const QueryFAQs = () => {
                                 ? '0 0 30px 30px'
                                 : '0',
                             borderBottom: isFirstquestion
-                              ? '1px solid rgba(224, 224, 224, 0.5) !important'
+                              ? '1px solid rgba(224, 224, 224, 0.5)'
                               : 'none',
                           }}
                         >
@@ -279,45 +265,10 @@ const QueryFAQs = () => {
             })}
           </ul>
         </div>
-
-        <div className='FAQ-Popular'>
-          <h3 className='FAQ-popular-header'>Popular Questions</h3>
-          <ul className='FAQ-Popular-listing'>
-            {topQuestions.map(({ content, category, originalIndex }, index) => {
-              const isLast = index === topQuestions.length - 1
-              return (
-                <div key={index} className='FAQ-popular-item'>
-                  <button
-                    className='FAQ-popular-question'
-                    onClick={() => toggleVisibility(category, originalIndex)} // Use the original category and index
-                    style={{
-                      borderBottom: !isLast
-                        ? '1px solid rgba(224, 224, 224, 0.5)'
-                        : 'none',
-                    }}
-                  >
-                    <p className='FAQ-popular-content'>{content.Question}</p>
-                    <img
-                      className='dropdown-icon'
-                      src={content.Visibility ? PopUp.src : DropDown.src}
-                      alt='dropDown'
-                    />
-                  </button>
-                  <p
-                    className='FAQ-popular-answer'
-                    style={{
-                      display: content.Visibility ? 'block' : 'none',
-                      borderRadius:
-                        content.Visibility && isLast ? '0 0 30px 30px' : '0',
-                    }}
-                  >
-                    {content.Answer}
-                  </p>
-                </div>
-              )
-            })}
-          </ul>
-        </div>
+        <PopularFAQ
+          topQuestions={topQuestions}
+          toggleVisibility={toggleVisibility}
+        />
       </div>
     </>
   )

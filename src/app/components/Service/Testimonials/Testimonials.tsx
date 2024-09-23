@@ -119,7 +119,10 @@ const Testimonials = () => {
 
       <div className={`testimonials-body ${isAnimating ? 'fade-in' : ''}`}>
         <p>{quotes[currentIndex].text}</p>
-        <p>Success Story: {quotes[currentIndex].Success}</p>
+        <p className='testimonial-sucess'>Success Story</p>
+        <p className='testimonial-sucess-story'>
+          {quotes[currentIndex].Success}
+        </p>
       </div>
 
       <div className={`testimonials-owner ${isAnimating ? 'fade-in' : ''}`}>
