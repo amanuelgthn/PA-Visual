@@ -1,0 +1,170 @@
+.form-login{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    .form-group{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        label{
+            color: #FFF;
+            font-family: "DM Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+        }
+        input{
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+            background: #FFF;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+            padding: 12px 16px;
+            &::placeholder{
+                color: #B3B3B3;
+                font-family: "DM Sans";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 150%;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .forgot-password-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .remember-me{
+            display: flex;
+            align-items: center;
+            label{
+                color: #FFF;
+                font-family: "DM Sans";
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin-left: 10px;
+            }
+        }
+        .forgot-button{
+            color:  #FFF;
+            font-family: "DM Sans";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    }
+    .button-container{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        button{
+            width: 100%;
+            border-radius: 8px;
+            background: #C98E59;
+            box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.30);
+            padding: 14px 24px;
+            border: none;
+            cursor: pointer;
+            color: #FFF;
+            font-family: "DM Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+        }
+    }
+    .terms-conditions{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        label{
+            color: #FFF;
+            font-family: "DM Sans";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-left: 10px;
+        }
+        .terms-link{
+            margin-left: 5px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color:  #FFF;
+            font-family: "DM Sans";
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration-line: underline;
+            cursor: pointer;
+        }
+    }
+    .line{
+        align-self: center;
+        border: 1px solid #F5F5F5;
+        width: 400px;
+    }
+    .or{
+        color:  #FFF;
+        font-family: "Poppins";
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-align: center;
+    }
+    .social-signin-container{
+        width: 100%;
+        display: flex;
+        gap: 40px;
+        button{
+            width: 50%;
+            background-color: transparent;
+            border: 1px solid #F5F5F5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #FFF;
+            font-family: "DM Sans";
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-indent: 10px;
+        }
+    }
+    .login{
+        color: #FFF;
+        font-family: "DM Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-align: center;
+        padding-top: 20px;
+        a{
+            color: #C98E59;
+            font-family: "DM Sans";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+}

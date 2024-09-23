@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.FAQ-container {
+    width: 100%;
+    background: linear-gradient(180deg, #839096 -28.96%, #2A2E30 18.72%); 
+}
+
+.wrapper-assist {
+    padding: 0px;
+}
+
+
+@media (max-width:1400px) {
+    .wrapper-assist{
+      width: 90%;
+      padding: 0;
+    }
+  }
+
+
+
