@@ -1,4 +1,3 @@
-// CareersSection.tsx
 'use client'
 
 import React, { useState } from 'react'
@@ -163,7 +162,6 @@ export default function CareersSection() {
 
   return (
     <div>
-      {/* Job Search Engine Section */}
       <section className='jobSearchEngineSection'>
         <form className='jobSearchForm'>
           <Input
@@ -185,7 +183,6 @@ export default function CareersSection() {
         </form>
       </section>
 
-      {/* Buttons Section */}
       <section className='buttonsSection'>
         <div className='buttonGroup'>
           <button className='buttonOpenJobs' onClick={clearFilters}>
@@ -239,7 +236,6 @@ export default function CareersSection() {
         </div>
       </section>
 
-      {/* Job Positions Section */}
       <section className='jobPositionsSection'>
         <div className='dateFilter'>
           <Button
@@ -296,7 +292,7 @@ export default function CareersSection() {
       {/* Updated JobDetailModal invocation with key prop */}
       {selectedJob && (
         <JobDetailModal
-          key={selectedJob.jobId} // Add this line to reset the modal state when selectedJob changes
+          key={selectedJob.jobId}
           jobData={selectedJob}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
