@@ -1,0 +1,71 @@
+.change-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    .form-group{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        label{
+            color: #FFF;
+            font-family: "DM Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+        }
+        input{
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+            background: #FFF;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+            padding: 12px 16px;
+            &::placeholder{
+                color: #B3B3B3;
+                font-family: "DM Sans";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 150%;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .button-container{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        button{
+            width: 100%;
+            border-radius: 8px;
+            background: #C98E59;
+            box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.30);
+            padding: 14px 24px;
+            border: none;
+            cursor: pointer;
+            color: #FFF;
+            font-family: "DM Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+        }
+    }
+    .link{
+        color: #828282;
+        font-family: "DM Sans";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-align: center;
+        &:hover{
+            color: #C98E59;
+        }
+    }
+}

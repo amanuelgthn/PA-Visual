@@ -7,9 +7,9 @@ import image2 from '../../../../../public/Service/Person2.png'
 import image3 from '../../../../../public/Service/Person3.png'
 import image4 from '../../../../../public/Service/Person4.jpg'
 import image5 from '../../../../../public/Service/Person5.jpg'
-import './Testimonials.css'
 import PrevIcon from '../../../../../public/Service/prev_icon.svg'
 import NextIcon from '../../../../../public/Service/next_icon.svg'
+import './Testimonials.css'
 
 const Testimonials = () => {
   const quotes = [
@@ -119,7 +119,10 @@ const Testimonials = () => {
 
       <div className={`testimonials-body ${isAnimating ? 'fade-in' : ''}`}>
         <p>{quotes[currentIndex].text}</p>
-        <p>Success Story: {quotes[currentIndex].Success}</p>
+        <p className='testimonial-sucess'>Success Story</p>
+        <p className='testimonial-sucess-story'>
+          {quotes[currentIndex].Success}
+        </p>
       </div>
 
       <div className={`testimonials-owner ${isAnimating ? 'fade-in' : ''}`}>
