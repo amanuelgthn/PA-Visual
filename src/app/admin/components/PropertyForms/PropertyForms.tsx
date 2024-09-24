@@ -18,7 +18,7 @@ type FieldTypes = {
   propertyDescription: string
   propertyFeatures: string[]
   listingAgentName: string
-  propertyImages: (string | File)[]
+  propertyImages: string[]
 }
 
 const PropertyForms = ({ initialData }: { initialData?: FieldTypes }) => {
@@ -29,7 +29,8 @@ const PropertyForms = ({ initialData }: { initialData?: FieldTypes }) => {
   const [isClient, setIsClient] = useState(false)
 
   const [uploadedImages, setUploadedImages] = useState<string[]>([])
-  const [fileObjects, setFileObjects] = useState<File[]>([])
+  const [, setFileObjects] = useState<File[]>([])
+  const [propertyImages, setPropertyImages] = useState<string[]>([])
   const route = useRouter()
 
   useEffect(() => {
@@ -37,14 +38,7 @@ const PropertyForms = ({ initialData }: { initialData?: FieldTypes }) => {
     if (initialData) {
       form.setFieldsValue(initialData)
       setPropertyStatus(initialData.propertyStatus)
-      const initialFiles = initialData.propertyImages.filter(
-        (img) => img instanceof File,
-      ) as File[]
-      const initialUrls = initialData.propertyImages.filter(
-        (img) => typeof img === 'string',
-      ) as string[]
-      setFileObjects(initialFiles)
-      setUploadedImages(initialUrls)
+      setPropertyImages(initialData.propertyImages)
     }
   }, [initialData, form])
 
@@ -81,12 +75,29 @@ const PropertyForms = ({ initialData }: { initialData?: FieldTypes }) => {
 
   const handleFileUpload = (files: FileList | null) => {
     if (files) {
-      const fileArray = Array.from(files)
-      const newImages = fileArray.map((file) => URL.createObjectURL(file))
+      const newFiles = Array.from(files)
+      const newImages = newFiles.map((file) => URL.createObjectURL(file))
+
       setUploadedImages((prev) => [...prev, ...newImages])
-      setFileObjects((prev) => [...prev, ...fileArray])
-      form.setFieldsValue({ propertyImages: [...fileObjects, ...fileArray] })
+      setFileObjects((prev) => [...prev, ...newFiles])
     }
+  }
+
+  const handleRemoveImage = (index: number) => {
+    setUploadedImages((prev) => {
+      const newUploadedImages = prev.filter((_, i) => i !== index)
+      return newUploadedImages
+    })
+
+    setPropertyImages((prev) => {
+      const newPropertyImages = prev.filter((_, i) => i !== index)
+      return newPropertyImages
+    })
+
+    setFileObjects((prev) => {
+      const newFileObjects = prev.filter((_, i) => i !== index)
+      return newFileObjects
+    })
   }
 
   if (!isClient) {
@@ -96,7 +107,10 @@ const PropertyForms = ({ initialData }: { initialData?: FieldTypes }) => {
   const onFinish: FormProps<FieldTypes>['onFinish'] = (values) => {
     const updatedValues = {
       ...values,
-      propertyImages: fileObjects,
+      propertyImages: [
+        ...(initialData?.propertyImages || []),
+        ...uploadedImages,
+      ], // Merge initial and uploaded images
     }
     console.log('Success:', updatedValues)
     // Send updatedValues to the backend
@@ -111,9 +125,10 @@ const PropertyForms = ({ initialData }: { initialData?: FieldTypes }) => {
   return (
     <div className='form-wrapper'>
       <PropertyPhotoUpload
-        propertyImages={uploadedImages}
+        propertyImages={propertyImages}
         onFileUpload={handleFileUpload}
         uploadedImages={uploadedImages}
+        onRemoveImage={handleRemoveImage}
       />
       <div className='form-container'>
         <Form
