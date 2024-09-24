@@ -2,8 +2,6 @@
 import React, { useState } from 'react'
 import './statistics.scss'
 import PropertyTrends from '../components/Statistics/PropertyTrends/PropertyTrends'
-// import RevenueOverview from '../components/Statistics/RevenueOverview/RevenueOverview'
-// import PropertyAssociated from '../components/Statistics/PropertyAssociated/PropertyAssociated'
 import RecentPaymments from '../components/Statistics/RecentPaymments/RecentPaymments'
 import StatisticsSummary from '../components/Statistics/StatisticsSummary/StatisticsSummary'
 import PaymentStatus from '../components/Statistics/PaymentStatus/PaymentStatus'

@@ -130,7 +130,7 @@ const RecentPaymments: React.FC = () => {
         <h2>Recent payments</h2>
         <Link href='#' className='view-all' onClick={handleToggleClick}>
           {displayCount >= recentPayments.length ? 'View less' : `View more`}
-          {' (' + (recentPayments.length - displayCount) + ' more)'}
+          {' (' + (recentPayments.length - displayCount) + ' )'}
         </Link>
       </div>
       <div className='table-wrapper'>
@@ -168,8 +168,8 @@ const RecentPaymments: React.FC = () => {
                     </div>
                   </div>
                 </td>
-                <td>{payment.amount}</td>
-                <td>{payment.method}</td>
+                <td className='paymentSection'>{payment.amount}</td>
+                <td className='paymentSection'>{payment.method}</td>
               </tr>
             ))}
           </tbody>

@@ -6,26 +6,65 @@
   border-radius: 8px;
   box-sizing: border-box;
   max-width: 50%;
+  max-height: 400px;
+  height:100%;
   width: 100%;
   flex: 1;
+  overflow-y: auto;
 
-  //header stryles
+    /* Custom scrollbar for Webkit browsers */
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: #1e1f21;
+      border-radius: 10px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+  
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  
+    /* Custom scrollbar for Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #1e1f21;
+
+
   .title-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #fff;
+    
+
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    span {
+      font-size: 1rem;
+      color: #fff;
+    }
   }
 
-  //Newest styles
   .transaction {
     margin-top: 20px;
+   
+
     h3 {
       color: #fff;
       font-weight: normal;
+      margin-bottom: 10px;
     }
 
-    //items
     .items {
       margin-top: 10px;
       display: flex;
@@ -45,25 +84,24 @@
           align-items: center;
           justify-content: center;
           color: #fff;
-          text-align: center;
           font-size: 1.4rem;
-        }
 
-        .success {
-          border: 2px solid #01b574;
-          color: #01b574;
-        }
-        .failed {
-          border: 2px solid #e31a1a;
-          color: #e31a1a;
-        }
-        .pending {
-          color: #fff;
-          border: 2px solid #fff;
-        }
-        .deduction-transaction {
-          border: 2px solid #e31a1a;
-          color: #e31a1a;
+          &.success {
+            border: 2px solid #01b574;
+            color: #01b574;
+          }
+          &.failed {
+            border: 2px solid #e31a1a;
+            color: #e31a1a;
+          }
+          &.pending {
+            color: #fff;
+            border: 2px solid #fff;
+          }
+          &.deduction-transaction {
+            border: 2px solid #e31a1a;
+            color: #e31a1a;
+          }
         }
 
         .items-content-desc {
@@ -73,10 +111,12 @@
           span:nth-child(1) {
             color: #c98e59;
             font-size: 14px;
+            font-weight: 500;
           }
+
           span:nth-child(2) {
             color: #fff;
-            font-size: 14px;
+            font-size: 12px;
           }
         }
       }
@@ -84,21 +124,28 @@
       .items-price {
         span {
           font-size: 14px;
+
+          &.price-success {
+            color: #01b574;
+          }
+          &.price-failed {
+            color: #e31a1a;
+          }
+          &.price-pending {
+            color: #fff;
+          }
+          &.price-deduction {
+            color: #fff;
+          }
         }
       }
-
-      .price-deduction {
-        color: #fff;
-      }
-      .price-sucess {
-        color: #01b574;
-      }
-      .price-pending {
-        color: #fff;
-      }
-      .price-failed {
-        color: #e31a1a;
-      }
     }
+  }
+  .no-data-to-show{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    font-weight: bold;
   }
 }
