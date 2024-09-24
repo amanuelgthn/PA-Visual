@@ -1,0 +1,104 @@
+.transaction-wrapper {
+  background-color: #2a2e30;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 30px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  max-width: 50%;
+  width: 100%;
+  flex: 1;
+
+  //header stryles
+  .title-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+  }
+
+  //Newest styles
+  .transaction {
+    margin-top: 20px;
+    h3 {
+      color: #fff;
+      font-weight: normal;
+    }
+
+    //items
+    .items {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .items-content {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        .items-content-circle {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          text-align: center;
+          font-size: 1.4rem;
+        }
+
+        .success {
+          border: 2px solid #01b574;
+          color: #01b574;
+        }
+        .failed {
+          border: 2px solid #e31a1a;
+          color: #e31a1a;
+        }
+        .pending {
+          color: #fff;
+          border: 2px solid #fff;
+        }
+        .deduction-transaction {
+          border: 2px solid #e31a1a;
+          color: #e31a1a;
+        }
+
+        .items-content-desc {
+          display: flex;
+          flex-direction: column;
+
+          span:nth-child(1) {
+            color: #c98e59;
+            font-size: 14px;
+          }
+          span:nth-child(2) {
+            color: #fff;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .items-price {
+        span {
+          font-size: 14px;
+        }
+      }
+
+      .price-deduction {
+        color: #fff;
+      }
+      .price-sucess {
+        color: #01b574;
+      }
+      .price-pending {
+        color: #fff;
+      }
+      .price-failed {
+        color: #e31a1a;
+      }
+    }
+  }
+}
