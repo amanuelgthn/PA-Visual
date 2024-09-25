@@ -168,8 +168,8 @@ const RecentPaymments: React.FC = () => {
                     </div>
                   </div>
                 </td>
-                <td className='paymentSection'>{payment.amount}</td>
-                <td className='paymentSection'>{payment.method}</td>
+                <td>{payment.amount}</td>
+                <td>{payment.method}</td>
               </tr>
             ))}
           </tbody>

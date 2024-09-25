@@ -15,28 +15,28 @@ interface TransactionItem {
 const transactionData: TransactionItem[] = [
   {
     name: 'Pemu Ridge apartment',
-    date: '24 September 2024',
+    date: '25 September 2024',
     time: '12:30 PM',
     status: 'deduction',
     amount: '-$2500',
   },
   {
     name: 'Pemu Ridge apartment',
-    date: '24 September 2024',
+    date: '25 September 2024',
     time: '12:30 PM',
     status: 'success',
     amount: '+$2500',
   },
   {
     name: 'Pemu Ridge apartment',
-    date: '24 September 2024',
+    date: '25 September 2024',
     time: '05:00 AM',
     status: 'pending',
     amount: 'Pending',
   },
   {
     name: 'Pemu Ridge apartment',
-    date: '21 September 2024',
+    date: '24 September 2024',
     time: '16:30 PM',
     status: 'failed',
     amount: 'Failed',
