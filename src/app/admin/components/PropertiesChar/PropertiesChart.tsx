@@ -287,8 +287,14 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
     <div className='card-wrapper'>
       {/* Timeframe Buttons for Sold Properties */}
       <div className='property-chart-wraper '>
+        <div
+          style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}
+        >
+          <YearPickerComponent onChange={handleYearChangeSold} />
+        </div>
         <div className='title-buttons'>
           <h1>Sold Properties</h1>
+
           <div className='time-frame-buttons'>
             <button
               onClick={() => setTimeFrameSold('weekly')}
@@ -320,11 +326,15 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
             options={options}
           />
         </div>
-        <YearPickerComponent onChange={handleYearChangeSold} />
       </div>
 
       {/* Timeframe Buttons for Listed Properties */}
-      <div className='property-chart-wraper e'>
+      <div className='property-chart-wraper'>
+        <div
+          style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}
+        >
+          <YearPickerComponent onChange={handleYearChangeListed} />
+        </div>
         <div className='title-buttons'>
           <h1>Listed Properties</h1>
           <div className='time-frame-buttons'>
@@ -358,7 +368,6 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
             options={options}
           />
         </div>
-        <YearPickerComponent onChange={handleYearChangeListed} />
       </div>
     </div>
   )
