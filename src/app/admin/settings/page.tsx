@@ -1,13 +1,21 @@
-'use client';
-import React from 'react';
+'use client'
+import React from 'react'
+import GeneralSettings from '../components/Settinngs/GeneralSettings/GeneralSettings'
+import AppearanceSettings from '../components/Settinngs/AppearanceSettings/AppearanceSettings'
+import NotificationSettings from '../components/Settinngs/NotificationSettings/NotificationSettings'
+import SecuritySettings from '../components/Settinngs/SecuritySettings/SecuritySettings'
+import './settings.scss'
 
-const Settings: React.FC = () => {
+const SettingsPage: React.FC = () => {
   return (
-    <div>
-      <h1>Settings</h1>
-      <p>Configure settings here.</p>
+    <div className='settings-wrapper'>
+      <GeneralSettings />
+      <AppearanceSettings />
+      <SecuritySettings />
+      <NotificationSettings />
+      <button>submit</button>
     </div>
-  );
-};
+  )
+}
 
-export default Settings;
+export default SettingsPage
