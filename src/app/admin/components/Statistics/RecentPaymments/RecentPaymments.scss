@@ -30,10 +30,12 @@
   }
 
   .table-wrapper {
+    background-color: #2a2e30;
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+   
+    padding: 0 20px;
   }
 
   .payments-table {
@@ -46,9 +48,13 @@
       color: #fff;
 
       th {
-        padding: 20px 0px 20px 30px;
+        padding: 20px 10px; 
         text-align: left;
         font-weight: bold;
+      }
+
+      th:nth-child(3), th:nth-child(4) {
+        text-align: right; 
       }
     }
 
@@ -58,11 +64,13 @@
           border-bottom: none;
         }
 
-      
         td {
-          padding: 15px 0px 20px 30px;
+          padding: 15px 10px; 
           color: white;
 
+          &:nth-child(3), &:nth-child(4) {
+            text-align: right; 
+          }
 
           .client-name {
             font-weight: bold;
@@ -100,15 +108,7 @@
             }
           }
         }
-        
-
       }
     }
   }
 }
-
-// @media (max-width: 1024px) {
-//   .recent-payments {
-//     display: none;
-//   }
-// }

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import './statistics.scss'
 import PropertyTrends from '../components/Statistics/PropertyTrends/PropertyTrends'
 import RecentPaymments from '../components/Statistics/RecentPaymments/RecentPaymments'
@@ -15,7 +15,8 @@ const StatisticPage: React.FC = () => {
     { label: 'Average Sale Price', value: '$1.4M', percentage: '25%' },
   ])
 
-  const updateTrends = (year: string) => {
+  // Memoizing the updateTrends function using useCallback
+  const updateTrends = useCallback((year: string) => {
     if (year === '2024') {
       setTrends([
         { label: 'Total Property', value: '1,300', percentage: '30%' },
@@ -38,7 +39,7 @@ const StatisticPage: React.FC = () => {
         { label: 'Average Sale Price', value: '$1.2M', percentage: '0%' },
       ])
     }
-  }
+  }, [])
 
   return (
     <div className='statistic-wrapper'>
@@ -50,8 +51,6 @@ const StatisticPage: React.FC = () => {
       <div className='section-2'>
         <PaymentStatus />
         <Transaction />
-        {/* <PropertyAssociated /> */}
-        {/* <RevenueOverview /> */}
       </div>
     </div>
   )
