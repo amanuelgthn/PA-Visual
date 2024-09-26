@@ -1,0 +1,114 @@
+.recent-payments {
+  .payments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 30px;
+
+    h2 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .view-all {
+      color: #74471f;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      font-weight: bold;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #c98e59;
+      }
+    }
+
+    .Ref {
+      background-color: #2a2e30;
+    }
+  }
+
+  .table-wrapper {
+    background-color: #2a2e30;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+   
+    padding: 0 20px;
+  }
+
+  .payments-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2a2e30;
+
+    thead {
+      background-color: #2a2e30;
+      color: #fff;
+
+      th {
+        padding: 20px 10px; 
+        text-align: left;
+        font-weight: bold;
+      }
+
+      th:nth-child(3), th:nth-child(4) {
+        text-align: right; 
+      }
+    }
+
+    tbody {
+      tr {
+        &:last-child {
+          border-bottom: none;
+        }
+
+        td {
+          padding: 15px 10px; 
+          color: white;
+
+          &:nth-child(3), &:nth-child(4) {
+            text-align: right; 
+          }
+
+          .client-name {
+            font-weight: bold;
+          }
+
+          .client-contact {
+            color: #bbb;
+          }
+
+          .property-info {
+            display: flex;
+            align-items: center;
+
+            .img {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              border-radius: 8px;
+              margin-right: 10px;
+            }
+
+            .property-name {
+              font-weight: bold;
+              color: white;
+            }
+
+            .property-location {
+              color: #bbb;
+              display: flex;
+              align-items: center;
+
+              .location-icon {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
