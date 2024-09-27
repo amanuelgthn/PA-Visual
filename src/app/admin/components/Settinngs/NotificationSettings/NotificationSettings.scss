@@ -36,7 +36,7 @@
           appearance: none;
           width: 50px;
           height: 24px;
-          background: #01b574;
+          background: #2ECC71;
           border-radius: 50px;
           position: relative;
           cursor: pointer;
@@ -56,7 +56,7 @@
         }
   
         input[type="checkbox"].custom-slider:checked {
-          background: #01b574;
+          background: #2ECC71;
         }
   
         input[type="checkbox"].custom-slider:checked::before {
