@@ -8,23 +8,6 @@
     flex-direction: column;
     gap: 20px;
   
-
-  
-    button {
-      background: linear-gradient(90deg, #c98e59 0%, #74471f 100%);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      align-self: flex-start;
-      transition: background 0.3s ease;
-  
-      &:hover {
-        background: linear-gradient(90deg, #74471f 0%, #c98e59 100%);
-      }
-    }
+    
   }
   
