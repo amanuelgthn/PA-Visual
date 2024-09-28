@@ -1,7 +1,7 @@
 /* Dashboard Section */
 .dashboard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   background: linear-gradient(90.54deg, #74471f 1.65%, #c98e59 100%);
   padding: 20px 30px;
@@ -13,7 +13,7 @@
 
 /* Flex items in dashboard */
 .dashboardDesc {
-  margin-bottom: 15px;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -86,9 +86,33 @@
 /* Trends section */
 .trends {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
 }
+
+.allstyles {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+
+.statistics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 1rem;
+  flex-wrap: nowrap;
+}
+
+.statistics1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 0;
+  flex-wrap: nowrap;
+}
+
+
 
 .chart {
   display: flex;

@@ -3,8 +3,12 @@ import React from 'react'
 import styles from '../components/careers/dashboard.module.css'
 import PerformanceOverView from '../components/careers/PerformanceOverview/PerformanceOverView'
 import JobsList from '../components/careers/JobsList/JobsList'
+import RecentlyApplied from '../components/careers/RecentlyApplied/RecentlyApplied'
+import RecentlyStatusChanged from '../components/careers/RecentlyStatusChanged/RecentlyStatusChanged'
+import Applied from '../components/careers/Applied/Applied'
+import Categories from '../components/careers/Categories/Categories'
 
-const Admin = () => {
+const Careers = () => {
   const data = [
     {
       label: 'Views',
@@ -24,9 +28,6 @@ const Admin = () => {
       percentageChange: 25,
       changeDirection: 'down',
     },
-    {
-      label: 'Add new job',
-    },
   ]
 
   return (
@@ -35,9 +36,19 @@ const Admin = () => {
       <div className={styles.trends}>
         <JobsList />
       </div>
+      <div className={styles.allstyles}>
+        <div className={styles.statistics}>
+          <RecentlyApplied />
+          <RecentlyStatusChanged />
+        </div>
+        <div className={styles.statistics1}>
+          <Applied />
+          <Categories />
+        </div>
+      </div>
       <div className={styles.recentActivities}></div>
     </main>
   )
 }
 
-export default Admin
+export default Careers
