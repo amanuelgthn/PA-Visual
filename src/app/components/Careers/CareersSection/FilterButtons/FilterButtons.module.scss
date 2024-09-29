@@ -1,0 +1,178 @@
+.buttonsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 2.5rem;
+    padding-bottom: 8rem;
+  
+    .buttonGroup {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  
+      .buttonOpenJobs {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.7rem;
+        line-height: 0.75rem;
+        border-radius: 2rem;
+        border: none;
+        background-color: transparent;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 0.5rem 1.3rem;
+        margin: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+  
+      .button {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.7rem;
+        line-height: 0.75rem;
+        letter-spacing: 0.36px;
+        font-weight: 500;
+        position: relative;
+        border-radius: 2rem;
+        border: 1px solid #ffffff;
+        margin: 0.5rem;
+        padding: 0.5rem 1.3rem;
+        background-color: transparent;
+        color: #ffffff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+  
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+  
+        svg {
+          margin-left: 0.5rem;
+        }
+      }
+  
+      .separator-between-buttons {
+        height: 1rem;
+        width: 1px;
+        background-color: #808080;
+        margin: 0;
+      }
+    }
+  
+    .clearGroup {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+  
+      .clearFilters {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.7rem;
+        line-height: 0.75rem;
+        border-radius: 2rem;
+        border: none;
+        background-color: transparent;
+        color: #828282;
+        font-weight: 500;
+        padding: 0.5rem 1.3rem;
+        margin: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+  
+  .ant-dropdown-menu {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ant-dropdown-menu-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #333333;
+    padding: 0.5rem 1rem;
+  
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .buttonsSection {
+      .buttonGroup {
+        width: 80%;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+  
+        .button,
+        .buttonOpenJobs {
+          font-size: 0.6rem;
+          padding: 0.4rem 1.1rem;
+          margin: 0.4rem;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .buttonsSection {
+      .buttonGroup {
+        width: 90%;
+        flex-direction: column;
+        align-items: stretch;
+  
+        .button,
+        .buttonOpenJobs {
+          font-size: 0.75rem;
+          padding: 0.6rem 1.2rem;
+          margin: 0.5rem 0;
+        }
+  
+        .separator-between-buttons {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .buttonsSection {
+      .buttonGroup {
+        width: 100%;
+  
+        .button,
+        .buttonOpenJobs {
+          font-size: 0.85rem;
+          padding: 0.75rem 1.5rem;
+          margin: 0.5rem 0;
+        }
+  
+        .separator-between-buttons {
+          display: none;
+        }
+      }
+  
+      .clearGroup {
+        .clearFilters {
+          font-size: 0.85rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+  
