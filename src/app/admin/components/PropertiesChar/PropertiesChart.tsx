@@ -175,48 +175,6 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
     ],
   }
 
-  // Merge data with common styles
-  //   const mergedDataSets = {
-  //     weekly: {
-  //       labels: dataSets.weekly.labels,
-  //       sold: {
-  //         label: 'Sold Property',
-  //         data: dataSets.weekly.data[0],
-  //         ...commonDatasetStyles.weekly[0],
-  //       },
-  //       listed: {
-  //         label: 'Listed Property',
-  //         data: dataSets.weekly.data[1],
-  //         ...commonDatasetStyles.weekly[1],
-  //       },
-  //     },
-  //     monthly: {
-  //       labels: dataSets.monthly.labels,
-  //       sold: {
-  //         label: 'Sold Property',
-  //         data: dataSets.monthly.data[0],
-  //         ...commonDatasetStyles.monthly[0],
-  //       },
-  //       listed: {
-  //         label: 'Listed Property',
-  //         data: dataSets.monthly.data[1],
-  //         ...commonDatasetStyles.monthly[1],
-  //       },
-  //     },
-  //     annually: {
-  //       labels: dataSets.annually.labels,
-  //       sold: {
-  //         label: 'Sold Property',
-  //         data: dataSets.annually.data[0],
-  //         ...commonDatasetStyles.annually[0],
-  //       },
-  //       listed: {
-  //         label: 'Listed Property',
-  //         data: dataSets.annually.data[1],
-  //         ...commonDatasetStyles.annually[1],
-  //       },
-  //     },
-  //   }
   const mergedDataSets = {
     weekly: {
       labels: dataSets.weekly.labels,
