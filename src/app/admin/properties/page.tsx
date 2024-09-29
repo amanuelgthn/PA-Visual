@@ -38,12 +38,6 @@ const PropertiesManagement: React.FC = () => {
       percentageChange: 25,
       changeDirection: 'down',
     },
-    {
-      label: 'Total Revenue',
-      value: '$542M',
-      percentageChange: 25,
-      changeDirection: 'up',
-    },
   ]
   const properties: PropertyListTableTypes[] = useMemo(
     () => [

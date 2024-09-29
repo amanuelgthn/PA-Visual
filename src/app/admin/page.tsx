@@ -126,7 +126,8 @@ const Admin = () => {
       <div className={styles.recentActivities}>
         <RecentActivity recentActivityData={recentActivityData} />
         <DonutChart
-          percentage={30}
+          chartTitle='Property Trends'
+          percentage={68}
           investorsInCountry='UK'
           propertiesInEU={20}
           propertiesInUS={1.34}

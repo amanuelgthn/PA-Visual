@@ -1,42 +1,15 @@
 'use client'
+import UserForms from '@/app/admin/components/UserForms/UserForms'
+import { UsersManagmentTableTypes } from '@/app/admin/components/UserManagmentTable/UsersManagmentTable'
+import { Spin } from 'antd'
+import React, { useState, useEffect, useMemo } from 'react'
 
-import React, { useEffect, useMemo, useState } from 'react'
-import PerformanceOverView from '../components/PerformanceOverview/PerformanceOverView'
-import YearPickerComponent from '../components/YearPicker/YearPicker'
-import dayjs from 'dayjs'
-import { type DatePickerProps } from 'antd'
-import UsersManagmentTable, {
-  UsersManagmentTableTypes,
-} from '../components/UserManagmentTable/UsersManagmentTable'
-import DonutChart from '../components/DonutChart/DonutChart'
-import UsersActivityChart from '../components/UsersActivityChart/UsersActivityChart'
+type ParamsType = {
+  userId: string
+}
 
-const UsersManagement: React.FC = () => {
-  const [year, setYear] = useState<number>(dayjs().year())
-  const [userDataState, setUserDataState] = useState<
-    UsersManagmentTableTypes[]
-  >([])
-  const usersstatistic = [
-    {
-      label: 'Total Users',
-      value: '245',
-      percentageChange: 25,
-      changeDirection: 'up',
-    },
-    {
-      label: 'Recently Added Users',
-      value: 500,
-      percentageChange: 25,
-      changeDirection: 'up',
-    },
-    {
-      label: 'Active Users',
-      value: 200,
-      percentageChange: 25,
-      changeDirection: 'down',
-    },
-  ]
-  const sampleUsers = useMemo<UsersManagmentTableTypes[]>(
+const EditUser = ({ params }: { params: ParamsType }) => {
+  const users: UsersManagmentTableTypes[] = useMemo(
     () => [
       {
         userId: '1',
@@ -201,153 +174,27 @@ const UsersManagement: React.FC = () => {
     ],
     [],
   )
-
-  const onChange: DatePickerProps['onChange'] = (date) => {
-    setYear(dayjs(date).year())
-  }
-
-  const deleteUser = (userId: string) => {
-    const updatedUsers = userDataState.filter((user) => user.userId !== userId)
-    setUserDataState(updatedUsers)
-  }
-
-  const dataSets = {
-    weekly: {
-      labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-      data: [
-        {
-          year: 2023,
-          values: [
-            [100, 200, 150, 300],
-            [120, 220, 180, 320],
-          ],
-        },
-        {
-          year: 2024,
-          values: [
-            [110, 210, 160, 310],
-            [130, 230, 190, 330],
-          ],
-        },
-      ],
-      totalData: {
-        users: 10,
-        revenue: 244,
-        propertySold: 2430,
-        propertyReviewed: 12340,
-      },
-    },
-    monthly: {
-      labels: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ],
-      data: [
-        {
-          year: 2023,
-          values: [
-            [0, 20, 40, 60, 80, 100],
-            [100, 200, 150, 300, 250, 350, 400, 450, 500, 550, 600, 650],
-          ],
-        },
-        {
-          year: 2024,
-          values: [
-            [
-              1100, 2100, 1600, 3100, 2600, 3600, 4100, 4600, 5100, 5600, 6100,
-              6600,
-            ],
-            [
-              1300, 2300, 1900, 3300, 2800, 3800, 4300, 4800, 5300, 5800, 6300,
-              6800,
-            ],
-          ],
-        },
-      ],
-      totalData: {
-        users: 100,
-        revenue: 542,
-        propertySold: 240,
-        propertyReviewed: 130,
-      },
-    },
-    annually: {
-      labels: ['2020', '2021', '2022', '2023', '2024'],
-      data: [
-        {
-          year: 2023,
-          values: [
-            [10000, 20000, 15000, 30000],
-            [12000, 22000, 18000, 32000],
-          ],
-        },
-        {
-          year: 2024,
-          values: [
-            [11000, 21000, 16000, 31000],
-            [13000, 23000, 19000, 33000],
-          ],
-        },
-      ],
-      totalData: {
-        users: 234,
-        revenue: 323,
-        propertySold: 20432,
-        propertyReviewed: 10423,
-      },
-    },
-  }
+  const [initialData, setInitialData] = useState<
+    UsersManagmentTableTypes | undefined
+  >(undefined)
 
   useEffect(() => {
-    if (year) {
-      const fillteredUsersData = sampleUsers.filter((user) => {
-        return dayjs(user.userCreatedAt).year() === year
-      })
-      setUserDataState(fillteredUsersData)
+    const user = users.find((user) => user.userId === params.userId)
+    if (user) {
+      setInitialData(user)
     }
-  }, [sampleUsers, year])
+  }, [params.userId, users])
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '20px',
-        padding: '20px',
-        boxSizing: 'border-box',
-      }}
-    >
-      <YearPickerComponent title='Users Summary' onChange={onChange} />
-      <PerformanceOverView data={usersstatistic} pageType='users-management' />
-      <UsersManagmentTable users={userDataState} onDelete={deleteUser} />{' '}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <UsersActivityChart dataSets={dataSets} />
-        <DonutChart
-          style={{ width: '519px', height: '437px' }}
-          chartTitle='Users Overview'
-          percentage={68}
-          investorsInCountry='UK'
-          propertiesInEU={20}
-          propertiesInUS={1.34}
-        />
-      </div>
+    <div>
+      {initialData ? (
+        <UserForms initialData={initialData} />
+      ) : (
+        <div>
+          <Spin />
+        </div>
+      )}
     </div>
   )
 }
 
-export default UsersManagement
+export default EditUser
