@@ -1,18 +1,13 @@
-'use client';
-import React from 'react';
+'use client'
+import React from 'react'
+import UserForms from '../../components/UserForms/UserForms'
 
 const AddUser: React.FC = () => {
   return (
     <div>
-      <h1>Add New User</h1>
-      <form>
-        {/* Form elements for adding a new user */}
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" />
-        <button type="submit">Add User</button>
-      </form>
+      <UserForms />
     </div>
-  );
-};
+  )
+}
 
-export default AddUser;
+export default AddUser

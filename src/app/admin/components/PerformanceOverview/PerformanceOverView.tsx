@@ -13,7 +13,7 @@ type PerformanceData = {
 
 type PerformanceOverViewProps = {
   data: PerformanceData[]
-  pageType: 'dashboard' | 'property'
+  pageType: 'dashboard' | 'property' | 'users-management'
 }
 
 const PerformanceOverView = ({ data, pageType }: PerformanceOverViewProps) => {
@@ -48,7 +48,7 @@ const PerformanceOverView = ({ data, pageType }: PerformanceOverViewProps) => {
         ))
       ) : (
         <>
-          {data?.slice(0, -1).map((item, index) => (
+          {data?.map((item, index) => (
             <div key={index} className='total'>
               <h4 className='totalsTitle'>{item.label}</h4>
 
@@ -74,12 +74,27 @@ const PerformanceOverView = ({ data, pageType }: PerformanceOverViewProps) => {
               </div>
             </div>
           ))}
-          <Link href='/admin/properties/add'>
-            <div className='add-new-property'>
-              <IoIosAddCircleOutline size={50} color='rgba(226, 121, 27, 1)' />
-              <h4>Add New Property</h4>
-            </div>
-          </Link>
+          {pageType === 'property' ? (
+            <Link href='/admin/properties/add'>
+              <div className='total add-new-property'>
+                <IoIosAddCircleOutline
+                  size={50}
+                  color='rgba(226, 121, 27, 1)'
+                />
+                <h4>Add New Property</h4>
+              </div>
+            </Link>
+          ) : (
+            <Link href='/admin/users/add'>
+              <div className='total add-new-property'>
+                <IoIosAddCircleOutline
+                  size={50}
+                  color='rgba(226, 121, 27, 1)'
+                />
+                <h4>Add New User</h4>
+              </div>
+            </Link>
+          )}
         </>
       )}
     </div>

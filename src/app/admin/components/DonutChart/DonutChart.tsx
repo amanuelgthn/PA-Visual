@@ -7,6 +7,8 @@ interface DonutChartProps {
   investorsInCountry: string
   propertiesInEU: number
   propertiesInUS: number
+  chartTitle: string
+  style?: React.CSSProperties
 }
 
 const DonutChart: React.FC<DonutChartProps> = ({
@@ -14,11 +16,13 @@ const DonutChart: React.FC<DonutChartProps> = ({
   investorsInCountry,
   propertiesInEU,
   propertiesInUS,
+  chartTitle,
+  style,
 }) => {
   return (
-    <div className='donut-chart-wrapper'>
+    <div style={style} className='donut-chart-wrapper'>
       <div className='left'>
-        <h1>Property Trends</h1>
+        <h1> {chartTitle}</h1>
         <div
           className='donut'
           style={
