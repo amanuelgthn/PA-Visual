@@ -140,7 +140,9 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </button>
 
         <div className='form-group'>
-          <label htmlFor='password'>Change Password:</label>
+          <label className='password-label' htmlFor='password'>
+            Change Password:
+          </label>
           <input
             type='password'
             id='password'
@@ -162,7 +164,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
             onChange={handleChange}
           />
           {showPasswordError && !passwordsMatch && (
-            <small style={{ color: 'red' }} aria-live='polite'>
+            <small className='showPasswordError' aria-live='polite'>
               Passwords do not match
             </small>
           )}
@@ -173,6 +175,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           type='button'
           onClick={handleSavePassword}
           disabled={!isPasswordChanged || !passwordsMatch}
+          aria-disabled={!isPasswordChanged || !passwordsMatch}
           className={isPasswordChanged && passwordsMatch ? '' : 'disabled'}
         >
           Save Password

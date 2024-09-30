@@ -15,6 +15,34 @@
       height: 1px;
       background-color: #fff;
     }
+
+    button {
+      margin-top: 5px;
+      background: linear-gradient(230.7deg, #c98e59 20.6%, #734124 82.34%);
+      color: white;
+      max-width: 150px;
+      width: 100%;  
+      border: 2px solid #986335;
+      padding: 10px 15px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: white;
+        color: #986335;
+        border: 2px solid #986335;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      &:disabled {
+        background: #999999;
+        color: #fff;
+        cursor: not-allowed;
+        box-shadow: none;
+        border: 2px solid #ccc;
+      }
+      
+    }
   
     .security-settings-form {
       display: flex;
@@ -23,8 +51,7 @@
       margin-top: 10px;
       align-items: center;
 
-
-  
+    
       .form-group {
         display: flex;
         gap:8px;
