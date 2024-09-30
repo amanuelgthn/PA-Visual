@@ -8,8 +8,10 @@ type JobSearchFormProps = {
   searchText: string
   onSearchChange: (value: string) => void
   selectedLocation: string | null
-  onLocationChange: (value: string[]) => void
+  onLocationChange: (value: string | null) => void
   uniqueLocations: string[]
+  isActive: boolean
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
 }
 
 const JobSearchForm: React.FC<JobSearchFormProps> = ({
@@ -18,27 +20,47 @@ const JobSearchForm: React.FC<JobSearchFormProps> = ({
   selectedLocation,
   onLocationChange,
   uniqueLocations,
+  isActive,
+  onSubmit,
 }) => {
+  const cascaderOptions = uniqueLocations.map((location) => ({
+    value: location,
+    label: location,
+  }))
+
+  const handleCascaderChange = (value: string[]) => {
+    const selected = value[0] || null
+    onLocationChange(selected)
+  }
+
+  const content = (
+    <>
+      <Input
+        placeholder='FIND JOBS'
+        value={searchText}
+        onChange={(e) => onSearchChange(e.target.value)}
+        className={styles.customJobsInput}
+      />
+      <div className={styles.separator} />
+      <Cascader
+        options={cascaderOptions}
+        onChange={handleCascaderChange}
+        placeholder='NEAR LOCATION'
+        className={styles.customLocationCascader}
+        value={selectedLocation ? [selectedLocation] : []}
+      />
+    </>
+  )
+
   return (
     <section className={styles.jobSearchEngineSection}>
-      <form className={styles.jobSearchForm}>
-        <Input
-          placeholder='FIND JOBS'
-          value={searchText}
-          onChange={(e) => onSearchChange(e.target.value)}
-          className={styles.customJobsInput}
-        />
-        <div className={styles.separator} />
-        <Cascader
-          options={uniqueLocations.map((location) => ({
-            value: location,
-            label: location,
-          }))}
-          onChange={onLocationChange}
-          placeholder='NEAR LOCATION'
-          className={styles.customLocationCascader}
-        />
-      </form>
+      {isActive ? (
+        <form className={styles.jobSearchForm} onSubmit={onSubmit}>
+          {content}
+        </form>
+      ) : (
+        <div className={styles.jobSearchForm}>{content}</div>
+      )}
     </section>
   )
 }
