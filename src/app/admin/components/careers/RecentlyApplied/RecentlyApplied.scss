@@ -1,7 +1,7 @@
 .card-wrapper {
   flex: 0 0 48%;
   max-width: 48%;
-  height: 300px;
+  height: auto;
   margin: 0;
   background: rgba(50, 54, 56, 1);
   border-radius: 8px;
@@ -74,10 +74,11 @@
   
       .property-item {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
-        padding: 10px 0;
+        padding: 10px;
         border-bottom: 1px solid #3d3d3d;
+        gap: 5px;
   
         &:last-child {
           border-bottom: none;
@@ -94,7 +95,7 @@
   
             .property-name {
               font-family: 'Montserrat', sans-serif;
-              font-size: 14px;
+              font-size: 12px;
               font-weight: 400;
               line-height: 17.07px;
               letter-spacing: 0.15px;
@@ -133,7 +134,7 @@
   
           .client-name {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 400;
             line-height: 16.94px;
             letter-spacing: 0.15px;
