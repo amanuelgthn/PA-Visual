@@ -1,12 +1,64 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import JobSearchForm from './JobSearchForm/JobSearchForm'
 import FilterButtons from './FilterButtons/FilterButtons'
 import JobPositionsList from './JobPositionsList/JobPositionsList'
 import JobDetailModal from '../../Job/JobDetailModal/JobDetailModal'
 import { jobData, JobType } from '../../Job/jobData/jobData'
 import styles from './CareersSection.module.scss'
+
+type FilterType =
+  | 'Category'
+  | 'JobFunction'
+  | 'WorkLocation'
+  | 'Location'
+  | 'PostingDate'
+
+const filterFunctionsMap: Record<
+  FilterType,
+  (filterValue: string) => (job: JobType) => boolean
+> = {
+  Category: (filterValue) => (job) => job.jobCategory === filterValue,
+  JobFunction: (filterValue) => (job) => job.jobFunctions === filterValue,
+  WorkLocation: (filterValue) => (job) => job.jobLocation === filterValue,
+  Location: (filterValue) => (job) => job.jobLocation === filterValue,
+  PostingDate: (filterValue) => (job) => {
+    const jobDate = new Date(job.jobPostDate)
+    const today = new Date()
+    let thresholdDate: Date
+
+    switch (filterValue) {
+      case 'Last 24 hours':
+        thresholdDate = new Date(today.getTime() - 24 * 60 * 60 * 1000)
+        break
+      case 'Last 7 days':
+        thresholdDate = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000)
+        break
+      case 'Last 14 days':
+        thresholdDate = new Date(today.getTime() - 14 * 24 * 60 * 60 * 1000)
+        break
+      case 'Last 30 days':
+        thresholdDate = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000)
+        break
+      default:
+        return false
+    }
+
+    return jobDate >= thresholdDate
+  },
+  // Add more filter types as needed
+}
+
+function isFilterType(type: string): type is FilterType {
+  return [
+    'Category',
+    'JobFunction',
+    'WorkLocation',
+    'Location',
+    'PostingDate',
+  ].includes(type)
+}
 
 export default function CareersSection() {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,6 +68,7 @@ export default function CareersSection() {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
   const [sortAscending, setSortAscending] = useState(true)
   const [activeFilters, setActiveFilters] = useState<string[]>([])
+  const [isFormActive, setIsFormActive] = useState(true) // New state to control form activity
 
   const jobCategories = [
     'Engineering',
@@ -56,30 +109,15 @@ export default function CareersSection() {
       filtered = filtered.filter((job) => job.jobLocation === location)
     }
 
-    // Apply all other filters
+    // Apply all other filters using the mapping
     filters.forEach((filter) => {
       const [filterType, filterValue] = filter.split(':')
-      switch (filterType) {
-        case 'Category':
-          filtered = filtered.filter((job) => job.jobCategory === filterValue)
-          break
-        case 'JobFunction':
-          filtered = filtered.filter((job) => job.jobFunctions === filterValue)
-          break
-        case 'WorkLocation':
-          filtered = filtered.filter((job) => job.jobLocation === filterValue)
-          break
-        case 'PostingDate':
-          // Implement appropriate filtering based on PostingDate
-          // This example assumes filtering by exact date string
-          filtered = filtered.filter((job) =>
-            new Date(job.jobPostDate)
-              .toLocaleDateString('en-US')
-              .includes(filterValue),
-          )
-          break
-        default:
-          break
+
+      if (isFilterType(filterType)) {
+        const filterFn = filterFunctionsMap[filterType](filterValue)
+        filtered = filtered.filter(filterFn)
+      } else {
+        console.warn(`Unknown filter type: ${filterType}`)
       }
     })
 
@@ -93,21 +131,20 @@ export default function CareersSection() {
   }
 
   // Handle Location Change
-  const handleLocationChange = (value: string[]) => {
-    const selected = value[0] || null
-    setSelectedLocation(selected)
+  const handleLocationChange = (value: string | null) => {
+    setSelectedLocation(value)
 
     // Update filters to reflect location
     const updatedFilters = activeFilters.filter(
       (filter) =>
         !filter.startsWith('Location:') && !filter.startsWith('WorkLocation:'),
     )
-    if (selected) {
-      updatedFilters.push(`WorkLocation:${selected}`)
+    if (value) {
+      updatedFilters.push(`WorkLocation:${value}`)
     }
 
     setActiveFilters(updatedFilters)
-    applyFilters(searchText, selected, updatedFilters)
+    applyFilters(searchText, value, updatedFilters)
   }
 
   // Sort by Posting Date
@@ -153,6 +190,19 @@ export default function CareersSection() {
     setIsOpen(true)
   }
 
+  // Handle Form Submit
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    console.log('Form submitted with:', { searchText, selectedLocation })
+  }
+
+  // Optional: Apply filters whenever activeFilters, searchText, or selectedLocation changes
+  // This ensures consistency if filters are updated elsewhere
+  useEffect(() => {
+    applyFilters(searchText, selectedLocation, activeFilters)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeFilters, searchText, selectedLocation])
+
   return (
     <div className={styles.careersSection}>
       <JobSearchForm
@@ -161,6 +211,8 @@ export default function CareersSection() {
         selectedLocation={selectedLocation}
         onLocationChange={handleLocationChange}
         uniqueLocations={uniqueLocations}
+        isActive={isFormActive}
+        onSubmit={handleFormSubmit}
       />
 
       <FilterButtons
@@ -183,8 +235,7 @@ export default function CareersSection() {
 
       {selectedJob && (
         <JobDetailModal
-          key={selectedJob.jobId}
-          jobData={selectedJob}
+          jobData={selectedJob} // Passed the selectedJob object directly to the JobDetailModal through the jobData prop
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
         />

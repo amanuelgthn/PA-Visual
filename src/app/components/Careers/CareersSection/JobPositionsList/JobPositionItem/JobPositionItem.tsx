@@ -17,7 +17,6 @@ const JobPositionItem: React.FC<JobPositionItemProps> = ({
   return (
     <div
       onClick={onClick}
-      key={job.jobId}
       className={`${styles.jobPosition} ${
         index % 2 === 0 ? styles.jobPositionLight : styles.jobPositionDark
       }`}
