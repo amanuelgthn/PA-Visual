@@ -33,6 +33,13 @@ const JobSearchForm: React.FC<JobSearchFormProps> = ({
     onLocationChange(selected)
   }
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (onSubmit) {
+      onSubmit(event)
+    }
+  }
+
   const content = (
     <>
       <Input
@@ -55,7 +62,7 @@ const JobSearchForm: React.FC<JobSearchFormProps> = ({
   return (
     <section className={styles.jobSearchEngineSection}>
       {isActive ? (
-        <form className={styles.jobSearchForm} onSubmit={onSubmit}>
+        <form className={styles.jobSearchForm} onSubmit={handleSubmit}>
           {content}
         </form>
       ) : (
