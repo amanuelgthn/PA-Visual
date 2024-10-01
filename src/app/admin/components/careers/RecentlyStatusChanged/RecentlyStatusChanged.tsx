@@ -3,6 +3,17 @@ import './RecentlyStatusChanged.scss'
 import { CiLocationOn } from 'react-icons/ci'
 import Link from 'next/link'
 
+const JobTitile = [
+  'Cloud engineer',
+  'Content creator',
+  'Graphic designer',
+  'HR assistant',
+]
+
+const Status = ['Activated', 'Deactivated']
+
+const Date = []
+
 const RecentlyStatusChanged = () => {
   return (
     <main className='card-wrapper'>
@@ -14,25 +25,27 @@ const RecentlyStatusChanged = () => {
           <h1>Job title</h1>
           <h1>Status</h1>
         </div>
-        {/* Placeholder content since no data is needed */}
-        <div className='property-item'>
-          <div className='property-details'>
-            <div className='property-info'>
-              <Link href='#'>
-                <h4 className='property-name'>Job title</h4>
-              </Link>
-              <div className='property-location'>
-                <CiLocationOn color='rgba(255, 255, 255, 0.5)' size={15} />
-                <p>Sample Address</p>
+        {JobTitile.map((job, index) => (
+          <div key={index} className='property-item'>
+            <div className='property-details'>
+              <div className='property-info'>
+                <Link href='#'>
+                  <h4 className='property-name'>{job}</h4>
+                </Link>
+                <div className='property-location'>
+                  <CiLocationOn color='rgba(255, 255, 255, 0.5)' size={15} />
+                  <p>Sample Address</p>
+                </div>
               </div>
             </div>
+            {Status.map((index) => (
+              <div key={index} className='client-details'>
+                <p className='client-name'>{index}</p>
+                <p className='client-name'>Date</p>
+              </div>
+            ))}
           </div>
-          <div className='client-details'>
-            <p className='client-name'>Status</p>
-            <p className='client-name'>Date</p>
-          </div>
-        </div>
-        {/* You can duplicate the .property-item block to add more entries if needed */}
+        ))}
       </div>
     </main>
   )
