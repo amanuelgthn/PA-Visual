@@ -1,3 +1,4 @@
+// JobDetailModal.tsx
 'use client'
 import React, { useEffect, useState } from 'react'
 import JobHeader from '../JobHeader/JobHeader'
@@ -23,7 +24,6 @@ export type JobDetailModalProps = {
     jobSchedule: string
     jobPayRange: string
     jobOverview: string
-
     similarJobs: {
       jobId: string
       JobTitle: string
@@ -51,9 +51,11 @@ const JobDetailModal = ({ jobData, isOpen, onClose }: JobDetailModalProps) => {
     setIsClient(true)
   }, [])
 
+  // Reset internal state when jobData changes
   useEffect(() => {
     if (isOpen) {
       setSelectedJob(jobData)
+      setIsApplyButtonClicked(false) // Reset the apply button state
     }
   }, [jobData, isOpen])
 
