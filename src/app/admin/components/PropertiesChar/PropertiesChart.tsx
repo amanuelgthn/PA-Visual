@@ -175,48 +175,6 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
     ],
   }
 
-  // Merge data with common styles
-  //   const mergedDataSets = {
-  //     weekly: {
-  //       labels: dataSets.weekly.labels,
-  //       sold: {
-  //         label: 'Sold Property',
-  //         data: dataSets.weekly.data[0],
-  //         ...commonDatasetStyles.weekly[0],
-  //       },
-  //       listed: {
-  //         label: 'Listed Property',
-  //         data: dataSets.weekly.data[1],
-  //         ...commonDatasetStyles.weekly[1],
-  //       },
-  //     },
-  //     monthly: {
-  //       labels: dataSets.monthly.labels,
-  //       sold: {
-  //         label: 'Sold Property',
-  //         data: dataSets.monthly.data[0],
-  //         ...commonDatasetStyles.monthly[0],
-  //       },
-  //       listed: {
-  //         label: 'Listed Property',
-  //         data: dataSets.monthly.data[1],
-  //         ...commonDatasetStyles.monthly[1],
-  //       },
-  //     },
-  //     annually: {
-  //       labels: dataSets.annually.labels,
-  //       sold: {
-  //         label: 'Sold Property',
-  //         data: dataSets.annually.data[0],
-  //         ...commonDatasetStyles.annually[0],
-  //       },
-  //       listed: {
-  //         label: 'Listed Property',
-  //         data: dataSets.annually.data[1],
-  //         ...commonDatasetStyles.annually[1],
-  //       },
-  //     },
-  //   }
   const mergedDataSets = {
     weekly: {
       labels: dataSets.weekly.labels,
@@ -287,8 +245,14 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
     <div className='card-wrapper'>
       {/* Timeframe Buttons for Sold Properties */}
       <div className='property-chart-wraper '>
+        <div
+          style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}
+        >
+          <YearPickerComponent onChange={handleYearChangeSold} />
+        </div>
         <div className='title-buttons'>
           <h1>Sold Properties</h1>
+
           <div className='time-frame-buttons'>
             <button
               onClick={() => setTimeFrameSold('weekly')}
@@ -320,11 +284,15 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
             options={options}
           />
         </div>
-        <YearPickerComponent onChange={handleYearChangeSold} />
       </div>
 
       {/* Timeframe Buttons for Listed Properties */}
-      <div className='property-chart-wraper e'>
+      <div className='property-chart-wraper'>
+        <div
+          style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}
+        >
+          <YearPickerComponent onChange={handleYearChangeListed} />
+        </div>
         <div className='title-buttons'>
           <h1>Listed Properties</h1>
           <div className='time-frame-buttons'>
@@ -358,7 +326,6 @@ const PropertyOverViewChart: React.FC<PropertyOverViewChartProps> = ({
             options={options}
           />
         </div>
-        <YearPickerComponent onChange={handleYearChangeListed} />
       </div>
     </div>
   )

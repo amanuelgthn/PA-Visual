@@ -1,62 +1,28 @@
 'use client'
-
-import React from 'react'
-import { Button, Form, Input } from 'antd'
 import './ForgotPasswordForm.scss'
+import Image from 'next/image'
+import { Form } from '../form/Form'
 
-interface ForgotPasswordFormProps {
-  handleResetPassword: () => void
-}
-
-const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
-  handleResetPassword,
-}) => {
-  const [form] = Form.useForm()
-
+export const ForgotPasswordForm: React.FC = () => {
   return (
-    <Form form={form} layout='vertical'>
-      <Form.Item
-        name='email'
-        label='Email address'
-        rules={[
-          {
-            required: true,
-            message: 'Please input your email!',
-          },
-          {
-            type: 'email',
-            message: 'Please enter a valid email address!',
-          },
-        ]}
-        className='emailAdress'
-      >
-        <Input placeholder='Enter your email' style={{ height: '3.75rem' }} />
-      </Form.Item>
-      <Form.Item>
-        <Button
-          type='primary'
-          className='primaryButton'
-          onClick={() => {
-            form
-              .validateFields()
-              .then(() => {
-                handleResetPassword()
-              })
-              .catch((errorInfo) => {
-                console.log('Validation Failed:', errorInfo)
-              })
-          }}
-        >
-          Send link to email
-        </Button>
-      </Form.Item>
-      <Form.Item>
-        <Button type='default' className='secondaryButton'>
-          Back to login
-        </Button>
-      </Form.Item>
-    </Form>
+    <div className='forgotPassword-container'>
+      <div className='first-half both-halfs'>
+        <h1 className='title'>Forgot Password</h1>
+        <p>
+          Enter your email address below. We&apos;ll send you instructions to
+          reset your password.
+        </p>
+        <Form />
+      </div>
+      <div className='second-half both-halfs'>
+        <Image
+          src='/passwordPage/passwordPageImage.jpg'
+          width={640}
+          height={640}
+          className='forgotPasswordImage'
+          alt='forgotPasswordImage'
+        />
+      </div>
+    </div>
   )
 }
-
-export default ForgotPasswordForm

@@ -98,7 +98,7 @@ export const Form: FC = () => {
           <input type='checkbox' id='remember-me' name='remember-me' />
           <label htmlFor='remember-me'>Remember me</label>
         </div>
-        <a className='forgot-button' href='/ForgotPass'>
+        <a className='forgot-button' href='/passwordPage'>
           Forgot Password?
         </a>
       </div>
