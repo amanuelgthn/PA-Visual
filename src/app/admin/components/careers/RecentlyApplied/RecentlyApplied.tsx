@@ -3,43 +3,61 @@ import './RecentlyApplied.scss'
 import { CiLocationOn } from 'react-icons/ci'
 import Link from 'next/link'
 
-const jobPositions = [
-  'Cloud Engineer',
-  'Content Creator',
-  'Graphic Designer',
-  'HR assistant',
+const applications = [
+  {
+    jobTitle: 'Cloud Engineer',
+    applicantName: 'Sam Wheeler',
+    applicantEmail: 'sam.wheeler@example.com',
+    location: 'Sample Address',
+  },
+  {
+    jobTitle: 'Content Creator',
+    applicantName: 'John Doe',
+    applicantEmail: 'john.doe@example.com',
+    location: 'Sample Address',
+  },
+  {
+    jobTitle: 'Graphic Designer',
+    applicantName: 'Jane Smith',
+    applicantEmail: 'jane.smith@example.com',
+    location: 'Sample Address',
+  },
+  {
+    jobTitle: 'HR Assistant',
+    applicantName: 'Emily Johnson',
+    applicantEmail: 'emily.johnson@example.com',
+    location: 'Sample Address',
+  },
 ]
-
-const Applicants = ['Sam Wheeler', 'Sam Wheeler', 'Sam Wheeler', 'Sam Wheeler']
 
 const RecentlyApplied = () => {
   return (
     <section className='card-wrapper'>
-      <div className='property-list'>
+      <div className='applications-list'>
         <div className='card-header'>
           <h1>Recently Applied</h1>
         </div>
         <div className='card-title'>
-          <h1>Job position</h1>
+          <h1>Job Position</h1>
           <h1>Applicant</h1>
         </div>
 
-        {jobPositions.map((job, index) => (
-          <div key={index} className='property-item'>
-            <div className='property-details'>
-              <div className='property-info'>
+        {applications.map((application, index) => (
+          <div key={index} className='application-item'>
+            <div className='job-details'>
+              <div className='job-info'>
                 <Link href='#'>
-                  <h4 className='property-name'>{job}</h4>
+                  <h4 className='job-title'>{application.jobTitle}</h4>
                 </Link>
-                <div className='property-location'>
+                <div className='job-location'>
                   <CiLocationOn color='rgba(255, 255, 255, 0.5)' size={15} />
-                  <p>Sample Address</p>
+                  <p>{application.location}</p>
                 </div>
               </div>
             </div>
-            <div className='client-details'>
-              <p className='client-name'>{Applicants[index]}</p>
-              <p className='client-email'>client@example.com</p>
+            <div className='applicant-details'>
+              <p className='applicant-name'>{application.applicantName}</p>
+              <p className='applicant-email'>{application.applicantEmail}</p>
             </div>
           </div>
         ))}

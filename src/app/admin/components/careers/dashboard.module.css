@@ -112,8 +112,6 @@
   flex-wrap: nowrap;
 }
 
-
-
 .chart {
   display: flex;
   justify-content: center;
@@ -177,6 +175,53 @@
   height: 20px;
   vertical-align: middle;
   object-fit: contain;
+}
+
+/* Media Queries for Tablets and Mobile Devices */
+@media (max-width: 1024px) {
+  /* Stack .statistics and .statistics1 vertically */
+  .statistics,
+  .statistics1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Adjust child components within .statistics and .statistics1 */
+  .statistics > *,
+  .statistics1 > * {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust .trends section if needed */
+  .trends {
+    width: 100%;
+  }
+}
+
+@media (max-width: 769px) {
+  /* Further adjustments for smaller screens */
+  .statistics,
+  .statistics1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .statistics > *,
+  .statistics1 > * {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust padding and margins */
+  .allstyles {
+    padding: 0 10px;
+  }
+
+  .chartContainer {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* For tablets (min-width: 768px) and desktops */

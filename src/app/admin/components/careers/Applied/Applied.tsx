@@ -7,17 +7,19 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  Rectangle,
 } from 'recharts'
 
 const Applied: React.FC = () => {
   const currentYear = new Date().getFullYear()
-  const minYear = 2018 // Set the minimum year
+  const minYear = 2018
   const [selectedYear, setSelectedYear] = useState(currentYear)
-  const [timeFrame, setTimeFrame] = useState('monthly')
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [timeFrame, setTimeFrame] = useState<'weekly' | 'monthly' | 'annual'>(
+    'monthly',
+  )
 
-  const handleTimeFrameChange = (newTimeFrame: string) => {
+  const handleTimeFrameChange = (
+    newTimeFrame: 'weekly' | 'monthly' | 'annual',
+  ) => {
     setTimeFrame(newTimeFrame)
   }
 
@@ -33,32 +35,7 @@ const Applied: React.FC = () => {
     }
   }
 
-  const onMouseEnter = (data: any, index: number) => {
-    setActiveIndex(index)
-  }
-
-  const onMouseLeave = () => {
-    setActiveIndex(null)
-  }
-
-  // Base data with all months
-  const allMonths = [
-    { name: 'Jan', value: 0 },
-    { name: 'Feb', value: 0 },
-    { name: 'Mar', value: 0 },
-    { name: 'Apr', value: 0 },
-    { name: 'May', value: 0 },
-    { name: 'Jun', value: 0 },
-    { name: 'Jul', value: 0 },
-    { name: 'Aug', value: 0 },
-    { name: 'Sep', value: 0 },
-    { name: 'Oct', value: 0 },
-    { name: 'Nov', value: 0 },
-    { name: 'Dec', value: 0 },
-  ]
-
-  // Mock data for the bar chart
-  const monthlyDataByYear: { [year: number]: any[] } = {
+  const dataByYear: { [year: number]: { name: string; value: number }[] } = {
     2024: [
       { name: 'Jan', value: 25 },
       { name: 'Feb', value: 30 },
@@ -89,55 +66,23 @@ const Applied: React.FC = () => {
     ],
   }
 
-  // Function to get data based on selected year and timeframe
   const getData = () => {
-    const baseData = allMonths.map((month) => ({ ...month })) // Clone the base data
-
-    const yearData = monthlyDataByYear[selectedYear] || []
-
-    // Merge baseData with yearData
-    yearData.forEach((monthData) => {
-      const month = baseData.find((m) => m.name === monthData.name)
-      if (month) {
-        month.value = monthData.value
-      }
-    })
-
+    const yearData = dataByYear[selectedYear] || []
     if (timeFrame === 'weekly') {
-      return baseData.map((month) => ({
+      return yearData.map((month) => ({
         name: month.name,
-        value: Math.round(month.value * 0.25), // Example adjustment
+        value: Math.round(month.value * 0.25),
       }))
     } else if (timeFrame === 'monthly') {
-      return baseData
-    } else {
-      const totalValue = baseData.reduce((sum, month) => sum + month.value, 0)
-      return baseData.map((month) => ({
-        name: month.name,
-        value: Math.round(totalValue / 12), // Distribute total value evenly
-      }))
+      return yearData
+    } else if (timeFrame === 'annual') {
+      const totalValue = yearData.reduce((sum, month) => sum + month.value, 0)
+      return [{ name: 'Year Total', value: totalValue }]
     }
+    return yearData
   }
 
   const data = getData()
-
-  // Custom shape to control hover behavior and color change
-  const CustomBar = (props: any) => {
-    const { fill, x, y, width, height, index } = props
-    const hoverColor = '#2A2E30' // Hover background color
-
-    return (
-      <Rectangle
-        x={x}
-        y={y}
-        width={width}
-        height={height}
-        fill={activeIndex === index ? hoverColor : fill}
-        onMouseEnter={() => onMouseEnter(props, index)}
-        onMouseLeave={onMouseLeave}
-      />
-    )
-  }
 
   return (
     <div className='chart-wrapper'>
@@ -146,19 +91,19 @@ const Applied: React.FC = () => {
         <div className='timeframe-buttons'>
           <button
             onClick={() => handleTimeFrameChange('weekly')}
-            className={timeFrame === 'weekly' ? 'active' : ''}
+            className={`weekly-button ${timeFrame === 'weekly' ? 'active' : ''}`}
           >
             Weekly
           </button>
           <button
             onClick={() => handleTimeFrameChange('monthly')}
-            className={timeFrame === 'monthly' ? 'active' : ''}
+            className={`monthly-button ${timeFrame === 'monthly' ? 'active' : ''}`}
           >
             Monthly
           </button>
           <button
             onClick={() => handleTimeFrameChange('annual')}
-            className={timeFrame === 'annual' ? 'active' : ''}
+            className={`annual-button ${timeFrame === 'annual' ? 'active' : ''}`}
           >
             Annually
           </button>
@@ -181,13 +126,20 @@ const Applied: React.FC = () => {
               tickLine={false}
               tick={{ fontSize: 12 }}
             />
-            <Tooltip />
+            <Tooltip
+              cursor={{ fill: 'transparent' }}
+              contentStyle={{
+                backgroundColor: '#2A2E30',
+                color: '#f2f2f2',
+                borderRadius: '0.5rem',
+              }}
+            />
             <Bar
               className='bar'
               dataKey='value'
               fill='#C98E59'
               barSize={4}
-              shape={CustomBar}
+              isAnimationActive={false}
             />
           </BarChart>
         </ResponsiveContainer>

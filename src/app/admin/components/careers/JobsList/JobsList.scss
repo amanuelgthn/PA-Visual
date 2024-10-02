@@ -1,132 +1,128 @@
-.globalStyles {
+.jobs-list {
   display: flex;
   flex-direction: column;
   width: 100%;
   background-color: transparent;
-}
 
-.titleContainer {
-  background: transparent;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  .jobsListTitle {
+  .jobs-list-header {
     background: transparent;
-    color: #fff;
-    padding: 1.25rem;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .viewAllFilter {
-    background: transparent;
-    color:#BF8654;
-    padding: 1.25rem;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-  }
-}
-
-
-.jobsListContainer {
-  background: #323638;
-  width: 100%;
-  min-height: 20rem; /* Increase the height to ensure enough space for the dropdown */
-  border-radius: 0.5rem;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 0.01px solid #545353;
-  overflow: hidden; /* Remove any potential overflow */
-
-  .jobs-table-container {
     width: 100%;
-    /* Remove horizontal scroll to prevent overflow */
-    overflow: visible; /* Ensure dropdowns are visible */
+    display: flex;
+    justify-content: space-between;
 
-    .jobs-table {
+    .jobs-list-title {
+      background: transparent;
+      color: #fff;
+      padding: 1.25rem;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .view-all-button {
+      background: transparent;
+      color: #bf8654;
+      padding: 1.25rem;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .jobs-list-container {
+    background: #323638;
+    width: 100%;
+    min-height: 20rem;
+    border-radius: 0.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.000625rem solid #545353;
+    overflow: hidden;
+
+    .jobs-table-container {
       width: 100%;
+      overflow: visible;
 
-      th {
-        background: transparent;
-        color: #fff;
-        padding: 1.25rem;
-        text-align: center;
-        font-family: "Montserrat", sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-      }
+      .jobs-table {
+        width: 100%;
 
-      th:first-child,
-      td:first-child {
-        text-align: left;
-      }
-
-      td {
-        padding: 10px 20px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.87rem;
-        color: #fff;
-        font-weight: 400;
-        line-height: 17.07px;
-        letter-spacing: 0.15px;
-        text-align: center;
-        position: relative;
-      }
-
-      .actions-container {
-        position: relative;
-      }
-
-      .more-button {
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 18px;
-        cursor: pointer;
-
-      }
-
-      .dropdown-menu {
-        position: absolute;
-        z-index: 999999;
-        background-color: #8a8888;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        padding: 15px;
-        width: 120px;
-        height: auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-        .menu-item {
-          background-color: #8a8888;
-          color: #ffffff;
-          border: none;
-          padding: 10px;
-          font-size: 14px;
-          cursor: pointer;
+        th {
+          background: transparent;
+          color: #fff;
+          padding: 1.25rem;
           text-align: center;
-          display: flex;
-          align-items: center;
-
-          i {
-            margin-right: 8px; /* Space between the icon and the text */
-          }
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.875rem;
+          font-weight: 600;
         }
 
-        /* Border bottom for the first menu item (Edit) */
-        .menu-item:first-child {
-          border-bottom: 1px solid rgb(168, 168, 168);
+        th:first-child,
+        td:first-child {
+          text-align: left;
+        }
+
+        td {
+          padding: 0.625rem 1.25rem;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.87rem;
+          color: #fff;
+          font-weight: 400;
+          line-height: 1.066875rem;
+          letter-spacing: 0.009375rem;
+          text-align: center;
+          position: relative;
+        }
+
+        .actions-container {
+          position: relative;
+        }
+
+        .more-button {
+          background: none;
+          border: none;
+          color: #fff;
+          font-size: 1.125rem;
+          cursor: pointer;
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          z-index: 999999;
+          background-color: #8a8888;
+          border-radius: 0.3125rem;
+          display: flex;
+          flex-direction: column;
+          padding: 0.9375rem;
+          width: 7.5rem;
+          height: auto;
+          box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+
+          .menu-item {
+            background-color: #8a8888;
+            color: #ffffff;
+            border: none;
+            padding: 0.625rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            align-items: center;
+
+            i {
+              margin-right: 0.5rem;
+            }
+          }
+
+          .menu-item:first-child {
+            border-bottom: 0.0625rem solid rgb(168, 168, 168);
+          }
         }
       }
     }
