@@ -3,51 +3,77 @@ import './RecentlyStatusChanged.scss'
 import { CiLocationOn } from 'react-icons/ci'
 import Link from 'next/link'
 
-const JobTitile = [
-  'Cloud engineer',
-  'Content creator',
-  'Graphic designer',
-  'HR assistant',
+const getCurrentDate = () => {
+  const date = new Date()
+  return date.toLocaleDateString()
+}
+
+const jobStatusChanges = [
+  {
+    jobTitle: 'Cloud Engineer',
+    status: 'Activated',
+    date: getCurrentDate(),
+    location: 'Sample Address',
+  },
+  {
+    jobTitle: 'Content Creator',
+    status: 'Deactivated',
+    date: getCurrentDate(),
+    location: 'Sample Address',
+  },
+  {
+    jobTitle: 'Graphic Designer',
+    status: 'Activated',
+    date: getCurrentDate(),
+    location: 'Sample Address',
+  },
+  {
+    jobTitle: 'HR Assistant',
+    status: 'Deactivated',
+    date: getCurrentDate(),
+    location: 'Sample Address',
+  },
 ]
 
-const Status = ['Activated', 'Deactivated']
-
-const Date = []
+const getStatusStyle = (status) => ({
+  color: status === 'Activated' ? '#05FF00' : 'rgba(255, 255, 255, 1)',
+})
 
 const RecentlyStatusChanged = () => {
   return (
-    <main className='card-wrapper'>
-      <div className='property-list'>
+    <section className='card-wrapper'>
+      <div className='status-list'>
         <div className='card-header'>
-          <h1>Recently status changed</h1>
+          <h1>Recently Status Changed</h1>
         </div>
         <div className='card-title'>
-          <h1>Job title</h1>
+          <h1>Job Title</h1>
           <h1>Status</h1>
         </div>
-        {JobTitile.map((job, index) => (
-          <div key={index} className='property-item'>
-            <div className='property-details'>
-              <div className='property-info'>
+
+        {jobStatusChanges.map((job, index) => (
+          <div key={index} className='status-item'>
+            <div className='job-details'>
+              <div className='job-info'>
                 <Link href='#'>
-                  <h4 className='property-name'>{job}</h4>
+                  <h4 className='job-title'>{job.jobTitle}</h4>
                 </Link>
-                <div className='property-location'>
+                <div className='job-location'>
                   <CiLocationOn color='rgba(255, 255, 255, 0.5)' size={15} />
-                  <p>Sample Address</p>
+                  <p>{job.location}</p>
                 </div>
               </div>
             </div>
-            {Status.map((index) => (
-              <div key={index} className='client-details'>
-                <p className='client-name'>{index}</p>
-                <p className='client-name'>Date</p>
-              </div>
-            ))}
+            <div className='status-details'>
+              <p className='status-text' style={getStatusStyle(job.status)}>
+                {job.status}
+              </p>
+              <p className='status-date'>{job.date}</p>
+            </div>
           </div>
         ))}
       </div>
-    </main>
+    </section>
   )
 }
 
