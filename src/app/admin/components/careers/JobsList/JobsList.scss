@@ -10,26 +10,30 @@
     display: flex;
     justify-content: space-between;
 
+    .view-all-button {
+            background: transparent;
+            color: #BF8654;
+            padding: 1.25rem;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            &:hover {
+              color: #E2791B;
+            }
+          }
+
     .jobs-list-title {
       background: transparent;
       color: #fff;
       padding: 1.25rem;
       text-align: center;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.875rem;
+      font-size: 1rem;
       font-weight: 600;
-    }
-
-    .view-all-button {
-      background: transparent;
-      color: #bf8654;
-      padding: 1.25rem;
-      text-align: center;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
     }
   }
 
@@ -43,15 +47,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 0.000625rem solid #545353;
-    overflow: hidden;
+    border: 0.0625rem solid #545353;
+  //   overflow: hidden;
 
     .jobs-table-container {
       width: 100%;
       overflow: visible;
+      margin-bottom: 60px;
 
       .jobs-table {
         width: 100%;
+        border-collapse: collapse;
 
         th {
           background: transparent;
@@ -59,7 +65,7 @@
           padding: 1.25rem;
           text-align: center;
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.875rem;
+          font-size: 1rem; 
           font-weight: 600;
         }
 
@@ -68,16 +74,62 @@
           text-align: left;
         }
 
+      
+  .status.active {
+      color: #05ff00;
+    }
+  
+    .status.inactive {
+      color: #F4F4F4; 
+    }
+  
+    .status.pending {
+      color: #C98E59; 
+    }
+  
+    .status.available {
+      color: #1fd73e;
+    }
+  
+    .status.in-progress {
+      color: #f39c12; 
+    }
+
         td {
           padding: 0.625rem 1.25rem;
           font-family: 'Montserrat', sans-serif;
-          font-size: 0.87rem;
+          font-size: 1rem;
           color: #fff;
           font-weight: 400;
-          line-height: 1.066875rem;
+          line-height: 1.25rem;
           letter-spacing: 0.009375rem;
           text-align: center;
           position: relative;
+
+          .job-info {
+            display: flex;
+            align-items: center;
+
+            .fa-map-marker-alt {
+              color: rgba(255, 255, 255, 0.5);
+              margin-right: 0.5rem;
+              margin-top:5px;
+            }
+
+            .job-details {
+              display: flex;
+              flex-direction: column;
+
+              .job-title {
+                font-weight: 600;
+              }
+
+              .job-location {
+                font-size: 0.85rem; 
+                color: rgba(255, 255, 255, 0.5); 
+              }
+            }
+          }
         }
 
         .actions-container {
@@ -87,9 +139,13 @@
         .more-button {
           background: none;
           border: none;
-          color: #fff;
-          font-size: 1.125rem;
+          color: #6D6D6D;
+          font-size: 2rem;
           cursor: pointer;
+          transition: all 0.3s ease;
+          &:hover {
+            color: #fff;
+          }
         }
 
         .dropdown-menu {
@@ -127,4 +183,6 @@
       }
     }
   }
+
+ 
 }
