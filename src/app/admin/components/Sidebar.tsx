@@ -86,6 +86,19 @@ const Sidebar: React.FC = () => {
               Moderator Requests
             </Link>
           </li>
+          <li
+            className={`${styles.navItem} ${isActive('/admin/careers') ? styles.active : ''}`}
+          >
+            <Link href='/admin/careers' className={styles.navLink}>
+              <img
+                src='/icons/careerIcon.png'
+                alt='dashboard icon'
+                width={16}
+                height={16}
+              />
+              Careers
+            </Link>
+          </li>
         </ul>
       </nav>
       <div>
