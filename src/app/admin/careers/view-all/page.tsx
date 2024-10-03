@@ -1,7 +1,7 @@
+'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import '@fortawesome/fontawesome-free/css/all.min.css'
-import './JobsList.scss'
-import { useRouter } from 'next/navigation'
+import './view-all.scss'
 
 interface Job {
   id: number
@@ -11,12 +11,12 @@ interface Job {
   viewed: number
   datePosted: Date
   reviewed: string
+  location: string
 }
 
-const JobsList: React.FC = () => {
+const ViewAllPage: React.FC = () => {
   const [openMenuId, setOpenMenuId] = useState<number | null>(null)
   const dropdownRef = useRef<HTMLDivElement | null>(null)
-  const router = useRouter()
 
   const jobsData: Job[] = [
     {
@@ -59,6 +59,56 @@ const JobsList: React.FC = () => {
       reviewed: 'Pending',
       location: 'New York, 335W, Karen Center',
     },
+    {
+      id: 5,
+      title: 'HR Recruitment',
+      status: 'Active',
+      applied: 10,
+      viewed: 400,
+      datePosted: new Date(2024, 1, 20),
+      reviewed: 'Available',
+      location: 'New York, 335W, Karen Center',
+    },
+    {
+      id: 6,
+      title: 'Interior Designer',
+      status: 'Active',
+      applied: 300,
+      viewed: 500,
+      datePosted: new Date(2024, 0, 3),
+      reviewed: 'Available',
+      location: 'New York, 335W, Karen Center',
+    },
+    {
+      id: 7,
+      title: 'Sales Director',
+      status: 'Inactive',
+      applied: 200,
+      viewed: 700,
+      datePosted: new Date(2024, 0, 15),
+      reviewed: 'Pending',
+      location: 'New York, 335W, Karen Center',
+    },
+    {
+      id: 8,
+      title: 'UX/UI Designer',
+      status: 'Active',
+      applied: 500,
+      viewed: 900,
+      datePosted: new Date(2024, 10, 8),
+      reviewed: 'Pending',
+      location: 'New York, 335W, Karen Center',
+    },
+    {
+      id: 9,
+      title: 'UX/UI Designer',
+      status: 'Active',
+      applied: 200,
+      viewed: 700,
+      datePosted: new Date(2024, 0, 3),
+      reviewed: 'Pending',
+      location: 'New York, 335W, Karen Center',
+    },
   ]
 
   const tableHeaders: string[] = [
@@ -91,18 +141,10 @@ const JobsList: React.FC = () => {
     }
   }, [])
 
-  // Navigate to the view-all page when the button is clicked
-  const handleViewAllClick = () => {
-    router.push('/admin/careers/view-all')
-  }
-
   return (
     <section className='jobs-list'>
       <div className='jobs-list-header'>
-        <h1 className='jobs-list-title'>Jobs List</h1>
-        <button className='view-all-button' onClick={handleViewAllClick}>
-          View All
-        </button>
+        <h1 className='jobs-list-title'>All Jobs</h1>
       </div>
       <div className='jobs-list-container'>
         <div className='jobs-table-container'>
@@ -170,4 +212,4 @@ const JobsList: React.FC = () => {
   )
 }
 
-export default JobsList
+export default ViewAllPage

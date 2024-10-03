@@ -25,6 +25,8 @@ const AdminLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         return 'Statistics'
       } else if (pathname.startsWith('/admin/requests')) {
         return 'Moderator Requests'
+      } else if (pathname.startsWith('/admin/careers')) {
+        return 'Careers'
       } else if (pathname.startsWith('/admin/settings')) {
         return 'Settings'
       }
