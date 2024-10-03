@@ -1,0 +1,179 @@
+.globalStyles {
+    display: flex;
+    flex-direction: column; /* Stack summaryTitle and totalsWrapper vertically */
+    width: 100%;
+    background-color: transparent;
+  
+    .summaryTitle {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: transparent;
+      width: 20%; 
+      align-items:center;
+      padding: 3rem 0 0 1rem;
+      justify-content: center;
+  
+      .jobsSummary {
+        color: #fff;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        padding-right: 1rem;
+      }
+  
+      .yearDropdown {
+        position: relative;
+  
+        .yearSummary {
+          background: transparent;
+          color: #FFFFFF;
+          text-align: center;
+          font-family: "Montserrat", sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          border: 0.01px solid #5b5b5b;
+          padding: 0.5rem 1rem 0.5rem 1rem;
+          border-radius: 5px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+  
+          svg {
+            font-size: 12px;
+          }
+        }
+  
+        .dropdownMenu {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #2a2e30;
+          border: none;
+          border-radius: 5px;
+          margin-top: 5px;
+          z-index: 10;
+  
+          .menuItem {
+            width: 100%;
+            background: transparent;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 10px 15px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+  
+            &:hover {
+              background: rgba(191, 134, 84, 0.1);
+            }
+          }
+        }
+      }
+    }
+  
+    .totalsWrapper {
+      display: flex;
+      flex-direction: row; 
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 100%;
+      flex-wrap: wrap; 
+      gap: 20px; 
+  
+      .total,
+      .add-new-job,
+      .add-new-property {
+        width: 251px;
+        height: 120px;
+        border-radius: 20px;
+        background: var(--DARK-GREEN, rgba(42, 46, 48, 1));
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+        .totalsTitle {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 22px;
+          color: rgba(242, 242, 242, 1);
+        }
+  
+        .valueWrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+  
+          .value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 29px;
+            color: rgba(242, 242, 242, 1);
+          }
+  
+          .up,
+          .down {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            width: 80px;
+            height: 36px;
+            padding: 8px 10px;
+            gap: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19.5px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+          }
+  
+          .up {
+            border: 1px solid rgba(5, 141, 105, 0.99);
+            background: rgba(5, 255, 0, 0.18);
+            color: rgba(31, 215, 60, 1);
+          }
+  
+          .down {
+            border: 1px solid rgba(141, 5, 5, 0.99);
+            background: rgba(255, 0, 0, 0.13);
+            color: rgba(235, 6, 6, 1);
+          }
+        }
+      }
+  
+      .add-new-job,
+      .add-new-property {
+        align-items: center;
+        justify-content: center;
+        height: 178px; /* Adjusted height for consistency */
+  
+        &:hover {
+          cursor: pointer;
+          border: 1px solid rgba(226, 121, 27, 1);
+        }
+  
+        h4 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 24px;
+          text-align: center;
+          color: rgba(226, 121, 27, 1);
+        }
+      }
+    }
+  }
+  
