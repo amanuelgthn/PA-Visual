@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
 import styles from '../components/careers/dashboard.module.css'
-import PerformanceOverView from '../careers/PerformanceOverview/PerformanceOverView'
-import JobsList from '../careers/JobsList/JobsList'
+import PerformanceOverView from '../components/careers/PerformanceOverview/PerformanceOverView'
+import JobsList from '../components/careers/JobsList/JobsList'
 
 const CareersJobForm = () => {
   const data = [
