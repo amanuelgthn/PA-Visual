@@ -1,0 +1,129 @@
+.jobSearchEngineSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+
+  .jobSearchForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 35rem;
+    background: #eeeeee;
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    flex-wrap: nowrap;
+
+    .customJobsInput {
+      flex: 1;
+      margin-right: 1rem;
+      border: none !important;
+      padding: 0.75rem;
+      font-size: 1rem;
+      color: black !important;
+      background: #eeeeee !important;
+      box-shadow: none !important;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #999999;
+      }
+    }
+
+    .separator {
+      width: 1px;
+      background-color: #acacac;
+      height: 2rem;
+      margin: 0;
+      flex-shrink: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .customLocationCascader {
+      flex: 1;
+      margin-left: 1rem;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      font-size: 1rem;
+      color: black !important;
+      background: transparent !important;
+
+      .ant-select-selector {
+        border: none !important;
+        color: black !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+
+      .ant-select-selection-placeholder {
+        color: #999999 !important;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0.8rem;
+
+    .jobSearchForm {
+      max-width: 28rem;
+
+      .customJobsInput {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+        margin-right: 0.8rem;
+      }
+
+      .customLocationCascader {
+        margin-left: 0.8rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .jobSearchForm {
+      flex-direction: column;
+      height: auto;
+      max-width: 100%;
+      text-align: center;
+      .customJobsInput,
+      .customLocationCascader {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .separator {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+
+    .jobSearchForm {
+      padding: 0.3rem;
+
+      .customJobsInput {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+      }
+
+      .customLocationCascader {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
