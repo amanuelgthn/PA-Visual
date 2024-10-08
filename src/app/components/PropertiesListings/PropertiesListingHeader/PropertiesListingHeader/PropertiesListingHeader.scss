@@ -1,0 +1,58 @@
+.properties-listing-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.properties-listing-header-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    h1 {
+        font-family: "Catchye Demo", sans-serif;
+        font-size: 128px;
+        font-weight: 400;
+        line-height: 120px;
+        letter-spacing: 2.4px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    }
+
+    span {
+        width: 50%;
+
+        p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+        }
+    }
+}
