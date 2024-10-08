@@ -82,7 +82,7 @@ export const Navbar: React.FC = () => {
         <nav className='navbar'>
           <div className='logo-navbar'>
             <Link href='/'>
-              <img src='./logo/logo.svg' alt='logo' />
+              <img src='/logo/logo.svg' alt='logo' />
             </Link>
           </div>
 
@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
               {menuItems.map((item) => (
                 <li
                   key={item.path}
-                  className={pathname === item.path ? 'active' : ''}
+                  className={pathname.includes(item.path) ? 'active' : ''}
                 >
                   <Link href={item.path} onClick={closeMenu}>
                     {item.label}
@@ -126,7 +126,7 @@ export const Navbar: React.FC = () => {
               {menuItems.map((item) => (
                 <li
                   key={item.path}
-                  className={pathname === item.path ? 'active' : ''}
+                  className={pathname.includes(item.path) ? 'active' : ''}
                 >
                   <Link href={item.path} onClick={closeMenu}>
                     {item.label}

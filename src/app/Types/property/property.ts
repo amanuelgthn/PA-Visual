@@ -1,11 +1,16 @@
 export interface Property {
   property_id: string
+  property_title: string
   listing_price: number
   country: string
+  city: string
+  street_address: string
   num_bedrooms: number
   num_bathrooms: number
+  property_sqft: number
   primaryImage: string
   additionalImages?: { base64Image: string }[]
+  property_type?: string
 
   // Additional features
   additionalFeatures?: {
@@ -35,7 +40,12 @@ export interface Property {
   // Promotion details
   promotion?: {
     promotion_id?: number
-    promotion_name?: 'featured' | 'topPick' | 'hotDeal' | 'newListing'
+    promotion_name?:
+      | 'featured'
+      | 'topPick'
+      | 'hotDeal'
+      | 'newListing'
+      | 'forSale'
     start_date?: Date
     end_date?: Date
   }

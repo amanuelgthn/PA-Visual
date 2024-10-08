@@ -1,0 +1,61 @@
+.new-listing-properties-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 20px;
+
+    h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 60px;
+        font-weight: 500;
+        line-height: 55.9px;
+        letter-spacing: 0.06em;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+
+    }
+
+    .listing-line {
+        width: 100%;
+        border: 1px solid;
+        border-image-source: linear-gradient(90deg, #FFFFFF 0%, #999999 100%);
+        border-image-slice: 1;
+    }
+}
+
+.new-listing-properties-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ontinue-exploring-new-listing-properties-btn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    button {
+        width: 200px;
+        border-radius: 15px;
+        background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%);
+        border: none;
+        box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.3);
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 23.32px;
+        letter-spacing: 1.399999976158142px;
+        text-align: center;
+        color: var(--WHITE, rgba(255, 255, 255, 1));
+
+        &:hover {
+            cursor: pointer;
+            background: linear-gradient(230.7deg, #734124 20.6%, #C98E59 82.34%) !important;
+            color: var(--WHITE, rgba(255, 255, 255, 1)) !important;
+        }
+    }
+}

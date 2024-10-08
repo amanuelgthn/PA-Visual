@@ -1,0 +1,124 @@
+.property-desc-wrapper {
+
+
+    display: flex;
+    width: 100%;
+    background: linear-gradient(180deg, #839096 -71.67%, #2A2E30 51.78%);
+    // background: linear-gradient(180deg, #839096 -90.55%, #2A2E30 63.25%);
+    padding-top: 120px;
+    padding-bottom: 60px;
+    flex-direction: column;
+
+    .property-des-title {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 176px;
+        background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 60px;
+            font-weight: 500;
+            line-height: 55.9px;
+            letter-spacing: 0.06em;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+
+        }
+
+        p {
+            //styleName: BODY TEXT;
+            font-family: "Montserrat", sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 40px;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+            text-align: left;
+        }
+    }
+
+    .image-with-back-nav {
+        display: flex;
+        width: 100%;
+        padding: 20px;
+        position: relative;
+        height: 543px;
+
+        .property-image {
+            display: block;
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: center;
+
+
+
+
+        }
+    }
+
+    .back-nav {
+        position: absolute;
+        z-index: 1;
+        top: 20px;
+        left: 20px;
+
+
+    }
+
+    .overlay-image-div {
+        width: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        overflow-x: scroll;
+        bottom: 80px;
+
+
+        .property-images {
+            width: 80xp;
+            height: 80px;
+            border-radius: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .overlay-text-div {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        left: 20;
+        width: calc(100% - 40px);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-align: left;
+        padding: 10px;
+        border-bottom: 10px;
+
+
+
+
+        p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+            text-align: center;
+        }
+    }
+
+}
