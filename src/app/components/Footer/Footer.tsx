@@ -101,28 +101,28 @@ export const Footer = () => {
                 target='_blank'
                 className='smaller-logo'
               >
-                <img src='./other_logo/GPLogo.png' alt='Global Property Logo' />
+                <img src='/other_logo/GPLogo.png' alt='Global Property Logo' />
               </Link>
               <Link
                 href='https://www.globalfunding-group.com/'
                 target='_blank'
                 className='smaller-logo'
               >
-                <img src='./other_logo/NTLogo.png' alt='Global Funding Logo' />
+                <img src='/other_logo/NTLogo.png' alt='Global Funding Logo' />
               </Link>
               <Link
                 href='https://newtechnology-group.com/'
                 target='_blank'
                 className='smaller-logo'
               >
-                <img src='./other_logo/ATLogo.png' alt='New Tech Logo' />
+                <img src='/other_logo/ATLogo.png' alt='New Tech Logo' />
               </Link>
               <Link
                 href='https://aitouch-consulting.com/'
                 target='_blank'
                 className='smaller-logo'
               >
-                <img src='./other_logo/GFLogo.png' alt='AI Touch Logo' />
+                <img src='/other_logo/GFLogo.png' alt='AI Touch Logo' />
               </Link>
               <Link
                 href='https://proadvisor-group.com/'
@@ -130,7 +130,7 @@ export const Footer = () => {
                 className='main-logo'
               >
                 <img
-                  src='./other_logo/proadvisorlogofooter.png'
+                  src='/other_logo/proadvisorlogofooter.png'
                   alt='Pro Advisor Group Logo'
                   className='proadvisor-logo-footer'
                 />
@@ -160,7 +160,7 @@ export const Footer = () => {
               justify='center'
               align='center'
             >
-              <img src='./logo/logoFooter.svg' alt='Global Property Logo' />
+              <img src='/logo/logoFooter.svg' alt='Global Property Logo' />
             </Flex>
             <Flex
               className='footer-footer-terms footer-bottom'
@@ -180,13 +180,13 @@ export const Footer = () => {
               align='center'
             >
               <Link href='/' className='social-link'>
-                <img src='./social/linkedin.svg' alt='Linkedin Icon' />
+                <img src='/social/linkedin.svg' alt='Linkedin Icon' />
               </Link>
               <Link href='/' className='social-link'>
-                <img src='./social/facebook.svg' alt='Facebook Icon' />
+                <img src='/social/facebook.svg' alt='Facebook Icon' />
               </Link>
               <Link href='/' className='social-link'>
-                <img src='./social/twitter.svg' alt='Twitter Icon' />
+                <img src='/social/twitter.svg' alt='Twitter Icon' />
               </Link>
             </Flex>
           </Flex>

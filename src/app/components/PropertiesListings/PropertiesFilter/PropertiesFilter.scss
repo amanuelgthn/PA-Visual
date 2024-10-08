@@ -1,0 +1,445 @@
+.properties-filter-main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+
+    .title-div {
+
+
+        h1 {
+
+            font-family: "Montserrat", sans-serif;
+            font-size: 60px;
+            font-weight: 500;
+            line-height: 55.9px;
+            letter-spacing: 0.06em;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+
+        }
+
+        .custom-divider-style {
+            background: rgba(255, 255, 255, 1);
+        }
+    }
+
+    .filter-icon-div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 36.57px;
+            text-align: left;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+        }
+    }
+
+    .search-price-range-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        .search-input-custom {
+            width: 210px;
+            height: 50px;
+            border-radius: 5px;
+            background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+            border: none;
+            color: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+
+            ::placeholder {
+                font-family: "Roboto", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0.5px;
+                text-align: left;
+                color: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+
+            }
+        }
+
+        .price-range-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .price-range-input-container {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                span {
+
+
+                    h1 {
+
+                        font-family: "DM Sans", sans-serif;
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 23.44px;
+                        text-align: left;
+                        color: rgba(255, 255, 255, 1);
+                    }
+                }
+
+
+
+            }
+
+            .min-max-input {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                h1 {
+                    color: rgba(139, 139, 139, 1);
+                }
+
+                .min-input,
+                .max-input {
+                    width: 121px;
+                    height: 30px;
+                    border-radius: 20px;
+                    border: 1px solid transparent;
+                    border-image-source: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+                    border-image-slice: 1;
+                    background: transparent;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 19.5px;
+                    text-align: left;
+                    color: rgba(139, 139, 139, 1);
+                }
+
+            }
+        }
+    }
+
+
+    .rc-slider.custom-slider.rc-slider-horizontal {
+        width: 300px;
+        height: 20px;
+    }
+
+    .custom-slider .rc-slider-rail {
+        height: 8px;
+        background: radial-gradient(167.58% 337.82% at -69.11% -45.42%, #C98E59 0%, #FFFFFF 100%);
+    }
+
+    .custom-slider .rc-slider-track {
+        height: 8px;
+        background: rgba(130, 130, 130, 1);
+    }
+
+    .custom-slider .rc-slider-handle {
+        width: 24px;
+        height: 24px;
+        border: 4px solid white;
+        background-color: rgba(191, 134, 84, 1);
+        margin-top: -8px;
+        cursor: pointer;
+    }
+
+    .custom-slider .rc-slider-handle:focus,
+    .custom-slider .rc-slider-handle:hover,
+    .custom-slider .rc-slider-handle:active {
+        border-color: rgba(191, 134, 84, 1);
+        box-shadow: 0 0 0 5px rgba(191, 134, 84, 0.3);
+    }
+
+    // .custom-slider .rc-slider-mark {
+    //     top: 20px;
+    // }
+
+    .region-location-type-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+
+
+        .dropdown-custom {
+            width: 325px;
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid rgba(228, 228, 228, 0.6);
+            background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+
+
+
+
+        }
+
+
+
+
+        .dropdown-button {
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 18px;
+            text-align: left;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+
+            &:hover {
+                background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+                color: #C98E59;
+                border: 1px solid #C98E59;
+            }
+        }
+
+
+        .confirm-button {
+            width: 130px;
+            height: 52px;
+            border-radius: 8px;
+            background: rgba(201, 142, 89, 1);
+            box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.3);
+            font-family: "DM Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+            border: none;
+
+            &:hover {
+                background: rgba(201, 142, 89, 0.8);
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+
+
+
+    }
+
+    .clear-button-div {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+
+        .clear-button {
+            width: 109px;
+            height: 26px;
+            background: none;
+            border: none;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17.07px;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            text-transform: uppercase;
+
+
+            &:hover {
+                background: none;
+                color: #C98E59;
+            }
+
+        }
+
+        .line-div {
+            width: 108px;
+            height: 1px;
+            padding: 10 0 10 0;
+            background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+        }
+    }
+
+    .amenties-bathrooms-rooms-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .amenties-title-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            h1 {
+                font-family: "Montserrat", sans-serif;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 18px;
+                text-align: left;
+                color: var(--WHITE, rgba(255, 255, 255, 1));
+            }
+
+        }
+    }
+
+    .amenities {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        .label-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14.63px;
+            text-align: left;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+
+            .checkbox-custom {
+                appearance: none;
+                /* Reset default checkbox styling */
+                -webkit-appearance: none;
+                /* For Safari */
+                -moz-appearance: none;
+                /* For Firefox */
+
+                width: 24px;
+                height: 24px;
+                background-color: transparent;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+
+                position: relative;
+                cursor: pointer;
+                outline: none;
+                transition: background-color 0.3s, border-color 0.3s;
+
+                /* Fixing the linear gradient border with border-image */
+                border-image: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+                border-image-slice: 1;
+            }
+
+            .checkbox-custom:checked {
+                background-color: #C98E59;
+                border-color: #C98E59;
+                border-image: none;
+                /* Remove gradient when checked */
+            }
+
+            .checkbox-custom:checked::after {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: 7px;
+                width: 7px;
+                height: 12px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+
+            .checkbox-custom:hover {
+                border-color: #C98E59;
+                border-image: none;
+            }
+        }
+
+
+    }
+
+    .amenties-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+        height: 50px;
+
+        .counter-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+            gap: 5px;
+
+            .bathroom-rooms-counter-increment-container {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                button {
+                    color: rgba(255, 255, 255, 1);
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .bathroom-rooms-counter {
+                appearance: none;
+                /* Reset default checkbox styling */
+                -webkit-appearance: none;
+                /* For Safari */
+                -moz-appearance: none;
+                /* For Firefox */
+                width: 24px;
+                height: 24px;
+                background-color: transparent;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                position: relative;
+                outline: none;
+                transition: background-color 0.3s, border-color 0.3s;
+                /* Fixing the linear gradient border with border-image */
+                border-image: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+                border-image-slice: 1;
+                text-align: center;
+                color: rgba(255, 255, 255, 1);
+
+
+            }
+
+            button {
+                background: none;
+                border: none
+            }
+
+            h3 {
+                font-family: "Inter", sans-serif;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 14.52px;
+                text-align: center;
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}
+
+.custom-dropdown-content {
+    .ant-dropdown-menu {
+        background: rgba(42, 46, 48, 1);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+        height: 300px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+
+        .ant-dropdown-menu-title-content {
+            font-family: "Montserrat", sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 18px;
+            text-align: left;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+        }
+
+
+    }
+}

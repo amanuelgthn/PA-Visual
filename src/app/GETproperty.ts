@@ -7,7 +7,8 @@ export const fetchProperties = async (filters?: PropertyFilters) => {
     : ''
 
   const response = await fetch(
-    `https://api.dev.globalproperty-group.com/property?${queryString}`,
+    // `https://api.dev.globalproperty-group.com/property?${queryString}`,
+    `http://localhost:8080/property?${queryString}`,
     {
       method: 'GET',
       headers: {
@@ -31,4 +32,13 @@ export const fetchProperties = async (filters?: PropertyFilters) => {
     console.error(`Unexpected content type: ${contentType}, response: ${text}`)
     throw new Error('Expected JSON response but received something else.')
   }
+}
+
+export const fetchPropertiesWithFilters = async ({
+  queryKey,
+}: {
+  queryKey: [string, PropertyFilters?]
+}) => {
+  const [, filters] = queryKey
+  return fetchProperties(filters)
 }

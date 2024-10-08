@@ -1,0 +1,108 @@
+.highlightedPoperties-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 60px;
+        font-weight: 500;
+        line-height: 55.9px;
+        letter-spacing: 0.06em;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .buttons-container {
+        width: 339px;
+        height: 56px;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 12px;
+        background: var(--ANTI-FLASH-WHITE, rgba(242, 242, 242, 1));
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .highlightedPoperties-button {
+            background: none;
+            border: none;
+            font-family: "DM Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-align: left;
+            padding: 8px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .active {
+            background: var(--DARK-GREEN, rgba(42, 46, 48, 1));
+            border-radius: 8px;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+        }
+
+    }
+
+    .highlightedPoperties-cards-container {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        transition: all 0.5s ease-in-out;
+        opacity: 1;
+        transform: translateX(0);
+
+
+    }
+
+    .prev-next-buttons-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            p {
+                color: var(--LIGHT-GREY, rgba(216, 216, 216, 1));
+            }
+
+
+            button {
+                background: none;
+                border: none;
+                font-family: "DM Sans", sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 14px;
+                letter-spacing: 1px;
+                text-align: center;
+                color: var(--LIGHT-GREY, rgba(216, 216, 216, 1));
+
+                &:disabled {
+                    color: var(--DARK-GREY, rgba(128, 128, 128, 1)); // Change color for disabled state
+                    cursor: not-allowed; // Change cursor for disabled state
+                    text-decoration: none !important; // Remove underline on hover for disabled state
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}
