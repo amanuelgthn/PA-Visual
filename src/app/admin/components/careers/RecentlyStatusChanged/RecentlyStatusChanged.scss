@@ -1,0 +1,125 @@
+.card-wrapper {
+  flex: 0 0 48%;
+  max-width: 48%;
+  margin: 1rem;
+  background: rgba(50, 54, 56, 1);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0;
+
+  .status-list {
+    width: 100%;
+    background: rgba(50, 54, 56, 1);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+
+    .card-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 1.25rem;
+      border-bottom: 0.009375rem solid rgba(244, 244, 244, 1);
+
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 1);
+        margin: 0;
+      }
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1.25rem 3.125rem;
+
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 1);
+        margin: 0;
+      }
+    }
+
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.625rem 0;
+      border-bottom: 0.0625rem solid #3d3d3d;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .job-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .job-info {
+          display: flex;
+          flex-direction: column;
+
+          .job-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: rgba(244, 244, 244, 1);
+            margin: 0;
+
+            &:hover {
+              color: rgba(201, 142, 89, 1);
+              text-decoration: underline;
+              cursor: pointer;
+            }
+          }
+
+          .job-location {
+            display: flex;
+            align-items: center;
+            gap: 0.3125rem;
+
+            p {
+              font-family: 'Montserrat', sans-serif;
+              font-size: 0.75rem;
+              font-weight: 400;
+              color: rgba(255, 255, 255, 0.5);
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .status-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .status-text {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.875rem;
+          font-weight: 400;
+          margin: 0;
+        }
+
+        .status-date {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.75rem;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          margin: 0;
+        }
+      }
+    }
+  }
+}
