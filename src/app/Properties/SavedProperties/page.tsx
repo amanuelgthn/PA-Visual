@@ -1,20 +1,21 @@
 'use client'
 import React, { useState, useCallback } from 'react'
-import './SavedProperties.scss'
 import { fakeDataProperties } from '@/app/Utils/fakeDataProperties/fakeDataProperties'
-import { FaArrowLeft, FaHeart, FaTimes } from 'react-icons/fa'
-import { Property } from '@/app/Types/property/property'
+import './SavedProperties.scss'
 import Link from 'next/link'
+import { FaArrowLeft } from 'react-icons/fa'
+import { Property } from '@/app/Types/property/property'
 
-const SavedPropertiesPage: React.FC = () => {
-  const [filter, setFilter] = useState<string>('last_uploaded')
-  const [currentPage, setCurrentPage] = useState<number>(1)
+const SavedPropertiespage = () => {
+  const [filter, setFilter] = useState('last_uploaded')
+  const [currentPage, setCurrentPage] = useState(1)
   const propertiesPerPage = 6 // Number of properties per page
 
-  // Utility function to filter saved properties by time
-  const filterSavedPropertiesByTime = useCallback(
+  // Utility function to filter properties based on time
+  const filterPropertiesByTime = useCallback(
     (properties: Property[], filter: string) => {
       const now = new Date()
+
       switch (filter) {
         case 'last_3_days':
           return properties.filter((property) => {
@@ -45,8 +46,10 @@ const SavedPropertiesPage: React.FC = () => {
   )
 
   // Apply the filter on properties
-  const filteredProperties = filterSavedPropertiesByTime(
-    fakeDataProperties as Property[], // Replace with your saved properties data
+  const filteredProperties = filterPropertiesByTime(
+    fakeDataProperties.sort((a, b) =>
+      a.property_id.localeCompare(b.property_id),
+    ),
     filter,
   )
 
@@ -60,41 +63,39 @@ const SavedPropertiesPage: React.FC = () => {
 
   const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage)
 
-  // Change page
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  // Change page - memoized with useCallback
+  const paginate = useCallback((pageNumber: number) => {
+    setCurrentPage(pageNumber)
+  }, [])
 
-  // Handle previous/next buttons
-  const goToPreviousPage = () => {
+  // Handle previous/next buttons - memoized with useCallback
+  const goToPreviousPage = useCallback(() => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1)
+      setCurrentPage((prevPage) => prevPage - 1)
     }
-  }
+  }, [currentPage])
 
-  const goToNextPage = () => {
+  const goToNextPage = useCallback(() => {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1)
+      setCurrentPage((prevPage) => prevPage + 1)
     }
-  }
+  }, [currentPage, totalPages])
 
   return (
     <div className='savedPropertiesWrapper'>
       <div className='wrapper-assit'>
         {/* Header with title */}
         <div className='header-title'>
-          <h2>Saved Listings</h2>
-          <p>
-            Rediscover your top picks and take the next step towards your dream
-            home.
-          </p>
+          <h2>Saved Properties</h2>
         </div>
 
-        <header className='savedPropertiesHeader'>
+        <header className='newListingsHeader'>
           <div className='filterDropdown'>
-            <label htmlFor='filter' className='sr-only'>
-              Filter listings by time
+            <label htmlFor='filterSelect' className='sr-only'>
+              Filter by time saved
             </label>
             <select
-              id='filter'
+              id='filterSelect'
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
             >
@@ -107,18 +108,11 @@ const SavedPropertiesPage: React.FC = () => {
         </header>
 
         <div className='listingsGrid'>
-          {currentProperties.map((property: Property) => (
-            <div key={property.property_id} className='savedListingCard'>
-              <div className='cardIcons'>
-                {/* Love/Save Icon */}
-                <div className='savedBadge'>
-                  <FaHeart className='heartIcon' />
-                  <span>Saved</span>
-                </div>
-                {/* Remove Icon */}
-                <FaTimes className='removeIcon' />
-              </div>
-
+          {currentProperties.map((property, index) => (
+            <div
+              key={`${property.property_id}-${index}`}
+              className='listingCard'
+            >
               <img
                 src={property.primaryImage}
                 alt={property.property_title}
@@ -134,7 +128,9 @@ const SavedPropertiesPage: React.FC = () => {
                   <span>{property.num_bedrooms} Bedrooms</span>
                   <span>{property.num_bathrooms} Bathrooms</span>
                 </p>
-                <button className='circleButton'>+</button>
+                <Link href={`/Properties/${property.property_id}`}>
+                  <button className='circleButton'>+</button>
+                </Link>
               </div>
             </div>
           ))}
@@ -159,7 +155,7 @@ const SavedPropertiesPage: React.FC = () => {
           </button>
         </div>
 
-        {/* Back to Properties */}
+        {/* Back to properties */}
         <div className='back-to-properties'>
           <Link href='/Properties' className='Link'>
             <FaArrowLeft className='icon' />
@@ -171,4 +167,4 @@ const SavedPropertiesPage: React.FC = () => {
   )
 }
 
-export default SavedPropertiesPage
+export default SavedPropertiespage
