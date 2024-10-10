@@ -3,13 +3,22 @@ import React, { useState, useCallback } from 'react'
 import { fakeDataProperties } from '@/app/Utils/fakeDataProperties/fakeDataProperties'
 import './SavedProperties.scss'
 import Link from 'next/link'
-import { FaArrowLeft } from 'react-icons/fa'
+import { FaArrowLeft, FaHeart, FaTimes } from 'react-icons/fa'
 import { Property } from '@/app/Types/property/property'
 
 const SavedPropertiespage = () => {
+  const [savedProperties, setSavedProperties] =
+    useState<Property[]>(fakeDataProperties)
   const [filter, setFilter] = useState('last_uploaded')
   const [currentPage, setCurrentPage] = useState(1)
   const propertiesPerPage = 6 // Number of properties per page
+
+  // Function to remove a property from the saved properties list
+  const removeProperty = useCallback((propertyId: string) => {
+    setSavedProperties((prevProperties) =>
+      prevProperties.filter((property) => property.property_id !== propertyId),
+    )
+  }, [])
 
   // Utility function to filter properties based on time
   const filterPropertiesByTime = useCallback(
@@ -47,9 +56,7 @@ const SavedPropertiespage = () => {
 
   // Apply the filter on properties
   const filteredProperties = filterPropertiesByTime(
-    fakeDataProperties.sort((a, b) =>
-      a.property_id.localeCompare(b.property_id),
-    ),
+    savedProperties.sort((a, b) => a.property_id.localeCompare(b.property_id)),
     filter,
   )
 
@@ -84,15 +91,17 @@ const SavedPropertiespage = () => {
   return (
     <div className='savedPropertiesWrapper'>
       <div className='wrapper-assit'>
-        {/* Header with title */}
         <div className='header-title'>
-          <h2>Saved Properties</h2>
+          <h2>Saved Listings</h2>
+          <p>
+            Re-discover your top picks and take the next step towards your dream
+            home.
+          </p>
         </div>
-
-        <header className='newListingsHeader'>
+        <div className='newListingsHeader'>
           <div className='filterDropdown'>
             <label htmlFor='filterSelect' className='sr-only'>
-              Filter by time saved
+              Filter by time uploaded
             </label>
             <select
               id='filterSelect'
@@ -105,7 +114,7 @@ const SavedPropertiespage = () => {
               <option value='last_month'>Last month</option>
             </select>
           </div>
-        </header>
+        </div>
 
         <div className='listingsGrid'>
           {currentProperties.map((property, index) => (
@@ -113,6 +122,16 @@ const SavedPropertiespage = () => {
               key={`${property.property_id}-${index}`}
               className='listingCard'
             >
+              <div className='cardActions'>
+                <div className='saveToFavorites'>
+                  <FaHeart className='loveIcon' />
+                  <span>Save to Favorites</span>
+                </div>
+                <FaTimes
+                  className='removeIcon'
+                  onClick={() => removeProperty(property.property_id)}
+                />
+              </div>
               <img
                 src={property.primaryImage}
                 alt={property.property_title}
@@ -157,9 +176,9 @@ const SavedPropertiespage = () => {
 
         {/* Back to properties */}
         <div className='back-to-properties'>
-          <Link href='/Properties' className='Link'>
+          <Link href='/profileSettings' className='Link'>
             <FaArrowLeft className='icon' />
-            <span>Back to Properties</span>
+            <span>GO BACK</span>
           </Link>
         </div>
       </div>
