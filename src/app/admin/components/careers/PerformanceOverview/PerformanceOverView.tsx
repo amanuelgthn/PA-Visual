@@ -8,20 +8,11 @@ type PerformanceOverViewProps = {
 const PerformanceOverView = ({ pageType }: PerformanceOverViewProps) => {
   return (
     <section className='globalStyles'>
-      <section className='summaryTitle'>
-        {/* Include the summary title content here if needed */}
-      </section>
+      <section className='summaryTitle'></section>
 
-      <div className='totalsWrapper'>
-        {pageType === 'dashboard' && (
-          <>
-            {/* You can include any static content or components here */}
-            {/* For example, an "Add New Job" section or other dashboard elements */}
-          </>
-        )}
-      </div>
+      <div className='totalsWrapper'>{pageType === 'dashboard' && <></>}</div>
     </section>
   )
 }
 
-export default PerformanceOverView
+export default React.memo(PerformanceOverView)

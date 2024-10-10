@@ -17,7 +17,7 @@
   gap: 0;
   border-radius: 0.9375rem;
   background: #323639;
-  box-shadow: 0rem 0rem 0.75rem 0rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.25);
   margin: 3rem auto 1rem;
   display: flex;
   flex-direction: column;
@@ -47,6 +47,16 @@
   text-align: left;
 }
 
+.switchActive :global(.ant-switch) {
+  background-color: green !important;
+  border-color: green !important;
+}
+
+.switchInactive :global(.ant-switch) {
+  background-color: #d9d9d9 !important;
+  border-color: #d9d9d9 !important;
+}
+
 .formContainer {
   width: 100%;
   max-width: 100%;
@@ -55,73 +65,85 @@
   padding-top: 0;
 }
 
-.formContainer :global(.ant-form-item-label > label),
-.formContainer :global(.ant-input),
-.formContainer :global(.ant-select-selector),
-.formContainer :global(.ant-input::placeholder),
-.formContainer :global(.ant-select-selector::placeholder),
-.formContainer :global(.ant-input-textarea),
-.formContainer :global(.ant-btn),
-.formContainer :global(.ant-select-selection-item) {
+.inputField {
+  background-color: #3F4548 !important;
+  color: #FFFFFF !important;
+  border: 0.05px solid #757575 !important;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.96125rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.17125rem;
-  text-align: left;
+}
+
+.inputField::placeholder {
   color: #FFFFFF !important;
-  background: transparent !important;
+  opacity: 0.5 !important;
 }
 
 .formContainer :global(.ant-form-item-label > label) {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.96125rem;
+  font-weight: 600 !important;
+  line-height: 1.17125rem;
+  text-align: left;
   color: #FFFFFF !important;
   padding: 0.3125rem 0;
   border-radius: 0.3125rem;
   display: inline-block;
-  font-weight: 600 !important;
+  background: transparent !important;
 }
 
-.formContainer :global(.ant-input),
+.specialFormItem :global(.ant-form-item-label > label) {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+  padding: 0.3125rem 0.5rem;
+  border-radius: 0.3125rem;
+  display: inline-block;
+  font-weight: 600 !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.96125rem;
+  line-height: 1.17125rem;
+}
+
+.customDropdown :global(.ant-select-dropdown) {
+  background-color: #3F4548 !important;
+}
+
+.customDropdown :global(.ant-select-dropdown .ant-select-item-option) {
+  background-color: #3F4548 !important;
+}
+
+.customDropdown :global(.ant-select-dropdown .ant-select-item-option-active),
+.customDropdown :global(.ant-select-dropdown .ant-select-item-option-selected),
+.customDropdown :global(.ant-select-dropdown .ant-select-item-option:hover) {
+  background-color: #3F4548 !important;
+}
+
+.customDropdown :global(.ant-select-dropdown .ant-select-item-option-content) {
+  color: #FFFFFF !important;
+}
+
+.customDropdown :global(.ant-select-dropdown .ant-select-item-option-active .ant-select-item-option-content),
+.customDropdown :global(.ant-select-dropdown .ant-select-item-option-selected .ant-select-item-option-content) {
+  color: #FFFFFF !important;
+}
+
 .formContainer :global(.ant-select-selector) {
   background-color: #3F4548 !important;
-  color: #FFFFFF !important;
-  border: 0.003125rem solid #757575 !important;
-}
-
-.formContainer :global(.ant-input::placeholder),
-.formContainer :global(.ant-select-selector::placeholder) {
-  color: #FFFFFF !important;
-  font-weight: 100;
-}
-
-.formContainer :global(.ant-input-textarea) {
-  background-color: #3F4548 !important;
-  color: #FFFFFF !important;
+  border: 0.05px solid #757575 !important;
 }
 
 .formContainer :global(.ant-select-selection-item) {
   color: #FFFFFF !important;
 }
 
-.formContainer :global(.ant-select-dropdown .ant-select-item-option-content) {
+.formContainer :global(.ant-select-arrow) {
   color: #FFFFFF !important;
 }
 
-.customDropdown {
-  background-color: #3F4548 !important;
-  color: #fff !important;
-}
-
-.customDropdown :global(.ant-select-item-option-content) {
+.formContainer :global(.ant-select-selection-placeholder) {
   color: #FFFFFF !important;
-}
-
-.formContainer :global(.ant-btn) {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.96125rem;
-  font-weight: 700;
-  line-height: 1.17125rem;
-  text-align: left;
-  color: #fff !important;
+  opacity: 0.5 !important;
 }
 
 .buttonGroup {
@@ -130,41 +152,42 @@
   margin-top: 1rem;
 }
 
-.cancelButton {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 0.9375rem !important;
-  font-weight: 500 !important;
-  line-height: 1.143125rem !important;
-  background: #bfbfbf !important;
-  color: #74471F !important;
-  border: none !important;
-  border-radius: 0.3125rem !important;
-  cursor: pointer !important;
-  width: 7.36625rem !important;
-  height: 2.375rem !important;
-  opacity: 1 !important;
-}
-
 .updateUserButton {
+  background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 0.9375rem !important;
   font-weight: 400 !important;
   line-height: 1.143125rem !important;
-  text-align: center !important;
-  background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%) !important;
-  color: #FFFFFF !important;
-  border: none !important;
-  border-radius: 0.3125rem !important;
-  cursor: pointer !important;
   width: 11rem !important;
   height: 2.375rem !important;
-  opacity: 1 !important;
+  border-radius: 0.3125rem !important;
 }
 
 .updateUserButton:hover {
   background: linear-gradient(230.7deg, #734124 20.6%, #C98E59 82.34%) !important;
 }
 
-.formContainer :global(.ant-select-arrow) {
-  color: #FFFFFF !important;
+.cancelButton {
+  background: #bfbfbf !important;
+  color: #74471F !important;
+  border: none !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.9375rem !important;
+  font-weight: 500 !important;
+  line-height: 1.143125rem !important;
+  width: 7.36625rem !important;
+  height: 2.375rem !important;
+  border-radius: 0.3125rem !important;
+}
+
+.updateUserButton :global(.ant-btn) {
+  background: transparent !important;
+  border: none !important;
+}
+
+.cancelButton :global(.ant-btn) {
+  background: transparent !important;
+  border: none !important;
 }

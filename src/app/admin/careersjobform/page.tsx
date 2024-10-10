@@ -1,28 +1,46 @@
 'use client'
 import React, { useState } from 'react'
-import { Switch, Form, Input, Select, Row, Col } from 'antd'
+import { Switch, Form, Input, Select, Row, Col, Modal, Button } from 'antd'
 import styles from '../components/careers/dashboard.module.css'
 import PerformanceOverView from '../components/careers/PerformanceOverview/PerformanceOverView'
 
 const { Option } = Select
 
+interface FormValues {
+  jobTitle: string
+  location: string
+  jobId: string
+  payRange: string
+  employmentType: string
+  workLocation: string
+  category: string
+  jobDescription: string
+  yourResponsibilities: string
+  ourRequirements: string
+  linkedinURL: string
+}
+
 const CareersJobForm: React.FC = () => {
   const [isActive, setIsActive] = useState(true)
   const [form] = Form.useForm()
 
-  const inputStyle = {
-    backgroundColor: '#3F4548',
-    color: '#FFFFFF',
-    border: '0.05px solid #757575',
-  }
-
   const onChange = (checked: boolean) => setIsActive(checked)
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: FormValues) => {
     console.log('Form values:', values)
   }
 
-  const handleCancel = () => form.resetFields()
+  const handleCancel = () => {
+    Modal.confirm({
+      title: 'Are you sure you want to reset the form?',
+      content: 'All entered data will be lost.',
+      okText: 'Yes',
+      cancelText: 'No',
+      onOk: () => {
+        form.resetFields()
+      },
+    })
+  }
 
   return (
     <main className={styles.adminwrapper}>
@@ -32,10 +50,10 @@ const CareersJobForm: React.FC = () => {
           <Switch
             checked={isActive}
             onChange={onChange}
-            style={{
-              backgroundColor: isActive ? 'green' : '#d9d9d9',
-              borderColor: isActive ? 'green' : '#d9d9d9',
-            }}
+            className={isActive ? styles.switchActive : styles.switchInactive}
+            aria-label='Toggle Active Status'
+            role='switch'
+            aria-checked={isActive}
           />
         </div>
 
@@ -47,6 +65,7 @@ const CareersJobForm: React.FC = () => {
             layout='vertical'
             onFinish={onFinish}
             requiredMark={false}
+            validateTrigger={['onBlur', 'onSubmit']}
             initialValues={{
               jobTitle: '',
               location: '',
@@ -68,7 +87,11 @@ const CareersJobForm: React.FC = () => {
                 { required: true, message: 'Please enter the job title' },
               ]}
             >
-              <Input placeholder='Enter job title' style={inputStyle} />
+              <Input
+                placeholder='Enter job title'
+                className={styles.inputField}
+                aria-required='true'
+              />
             </Form.Item>
 
             <Row gutter={16}>
@@ -80,7 +103,11 @@ const CareersJobForm: React.FC = () => {
                     { required: true, message: 'Please enter the location' },
                   ]}
                 >
-                  <Input placeholder='Enter location' style={inputStyle} />
+                  <Input
+                    placeholder='Enter location'
+                    className={styles.inputField}
+                    aria-required='true'
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -90,7 +117,11 @@ const CareersJobForm: React.FC = () => {
                     { required: true, message: 'Please enter the Job ID' },
                   ]}
                 >
-                  <Input placeholder='Enter Job ID' style={inputStyle} />
+                  <Input
+                    placeholder='Enter Job ID'
+                    className={styles.inputField}
+                    aria-required='true'
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -100,7 +131,11 @@ const CareersJobForm: React.FC = () => {
                     { required: true, message: 'Please enter the pay range' },
                   ]}
                 >
-                  <Input placeholder='Enter pay range' style={inputStyle} />
+                  <Input
+                    placeholder='Enter pay range'
+                    className={styles.inputField}
+                    aria-required='true'
+                  />
                 </Form.Item>
               </Col>
 
@@ -108,6 +143,7 @@ const CareersJobForm: React.FC = () => {
                 <Form.Item
                   label='Employment Type'
                   name='employmentType'
+                  className={styles.specialFormItem}
                   rules={[
                     {
                       required: true,
@@ -117,7 +153,7 @@ const CareersJobForm: React.FC = () => {
                 >
                   <Select
                     placeholder='Select employment type'
-                    style={inputStyle}
+                    aria-required='true'
                     dropdownClassName={styles.customDropdown}
                   >
                     <Option value='full-time'>Full-Time</Option>
@@ -137,19 +173,24 @@ const CareersJobForm: React.FC = () => {
                     },
                   ]}
                 >
-                  <Input placeholder='Enter work location' style={inputStyle} />
+                  <Input
+                    placeholder='Enter work location'
+                    className={styles.inputField}
+                    aria-required='true'
+                  />
                 </Form.Item>
 
                 <Form.Item
                   label='Category'
                   name='category'
+                  className={styles.specialFormItem}
                   rules={[
                     { required: true, message: 'Please select a category' },
                   ]}
                 >
                   <Select
                     placeholder='Select category'
-                    style={inputStyle}
+                    aria-required='true'
                     dropdownClassName={styles.customDropdown}
                   >
                     <Option value='engineering'>Engineering</Option>
@@ -172,7 +213,8 @@ const CareersJobForm: React.FC = () => {
               <Input.TextArea
                 rows={4}
                 placeholder='Enter job description'
-                style={inputStyle}
+                className={styles.inputField}
+                aria-required='true'
               />
             </Form.Item>
 
@@ -189,7 +231,8 @@ const CareersJobForm: React.FC = () => {
               <Input.TextArea
                 rows={4}
                 placeholder='Enter your responsibilities'
-                style={inputStyle}
+                className={styles.inputField}
+                aria-required='true'
               />
             </Form.Item>
 
@@ -203,7 +246,8 @@ const CareersJobForm: React.FC = () => {
               <Input.TextArea
                 rows={4}
                 placeholder='Enter our requirements'
-                style={inputStyle}
+                className={styles.inputField}
+                aria-required='true'
               />
             </Form.Item>
 
@@ -215,21 +259,31 @@ const CareersJobForm: React.FC = () => {
                 { type: 'url', message: 'Please enter a valid URL' },
               ]}
             >
-              <Input placeholder='Enter LinkedIn URL' style={inputStyle} />
+              <Input
+                placeholder='Enter LinkedIn URL'
+                className={styles.inputField}
+                aria-required='true'
+              />
             </Form.Item>
 
             <Form.Item>
               <div className={styles.buttonGroup}>
-                <button type='submit' className={styles.updateUserButton}>
+                <Button
+                  type='primary'
+                  htmlType='submit'
+                  className={styles.updateUserButton}
+                  aria-label='Update User'
+                >
                   Update User
-                </button>
-                <button
-                  type='button'
-                  className={styles.cancelButton}
+                </Button>
+                <Button
+                  type='default'
                   onClick={handleCancel}
+                  className={styles.cancelButton}
+                  aria-label='Cancel'
                 >
                   Cancel
-                </button>
+                </Button>
               </div>
             </Form.Item>
           </Form>
