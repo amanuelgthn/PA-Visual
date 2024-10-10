@@ -135,7 +135,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '001',
+    property_id: '002',
     property_title: 'Luxury Villa in the Hills',
     listing_price: 750000,
     country: 'USA',
@@ -268,7 +268,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '002',
+    property_id: '003',
     property_title: 'Modern Mansion in the City',
     listing_price: 850000,
     street_address: '123 Main St',
@@ -341,7 +341,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '001',
+    property_id: '004',
     property_title: 'Luxury Villa in the Hills',
     listing_price: 750000,
     country: 'USA',
@@ -474,7 +474,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '002',
+    property_id: '005',
     property_title: 'Modern Mansion in the City',
     listing_price: 850000,
     country: 'Canada',
@@ -547,7 +547,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '001',
+    property_id: '006',
     property_title: 'Luxury Villa in the Hills',
     listing_price: 750000,
     property_sqft: 3000,
@@ -680,7 +680,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '001',
+    property_id: '007',
     property_title: 'Luxury Villa in the Hills',
     listing_price: 750000,
     country: 'USA',
@@ -813,7 +813,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '002',
+    property_id: '008',
     property_title: 'Modern Mansion in the City',
     listing_price: 850000,
     street_address: '123 Main St',
@@ -886,7 +886,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '001',
+    property_id: '009',
     property_title: 'Luxury Villa in the Hills',
     listing_price: 750000,
     country: 'USA',
@@ -1019,7 +1019,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '002',
+    property_id: '010',
     property_title: 'Modern Mansion in the City',
     listing_price: 850000,
     country: 'Canada',
@@ -1092,7 +1092,7 @@ export const fakeDataProperties: Property[] = [
     },
   },
   {
-    property_id: '001',
+    property_id: '011',
     property_title: 'Luxury Villa in the Hills',
     listing_price: 750000,
     country: 'USA',
