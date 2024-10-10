@@ -19,17 +19,23 @@ const NewListingspage = () => {
       switch (filter) {
         case 'last_3_days':
           return properties.filter((property) => {
-            const date = new Date(property.status.statusHistory[0]?.created_at)
+            const date = new Date(
+              property.status?.statusHistory?.[0]?.created_at || '',
+            )
             return (now.getTime() - date.getTime()) / (1000 * 3600 * 24) <= 3
           })
         case 'last_week':
           return properties.filter((property) => {
-            const date = new Date(property.status.statusHistory[0]?.created_at)
+            const date = new Date(
+              property.status?.statusHistory?.[0]?.created_at || '',
+            )
             return (now.getTime() - date.getTime()) / (1000 * 3600 * 24) <= 7
           })
         case 'last_month':
           return properties.filter((property) => {
-            const date = new Date(property.status.statusHistory[0]?.created_at)
+            const date = new Date(
+              property.status?.statusHistory?.[0]?.created_at || '',
+            )
             return (now.getTime() - date.getTime()) / (1000 * 3600 * 24) <= 30
           })
         default:
