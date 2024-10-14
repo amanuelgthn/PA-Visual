@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './NewListingProperties.scss'
 import { Property } from '@/app/Types/property/property'
 import NewListingPropertyCard from './NewListingPropertyCard/NewListingPropertyCard'
@@ -9,12 +9,20 @@ type NewListingPropertiesProps = {
   properties: Property[]
 }
 const NewListingProperties = ({ properties }: NewListingPropertiesProps) => {
+  const [propertiesToShow, setPropertiesToShow] = React.useState<Property[]>([])
+
+  useEffect(() => {
+    if (properties) {
+      setPropertiesToShow(properties.slice(0, 4))
+    }
+  }, [properties])
+  if (!properties) return <div>No properties found</div>
   return (
     <div className='new-listing-properties-container-wrapper'>
       <h1>NEW LISTINGS</h1>
       <div className='listing-line'></div>
       <div className='new-listing-properties-container'>
-        {properties.map((property, index) => (
+        {propertiesToShow.map((property, index) => (
           <NewListingPropertyCard key={index} property={property} />
         ))}
       </div>

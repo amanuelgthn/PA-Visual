@@ -1,37 +1,49 @@
+import React, { useEffect, useState } from 'react'
 import './HighlightedPoperties.scss'
 import { Property } from '@/app/Types/property/property'
 import HighLightedPropertiesCard from './HighLightedPropertiesCard/HighLightedPropertiesCard'
-import { useEffect, useState } from 'react'
 
-type HighlightedPopertiesProps = { properties: Property[] }
+type HighlightedPropertiesProps = { properties: Property[] }
 
-const HighlightedPoperties = ({ properties }: HighlightedPopertiesProps) => {
+const HighlightedProperties = ({ properties }: HighlightedPropertiesProps) => {
   const [activeButtonType, setActiveButtonType] =
     useState<string>('Luxury villa')
-  const [, setStateProperties] = useState<Property[]>(properties)
-  const [filteredProperties, setFilteredProperties] =
-    useState<Property[]>(properties)
-
-  useEffect(() => {
-    if (properties) {
-      setStateProperties(properties)
-    }
-  }, [properties])
-
-  const toggleButton = (label: string) => {
-    setActiveButtonType(label)
-  }
-
-  useEffect(() => {
-    setFilteredProperties(properties)
-  }, [properties])
+  const [filteredProperties, setFilteredProperties] = useState<Property[]>([])
+  const [currentPage, setCurrentPage] = useState(0)
 
   useEffect(() => {
     const filteredData = properties.filter(
       (property) => property.property_type === activeButtonType,
     )
     setFilteredProperties(filteredData)
+    setCurrentPage(0)
   }, [activeButtonType, properties])
+
+  const toggleButton = (label: string) => {
+    setActiveButtonType(label)
+  }
+
+  const propertiesToShow = () => {
+    const startIndex = currentPage * 2
+    return filteredProperties.slice(startIndex, startIndex + 2)
+  }
+
+  const handlePrevious = () => {
+    setCurrentPage((prev) => Math.max(0, prev - 1))
+  }
+
+  const handleNext = () => {
+    setCurrentPage((prev) =>
+      Math.min(Math.ceil(filteredProperties.length / 2) - 1, prev + 1),
+    )
+  }
+
+  useEffect(() => {
+    console.log('filteredProperties', filteredProperties)
+  })
+  useEffect(() => {
+    console.log('propertiestoshow', propertiesToShow())
+  })
 
   return (
     <div className='highlightedPoperties-container'>
@@ -41,10 +53,7 @@ const HighlightedPoperties = ({ properties }: HighlightedPopertiesProps) => {
           <button
             key={index}
             className={`highlightedPoperties-button ${activeButtonType === label ? 'active' : ''}`}
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              toggleButton(e.currentTarget.textContent || '')
-              console.log(label)
-            }}
+            onClick={() => toggleButton(label)}
           >
             {label}
           </button>
@@ -52,13 +61,22 @@ const HighlightedPoperties = ({ properties }: HighlightedPopertiesProps) => {
       </div>
       <div className='prev-next-buttons-container'>
         <span>
-          <button>PEEVIOUS</button>
+          <button onClick={handlePrevious} disabled={currentPage === 0}>
+            PREVIOUS
+          </button>
           <p>|</p>
-          <button>NEXT</button>
+          <button
+            onClick={handleNext}
+            disabled={
+              currentPage >= Math.ceil(filteredProperties.length / 2) - 1
+            }
+          >
+            NEXT
+          </button>
         </span>
       </div>
       <div className='highlightedPoperties-cards-container'>
-        {filteredProperties.map((property, index) => (
+        {propertiesToShow().map((property, index) => (
           <HighLightedPropertiesCard property={property} key={index} />
         ))}
       </div>
@@ -66,4 +84,4 @@ const HighlightedPoperties = ({ properties }: HighlightedPopertiesProps) => {
   )
 }
 
-export default HighlightedPoperties
+export default HighlightedProperties
