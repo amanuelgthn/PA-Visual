@@ -74,6 +74,7 @@ const PropertiesPage: React.FC = () => {
       num_bedrooms: 4,
       num_bathrooms: 3,
       property_sqft: 3000,
+
       primaryImage:
         'https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       additionalImages: [
@@ -197,7 +198,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '001',
+      property_id: '002',
       property_title: 'Luxury Villa in the Hills',
       listing_price: 750000,
       country: 'USA',
@@ -330,7 +331,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '002',
+      property_id: '003',
       property_title: 'Modern Mansion in the City',
       listing_price: 850000,
       street_address: '123 Main St',
@@ -403,7 +404,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '001',
+      property_id: '004',
       property_title: 'Luxury Villa in the Hills',
       listing_price: 750000,
       country: 'USA',
@@ -536,7 +537,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '002',
+      property_id: '005',
       property_title: 'Modern Mansion in the City',
       listing_price: 850000,
       country: 'Canada',
@@ -609,7 +610,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '001',
+      property_id: '006',
       property_title: 'Luxury Villa in the Hills',
       listing_price: 750000,
       property_sqft: 3000,
@@ -742,7 +743,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '001',
+      property_id: '007',
       property_title: 'Luxury Villa in the Hills',
       listing_price: 750000,
       country: 'USA',
@@ -875,7 +876,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '002',
+      property_id: '008',
       property_title: 'Modern Mansion in the City',
       listing_price: 850000,
       street_address: '123 Main St',
@@ -948,7 +949,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '001',
+      property_id: '009',
       property_title: 'Luxury Villa in the Hills',
       listing_price: 750000,
       country: 'USA',
@@ -1081,7 +1082,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '002',
+      property_id: '0010',
       property_title: 'Modern Mansion in the City',
       listing_price: 850000,
       country: 'Canada',
@@ -1154,7 +1155,7 @@ const PropertiesPage: React.FC = () => {
       },
     },
     {
-      property_id: '001',
+      property_id: '0011',
       property_title: 'Luxury Villa in the Hills',
       listing_price: 750000,
       country: 'USA',

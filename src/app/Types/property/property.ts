@@ -11,6 +11,9 @@ export interface Property {
   primaryImage: string
   additionalImages?: { base64Image: string }[]
   property_type?: string
+  property_description?: string
+  taxes?: number
+  insurance?: number
 
   // Additional features
   additionalFeatures?: {
@@ -23,6 +26,42 @@ export interface Property {
     has_sauna?: boolean
     has_balcony?: boolean
   }
+
+  // Property specifications
+  property_specifications: {
+    year_built?: {
+      value: number
+      label: string
+    }
+    lot_size?: {
+      value: number
+      label: string
+    }
+    energy_rating?: {
+      value: string
+      label: string
+    }
+    smart_system?: {
+      value: string
+      label: string
+    }
+    security_system?: {
+      value: string
+      label: string
+    }
+    sustainability?: {
+      value: string
+      label: string
+    }
+    connectivity?: {
+      value: string
+      label: string
+    }
+    wellness_features?: {
+      value: string
+      label: string
+    }
+  }[]
 
   // Status of the property
   status?: {
@@ -70,5 +109,8 @@ export interface Property {
     has_jacuzzi?: boolean
     has_sauna?: boolean
     has_balcony?: boolean
+  }
+  unparalleledAmenities?: {
+    amenity?: string[]
   }
 }
