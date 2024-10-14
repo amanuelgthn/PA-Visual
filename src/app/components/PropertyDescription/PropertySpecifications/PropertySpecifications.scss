@@ -1,0 +1,68 @@
+.propertySpecifications-conatiner {
+    width: 100%;
+    height: 282px;
+    border-radius: 10px;
+    padding: 32px;
+    background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+
+    .spcifications-line-div {
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%);
+    }
+
+    h1 {
+        //styleName: BULLET POINTS;
+        font-family: "DM Sans", sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 28.64px;
+        text-align: left;
+        color: var(--WHITE, rgba(255, 255, 255, 1));
+    }
+
+    .propertySpecifications-card-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .propertySpecifications-card-content {
+            width: 250px;
+            height: 50px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h1 {
+                //styleName: LIGHT ITALIC;
+                font-family: "Montserrat", sans-serif;
+                font-size: 20px;
+                font-style: italic;
+                font-weight: 500;
+                line-height: 24.38px;
+                text-align: center;
+                color: var(--WHITE, rgba(255, 255, 255, 1));
+            }
+
+            p {
+                //styleName: 2;
+                font-family: "Montserrat", sans-serif;
+                font-size: 18.13px;
+                font-weight: 400;
+                line-height: 27.24px;
+                text-align: center;
+                color: var(--WHITE, rgba(255, 255, 255, 1));
+            }
+        }
+    }
+}

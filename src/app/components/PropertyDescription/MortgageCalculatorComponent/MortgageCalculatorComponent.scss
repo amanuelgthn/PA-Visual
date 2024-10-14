@@ -1,0 +1,239 @@
+.calculator-component-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .calculator-wrapper {
+        width: 420px;
+        height: 490px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 20px;
+        box-sizing: border-box;
+        background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+        box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 28.8px;
+            font-weight: 400;
+            line-height: 46px;
+            text-align: left;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+        }
+
+        .line-div {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%);
+        }
+
+        button {
+            width: 319px;
+            height: 56px;
+            border-radius: 15px;
+            padding: 16px 16px 22px 22px;
+            background: linear-gradient(230.7deg, #C98E59 20.6%, #734124 82.34%);
+            box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.3);
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 23.32px;
+            letter-spacing: 1.399999976158142px;
+            text-align: center;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+            border: none;
+
+            &:hover {
+                cursor: pointer;
+                background: linear-gradient(230.7deg, #734124 20.6%, #C98E59 82.34%) !important;
+                color: var(--WHITE, rgba(255, 255, 255, 1)) !important;
+            }
+        }
+
+        label {
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 25.6px;
+            text-align: left;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        input {
+            width: 100%;
+            height: 35px;
+            border-radius: 10px;
+            border: 1px solid var(--WHITE, rgba(255, 255, 255, 1));
+            padding: 10px;
+
+
+        }
+
+        .input-error {
+            border-color: red;
+        }
+
+
+    }
+
+
+    .result-container {
+        width: 255px;
+        height: 490px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 10px;
+        background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+        box-shadow: 0px 23px 28.6px 0px rgba(0, 0, 0, 0.03);
+        padding: 20px;
+
+        h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 18.13px;
+            font-weight: 400;
+            line-height: 27.24px;
+            text-align: center;
+            color: var(--WHITE, rgba(255, 255, 255, 1));
+        }
+
+        .mortgage-info-orange {
+            width: 100%;
+            height: 52px;
+            background: var(--DEER, rgba(191, 134, 84, 1));
+            box-shadow: 0px 14px 17.6px 0px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+
+            span {
+                display: flex;
+                width: 100%;
+                align-content: center;
+                justify-content: flex-start;
+                padding-left: 20px;
+                gap: 10px;
+
+                h1 {
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 18.13px;
+                    font-weight: 400;
+                    line-height: 27.24px;
+                    text-align: center;
+                    color: var(--WHITE, rgba(255, 255, 255, 1));
+                }
+            }
+
+        }
+
+        .mortgage-info-grey {
+            width: 100%;
+            height: 52px;
+            background: linear-gradient(114.17deg, rgba(255, 255, 255, 0.4) -95.06%, rgba(255, 255, 255, 0) 98.15%);
+            box-shadow: 0px 14px 17.6px 0px rgba(0, 0, 0, 0.04);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+
+            .line-div-aqua-dark {
+                width: 8px;
+                height: 100%;
+                border-radius: 10px;
+                background: var(--AQUA-DARK, rgba(46, 70, 80, 1));
+            }
+
+            .line-div-aqua-white {
+                width: 8px;
+                height: 100%;
+                border-radius: 10px;
+                background: var(--LIGHT-GREY, rgba(216, 216, 216, 1));
+            }
+
+            span {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: flex-start;
+                padding-left: 20px;
+                gap: 10px;
+
+                h1 {
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 18.13px;
+                    font-weight: 400;
+                    line-height: 27.24px;
+                    text-align: center;
+                    color: var(--WHITE, rgba(255, 255, 255, 1));
+                }
+
+                h2 {
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 18.13px;
+                    font-weight: 400;
+                    line-height: 27.24px;
+                    text-align: center;
+                    color: linear-gradient(180deg, rgba(255, 255, 255, 0.41) 0%, rgba(242, 242, 242, 0.41) 100%);
+                }
+            }
+
+
+        }
+    }
+
+    .line-chart-container {
+        width: 420px;
+        height: 490px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 20px;
+        box-sizing: border-box;
+
+        .line-chart {
+            width: 100%;
+            height: 262px;
+        }
+
+        .line-chart-text {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-content: center;
+            gap: 10px;
+
+            h1 {
+                //styleName: 2;
+                font-family: "Montserrat", sans-serif;
+                font-size: 18.13px;
+                font-weight: 400;
+                line-height: 27.24px;
+                text-align: center;
+                color: var(--WHITE, rgba(255, 255, 255, 1));
+            }
+
+            h3 {
+                //styleName: DARK SUBTITLE;
+                font-family: "Montserrat", sans-serif;
+                font-size: 60px;
+                font-weight: 500;
+                line-height: 55.9px;
+                letter-spacing: 0.06em;
+                text-align: center;
+                color: var(--WHITE, rgba(255, 255, 255, 1));
+            }
+        }
+    }
+}

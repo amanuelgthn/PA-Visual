@@ -1,13 +1,12 @@
 .property-desc-wrapper {
-
-
     display: flex;
     width: 100%;
     background: linear-gradient(180deg, #839096 -71.67%, #2A2E30 51.78%);
-    // background: linear-gradient(180deg, #839096 -90.55%, #2A2E30 63.25%);
     padding-top: 120px;
     padding-bottom: 60px;
+    gap: 20px;
     flex-direction: column;
+    align-items: center;
 
     .property-des-title {
         width: 100%;
@@ -45,7 +44,6 @@
     .image-with-back-nav {
         display: flex;
         width: 100%;
-        padding: 20px;
         position: relative;
         height: 543px;
 
@@ -77,8 +75,11 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        overflow-x: scroll;
-        bottom: 80px;
+        overflow: scroll;
+        bottom: 50px;
+        padding: 10px;
+
+
 
 
         .property-images {
@@ -89,18 +90,26 @@
             &:hover {
                 cursor: pointer;
             }
+
+
+        }
+
+        .selected {
+            border: 2px solid #C98E59;
+            border-radius: 5px;
         }
 
     }
 
     .overlay-text-div {
         position: absolute;
-        bottom: 20px;
+        bottom: 0px;
+        border-radius: 0px 0px 10px 10px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         left: 20;
-        width: calc(100% - 40px);
+        width: 100%;
         background: rgba(0, 0, 0, 0.5);
         color: white;
         text-align: left;

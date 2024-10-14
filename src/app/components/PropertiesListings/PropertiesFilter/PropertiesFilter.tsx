@@ -2,12 +2,12 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import {
   amenities as initialAmenities,
-  regionItems,
-  locationItems,
+  countries,
+  cities,
   typeItems,
 } from '../../../Utils/config/Constants'
 import { BsFilterLeft } from 'react-icons/bs'
-import { Divider, Input, Button, Dropdown } from 'antd'
+import { Divider, Input, Button, Dropdown, MenuProps } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { IoSearchOutline } from 'react-icons/io5'
 import Slider from 'rc-slider'
@@ -32,16 +32,19 @@ const PropertiesFilter: React.FC = () => {
     defaultValue: 0,
     parse: (value: string) => parseInt(value, 10),
     serialize: (value: number) => value.toString(),
+    clearOnDefault: true,
   })
 
   const [maxPrice, setMaxPrice] = useQueryState('maxPrice', {
-    defaultValue: 5000000000,
+    defaultValue: 0,
     parse: (value: string) => parseInt(value, 10),
     serialize: (value: number) => value.toString(),
+    clearOnDefault: true,
   })
 
-  const [selectRegion, setSelectRegion] = useQueryState('region')
-  const [selectLocation, setSelectLocation] = useQueryState('location')
+  const [selectCountry, setSelectCountry] = useQueryState('country')
+  const [selectCity, setSelectCity] = useQueryState('city')
+  const [citiesMenu, setCitiesMenu] = useState<MenuProps['items']>([])
   const [selectType, setSelectType] = useQueryState('type')
   const [urlAmenities, setUrlAmenities] = useQueryState('amenities', {
     parse: (value) => {
@@ -55,6 +58,7 @@ const PropertiesFilter: React.FC = () => {
       )
     },
     serialize: (value) => Object.keys(value).join(','),
+    clearOnDefault: true,
   })
   const [amenities, setAmenities] = useState<Amenity[]>(
     initialAmenities.map((amenity) => ({
@@ -66,11 +70,13 @@ const PropertiesFilter: React.FC = () => {
     defaultValue: 0,
     parse: Number,
     serialize: String,
+    clearOnDefault: true,
   })
   const [rooms, setRooms] = useQueryState('rooms', {
     defaultValue: 0,
     parse: Number,
     serialize: String,
+    clearOnDefault: true,
   })
 
   const toggleAmenity = (index: number) => {
@@ -121,17 +127,26 @@ const PropertiesFilter: React.FC = () => {
   }
 
   const handleMenuClick =
-    (setter: (value: string) => void) => (e: { key: string }) => {
+    (setter: (value: string) => void) =>
+    (e: { key: string; label?: string }) => {
       setter(e.key)
+      const filteredCieties = cities?.filter((cities) => cities?.key === e.key)
+      if (filteredCieties) {
+        setCitiesMenu(filteredCieties)
+      }
+      if (e.label) {
+        setSelectCity(e.label)
+      }
     }
 
   const clearFilters = () => {
     setMinPrice(0)
-    setMaxPrice(5000000000)
-    setSelectRegion(null)
-    setSelectLocation(null)
+    setMaxPrice(0)
+    setSelectCountry(null)
+    setSelectCity(null)
     setSelectType(null)
     setBathrooms(0)
+    setCitiesMenu([])
     setRooms(0)
     setUrlAmenities(null)
     setAmenities(
@@ -181,11 +196,15 @@ const PropertiesFilter: React.FC = () => {
     )
     console.log('hasFilters', hasFilters)
     if (hasFilters) {
-      // await fetchProperties(filters)
+      // await fetchPropertiesWithFilters(searchParams.toString())
     } else {
       return
     }
   }
+
+  useEffect(() => {
+    console.log(selectCity)
+  }, [selectCity])
 
   return (
     <main className='properties-filter-main'>
@@ -211,34 +230,38 @@ const PropertiesFilter: React.FC = () => {
             <Slider
               range
               min={0}
-              max={1000000}
+              max={500000000}
               value={[minPrice, maxPrice]}
               onChange={handleSliderChange}
               className='custom-slider'
             />
           </div>
           <div className='min-max-input'>
-            <Input
-              type='number'
-              value={minPrice}
-              className='min-input'
-              onChange={(e) => setMinPrice(Number(e.target.value))}
-            />
+            <div className='input-container'>
+              <Input
+                type='number'
+                value={minPrice}
+                className='min-input'
+                onChange={(e) => setMinPrice(Number(e.target.value))}
+              />
+            </div>
             <h1>-</h1>
-            <Input
-              type='number'
-              value={maxPrice}
-              className='max-input'
-              onChange={(e) => setMaxPrice(Number(e.target.value))}
-            />
+            <div className='input-container'>
+              <Input
+                type='number'
+                value={maxPrice}
+                className='max-input'
+                onChange={(e) => setMaxPrice(Number(e.target.value))}
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className='region-location-type-container'>
         <Dropdown
           menu={{
-            items: regionItems,
-            onClick: handleMenuClick(setSelectRegion),
+            items: countries,
+            onClick: handleMenuClick(setSelectCountry),
           }}
           overlayClassName='custom-dropdown'
           className='dropdown-custom'
@@ -249,17 +272,21 @@ const PropertiesFilter: React.FC = () => {
           )}
         >
           <Button className='dropdown-button'>
-            {selectRegion || 'Region'}
+            {selectCountry || 'Country'}
             <DownOutlined />
           </Button>
         </Dropdown>
         <Dropdown
+          disabled={!selectCountry}
           menu={{
-            items: locationItems,
-            onClick: handleMenuClick(setSelectLocation),
+            items: citiesMenu,
+            onClick: (e) => {
+              const target = e.domEvent.target as HTMLElement
+              setSelectCity(target.textContent || '')
+            },
           }}
           overlayClassName='custom-dropdown'
-          className='dropdown-custom'
+          className={`dropdown-custom ${!selectCountry ? 'disabled' : ''}`}
           placement='bottomRight'
           trigger={['click']}
           dropdownRender={(menus) => (
@@ -267,7 +294,7 @@ const PropertiesFilter: React.FC = () => {
           )}
         >
           <Button className='dropdown-button'>
-            {selectLocation || 'Location'}
+            {selectCity || 'City'}
             <DownOutlined />
           </Button>
         </Dropdown>
