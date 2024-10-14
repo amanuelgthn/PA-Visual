@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper-assist {
+    padding: 0px;
+}
+
+.ArticleDisplay-container {
+    width: 100%;
+    background: linear-gradient(180deg, #839096 -58.93%, #2A2E30 35.86%);
+    padding-top: 10rem;
+    .article-title {
+        font-family: "Catchye Demo" !important;
+        font-size: 96px;
+        font-weight: 400;
+        line-height: 100px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        padding-bottom: 5rem;
+        text-wrap: pretty;
+    }
+    .Articles-author {
+        font-family: "Montserrat" sans-serif !important;
+        font-size: 14.5px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 25.6px;
+        text-align: center;
+        color:rgba(255, 255, 255, 1);
+        padding-bottom: 5rem;
+    }
+    .articles-image {
+        width: 100%;
+        border-radius: 40px; 
+        height: 500px;
+    }
+    .article-content {
+        margin-top: 2rem;
+        width: 100%;
+        padding: 6%;
+        border: transparent solid 1px;
+        border-radius: 40px;
+        background: rgb(33, 36, 35);
+        color: rgba(242, 242, 242, 1);
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    }
+    .article-content-data {
+        font-family: "Montserrat" sans-serif !important;
+        font-size: 14.13px;
+        font-weight: 400;
+        line-height: 25.6px;
+        text-align: left;
+    }
+    .article-Tags {
+        margin-top: 2rem;
+    }
+    .article-tags {
+        margin-top: 2rem;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        color: white;
+        .article-Tags{
+            font-family: "Montserrat" sans-serif !important;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 19px;
+            text-align: left;
+        }
+        .ArticleTag-item {
+            font-family: "Montserrat" sans-serif !important;
+            font-size: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            font-weight: 400;
+            line-height: 20.48px;
+            border-radius: 3px;
+            height: 30px;
+            border: transparent solid 1px;
+            background: linear-gradient(105.19deg, #74471F 4.02%, #C98E59 96.55%);
+        }
+    }
+    .article-share-content {
+        margin-top: 2rem;
+        font-family: "Montserrat" sans-serif !important;
+        font-size: 17.24px;
+        font-weight: 700;
+        line-height: 29.95px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+    }
+    .article-icons-list {
+        margin-top: 1rem;
+        list-style: none;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 2rem;
+        
+    }
+    .Articles-Author-Container {
+        align-items: center;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+        height: 200px;
+        gap: 2%;
+        border-radius: 40px;
+        opacity: 0px;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+        background:  rgba(255, 255, 255, 0.2);
+        padding-left: 20px;
+        .Article-Author-img {
+            width: 57.14px;
+            height: 100px;
+            gap: 0px;
+            border-radius: 39.28px;
+            opacity: 0px;
+            align-items: center;
+        }
+        .Author-content {
+            gap: 3rem;
+            .Author-About{
+                font-family: "Montserrat", sans-serif !important;
+                font-size: 16.51px;
+                font-weight: 700;
+                line-height: 29.95px;
+                text-align: left;
+                color: rgba(255, 255, 255, 1)
+            }
+            .Author-About-description {
+                margin-top: 1rem;
+                font-family: "Montserrat" sans-serif !important;
+                font-size: 14.13px;
+                font-weight: 400;
+                line-height: 25.6px;
+                color: rgba(255, 255, 255, 1);
+                text-wrap: pretty;
+            }
+        }
+    }
+}
+
+
+@media (max-width:1400px) {
+    .wrapper-assist{
+      width: 90%;
+      padding: 0;
+    }
+  }
+  @media screen and (max-width: 992px) {
+
+/* Two-column layout for tags or other elements */
+    .article-Tags {
+        margin-top: 2rem;
+    }
+    .article-content{
+    .article-tags {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px; // Optional: Adjust the gap between grid items as needed
+        margin-top: 20;
+    }
+}
+  }
+
+
+  @media screen  and (max-width: 767px) {
+    .ArticleDisplay-container{
+    .article-title {
+        width: 90%;
+        font-family: "Catchye Demo" !important;
+        font-size: 58px;
+        font-weight: 300;
+        line-height: 50px;
+    }
+}
+  }

@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ArticlesSubscribe-container {
+    background: rgba(255, 255, 255, 0.2);
+    margin-top: 2rem;
+    height: 13rem;
+    border-radius: 40px;
+    padding: 3% 0% 5% 5%;
+    .Articles-title {
+        font-family: "Montserrat" sans-serif !important;
+        font-size: 16.8px;
+        font-weight: 700;
+        line-height: 29.95px;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+    }
+    .Articles-input-email {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        margin-left: 0;
+        width: 100vw;
+        height: 40px;
+        .Articles-input-form{
+            height: 40px;
+            .input-email {
+                height: 40px;
+                width: 55vw;
+                border: rgba(201, 142, 89, 1) 2px solid;
+                border-radius: 5px;
+                font-family: "Montserrat", sans-serif !important;
+                font-size: 11.74px;
+                font-weight: 400;
+                line-height: 14.31px;
+                padding-left: 1rem;
+            }
+            .btn-subscribe {
+                background: linear-gradient(98.63deg, #8B4513 7.22%, #C98E59 97.37%);
+                width: 100px;
+                border: transparent;
+                width: 99px;
+                height: 39px;
+                left: 541px;
+                padding: 10px 10px 10px 10px;
+                gap: 0px;
+                border-radius: 0px 5px 5px 0px;
+                opacity: 0px;
+                color:  rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}
+
+/* Media queries for screen size under 992px */
+@media screen and (max-width: 992px) {
+    .ArticlesSubscribe-container {
+        padding: 3% 0% 5% 3%;
+    }
+
+    .Articles-input-email {
+        flex-direction: column;
+        align-items: flex-start;
+        .Articles-input-form{
+            .input-email {
+                height: 40px;
+                width: 50vw;
+
+            }
+        }
+    }
+
+    .input-email {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .btn-subscribe {
+        width: 100%;
+    }
+    
+    
+}
