@@ -47,16 +47,34 @@ export const amenities = [
   { key: 'balcony', label: 'Balcony', selected: false, has_balcony: false },
 ]
 
-export const regionItems: MenuProps['items'] = [
-  { label: 'United States', key: 'United States' },
-  { label: 'Canada', key: 'Canada' },
-  { label: 'Mexico', key: 'Mexico' },
+export const countries: MenuProps['items'] = [
+  {
+    label: 'United States',
+    key: 'United States',
+  },
+  {
+    label: 'United Kingdom',
+    key: 'United Kingdom',
+  },
+  {
+    label: 'France',
+    key: 'France',
+  },
+  {
+    label: 'Germany',
+    key: 'Germany',
+  },
 ]
 
-export const locationItems: MenuProps['items'] = [
-  { label: 'New York', key: 'New York' },
-  { label: 'Los Angeles', key: 'Los Angeles' },
-  { label: 'Chicago', key: 'Chicago' },
+export const cities: MenuProps['items'] = [
+  { label: 'New York', key: 'United States' },
+  { label: 'Los Angeles', key: 'United States' },
+  { label: 'Chicago', key: 'United States' },
+  { label: 'Houston', key: 'United States' },
+  { label: 'Miami', key: 'United States' },
+  { label: 'Paris', key: 'France' },
+  { label: 'London', key: 'United Kingdom' },
+  { label: 'Berlin', key: 'Germany' },
 ]
 
 export const typeItems: MenuProps['items'] = [
