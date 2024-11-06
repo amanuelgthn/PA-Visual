@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import './JobModal.scss'
 
-type JobModalProps = {
-  children: React.ReactNode
+export type JobModalProps = {
   isOpen: boolean
   onClose: () => void
+  width?: number
+  afterClose?: () => void
+  children: React.ReactNode
 }
 
 const JobModal: React.FC<JobModalProps> = ({ children, isOpen, onClose }) => {
