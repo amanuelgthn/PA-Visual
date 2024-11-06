@@ -2,9 +2,9 @@
 
 import React from 'react'
 import './faq.scss'
-import FAQHeader from '../components/FAQ/FAQHeader/FAQHeader.tsx'
-import QueryFAQs from '../components/FAQ/QueryFAQs/QueryFAQs.tsx'
-import { ContactHeader } from '../components/Home/ContactHeader/ContactHeader.tsx'
+import FAQHeader from '../components/FAQ/FAQHeader/FAQHeader'
+import QueryFAQs from '../components/FAQ/QueryFAQs/QueryFAQs'
+import { ContactHeader } from '../components/Home/ContactHeader/ContactHeader'
 
 const page = () => (
   <div className='FAQ-container'>

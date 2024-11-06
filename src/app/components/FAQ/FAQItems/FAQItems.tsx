@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  FAQCategory,
-  FAQContent,
-  FAQItemProps,
-} from '@/app/Types/FAQ/FAQTypes.ts'
+import { FAQCategory, FAQContent, FAQItemProps } from '@/app/Types/FAQ/FAQTypes'
 import DropDown from '../../../../../public/FAQ/DropDown.svg'
 import PopUp from '../../../../../public/FAQ/PopUp.svg'
 
@@ -36,7 +32,9 @@ const FAQItem: React.FC<FAQItemProps> = ({
                     <button
                       className='FAQ-question'
                       id='FAQ-dropdown'
-                      onClick={() => toggleVisibility(categoryKey, index)}
+                      onClick={() =>
+                        toggleVisibility(categoryKey as FAQCategory, index)
+                      } // Assert categoryKey as FAQCategory
                       style={{
                         borderRadius:
                           !content.Visibility && isLastquestion
