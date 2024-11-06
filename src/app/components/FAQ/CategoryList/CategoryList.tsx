@@ -1,5 +1,5 @@
 import React from 'react'
-import { CategoryListProps } from '@/app/Types/FAQ/FAQTypes.ts'
+import { CategoryListProps, FAQCategory } from '@/app/Types/FAQ/FAQTypes'
 
 const CategoryList: React.FC<CategoryListProps> = ({
   FAQs,

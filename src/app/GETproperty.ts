@@ -7,7 +7,7 @@ export const fetchProperties = async (filters?: PropertyFilters) => {
     : ''
 
   const response = await fetch(
-    `https://api.dev.globalproperty-group.com/property?${queryString}`,
+    `https://globalpropertyapi.com/property?${queryString}`,
     {
       method: 'GET',
       headers: {

@@ -1,4 +1,4 @@
-import { PopularFAQProps } from '@/app/Types/FAQ/FAQTypes.ts'
+import { PopularFAQProps } from '@/app/Types/FAQ/FAQTypes'
 import React from 'react'
 import DropDown from '../../../../../public/FAQ/DropDown.svg'
 import PopUp from '../../../../../public/FAQ/PopUp.svg'
@@ -16,7 +16,7 @@ const PopularFAQ: React.FC<PopularFAQProps> = ({
           <div key={index} className='FAQ-popular-item'>
             <button
               className='FAQ-popular-question'
-              onClick={() => toggleVisibility(category, originalIndex)} // Use the original category and index
+              onClick={() => toggleVisibility(category, originalIndex)}
               style={{
                 borderBottom: !isLast
                   ? '1px solid rgba(224, 224, 224, 0.5)'

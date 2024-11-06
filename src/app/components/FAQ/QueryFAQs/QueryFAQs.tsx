@@ -1,16 +1,16 @@
 'use client'
 
 import React, { useState } from 'react'
-import { FAQCategory, FAQData, FAQContent } from '@/app/Types/FAQ/FAQTypes.ts'
+import { FAQCategory, FAQData, FAQContent } from '@/app/Types/FAQ/FAQTypes'
 import generalIcon from '../../../../../public/FAQ/General.svg'
 import accountIcon from '../../../../../public/FAQ/Account.svg'
 import billingIcon from '../../../../../public/FAQ/Billing.svg'
 import technicalIcon from '../../../../../public/FAQ/Technical.svg'
-import PopularFAQ from '../PopularFAQ/PopularFAQ.tsx'
-import SearchBar from '../SearchBar/SearchBar.tsx'
+import PopularFAQ from '../PopularFAQ/PopularFAQ'
+import SearchBar from '../SearchBar/SearchBar'
 import './QueryFAQs.scss'
-import CategoryList from '../CategoryList/CategoryList.tsx'
-import FAQItem from '../FAQItems/FAQItems.tsx'
+import CategoryList from '../CategoryList/CategoryList'
+import FAQItem from '../FAQItems/FAQItems'
 
 const QueryFAQs = () => {
   const [searchTerm, setSearchTerm] = useState<string>('')
