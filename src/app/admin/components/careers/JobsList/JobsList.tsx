@@ -11,6 +11,7 @@ interface Job {
   viewed: number
   datePosted: Date
   reviewed: string
+  location: string
 }
 
 const JobsList: React.FC = () => {

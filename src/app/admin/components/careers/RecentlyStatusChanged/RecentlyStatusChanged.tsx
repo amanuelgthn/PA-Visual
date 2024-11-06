@@ -35,7 +35,7 @@ const jobStatusChanges = [
   },
 ]
 
-const getStatusStyle = (status) => ({
+const getStatusStyle = (status: string) => ({
   color: status === 'Activated' ? '#05FF00' : 'rgba(255, 255, 255, 1)',
 })
 
