@@ -25,7 +25,7 @@ export type PropertyListTableTypes = {
   propertyBedRooms: number
   propertyGarageSpace: number
   propertyArea: number
-  propertyPostingDate: string
+  propertyPostingDate?: string
 }
 
 type PropertyListTableProps = {

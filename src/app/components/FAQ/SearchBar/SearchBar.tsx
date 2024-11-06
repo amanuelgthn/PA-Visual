@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchBarProps } from '@/app/Types/FAQ/FAQTypes.ts'
+import { SearchBarProps } from '@/app/Types/FAQ/FAQTypes'
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm }) => (
   <input

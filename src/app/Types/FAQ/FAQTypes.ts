@@ -20,8 +20,8 @@ export interface PopularFAQProps {
     content: FAQContent
     category: FAQCategory
     originalIndex: number
-  }
-  toggleVisibility: boolean
+  }[]
+  toggleVisibility: (category: FAQCategory, originalIndex: number) => void
 }
 
 export interface SearchBarProps {
