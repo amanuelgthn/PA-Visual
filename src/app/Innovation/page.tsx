@@ -8,6 +8,13 @@ import { DataAnalytics } from '../components/inovation/dataAnalytics/dataAnalyti
 import { OnHover } from '../components/inovation/onhover/onhover'
 import { VirtualBlockchain } from '../components/inovation/virtualBlockchain/virtualBlockchain'
 
+const cardsData = [
+  {
+    title: 'Hover over me!',
+    content: 'This content is revealed when you hover over the title.',
+  },
+]
+
 const Service = () => {
   return (
     <div className='wrapper-service'>
@@ -24,10 +31,7 @@ const Service = () => {
 
       <div className='wrapper-assist'>
         <DataAnalytics />
-        <OnHover
-          title='Hover over me!'
-          content='This content is revealed when you hover over the title.'
-        />
+        <OnHover cardsData={cardsData} />
         <VirtualBlockchain />
       </div>
     </div>
