@@ -52,7 +52,6 @@ const CareersJobForm: React.FC = () => {
             onChange={onChange}
             className={isActive ? styles.switchActive : styles.switchInactive}
             aria-label='Toggle Active Status'
-            role='switch'
             aria-checked={isActive}
           />
         </div>

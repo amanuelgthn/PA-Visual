@@ -68,7 +68,7 @@ export default function CareersSection() {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
   const [sortAscending, setSortAscending] = useState(true)
   const [activeFilters, setActiveFilters] = useState<string[]>([])
-  const [isFormActive, setIsFormActive] = useState(true) // New state to control form activity
+  const [isFormActive] = useState(true) // New state to control form activity
 
   const jobCategories = [
     'Engineering',

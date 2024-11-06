@@ -14,19 +14,19 @@ const Careers = () => {
       label: 'Views',
       value: '1,245',
       percentageChange: 25,
-      changeDirection: 'up',
+      changeDirection: 'up' as const,
     },
     {
       label: 'Applied',
       value: 500,
       percentageChange: 25,
-      changeDirection: 'up',
+      changeDirection: 'up' as const,
     },
     {
       label: 'Jobs pending',
       value: 200,
       percentageChange: 25,
-      changeDirection: 'down',
+      changeDirection: 'down' as const,
     },
   ]
 
