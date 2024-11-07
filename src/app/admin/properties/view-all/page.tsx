@@ -1,12 +1,17 @@
 'use client'
-import React from 'react'
+
+import React, { useEffect, useState } from 'react'
 import { RecentlyPropertiesProps } from '../../components/RecentlyProperties/RecentlyProperties'
 import PropertiesViewAll from '../../components/PropertiesViewAll/PropertiesViewAll'
-import { useSearchParams } from 'next/navigation'
 
-const ViewAllProperties = () => {
-  const searchParams = useSearchParams()
-  const type = searchParams.get('type')
+const ClientSideViewAllProperties = () => {
+  const [type, setType] = useState<string | null>(null)
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search)
+    setType(searchParams.get('type'))
+  }, [])
+
   const recentlyData: RecentlyPropertiesProps['recentlyData'] = {
     recentlySoldProperties: [
       {
@@ -172,8 +177,6 @@ const ViewAllProperties = () => {
         propertyImages: [
           'https://i2.au.reastatic.net/800x600/ad30b4d19361c6cca90d80fbedc9751f4fc9dec9a34a5fd02c13b316b3e82544/image.jpg',
           'https://i2.au.reastatic.net/800x600/ad30b4d19361c6cca90d80fbedc9751f4fc9dec9a34a5fd02c13b316b3e82544/image.jpg',
-          'https://i2.au.reastatic.net/800x600/ad30b4d19361c6cca90d80fbedc9751f4fc9dec9a34a5fd02c13b316b3e82544/image.jpg',
-          'https://i2.au.reastatic.net/800x600/ad30b4d19361c6cca90d80fbedc9751f4fc9dec9a34a5fd02c13b316b3e82544/image.jpg',
         ],
         createdAt: '2023-06-25',
       },
@@ -279,6 +282,11 @@ const ViewAllProperties = () => {
       },
     ],
   }
+
+  if (!type) {
+    return null
+  }
+
   return (
     <main>
       <PropertiesViewAll
@@ -289,4 +297,4 @@ const ViewAllProperties = () => {
   )
 }
 
-export default ViewAllProperties
+export default ClientSideViewAllProperties

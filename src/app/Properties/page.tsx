@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { Suspense } from 'react'
 // import { useSearchParams } from 'next/navigation'
 import PropertiesFilter from '../components/PropertiesListings/PropertiesFilter/PropertiesFilter'
 import PropertiesListingHeader from '../components/PropertiesListings/PropertiesListingHeader/PropertiesListingHeader/PropertiesListingHeader'
@@ -146,28 +146,30 @@ const PropertiesPage: React.FC = () => {
   // }, [data])
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-      }}
-    >
-      <PropertiesListingHeader />
+    <Suspense fallback={<div>Loading...</div>}>
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
-          padding: '60px',
-          backgroundColor: 'rgba(42, 46, 48, 1)',
+          width: '100%',
         }}
       >
-        <PropertiesFilter />
-        <PropertiesCarousel properties={fakeDataProperties} />
-        <NewListingProperties properties={fakeDataProperties} />
-        <HighlightedPoperties properties={fakeDataProperties} />
+        <PropertiesListingHeader />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '60px',
+            backgroundColor: 'rgba(42, 46, 48, 1)',
+          }}
+        >
+          <PropertiesFilter />
+          <PropertiesCarousel properties={fakeDataProperties} />
+          <NewListingProperties properties={fakeDataProperties} />
+          <HighlightedPoperties properties={fakeDataProperties} />
+        </div>
       </div>
-    </div>
+    </Suspense>
   )
 }
 
