@@ -10,8 +10,16 @@ import { VirtualBlockchain } from '../components/inovation/virtualBlockchain/vir
 
 const cardsData = [
   {
-    title: 'Hover over me!',
-    content: 'This content is revealed when you hover over the title.',
+    title: 'Predictive Modeling',
+    content: `By analyzing historical data and market trends, we can develop predictive models to forecast property prices, rental yields, and investment returns, helping our clients make informed decisions.`,
+  },
+  {
+    title: 'Customer Segmentation',
+    content: `Data analytics helps us better understand our clients' preferences, behaviors, and needs, allowing us to tailor services and marketing efforts.`,
+  },
+  {
+    title: 'Performance Monitoring',
+    content: `We use data analytics to track the performance of our properties, investments, and marketing campaigns, optimizing strategies for maximum efficiency.`,
   },
 ]
 

@@ -3,7 +3,7 @@ export interface Post {
   authImgUrl: string
   updatedat: string
   comment: string
-  Likes: string
+  Likes: number
 }
 
 export interface LeaveCommentProps {

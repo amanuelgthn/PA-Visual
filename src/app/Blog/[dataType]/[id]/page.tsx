@@ -3,10 +3,10 @@
 import {
   articleData,
   NewsData,
-} from '@/app/components/Blog/ArticlesData/articlesData.ts'
+} from '@/app/components/Blog/ArticlesData/articlesData'
 import { useParams } from 'next/navigation'
-import LeaveComment from '@/app/components/Blog/[dataType]/LeaveComment/LeaveComment.tsx'
-import ArticlesSubscribe from '@/app/components/Blog/[dataType]/[id]/ArticlesSubscribe/ArticlesSubscribe.tsx'
+// import LeaveComment from '@/app/components/Blog/[dataType]/LeaveComment/LeaveComment'
+import ArticlesSubscribe from '@/app/components/Blog/[dataType]/[id]/ArticlesSubscribe/ArticlesSubscribe'
 import Link from 'next/link'
 import facebookIcon from '../../../../../public/ArticlesDisplay/Facebook.svg'
 import linkedinIcon from '../../../../../public/ArticlesDisplay/LinkedIn.svg'
@@ -100,7 +100,7 @@ const Articledisplay = () => {
                 </p>
               </div>
             </div>
-            <LeaveComment posts={contentData.comments} />
+            {/* <LeaveComment posts={contentData.comments} /> */}
           </div>
         </div>
       </div>
