@@ -130,7 +130,7 @@ export const Footer = () => {
                 className='main-logo'
               >
                 <img
-                  src='/other_logo/proadvisorlogofooter.png'
+                  src='/other_logo/proadvisorlogoFooter.png'
                   alt='Pro Advisor Group Logo'
                   className='proadvisor-logo-footer'
                 />

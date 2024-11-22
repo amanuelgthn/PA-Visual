@@ -17,14 +17,15 @@ export const Wrapper = ({ children }: IWrapper) => {
   const pathname = usePathname()
   const isAdminPath = pathname.startsWith('/admin')
   const isForgotPass = pathname.startsWith('/ForgotPass')
+  const EmailVerification = pathname.startsWith('/verify')
   return (
     <>
       <Flex vertical justify='center' align='center' style={WrapperStyles}>
-        {!isAdminPath && !isForgotPass && <Navbar />}
+        {!isAdminPath && !isForgotPass && !EmailVerification && <Navbar />}
         {children}
         {/* <Flex vertical style={WrapperAssistStyles}>
       </Flex> */}
-        {!isAdminPath && !isForgotPass && <Footer />}
+        {!isAdminPath && !isForgotPass && !EmailVerification && <Footer />}
       </Flex>
     </>
   )

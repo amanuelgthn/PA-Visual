@@ -29,7 +29,7 @@ export const WelcomeHeader = () => {
       <h4 className='welcome-header-header'>WELCOME TO</h4>
       <CustomDivider />
       <img
-        src='./home/Glwhite.png'
+        src='/home/GLwhite.png'
         alt='Global Property Logo'
         className='welcome-header-logo'
       />

@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from 'react'
-import { LeaveCommentProps } from '../../../../Types/Blog/[dtaType]/[id]/ArticlesTypes.ts'
+import { LeaveCommentProps } from '../../../../Types/Blog/[dtaType]/[id]/ArticlesTypes'
 import likeIcon from '../../../../../../public/ArticlesDisplay/Like.svg'
 import editIcon from '../../../../../../public/ArticlesDisplay/Edit.svg'
 import replyIcon from '../../../../../../public/ArticlesDisplay/Reply.svg'
@@ -29,7 +29,7 @@ const LeaveComment: React.FC<LeaveCommentProps> = ({ posts }) => {
           Likes: 0,
           updatedat: new Date().toISOString(),
           authImgUrl: '',
-          replies: [],
+          // replies: [],
         },
       ])
       setNewComment('')
@@ -69,16 +69,16 @@ const LeaveComment: React.FC<LeaveCommentProps> = ({ posts }) => {
     setReplyIndex(index)
   }
 
-  const handleAddReply = (index: number) => {
-    const updatedComments = [...comments]
-    if (!updatedComments[index].replies) {
-      updatedComments[index].replies = []
-    }
-    updatedComments[index].replies.push(replyText) // Add reply to the comment
-    setComments(updatedComments)
-    setReplyText('')
-    setReplyIndex(null) // Exit reply mode
-  }
+  // const handleAddReply = (index: number) => {
+  //   const updatedComments = [...comments]
+  //   if (!updatedComments[index].replies) {
+  //     updatedComments[index].replies = []
+  //   }
+  //   updatedComments[index].replies.push(replyText) // Add reply to the comment
+  //   setComments(updatedComments)
+  //   setReplyText('')
+  //   setReplyIndex(null) // Exit reply mode
+  // }
 
   return (
     <>
@@ -166,9 +166,9 @@ const LeaveComment: React.FC<LeaveCommentProps> = ({ posts }) => {
                         onChange={(e) => setReplyText(e.target.value)}
                         placeholder='Type your reply...'
                       />
-                      <button onClick={() => handleAddReply(index)}>
+                      {/* <button onClick={() => handleAddReply(index)}>
                         Reply
-                      </button>
+                      </button> */}
                     </div>
                   )}
                 </div>
