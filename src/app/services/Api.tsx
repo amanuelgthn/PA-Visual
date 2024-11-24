@@ -26,7 +26,7 @@ export const registerUser = async (data: {
 // Email Verification API Call
 export const verifyEmail = async (token: string) => {
   try {
-    const response = await API.get(`/verify/${token}`)
+    const response = await API.get(`/users/verify/${token}`)
     return response.data
   } catch (error: unknown) {
     if (axios.isAxiosError(error) && error.response) {
