@@ -50,9 +50,9 @@ export const Form: FC = () => {
         username: formData.name,
         password: formData.password,
       })
-      alert('User registered. Please verify your email.')
       setFormData({ name: '', email: '', password: '' })
       setTermsAccepted(false)
+      router.push('users//verify/email')
     } catch (error: unknown) {
       if (error instanceof Error) {
         alert(error.message || 'An error occurred while registering')

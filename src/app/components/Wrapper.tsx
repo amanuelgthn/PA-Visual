@@ -17,7 +17,7 @@ export const Wrapper = ({ children }: IWrapper) => {
   const pathname = usePathname()
   const isAdminPath = pathname.startsWith('/admin')
   const isForgotPass = pathname.startsWith('/ForgotPass')
-  const EmailVerification = pathname.startsWith('/verify')
+  const EmailVerification = pathname.startsWith('/users/verify')
   return (
     <>
       <Flex vertical justify='center' align='center' style={WrapperStyles}>
