@@ -35,3 +35,15 @@ export const verifyEmail = async (token: string) => {
     throw new Error('Unexpected error occurred')
   }
 }
+
+export const checkVerificationStatus = async (username: string) => {
+  try {
+    const response = await API.get(`/users/verification-status/${username}`)
+    return response.data
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response) {
+      throw error.response.data
+    }
+    throw new Error('Unexpected error occurred')
+  }
+}

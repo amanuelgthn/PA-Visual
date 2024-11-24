@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { verifyEmail } from '../../services/Api'
+import { verifyEmail } from '../../../services/Api'
 import './verify.scss'
 
 const VerifyEmailPage: React.FC = () => {
