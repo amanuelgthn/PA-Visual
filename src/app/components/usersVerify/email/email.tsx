@@ -10,11 +10,19 @@ const VerifyEmailPage = () => {
   const [verificationStatus, setVerificationStatus] = useState<
     'pending' | 'success' | 'error'
   >('pending')
+  const [isAuthorized, setIsAuthorized] = useState(false)
 
   const token = searchParams.get('token')
   const username = searchParams.get('username')
 
   useEffect(() => {
+    if (!token && !username) {
+      router.push('/')
+      return
+    }
+
+    setIsAuthorized(true)
+
     if (token) {
       const handleTokenVerification = async () => {
         try {
@@ -86,7 +94,11 @@ const VerifyEmailPage = () => {
     }
   }
 
-  return <div className='verify-email-container'>{renderContent()}</div>
+  return isAuthorized ? (
+    <div className='verify-email-page'>
+      <div className='verify-email-container'>{renderContent()}</div>
+    </div>
+  ) : null
 }
 
 export default VerifyEmailPage

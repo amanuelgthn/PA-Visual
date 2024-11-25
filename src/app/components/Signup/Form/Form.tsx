@@ -37,6 +37,7 @@ export const Form: FC = () => {
       alert('Invalid email format')
       return
     }
+
     if (!isPasswordValid(formData.password)) {
       alert('Password must be at least 8 characters long')
       return
@@ -52,10 +53,14 @@ export const Form: FC = () => {
       })
       setFormData({ name: '', email: '', password: '' })
       setTermsAccepted(false)
-      router.push('users//verify/email')
+      router.push('users/verify/email')
     } catch (error: unknown) {
       if (error instanceof Error) {
-        alert(error.message || 'An error occurred while registering')
+        if (error.message.includes('already registered')) {
+          alert('This email is already registered. Please log in instead.')
+        } else {
+          alert(error.message || 'An error occurred while registering')
+        }
       } else {
         alert('An unknown error occurred')
       }
