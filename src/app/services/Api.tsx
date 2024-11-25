@@ -38,7 +38,9 @@ export const verifyEmail = async (token: string) => {
 
 export const checkVerificationStatus = async (username: string) => {
   try {
-    const response = await API.get(`/users/verification-status/${username}`)
+    const response = await API.get(
+      `/users/check-verification-status/${username}`,
+    )
     return response.data
   } catch (error: unknown) {
     if (axios.isAxiosError(error) && error.response) {
