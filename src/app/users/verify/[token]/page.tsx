@@ -1,13 +1,12 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { verifyEmail } from '../../../services/Api'
 import './verify.scss'
 
 const VerifyEmailPage: React.FC = () => {
   const { token } = useParams()
-  const router = useRouter()
   const [verificationMessage, setVerificationMessage] = useState<string | null>(
     null,
   )
@@ -26,6 +25,14 @@ const VerifyEmailPage: React.FC = () => {
         setVerificationMessage(
           response.message || 'Email verified successfully!',
         )
+        if (
+          response.message === 'Email verified successfully!' ||
+          response.success
+        ) {
+          setTimeout(() => {
+            window.close()
+          }, 2000)
+        }
       } catch (error: unknown) {
         if (error instanceof Error) {
           setVerificationMessage(
@@ -43,16 +50,6 @@ const VerifyEmailPage: React.FC = () => {
 
     verifyUserEmail()
   }, [token])
-
-  useEffect(() => {
-    if (verificationMessage === 'Email verified successfully!') {
-      const timer = setTimeout(() => {
-        router.push('/Login')
-      }, 2000)
-
-      return () => clearTimeout(timer)
-    }
-  }, [verificationMessage, router])
 
   return (
     <div className='main'>
