@@ -51,9 +51,19 @@ export const Form: FC = () => {
         username: formData.name,
         password: formData.password,
       })
+
+      localStorage.setItem(
+        'pendingVerification',
+        JSON.stringify({
+          email: formData.email,
+          username: formData.name,
+          timestamp: Date.now(),
+        }),
+      )
+
       setFormData({ name: '', email: '', password: '' })
       setTermsAccepted(false)
-      router.push('users/verify/email')
+      router.push('/users/verify/email')
     } catch (error: unknown) {
       if (error instanceof Error) {
         if (error.message.includes('already registered')) {

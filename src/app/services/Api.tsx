@@ -49,3 +49,25 @@ export const checkVerificationStatus = async (username: string) => {
     throw new Error('Unexpected error occurred')
   }
 }
+
+export const resendVerificationEmail = async (email: string) => {
+  try {
+    const response = await fetch('/api/users/resend-verification-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.error || 'Failed to resend verification email')
+    }
+
+    const data = await response.json()
+    alert(data.message)
+  } catch {
+    throw new Error('An error occurred while resending verification email')
+  }
+}

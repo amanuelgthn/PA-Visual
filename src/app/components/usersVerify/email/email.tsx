@@ -4,6 +4,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { checkVerificationStatus, verifyEmail } from '../../../services/Api'
 import './email.scss'
 
+// should be an error in backend this will be needed to debug
+
 const VerifyEmailPage = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -16,8 +18,24 @@ const VerifyEmailPage = () => {
   const username = searchParams.get('username')
 
   useEffect(() => {
-    if (!token && !username) {
+    const pendingVerification = localStorage.getItem('pendingVerification')
+    const verificationData = pendingVerification
+      ? JSON.parse(pendingVerification)
+      : null
+
+    const hasValidParams = token || username
+
+    const isVerificationValid =
+      verificationData &&
+      Date.now() - verificationData.timestamp < 24 * 60 * 60 * 1000
+
+    if (!verificationData || !isVerificationValid) {
       router.push('/')
+      return
+    }
+
+    if (!hasValidParams) {
+      setIsAuthorized(true)
       return
     }
 
@@ -28,6 +46,7 @@ const VerifyEmailPage = () => {
         try {
           await verifyEmail(token)
           setVerificationStatus('success')
+          localStorage.removeItem('pendingVerification')
           setTimeout(() => {
             router.push('/login')
           }, 3000)
@@ -43,6 +62,7 @@ const VerifyEmailPage = () => {
           const response = await checkVerificationStatus(username)
           if (response.isVerified) {
             setVerificationStatus('success')
+            localStorage.removeItem('pendingVerification')
             setTimeout(() => {
               router.push('/login')
             }, 3000)
@@ -62,14 +82,14 @@ const VerifyEmailPage = () => {
     switch (verificationStatus) {
       case 'success':
         return (
-          <div className='verification-success'>
+          <div className='verification-success verify'>
             <h1>Email Verified Successfully!</h1>
             <p>You will be redirected to login in a few seconds...</p>
           </div>
         )
       case 'error':
         return (
-          <div className='verification-error'>
+          <div className='verification-error verify'>
             <h1>Verification Failed</h1>
             <p>
               There was an error verifying your email. Please try again or
@@ -79,7 +99,7 @@ const VerifyEmailPage = () => {
         )
       default:
         return (
-          <div className='verification-pending'>
+          <div className='verification-pending verify'>
             <h1>Verify Your Email</h1>
             <p>
               Please check your email and click the verification link we sent
@@ -96,7 +116,10 @@ const VerifyEmailPage = () => {
 
   return isAuthorized ? (
     <div className='verify-email-page'>
-      <div className='verify-email-container'>{renderContent()}</div>
+      <div className='verify-email-container'>
+        <img src='/logo/logo.svg' alt='Global property logo' />
+        {renderContent()}
+      </div>
     </div>
   ) : null
 }
