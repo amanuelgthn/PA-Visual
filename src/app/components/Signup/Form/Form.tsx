@@ -46,24 +46,24 @@ export const Form: FC = () => {
     setLoading(true)
 
     try {
-      await registerUser({
+      const response = await registerUser({
         email: formData.email,
         username: formData.name,
         password: formData.password,
       })
 
-      localStorage.setItem(
-        'pendingVerification',
-        JSON.stringify({
-          email: formData.email,
-          username: formData.name,
-          timestamp: Date.now(),
-        }),
-      )
+      if (response.message.includes('Verification email resent')) {
+        alert('Verification email resent. Please check your inbox.')
+      } else {
+        alert('User registered. Please verify your email.')
+      }
 
       setFormData({ name: '', email: '', password: '' })
       setTermsAccepted(false)
-      router.push('/users/verify/email')
+
+      router.push(
+        `/users/verify/email?username=${encodeURIComponent(formData.name)}`,
+      )
     } catch (error: unknown) {
       if (error instanceof Error) {
         if (error.message.includes('already registered')) {
