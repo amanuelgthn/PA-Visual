@@ -5,6 +5,7 @@ import { ImageHeader } from './components/Home/ImageHeader/ImageHeader'
 import { WelcomeHeader } from './components/Home/WelcomeHeader/WelcomeHeader'
 import './page.css'
 import { Flex } from 'antd'
+import MetricoolTracker from './components/Home/Metricool'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
           <ExploreHeader />
           <ContactHeader />
         </div>
+        <MetricoolTracker />
       </Flex>
     </>
   )
