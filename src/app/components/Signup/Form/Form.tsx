@@ -1,12 +1,13 @@
 'use client'
+
 import React, { FC, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { registerUser } from '../../../services/Api'
-import { isEmailValid, isPasswordValid } from '../../../Utils/Validation'
 import Image from 'next/image'
+import { registerUser } from '../../../services/Api.tsx'
+import { isEmailValid, isPasswordValid } from '../../../Utils/Validation.tsx'
 import './Form.scss'
 
-export const Form: FC = () => {
+const Form: FC = () => {
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -84,7 +85,7 @@ export const Form: FC = () => {
   }
 
   const handleGoogleSignIn = () => {
-    window.location.href = '/auth/google' //will need to update this
+    window.location.href = '/auth/google' // will need to update this
   }
 
   const handleAppleSignIn = () => {
@@ -157,6 +158,7 @@ export const Form: FC = () => {
           className='google-signin-btn'
           onClick={handleGoogleSignIn}
         >
+          ~
           <Image
             src={'/icons/google.svg'}
             alt='Google Icon'
@@ -185,3 +187,5 @@ export const Form: FC = () => {
     </form>
   )
 }
+
+export default Form

@@ -3,6 +3,7 @@
 import './Form.scss'
 import { useRouter } from 'next/navigation'
 import React, { FC, useState } from 'react'
+// import { useAuth } from '@/app/Utils/AuthContext.tsx'
 import Image from 'next/image'
 
 interface FormData {
@@ -10,13 +11,16 @@ interface FormData {
   password: string
 }
 
-export const Form: FC = () => {
+const Form: FC = () => {
+  // const [isLoggedIn, setIsLoggedIn] = useAuth()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState<FormData>({
     email: '',
     password: '',
   })
+
+  // const [rememberMe, setRememberMe] = useState(false)
 
   const router = useRouter()
 
@@ -28,23 +32,56 @@ export const Form: FC = () => {
     }))
   }
 
+  // const handleRememberMechange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setRememberMe(e.target.checked);
+  // }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setLoading(true)
     setError(null)
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      alert('Login successful')
+      const response = await fetch(
+        `https://globalpropertyapi.com/users/login`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json', // Ensure correct capitalization
+          },
+          body: JSON.stringify({
+            identifier: formData.email,
+            password: formData.password, // Ensure the key matches the expected API key ("password" instead of "Password")
+            rememberMe,
+          }),
+        },
+      )
+      console.log(`response status: ${response}`)
+      // Check if the response is OK
+      if (!response.ok) {
+        console.log(`Error: ${response.status} ${response.statusText}`)
+        try {
+          const errorData = await response.json() // Parse error details if available
+          console.log('Error Response Body:', errorData)
 
-      // it will be needed to configure the login API endpoint
+          // Display the error message on the page
+          setError(
+            errorData.error ||
+              errorData.message ||
+              'An error occurred. Please try again.',
+          )
+        } catch {
+          setError('An unexpected error occurred.')
+        }
+        return
+      }
 
-      setFormData({
-        email: '',
-        password: '',
-      })
-
-      router.push('/') // Navigate after successful login
+      // Parse and log successful response
+      const data = await response.json()
+      console.log('Success Response:', data)
+      alert('login successful')
+      setIsLoggedIn(true)
+      router.push('/')
     } catch (err) {
       console.error('Login error:', err)
       setError('Failed to login. Please try again.')
@@ -151,3 +188,5 @@ export const Form: FC = () => {
     </form>
   )
 }
+
+export default Form
