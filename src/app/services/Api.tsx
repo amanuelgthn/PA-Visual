@@ -71,3 +71,19 @@ export const resendVerificationEmail = async (email: string) => {
     throw new Error('An error occurred while resending verification email')
   }
 }
+
+export const initiateGoogleAuth = () => {
+  window.location.href = `${API.defaults.baseURL}/users/google`
+}
+
+export const handleGoogleCallback = async (code: string) => {
+  try {
+    const response = await API.get(`/users/google/callback?code=${code}`)
+    return response.data
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      throw error.response.data
+    }
+    throw new Error('Failed to authenticate with Google')
+  }
+}
