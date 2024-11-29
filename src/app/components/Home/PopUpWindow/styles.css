@@ -107,12 +107,14 @@
 }
 
 .inputWindow {
-    margin: 2.2%; 
-    width: calc(100% - 14px); 
+    margin: 2.2% 0 2.2% 0; 
+    width: 22rem;
     height: 5vh;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     border: none;
-    font-size: 0.65em;
+    font-size: 0.65rem;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     padding: 1.5%; 
     font-family: Montserrat, sans-serif;
@@ -121,12 +123,15 @@
 .submit-button {
     width: 10rem;
     height: 6vh;
-    border: 2px solid #74471F;
+    border: 1px solid #74471F;
+    border-radius: 0.94rem;
     background-color: #FFFFFF;
     cursor: pointer;
     font-size: 0.70em;
     color: #74471F;
-    font-family: Montserrat, sans-serif;
+    font-family: "DM Sans", sans-serif !important;
+    letter-spacing: 1.4px;
+    line-height: 23.32px;
     font-weight: 700;
 }
 
