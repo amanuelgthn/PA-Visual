@@ -1,4 +1,9 @@
-.popUpWindow {
+/* Root CSS variable for inverse scale factor */
+:root {
+    --inverse-scale: 1;
+  }
+  
+  .popUpWindow {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,27 +14,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible;
-    transform: translate(0);
   }
-
+  
   body.popup-active {
-    overflow: hidden; 
+    overflow: hidden;
     position: fixed;
     width: 100%;
+  }
+  
+  .popUpWindowInner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 70vh;
   }
   
   .popUpWindowInner {
     background: #ffffff;
     border: 35px solid #2A2E30;
     position: relative;
-    width: 60vw;
-    height: 70vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch; 
     box-sizing: border-box;
     overflow: hidden;
+    transform: scale(var(--inverse-scale));
+    transform-origin: center;
   }
   
   .leftContainer {
@@ -39,14 +52,19 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    width: 100%;
+    min-width: 300px; 
     height: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0; 
   }
   
   .popUpWindowVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 102%;
     height: 102%;
-    object-fit: fill;
+    object-fit: cover;
   }
   
   .rightContainer {
@@ -57,23 +75,23 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     text-align: center;
-    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    min-width: 300px; 
     height: 100%;
-    object-fit: cover;
+    flex-shrink: 0; 
   }
   
   .exitButton {
     font-size: 1.12em;
-    font-weight: 100;
+    font-weight: 300;
     border: none;
     background-color: transparent;
     cursor: pointer;
     color: #BF8654;
-    font-weight: 300;
     position: absolute;
-    top: 0.1rem;
+    top: 0.5rem;
     right: 0.5rem;
     padding: 0.5rem;
     z-index: 10;
@@ -90,10 +108,9 @@
   .firstSection h1 {
     font-family: 'Catchye Demo', sans-serif !important;
     color: #2A2E30;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    font-size: 1.5rem;
     font-weight: 400;
+    letter-spacing: 0.25em;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
   }
   
@@ -101,105 +118,101 @@
     font-family: Montserrat, sans-serif;
     font-style: italic;
     color: #2A2E30;
-    font-size: 0.80rem;
+    font-size: 0.8rem;
     letter-spacing: 0.05em;
-    padding: 0 6.25% 3.125% 6.25%;
+    padding: 0 6% 3% 6%;
   }
   
   .secondSection {
-    margin: 0.34rem 0.68rem 0.50rem 0.68rem;
+    margin: 0.34rem 0.68rem 0.5rem 0.68rem;
     position: relative;
     justify-content: center;
-    height: 100%;
+    width: 100%;
   }
   
   .inputWindow {
-    margin: 0.352rem 0 0.352rem 0;
-    width: 22rem;
-    height: 5vh;
+    margin: 0.352rem 0;
+    width: 90%;
+    max-width: 22rem;
+    height: auto;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
     border: none;
     font-size: 0.65rem;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     padding: 1.5%;
     font-family: Montserrat, sans-serif;
   }
   
   .submit-button {
     margin-top: 1.5%;
-    width: 10rem;
-    height: 6vh;
+    width: 90%;
+    max-width: 10rem;
+    height: 6.5vh;
     border: 1px solid #734124;
     border-radius: 0.94rem;
     background-color: #ffffff;
     cursor: pointer;
-    font-size: 0.70rem;
+    font-size: 0.7rem;
     color: #734124;
     font-family: 'DM Sans', sans-serif !important;
     letter-spacing: 1.4px;
-    line-height: 23.32px;
+    line-height: normal;
     font-weight: 700;
+    box-sizing: border-box;
   }
   
-  /* Responsive Styles */
-  @media (max-width: 850px) {
-    .popUpWindow {
-      display: none;
+  /* Responsiveness */
+  
+  @media (max-width: 1024px) {
+    .popUpWindowInner-wrapper {
+      width: 80vw;
+      height: auto;
     }
-  }
   
-  @media (max-width: 1200px) {
+    .leftContainer,
     .rightContainer {
-      padding: 0.4rem; 
+      min-width: 300px; 
+      height: 100%;
+    }
+  
+    .rightContainer {
+      padding: 1rem;
+      box-sizing: border-box;
     }
   
     .firstSection h1 {
-      font-size: 0.8rem; 
-      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
     }
   
     .firstSection p {
-      font-size: 0.5rem; 
-      padding: 0 5.25% 2.125% 5.25%;
+      font-size: 0.7rem;
+      padding: 0 5% 2% 5%;
     }
   
     .inputWindow {
-      width: 15rem; 
-      font-size: 0.4rem; 
-      padding: 1%;
+      font-size: 0.6rem;
+      max-width: 18rem;
     }
   
     .submit-button {
-      width: 5rem; 
-      font-size: 0.5rem; 
-      align-items: center;
-      text-align: center;
+      font-size: 0.6rem;
+      max-width: 8rem;
+    }
+  
+    .exitButton {
+      font-size: 1em;
+      padding: 0.4rem;
     }
   }
   
   @media (max-width: 768px) {
-    .rightContainer {
-      padding: 0.5rem;
+    .popUpWindow {
+        display: none;  
+      }
     }
-  
-    .firstSection h1 {
-      font-size: 1rem; 
-    }
-  
-    .firstSection p {
-      font-size: 0.6rem; 
-    }
-  
-    .inputWindow {
-      width: 95%; 
-      font-size: 0.55rem; 
-    }
-  
-    .submit-button {
-      width: 95%; 
-      font-size: 0.6rem; 
-    }
-  }
   
