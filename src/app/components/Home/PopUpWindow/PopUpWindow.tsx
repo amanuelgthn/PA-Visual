@@ -1,19 +1,17 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
 import '@fontsource/montserrat'
 import '@fontsource/open-sans'
 import './styles.css'
 
 const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log('Form data submitted:', data);
-}
-
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const data = Object.fromEntries(formData.entries())
+    console.log('Form data submitted:', data)
+  }
 
   return (
     <div className='secondSection'>
@@ -117,17 +115,20 @@ export default function PopUpWindow() {
         </button>
 
         <div className='leftContainer'>
-          <Image
-            src='/popUpWindowProperty.jpg'
-            width={0}
-            height={0}
-            sizes='40vw'
-            style={{ width: '100%', height: '100%' }}
-            className='popUpWindowImage'
-            alt='popUpWindowImage'
-            priority
-          />
+          <video
+            className='popUpWindowVideo'
+            controls
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src='/PopUpWindow/backgroundVideo.mp4' type='video/mp4' />
+            <source src='/PopUpWindow/backgroundVideo.webm' type='video/webm' />
+            Your browser does not support the video tag.
+          </video>
         </div>
+
         <div className='rightContainer'>
           <div className='firstSection'>
             <h1>NOT READY TO START YOUR SEARCH YET?</h1>
