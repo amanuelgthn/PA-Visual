@@ -4,27 +4,28 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
-    z-index: 9999999; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.popUpWindowInner {
-    background: #FFFFFF;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .popUpWindowInner {
+    background: #ffffff;
     border: 35px solid #000000;
     position: relative;
-    width: 60vw; 
+    width: 60vw;
     height: 70vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     box-sizing: border-box;
     overflow: hidden;
-}
-
-.leftContainer {
+  }
+  
+  .leftContainer {
     flex: 1;
     position: relative;
     display: flex;
@@ -36,78 +37,77 @@
   }
   
   .popUpWindowVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: fill; /* Change to cover, fill, or none based on desired behavior */
+    width: 102%;
+    height: 102%;
+    object-fit: fill;
   }
   
-
-.rightContainer {
-    flex: 1; 
+  .rightContainer {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
-    position: relative; 
+    background-color: #ffffff;
+    position: relative;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     text-align: center;
     width: 100%;
     height: 100%;
-}
-
-
-
-.exitButton {
+    object-fit: cover;
+  }
+  
+  .exitButton {
     font-size: 1.12em;
     font-weight: 100;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: #C98E59;
-    position: absolute; 
-    top: 0;
-    right: 0;
-    width: auto;
-    height: auto;
-    padding: 15px;
-}
-
-.exitButton:hover {
-    color: #74471F;
-}
-
-.firstSection {
+    color: #74471f;
+    font-weight: 300;
+    position: absolute;
+    top: 0.1rem;
+    right: 0.5rem;
+    padding: 0.5rem;
+    z-index: 10;
+  }
+  
+  .exitButton:hover {
+    color: #74471f;
+  }
+  
+  .firstSection {
     padding-top: 2.5rem;
-}
-
-.firstSection h1 {
+  }
+  
+  .firstSection h1 {
     font-family: 'Catchye Demo', sans-serif !important;
     color: #000000;
     font-weight: 600;
     letter-spacing: 0.25em;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 400;
-}
-
-.firstSection p {
+    margin-bottom: 1rem;
+  }
+  
+  .firstSection p {
     font-family: Montserrat, sans-serif;
     font-style: italic;
     color: #000000;
-    font-size: 0.80em;
+    font-size: 0.80rem;
     letter-spacing: 0.05em;
-    padding: 0 6.25% 3.125% 6.25%; 
-}
-
-.secondSection {
-    margin: 2.125% 4.25% 3.125% 4.25%; 
+    padding: 0 6.25% 3.125% 6.25%;
+  }
+  
+  .secondSection {
+    margin: 0.34rem 0.68rem 0.50rem 0.68rem;
     position: relative;
     justify-content: center;
     height: 100%;
-}
-
-.inputWindow {
-    margin: 2.2% 0 2.2% 0; 
+  }
+  
+  .inputWindow {
+    margin: 0.352rem 0 0.352rem 0;
     width: 22rem;
     height: 5vh;
     align-items: center;
@@ -116,27 +116,83 @@
     border: none;
     font-size: 0.65rem;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    padding: 1.5%; 
+    padding: 1.5%;
     font-family: Montserrat, sans-serif;
-}
-
-.submit-button {
+  }
+  
+  .submit-button {
+    margin-top: 1.5%;
     width: 10rem;
     height: 6vh;
-    border: 1px solid #74471F;
+    border: 1px solid #74471f;
     border-radius: 0.94rem;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     cursor: pointer;
-    font-size: 0.70em;
-    color: #74471F;
-    font-family: "DM Sans", sans-serif !important;
+    font-size: 0.70rem;
+    color: #74471f;
+    font-family: 'DM Sans', sans-serif !important;
     letter-spacing: 1.4px;
     line-height: 23.32px;
     font-weight: 700;
-}
-
-@media (max-width: 850px)  {
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 850px) {
     .popUpWindow {
-        display: none;
+      display: none;
     }
-}
+  }
+  
+  @media (max-width: 1200px) {
+    .rightContainer {
+      padding: 0.4rem; 
+    }
+  
+    .firstSection h1 {
+      font-size: 0.8rem; 
+      margin-bottom: 0.4rem;
+    }
+  
+    .firstSection p {
+      font-size: 0.5rem; 
+      padding: 0 5.25% 2.125% 5.25%;
+    }
+  
+    .inputWindow {
+      width: 15rem; 
+      font-size: 0.4rem; 
+      padding: 1%;
+    }
+  
+    .submit-button {
+      width: 5rem; 
+      font-size: 0.5rem; 
+      align-items: center;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .rightContainer {
+      padding: 0.5rem;
+    }
+  
+    .firstSection h1 {
+      font-size: 1rem; 
+    }
+  
+    .firstSection p {
+      font-size: 0.6rem; 
+    }
+  
+    .inputWindow {
+      width: 95%; 
+      font-size: 0.55rem; 
+    }
+  
+    .submit-button {
+      width: 95%; 
+      font-size: 0.6rem; 
+    }
+  }
+  
