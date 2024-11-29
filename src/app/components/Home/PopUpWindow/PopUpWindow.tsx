@@ -68,44 +68,50 @@ const ContactForm = () => {
 }
 
 export default function PopUpWindow() {
-  const [isPopupVisible, setIsPopupVisible] = useState(false) //Line declares a piece of state, isPopupVisible, which is a boolean. The initial state is false, meaning the pop-up is not visible when the component is first rendered.
+  const [isPopupVisible, setIsPopupVisible] = useState(false)
 
   useEffect(() => {
-    const lastShown: string | null = localStorage.getItem('popupLastShown') //This line retrieves a value from localStorage associated with the key 'popupLastShown'. This value represents the last time the pop-up was shown.
-
-    const now = new Date() //This creates a Date object representing the current date and time, stored in the variable now.
-
+    const lastShown: string | null = localStorage.getItem('popupLastShown')
+    const now = new Date()
     const daysSinceLastShown = lastShown
       ? (now.getTime() - new Date(lastShown).getTime()) / (1000 * 60 * 60 * 24)
-      : Infinity //This calculates the number of days since the pop-up was last shown.
+      : Infinity
 
     const handleScroll = () => {
-      //This defines a function, handleScroll, which will be called whenever the user scrolls on the page. It calculates how far the user has scrolled as a percentage of the total page height and checks if the conditions to show the pop-up are met.
-      const scrollPosition = window.scrollY //scrollPosition stores the current vertical scroll position of the page in pixels.
+      const scrollPosition = window.scrollY
       const windowHeight =
-        document.documentElement.scrollHeight - window.innerHeight //windowHeight is the total scrollable height of the page. It’s calculated by subtracting the viewport height (window.innerHeight) from the total height of the document (document.documentElement.scrollHeight).
+        document.documentElement.scrollHeight - window.innerHeight
 
-      const scrollPercentage = (scrollPosition / windowHeight) * 100 //This calculates the percentage of the page that has been scrolled.
+      const scrollPercentage = (scrollPosition / windowHeight) * 100
 
       if (scrollPercentage > 30 && daysSinceLastShown >= 3) {
         setIsPopupVisible(true)
         localStorage.setItem('popupLastShown', now.toISOString())
-        window.removeEventListener('scroll', handleScroll) // If the user has scrolled more than 30% of the page and the pop-up hasn't been shown in the last 3 days, the pop-up is made visible
+        window.removeEventListener('scroll', handleScroll)
       }
     }
 
     if (daysSinceLastShown >= 3) {
-      window.addEventListener('scroll', handleScroll) // If the pop-up hasn't been shown for at least 3 days, the handleScroll function is added as an event listener for the scroll event. This ensures that the pop-up logic will be checked when the user scrolls.
+      window.addEventListener('scroll', handleScroll)
     }
 
-    return () => window.removeEventListener('scroll', handleScroll) //The return function is a cleanup function that removes the scroll event listener when the component is unmounted. This prevents potential memory leaks.
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Add or remove class to disable scrolling
+  useEffect(() => {
+    if (isPopupVisible) {
+      document.body.classList.add('popup-active')
+    } else {
+      document.body.classList.remove('popup-active')
+    }
+  }, [isPopupVisible])
+
   const closeWindow = () => {
-    setIsPopupVisible(false) //This function sets isPopupVisible to false, hiding the pop-up when the user closes it (typically by clicking a close button).
+    setIsPopupVisible(false)
   }
 
-  if (!isPopupVisible) return null //If isPopupVisible is false, the component returns null, meaning nothing is rendered. This prevents the pop-up from showing when it's not supposed to be visible.
+  if (!isPopupVisible) return null
 
   return (
     <section className='popUpWindow'>
