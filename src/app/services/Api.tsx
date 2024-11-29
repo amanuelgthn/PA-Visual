@@ -4,6 +4,10 @@ import axios from 'axios'
 const API = axios.create({
   baseURL:
     process.env.NEXT_PUBLIC_API_BASE_URL || 'https://globalpropertyapi.com',
+  headers: {
+    'x-api-key':
+      process.env.NEXT_PUBLIC_API_KEY || process.env.NEXT_PUBLIC_API_KEY_2,
+  },
 })
 
 // User Registration API Call
