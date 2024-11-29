@@ -14,7 +14,7 @@
   
   .popUpWindowInner {
     background: #ffffff;
-    border: 35px solid #000000;
+    border: 35px solid #2A2E30;
     position: relative;
     width: 60vw;
     height: 70vh;
@@ -63,7 +63,7 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: #74471f;
+    color: #BF8654;
     font-weight: 300;
     position: absolute;
     top: 0.1rem;
@@ -73,7 +73,7 @@
   }
   
   .exitButton:hover {
-    color: #74471f;
+    color: #BF8654;
   }
   
   .firstSection {
@@ -82,7 +82,7 @@
   
   .firstSection h1 {
     font-family: 'Catchye Demo', sans-serif !important;
-    color: #000000;
+    color: #2A2E30;
     font-weight: 600;
     letter-spacing: 0.25em;
     font-size: 1.5rem;
@@ -93,7 +93,7 @@
   .firstSection p {
     font-family: Montserrat, sans-serif;
     font-style: italic;
-    color: #000000;
+    color: #2A2E30;
     font-size: 0.80rem;
     letter-spacing: 0.05em;
     padding: 0 6.25% 3.125% 6.25%;
@@ -124,12 +124,12 @@
     margin-top: 1.5%;
     width: 10rem;
     height: 6vh;
-    border: 1px solid #74471f;
+    border: 1px solid #734124;
     border-radius: 0.94rem;
     background-color: #ffffff;
     cursor: pointer;
     font-size: 0.70rem;
-    color: #74471f;
+    color: #734124;
     font-family: 'DM Sans', sans-serif !important;
     letter-spacing: 1.4px;
     line-height: 23.32px;
