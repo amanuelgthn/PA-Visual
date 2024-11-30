@@ -65,9 +65,13 @@ const ContactForm = () => {
 
 const PopUpWindow = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false)
-  const initialDPR = useRef(window.devicePixelRatio || 1)
+  const initialDPR = useRef<number | null>(null)
 
   useEffect(() => {
+    if (typeof window === 'undefined') return // Check for window availability
+
+    initialDPR.current = window.devicePixelRatio || 1
+
     const lastShown = localStorage.getItem('popupLastShown')
     const now = new Date()
     const daysSinceLastShown = lastShown
@@ -95,9 +99,11 @@ const PopUpWindow = () => {
   }, [])
 
   useEffect(() => {
+    if (typeof window === 'undefined') return // Prevent SSR errors
+
     const setScale = () => {
       const currentDPR = window.devicePixelRatio || 1
-      const scale = initialDPR.current / currentDPR
+      const scale = initialDPR.current ? initialDPR.current / currentDPR : 1
       document.documentElement.style.setProperty(
         '--inverse-scale',
         scale.toString(),

@@ -63,6 +63,7 @@ body.popup-active {
   left: 0;
   aspect-ratio: auto;
   background-color: rgba(0, 255, 0, 0.1);
+  pointer-events: none;
 }
 
 .rightContainer {
