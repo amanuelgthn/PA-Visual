@@ -1,11 +1,10 @@
 'use client'
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { registerUser } from '../../../services/Api'
+import { registerUser, getGoogleOAuthURL } from '../../../services/Api'
 import { isEmailValid, isPasswordValid } from '../../../Utils/Validation'
 import Image from 'next/image'
 import './Form.scss'
-import { initiateGoogleAuth, handleGoogleCallback } from '../../../services/Api'
 
 export const Form: FC = () => {
   const [loading, setLoading] = useState(false)
@@ -84,27 +83,26 @@ export const Form: FC = () => {
     router.push('/TermsAndConditions')
   }
 
-  const handleGoogleSignIn = () => {
-    initiateGoogleAuth()
-  }
+  const handleGoogleSignIn = async () => {
+    try {
+      const data = await getGoogleOAuthURL()
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const code = urlParams.get('code')
-
-    if (code) {
-      ;(async () => {
-        try {
-          const userData = await handleGoogleCallback(code)
-          alert(`Welcome back, ${userData.name}!`)
-          router.push('/')
-        } catch (error) {
-          console.error(error)
-          alert('Google authentication failed.')
-        }
-      })()
+      if (data.redirectURL) {
+        window.location.href = data.redirectURL
+      } else {
+        alert('Failed to fetch Google OAuth URL.')
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Error during Google sign-in:', error.message)
+        alert(
+          error.message || 'An error occurred while initiating Google sign-in.',
+        )
+      } else {
+        alert('An unknown error occurred.')
+      }
     }
-  }, [router])
+  }
 
   const handleAppleSignIn = () => {
     window.location.href = '/auth/apple' // will need to update this
