@@ -17,7 +17,6 @@ const ContactForm = () => {
     <div className='secondSection'>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='name'></label>
           <input
             type='text'
             placeholder='Name'
@@ -28,7 +27,6 @@ const ContactForm = () => {
           />
         </div>
         <div>
-          <label htmlFor='email'></label>
           <input
             type='email'
             placeholder='Email'
@@ -39,7 +37,6 @@ const ContactForm = () => {
           />
         </div>
         <div>
-          <label htmlFor='phone'></label>
           <input
             type='tel'
             placeholder='Phone'
@@ -50,9 +47,8 @@ const ContactForm = () => {
           />
         </div>
         <div>
-          <label htmlFor='message'></label>
           <input
-            type='message'
+            type='text'
             placeholder='Message'
             name='message'
             className='inputWindow'
@@ -67,14 +63,12 @@ const ContactForm = () => {
   )
 }
 
-export default function PopUpWindow() {
+const PopUpWindow = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false)
-
-  // Store the initial devicePixelRatio
   const initialDPR = useRef(window.devicePixelRatio || 1)
 
   useEffect(() => {
-    const lastShown: string | null = localStorage.getItem('popupLastShown')
+    const lastShown = localStorage.getItem('popupLastShown')
     const now = new Date()
     const daysSinceLastShown = lastShown
       ? (now.getTime() - new Date(lastShown).getTime()) / (1000 * 60 * 60 * 24)
@@ -84,7 +78,6 @@ export default function PopUpWindow() {
       const scrollPosition = window.scrollY
       const windowHeight =
         document.documentElement.scrollHeight - window.innerHeight
-
       const scrollPercentage = (scrollPosition / windowHeight) * 100
 
       if (scrollPercentage > 30 && daysSinceLastShown >= 3) {
@@ -101,7 +94,6 @@ export default function PopUpWindow() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Adjust scaling to maintain pop-up size across zoom levels
   useEffect(() => {
     const setScale = () => {
       const currentDPR = window.devicePixelRatio || 1
@@ -112,19 +104,14 @@ export default function PopUpWindow() {
       )
     }
 
-    setScale() // Set initial scale
+    setScale()
     window.addEventListener('resize', setScale)
 
     return () => window.removeEventListener('resize', setScale)
   }, [])
 
-  // Add or remove class to disable scrolling
   useEffect(() => {
-    if (isPopupVisible) {
-      document.body.classList.add('popup-active')
-    } else {
-      document.body.classList.remove('popup-active')
-    }
+    document.body.classList.toggle('popup-active', isPopupVisible)
   }, [isPopupVisible])
 
   const closeWindow = () => {
@@ -140,7 +127,6 @@ export default function PopUpWindow() {
           <button className='exitButton' onClick={closeWindow}>
             x
           </button>
-
           <div className='leftContainer'>
             <video
               className='popUpWindowVideo'
@@ -158,7 +144,6 @@ export default function PopUpWindow() {
               Your browser does not support the video tag.
             </video>
           </div>
-
           <div className='rightContainer'>
             <div className='firstSection'>
               <h1>NOT READY TO START YOUR SEARCH YET?</h1>
@@ -174,3 +159,5 @@ export default function PopUpWindow() {
     </section>
   )
 }
+
+export default PopUpWindow
