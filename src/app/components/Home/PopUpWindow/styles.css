@@ -1,218 +1,169 @@
-/* Root CSS variable for inverse scale factor */
 :root {
-    --inverse-scale: 1;
-  }
-  
+  --inverse-scale: 1;
+}
+
+.popUpWindow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.popup-active {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+.popUpWindowInner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 70vh;
+}
+
+.popUpWindowInner {
+  border: 35px solid #2A2E30;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.leftContainer {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+  min-width: 300px;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.popUpWindowVideo {
+  width: 102%;
+  height: 102%;
+  object-fit: fill;
+  position: absolute;
+  top: 0;
+  left: 0;
+  aspect-ratio: auto;
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.rightContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  min-width: 300px;
+  height: 100%;
+}
+
+.exitButton {
+  font-size: 1.12em;
+  font-weight: 300;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #BF8654;
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  padding: 0.2rem;
+  z-index: 10;
+}
+
+.exitButton:hover {
+  color: #BF8654;
+}
+
+.firstSection {
+  padding-top: 1.4rem;
+}
+
+.firstSection h1 {
+  font-family: 'Catchye Demo', sans-serif !important;
+  color: #2A2E30;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.firstSection p {
+  font-family: Montserrat, sans-serif;
+  font-style: italic;
+  color: #2A2E30;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 0 3% 0 3%;
+}
+
+.secondSection {
+  margin: 0.4rem 0.68rem 0.5rem 0.68rem;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+}
+
+.inputWindow {
+  margin: 0.352rem 0;
+  width: 90%;
+  max-width: 22rem;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.65rem;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 1.5%;
+  font-family: Montserrat, sans-serif;
+}
+
+.submit-button {
+  margin-top: 1.5%;
+  width: 80%;
+  max-width: 10rem;
+  height: 6.2vh;
+  border: 1px solid #734124;
+  border-radius: 0.94rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 0.7rem;
+  color: #734124;
+  font-family: 'DM Sans', sans-serif !important;
+  letter-spacing: 1.4px;
+  line-height: normal;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
   .popUpWindow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
   }
-  
-  body.popup-active {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-  }
-  
-  .popUpWindowInner-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60vw;
-    height: 70vh;
-  }
-  
-  .popUpWindowInner {
-    background: #ffffff;
-    border: 35px solid #2A2E30;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch; 
-    box-sizing: border-box;
-    overflow: hidden;
-    transform: scale(var(--inverse-scale));
-    transform-origin: center;
-  }
-  
-  .leftContainer {
-    flex: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    min-width: 300px; 
-    height: 100%;
-    box-sizing: border-box;
-    flex-shrink: 0; 
-  }
-  
-  .popUpWindowVideo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 102%;
-    height: 102%;
-    object-fit: cover;
-  }
-  
-  .rightContainer {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    box-sizing: border-box;
-    min-width: 300px; 
-    height: 100%;
-    flex-shrink: 0; 
-  }
-  
-  .exitButton {
-    font-size: 1.12em;
-    font-weight: 300;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    color: #BF8654;
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    padding: 0.5rem;
-    z-index: 10;
-  }
-  
-  .exitButton:hover {
-    color: #BF8654;
-  }
-  
-  .firstSection {
-    padding-top: 2.5rem;
-  }
-  
-  .firstSection h1 {
-    font-family: 'Catchye Demo', sans-serif !important;
-    color: #2A2E30;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .firstSection p {
-    font-family: Montserrat, sans-serif;
-    font-style: italic;
-    color: #2A2E30;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    padding: 0 6% 3% 6%;
-  }
-  
-  .secondSection {
-    margin: 0.34rem 0.68rem 0.5rem 0.68rem;
-    position: relative;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .inputWindow {
-    margin: 0.352rem 0;
-    width: 90%;
-    max-width: 22rem;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    border: none;
-    font-size: 0.65rem;
-    box-sizing: border-box;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    padding: 1.5%;
-    font-family: Montserrat, sans-serif;
-  }
-  
-  .submit-button {
-    margin-top: 1.5%;
-    width: 90%;
-    max-width: 10rem;
-    height: 6.5vh;
-    border: 1px solid #734124;
-    border-radius: 0.94rem;
-    background-color: #ffffff;
-    cursor: pointer;
-    font-size: 0.7rem;
-    color: #734124;
-    font-family: 'DM Sans', sans-serif !important;
-    letter-spacing: 1.4px;
-    line-height: normal;
-    font-weight: 700;
-    box-sizing: border-box;
-  }
-  
-  /* Responsiveness */
-  
-  @media (max-width: 1024px) {
-    .popUpWindowInner-wrapper {
-      width: 80vw;
-      height: auto;
-    }
-  
-    .leftContainer,
-    .rightContainer {
-      min-width: 300px; 
-      height: 100%;
-    }
-  
-    .rightContainer {
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-  
-    .firstSection h1 {
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-    }
-  
-    .firstSection p {
-      font-size: 0.7rem;
-      padding: 0 5% 2% 5%;
-    }
-  
-    .inputWindow {
-      font-size: 0.6rem;
-      max-width: 18rem;
-    }
-  
-    .submit-button {
-      font-size: 0.6rem;
-      max-width: 8rem;
-    }
-  
-    .exitButton {
-      font-size: 1em;
-      padding: 0.4rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .popUpWindow {
-        display: none;  
-      }
-    }
-  
+}
