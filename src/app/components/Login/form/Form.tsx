@@ -1,5 +1,5 @@
 'use client'
-
+import axios from 'axios'
 import './Form.scss'
 import { useRouter } from 'next/navigation'
 import React, { FC, useState } from 'react'
@@ -9,8 +9,37 @@ interface FormData {
   email: string
   password: string
 }
+interface LoginRequest {
+  identifier: string
+  password: string
+}
+
+// Set up the base URL using environment variables
+const API = axios.create({
+  baseURL:
+    process.env.NEXT_PUBLIC_API_BASE_URL || 'https://globalpropertyapi.com',
+  headers: {
+    'x-api-key':
+      process.env.NEXT_PUBLIC_API_KEY || process.env.NEXT_PUBLIC_API_KEY_2,
+  },
+})
+
+const loginUser = async (data: LoginRequest) => {
+  try {
+    const response = await API.post('users/login', data)
+    console.log(response.data)
+    return response.data
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response) {
+      throw error.response.data
+    }
+    console.log(error)
+    throw new Error('Unexpected error occurred')
+  }
+}
 
 export const Form: FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState<FormData>({
@@ -18,6 +47,10 @@ export const Form: FC = () => {
     password: '',
   })
 
+  const loginData: LoginRequest = {
+    identifier: formData.email,
+    password: formData.password,
+  }
   const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,21 +66,41 @@ export const Form: FC = () => {
     setLoading(true)
     setError(null)
 
+    console.log('API Base URL:', process.env.NEXT_PUBLIC_API_BASE_URL)
+    console.log('API Key:', process.env.NEXT_PUBLIC_API_KEY)
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      alert('Login successful')
+      console.log('Sending login request with:', loginData)
+      const response = await loginUser(loginData)
 
-      // it will be needed to configure the login API endpoint
+      // console.log('Login successful:', response);
 
-      setFormData({
-        email: '',
-        password: '',
-      })
+      const token = response.token
+      //create login session for user
+      localStorage.setItem('token', token) // Save the JWT token
+      localStorage.setItem('user', JSON.stringify(response.user)) // Optionally save user info
+      // const userResponse = await API.get('/users', {
+      //   headers: { Authorization: `Bearer ${token}` },
+      // });
+      // const user = userResponse.data; // Assume the user data includes the username
+      // console.log('User details fetched:', user);
+      setIsLoggedIn(true)
+      console.log(`IsLogged in${isLoggedIn}`)
+      router.push('/')
+    } catch (error: unknown) {
+      console.error('Error during login:', error)
 
-      router.push('/') // Navigate after successful login
-    } catch (err) {
-      console.error('Login error:', err)
-      setError('Failed to login. Please try again.')
+      // if (axios.isAxiosError(error)) {
+      //   if (error.response) {
+      //     setError(error.response.data.message || 'Login failed');
+      //   } else if (error.request) {
+      //     setError('No response received from server. Please try again later.');
+      //   } else {
+      //     setError('An error occurred while making the request.');
+      //   }
+      // } else {
+      //   setError('Unexpected error occurred. Please try again.');
+      // }
     } finally {
       setLoading(false)
     }
