@@ -1,12 +1,13 @@
 'use client'
+
 import React, { FC, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { registerUser, getGoogleOAuthURL } from '../../../services/Api'
-import { isEmailValid, isPasswordValid } from '../../../Utils/Validation'
 import Image from 'next/image'
+import { registerUser } from '../../../services/Api.tsx'
+import { isEmailValid, isPasswordValid } from '../../../Utils/Validation.tsx'
 import './Form.scss'
 
-export const Form: FC = () => {
+const Form: FC = () => {
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -83,25 +84,8 @@ export const Form: FC = () => {
     router.push('/TermsAndConditions')
   }
 
-  const handleGoogleSignIn = async () => {
-    try {
-      const data = await getGoogleOAuthURL()
-
-      if (data.redirectURL) {
-        window.location.href = data.redirectURL
-      } else {
-        alert('Failed to fetch Google OAuth URL.')
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error('Error during Google sign-in:', error.message)
-        alert(
-          error.message || 'An error occurred while initiating Google sign-in.',
-        )
-      } else {
-        alert('An unknown error occurred.')
-      }
-    }
+  const handleGoogleSignIn = () => {
+    window.location.href = '/auth/google' // will need to update this
   }
 
   const handleAppleSignIn = () => {
@@ -174,6 +158,7 @@ export const Form: FC = () => {
           className='google-signin-btn'
           onClick={handleGoogleSignIn}
         >
+          ~
           <Image
             src={'/icons/google.svg'}
             alt='Google Icon'
@@ -202,3 +187,5 @@ export const Form: FC = () => {
     </form>
   )
 }
+
+export default Form
