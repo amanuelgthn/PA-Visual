@@ -5,22 +5,18 @@ import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.share
 import { useRouter } from 'next/navigation'
 import { FC, useEffect } from 'react'
 
-const API = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_API_BASE_URL || 'https://globalpropertyapi.com',
-  headers: {
-    'x-api-key':
-      process.env.NEXT_PUBLIC_API_KEY || process.env.NEXT_PUBLIC_API_KEY_2,
-  },
-})
+export async function deleteClientSession() {
+  try {
+    const response = await axios.delete('/api/session')
+    console.log(response.data.message) // Log the response to confirm success
+  } catch (error) {
+    console.error('Failed to delete session:', error)
+  }
+}
 
 const handleLogout = async (router: AppRouterInstance) => {
   try {
-    await API.post('/users/logout')
-    localStorage.removeItem('token')
-    localStorage.removeItem('username')
-    localStorage.removeItem('user')
-
+    await deleteClientSession()
     // Redirect to the login page
     router.push('/')
   } catch (error) {
