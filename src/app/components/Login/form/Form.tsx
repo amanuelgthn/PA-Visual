@@ -1,9 +1,11 @@
 'use client'
+
 import axios from 'axios'
 import './Form.scss'
 import { useRouter } from 'next/navigation'
 import React, { FC, useState } from 'react'
 import Image from 'next/image'
+import { loginUser } from '@/app/Utils/AuthLoginLogout'
 
 interface FormData {
   email: string
@@ -14,28 +16,18 @@ interface LoginRequest {
   password: string
 }
 
-// Set up the base URL using environment variables
-const API = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_API_BASE_URL || 'https://globalpropertyapi.com',
-  headers: {
-    'x-api-key':
-      process.env.NEXT_PUBLIC_API_KEY || process.env.NEXT_PUBLIC_API_KEY_2,
-  },
-})
+export async function createClientSession(userId: string, role: string) {
+  const response = await axios.post('/api/session', { userId, role })
+  return response.data
+}
 
-const loginUser = async (data: LoginRequest) => {
-  try {
-    const response = await API.post('users/login', data)
-    console.log(response.data)
-    return response.data
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error) && error.response) {
-      throw error.response.data
-    }
-    console.log(error)
-    throw new Error('Unexpected error occurred')
-  }
+export async function getClientSession() {
+  const response = await axios.get('/api/session')
+  return response
+}
+
+export async function deleteClientSession() {
+  await axios.delete('/api/session')
 }
 
 export const Form: FC = () => {
@@ -66,46 +58,48 @@ export const Form: FC = () => {
     setLoading(true)
     setError(null)
 
-    console.log('API Base URL:', process.env.NEXT_PUBLIC_API_BASE_URL)
-    console.log('API Key:', process.env.NEXT_PUBLIC_API_KEY)
-
     try {
       console.log('Sending login request with:', loginData)
       const response = await loginUser(loginData)
-
-      // console.log('Login successful:', response);
-
-      const token = response.token
-      //create login session for user
-      localStorage.setItem('token', token) // Save the JWT token
-      localStorage.setItem('user', JSON.stringify(response.user)) // Optionally save user info
-      // const userResponse = await API.get('/users', {
-      //   headers: { Authorization: `Bearer ${token}` },
-      // });
-      // const user = userResponse.data; // Assume the user data includes the username
-      // console.log('User details fetched:', user);
+      console.log(response)
+      const session = createClientSession(response.id, response.role)
+      console.log('session', session)
+      console.log('Login successful:', response.username)
       setIsLoggedIn(true)
-      console.log(`IsLogged in${isLoggedIn}`)
+      console.log('isLoggedIn', isLoggedIn)
       router.push('/')
-    } catch (error: unknown) {
+    } catch (error) {
       console.error('Error during login:', error)
+      setError(`Login Failed${error}`)
 
-      // if (axios.isAxiosError(error)) {
-      //   if (error.response) {
-      //     setError(error.response.data.message || 'Login failed');
-      //   } else if (error.request) {
-      //     setError('No response received from server. Please try again later.');
-      //   } else {
-      //     setError('An error occurred while making the request.');
-      //   }
-      // } else {
-      //   setError('Unexpected error occurred. Please try again.');
-      // }
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          console.error('Error Response Data:', error.response.data)
+          console.error('Error Response Status:', error.response.status)
+          console.error('Error Response Headers:', error.response.headers)
+          setError(
+            error.response.data.error ||
+              error.response.data.message ||
+              'Login failed',
+          )
+        } else if (error.request) {
+          console.error('Error Request:', error.request)
+          setError('No response received from server. Please try again later.')
+        } else {
+          console.error('Error Message:', error.message)
+          setError('An error occurred while making the request.')
+        }
+      } else if (error instanceof Error) {
+        console.error('Unexpected Error:', error.message)
+        setError('An unexpected error occurred.')
+      } else {
+        console.error('Unknown Error:', error)
+        setError(error['error'])
+      }
     } finally {
       setLoading(false)
     }
   }
-
   // Google Sign-In
   const handleGoogleSignIn = () => {
     window.location.href = process.env.NEXT_PUBLIC_GOOGLE_OAUTH_URL ?? '#'
