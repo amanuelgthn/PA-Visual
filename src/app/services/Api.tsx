@@ -4,10 +4,6 @@ import axios from 'axios'
 const API = axios.create({
   baseURL:
     process.env.NEXT_PUBLIC_API_BASE_URL || 'https://globalpropertyapi.com',
-  headers: {
-    'x-api-key':
-      process.env.NEXT_PUBLIC_API_KEY || process.env.NEXT_PUBLIC_API_KEY_2,
-  },
 })
 
 // User Registration API Call
@@ -73,16 +69,5 @@ export const resendVerificationEmail = async (email: string) => {
     alert(data.message)
   } catch {
     throw new Error('An error occurred while resending verification email')
-  }
-}
-export const getGoogleOAuthURL = async () => {
-  try {
-    const response = await API.get('/users/google')
-    return response.data
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error) && error.response) {
-      throw error.response.data
-    }
-    throw new Error('Unexpected error occurred while fetching Google OAuth URL')
   }
 }

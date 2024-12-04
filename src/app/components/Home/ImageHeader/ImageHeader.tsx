@@ -16,7 +16,7 @@ export const ImageHeader = () => {
         />
         Your browser does not support the video tag.
       </video>
-      <img src='https://tracker.metricool.com/c3po.jpg?hash=2394516ceb8ea7687c67256ee502cd87' />
+
       <p className='image-header-undertext'>
         expereince luxury & redifine living
       </p>
