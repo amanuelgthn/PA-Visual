@@ -4,12 +4,15 @@ import axios from 'axios'
 import './Form.scss'
 import { useRouter } from 'next/navigation'
 import React, { FC, useState } from 'react'
-// import { useAuth } from '@/app/Utils/AuthContext.tsx'
 import Image from 'next/image'
 import { loginUser } from '@/app/Utils/AuthLoginLogout'
 
 interface FormData {
   email: string
+  password: string
+}
+interface LoginRequest {
+  identifier: string
   password: string
 }
 
@@ -36,8 +39,10 @@ export const Form: FC = () => {
     password: '',
   })
 
-  // const [rememberMe, setRememberMe] = useState(false)
-
+  const loginData: LoginRequest = {
+    identifier: formData.email,
+    password: formData.password,
+  }
   const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,10 +52,6 @@ export const Form: FC = () => {
       [name]: value,
     }))
   }
-
-  // const handleRememberMechange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setRememberMe(e.target.checked);
-  // }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -197,5 +198,3 @@ export const Form: FC = () => {
     </form>
   )
 }
-
-export default Form
