@@ -1,4 +1,3 @@
-'use client'
 import { adminProperties } from '../data'
 import PropertyEditorClient from './AdminPropertyDetailClient'
 
