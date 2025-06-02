@@ -1,10 +1,10 @@
 'use client'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import { PropertyListTableTypes } from '../../../components/ProperTyListTable/PropertyListTable'
 import './page.scss'
-import PropertyDetails from '../../../components/PropertyDetail/PropertyDetail'
 import { adminProperties } from '../data'
+import { PropertyListTableTypes } from '../../components/ProperTyListTable/PropertyListTable'
+import PropertyDetails from '../../components/PropertyDetail/PropertyDetail'
 
 const EditProperty: React.FC = () => {
   const params = useParams()
