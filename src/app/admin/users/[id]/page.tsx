@@ -1,13 +1,15 @@
 export async function generateStaticParams() {
-  // If you know actual user IDs at build time, list them here:
-  // return [{ id: 'alice' }, { id: 'bob' }, …]
-  // For now, return an empty array to satisfy "output: export"
   return []
 }
 
-// 2) Import the client component.  Because the client file has "use client", this page.tsx remains a Server Component.
+// ② This is a Server Component—do NOT put "use client" here.
+//    Just import your Client Component and pass along the ID.
 import EditUserClient from './EditUserClient'
 
-export default function Page({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: { id: string }
+}
+
+export default function Page({ params }: PageProps) {
   return <EditUserClient id={params.id} />
 }
