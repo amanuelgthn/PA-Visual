@@ -1,38 +1,42 @@
 'use client'
 
 import axios from 'axios'
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { useRouter } from 'next/navigation'
 import { FC, useEffect } from 'react'
+import { useAuth } from '../Utils/AuthContext'
 
 export async function deleteClientSession() {
   try {
     const response = await axios.delete('/api/session')
-    console.log(response.data.message) // Log the response to confirm success
+    console.log(response.data.message) // Confirm session deletion
   } catch (error) {
     console.error('Failed to delete session:', error)
   }
 }
 
-const handleLogout = async (router: AppRouterInstance) => {
+// Updated handleLogout: receives `setIsAuthenticated` and `router` as arguments
+const handleLogout = async (
+  setIsAuthenticated: (value: boolean) => void,
+  router: ReturnType<typeof useRouter>,
+) => {
   try {
     await deleteClientSession()
-    // Redirect to the login page
-    router.push('/')
+    setIsAuthenticated(false) // Update auth state
+    router.push('/') // Redirect to login page
   } catch (error) {
     console.error('Error during logout:', error)
     alert('Failed to log out. Please try again.')
   }
 }
 
-// React Component for the Logout Page
+// Logout Component
 const Logout: FC = () => {
   const router = useRouter()
+  const { setIsAuthenticated } = useAuth() // Call useAuth() here, inside the component
 
   useEffect(() => {
-    // Call the logout function on component mount
-    handleLogout(router)
-  }, [router])
+    handleLogout(setIsAuthenticated, router) // Pass values to the function
+  }, [setIsAuthenticated, router])
 
   return <h1>Logging out...</h1>
 }

@@ -7,6 +7,7 @@ const encodedKey = encoder.encode(SECRET)
 
 // Extend JWTPayload to make SessionPayload compatible
 export interface SessionPayload extends JWTPayload {
+  userName: string
   userId: string
   role: string
   expiresAt: number // Unix timestamp

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Wrapper } from './components/Wrapper'
 import { ReactQueryClientProvider } from './Utils/ReactQueryClientProvider/ReactQueryClientProvider'
+import { AuthProvider } from './Utils/AuthContext'
 
 export const metadata: Metadata = {
   title: 'Global Property',
@@ -20,7 +21,9 @@ export default function RootLayout({
       </head>
       <body>
         <ReactQueryClientProvider>
-          <Wrapper>{children}</Wrapper>
+          <AuthProvider>
+            <Wrapper>{children}</Wrapper>
+          </AuthProvider>
         </ReactQueryClientProvider>
       </body>
     </html>

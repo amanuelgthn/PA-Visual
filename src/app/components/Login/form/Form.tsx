@@ -5,6 +5,7 @@ import './Form.scss'
 import { useRouter } from 'next/navigation'
 import React, { FC, useState } from 'react'
 import Image from 'next/image'
+import { useAuth } from '@/app/Utils/AuthContext'
 import { loginUser } from '@/app/Utils/AuthLoginLogout'
 
 interface FormData {
@@ -32,6 +33,7 @@ export async function deleteClientSession() {
 
 export const Form: FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { setIsAuthenticated } = useAuth()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState<FormData>({
@@ -62,10 +64,15 @@ export const Form: FC = () => {
       console.log('Sending login request with:', loginData)
       const response = await loginUser(loginData)
       console.log(response)
-      const session = createClientSession(response.id, response.role)
+      const session = createClientSession(
+        response.username,
+        response.id,
+        response.role,
+      )
       console.log('session', session)
       console.log('Login successful:', response.username)
       setIsLoggedIn(true)
+      setIsAuthenticated(true)
       console.log('isLoggedIn', isLoggedIn)
       router.push('/')
     } catch (error) {
@@ -109,7 +116,9 @@ export const Form: FC = () => {
   const handleAppleSignIn = () => {
     window.location.href = process.env.NEXT_PUBLIC_APPLE_OAUTH_URL ?? '#'
   }
-
+  if (isLoggedIn) {
+    console.log('Successfully logged in')
+  }
   return (
     <form onSubmit={handleSubmit} className='form-login' noValidate>
       <div className='form-group'>
