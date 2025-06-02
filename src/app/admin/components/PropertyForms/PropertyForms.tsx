@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from 'react'
 import type { FormProps } from 'antd'
 import { Button, Form, Input, Dropdown } from 'antd'
