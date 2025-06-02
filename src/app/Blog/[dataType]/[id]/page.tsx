@@ -14,6 +14,23 @@ import instagramIcon from '../../../../../public/ArticlesDisplay/instagram.svg'
 import twitterIcon from '../../../../../public/ArticlesDisplay/Twitter.svg'
 import './Articledisplay.scss'
 
+export async function generateStaticParams() {
+  // Create one param object for each “articles” entry:
+  const articleParams = articleData.map((item) => ({
+    dataType: 'articles',
+    id: item.propertyId,
+  }))
+
+  // Create one param object for each “news” entry:
+  const newsParams = NewsData.map((item) => ({
+    dataType: 'news',
+    id: item.propertyId,
+  }))
+
+  // Return the combined list. Next.js will generate HTML for each pair.
+  return [...articleParams, ...newsParams]
+}
+
 const Articledisplay = () => {
   const params = useParams()
   const { dataType, id } = params
