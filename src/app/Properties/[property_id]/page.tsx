@@ -13,7 +13,7 @@ export async function generateStaticParams() {
     { property_id: '008' },
     { property_id: '009' },
     { property_id: '0010' },
-    { property_id: '0011' },
+    { propaerty_id: '0011' },
   ]
 }
 

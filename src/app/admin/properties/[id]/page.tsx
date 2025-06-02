@@ -1,28 +1,18 @@
 'use client'
-import { useParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
-import './page.scss'
 import { adminProperties } from '../data'
-import { PropertyListTableTypes } from '../../components/ProperTyListTable/PropertyListTable'
-import PropertyDetails from '../../components/PropertyDetail/PropertyDetail'
+import PropertyEditorClient from './AdminPropertyDetailClient'
 
-const EditProperty: React.FC = () => {
-  const params = useParams()
-  const { id } = params
-  const [property, setProperty] = useState<PropertyListTableTypes | null>(null)
-
-  useEffect(() => {
-    if (id) {
-      const found = adminProperties.find((p) => p.propertyId === id)
-      if (found) {
-        setProperty(found)
-      } else {
-        console.log('Property not found')
-      }
-    }
-  }, [id])
-
-  return <PropertyDetails property={property} />
+export async function generateStaticParams() {
+  return adminProperties.map((p) => ({
+    id: p.propertyId,
+  }))
 }
 
-export default EditProperty
+// 3) The default export is a Server Component that simply renders the client floor.
+export default function AdminPropertyPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  return <PropertyEditorClient id={params.id} />
+}
