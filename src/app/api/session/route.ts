@@ -5,14 +5,15 @@ const DAY_IN_SECONDS = 24 * 60 * 60
 
 export async function POST(req: Request) {
   try {
-    const { userId, role } = await req.json()
+    const { userName, userId, role } = await req.json()
+    console.log(`username from session reqest ${userName}`)
     const expiresAt = Math.floor(Date.now() / 1000) + DAY_IN_SECONDS
 
-    const token = await createToken({ userId, role, expiresAt })
+    const token = await createToken({ userName, userId, role, expiresAt })
 
     const cookie = `session=${token}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=${DAY_IN_SECONDS}`
     return NextResponse.json(
-      { message: 'Session created' },
+      { message: `Session created: ${userId}` },
       { headers: { 'Set-Cookie': cookie } },
     )
   } catch (error) {

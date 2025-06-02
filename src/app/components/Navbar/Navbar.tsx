@@ -3,13 +3,25 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { Button, Flex } from 'antd'
+import { useAuth } from '@/app/Utils/AuthContext'
+import { getClientSession } from '@/app/Utils/AuthLoginLogout'
 import './Navbar.scss'
 
 export const Navbar: React.FC = () => {
   const [isActive, setIsActive] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
+  const { isAuthenticated } = useAuth()
 
+  async function printSession(): Promise<void> {
+    try {
+      const session = await getClientSession() // Resolve the promise
+      console.log('Resolved session:', session.username)
+    } catch (error) {
+      console.error('Error fetching session:', error)
+    }
+  }
+  printSession()
   const toggleMenu = () => {
     setIsActive(!isActive)
     toggleBodyOverflow(!isActive)
@@ -76,6 +88,14 @@ export const Navbar: React.FC = () => {
     { label: 'Contact', path: '/Contact' },
   ]
 
+  const handleProfile = () => {
+    router.push('/profile')
+  }
+
+  const handleLogout = () => {
+    router.push('Logout')
+  }
+
   return (
     <Flex className='wrapper-navbar'>
       <Flex className='wrapper-assist-navbar'>
@@ -114,13 +134,27 @@ export const Navbar: React.FC = () => {
 
           <div className={`nav-menu ${isActive ? 'active' : ''}`}>
             <div className='login-container-inside'>
-              <Button type='link' onClick={handleLogin}>
-                Login
-              </Button>
-              <h1>/</h1>
-              <Button type='link' onClick={handleSignup}>
-                Sign up
-              </Button>
+              {isAuthenticated ? (
+                <>
+                  <Button type='link' onClick={handleProfile}>
+                    Profile
+                  </Button>
+                  <h1>/</h1>
+                  <Button type='link' onClick={handleLogout}>
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button type='link' onClick={handleLogin}>
+                    Login
+                  </Button>
+                  <h1>/</h1>
+                  <Button type='link' onClick={handleSignup}>
+                    Sign up
+                  </Button>
+                </>
+              )}
             </div>
             <ul>
               {menuItems.map((item) => (
@@ -137,13 +171,27 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className='login-container'>
-            <Button type='link' onClick={handleLogin}>
-              Login
-            </Button>
-            <h1>/</h1>
-            <Button type='link' onClick={handleSignup}>
-              Sign up
-            </Button>
+            {isAuthenticated ? (
+              <>
+                <Button type='link' onClick={handleProfile}>
+                  Profile
+                </Button>
+                <h1>/</h1>
+                <Button type='link' onClick={handleLogout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button type='link' onClick={handleLogin}>
+                  Login
+                </Button>
+                <h1>/</h1>
+                <Button type='link' onClick={handleSignup}>
+                  Sign up
+                </Button>
+              </>
+            )}
           </div>
         </nav>
       </Flex>

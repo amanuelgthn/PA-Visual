@@ -1,5 +1,5 @@
 import './MainContainer.scss'
-import { Form } from '../../../components/Signup/Form/Form'
+import Form from '../../../components/Signup/Form/Form'
 
 export const MainContainer = () => {
   return (

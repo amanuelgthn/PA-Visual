@@ -8,10 +8,10 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   if (req.method === 'POST') {
-    const { userId, role } = req.body
+    const { userName, userId, role } = req.body
     const expiresAt = Math.floor(Date.now() / 1000) + DAY_IN_SECONDS
 
-    const token = await createToken({ userId, role, expiresAt })
+    const token = await createToken({ userName, userId, role, expiresAt })
     res.setHeader(
       'Set-Cookie',
       `session=${token}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=${DAY_IN_SECONDS}`,
@@ -27,6 +27,7 @@ export default async function handler(
     }
 
     const session = await verifyToken(token)
+    console.log(`Decoded Sessio: ${session}`)
     if (!session) {
       return res.status(401).json({ error: 'Invalid or expired session' })
     }

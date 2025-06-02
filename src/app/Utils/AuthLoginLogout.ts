@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Jwt from 'jsonwebtoken'
-import router from 'next/router'
 
 // Set up the base URL using environment variables
 const API = axios.create({
@@ -12,8 +11,13 @@ const API = axios.create({
   },
 })
 
-export async function createClientSession(userId: string, role: string) {
-  const response = await axios.post('/api/session', { userId, role })
+export async function createClientSession(
+  userName: string,
+  userId: string,
+  role: string,
+) {
+  const response = await axios.post('/api/session', { userName, userId, role })
+  console.log(`response.data: ${response.data}`)
   return response.data
 }
 
@@ -37,15 +41,11 @@ export const loginUser = async (data: LoginRequest) => {
     console.log(response.data)
     const user = Jwt.decode(response.data.token)
     return user
-  } catch (error: unknown) {
+  } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       throw error.response.data
     }
+    console.log(error)
     throw new Error('Unexpected error occurred')
   }
-}
-
-export async function logout() {
-  deleteSession()
-  router.push('/login')
 }
