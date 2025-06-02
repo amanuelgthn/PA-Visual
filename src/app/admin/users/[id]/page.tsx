@@ -1,22 +1,27 @@
-'use client';
-import { useParams } from 'next/navigation';
-import React from 'react';
+'use client'
+import { useParams } from 'next/navigation'
+import React from 'react'
+
+export async function generateStaticParams() {
+  // return [{ id: 'user1' }, { id: 'user2' }, …];
+  return []
+}
 
 const EditUser: React.FC = () => {
-  const params = useParams();
-  const { id } = params;
+  const params = useParams()
+  const { id } = params
 
   return (
     <div>
       <h1>Edit User {id}</h1>
       <form>
         {/* Form elements for editing an existing user */}
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" />
-        <button type="submit">Save Changes</button>
+        <label htmlFor='name'>Name:</label>
+        <input type='text' id='name' name='name' />
+        <button type='submit'>Save Changes</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default EditUser;
+export default EditUser
