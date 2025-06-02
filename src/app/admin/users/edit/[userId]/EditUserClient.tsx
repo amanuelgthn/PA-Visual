@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect, useMemo } from 'react'
 import { Spin } from 'antd'
 import UserForms from '@/app/admin/components/UserForms/UserForms'
