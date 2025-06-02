@@ -1,27 +1,13 @@
-'use client'
-import { useParams } from 'next/navigation'
-import React from 'react'
-
 export async function generateStaticParams() {
-  // return [{ id: 'user1' }, { id: 'user2' }, …];
+  // If you know actual user IDs at build time, list them here:
+  // return [{ id: 'alice' }, { id: 'bob' }, …]
+  // For now, return an empty array to satisfy "output: export"
   return []
 }
 
-const EditUser: React.FC = () => {
-  const params = useParams()
-  const { id } = params
+// 2) Import the client component.  Because the client file has "use client", this page.tsx remains a Server Component.
+import EditUserClient from './EditUserClient'
 
-  return (
-    <div>
-      <h1>Edit User {id}</h1>
-      <form>
-        {/* Form elements for editing an existing user */}
-        <label htmlFor='name'>Name:</label>
-        <input type='text' id='name' name='name' />
-        <button type='submit'>Save Changes</button>
-      </form>
-    </div>
-  )
+export default function Page({ params }: { params: { id: string } }) {
+  return <EditUserClient id={params.id} />
 }
-
-export default EditUser
