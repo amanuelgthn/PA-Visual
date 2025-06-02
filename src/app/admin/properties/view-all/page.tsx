@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { RecentlyPropertiesProps } from './src/app/admin/components/RecentlyProperties/RecentlyProperties'
-import PropertiesViewAll from './src/app/admin/components/PropertiesViewAll/PropertiesViewAll.tsx'
+import { RecentlyPropertiesProps } from '../../components/RecentlyProperties/RecentlyProperties'
+import PropertiesViewAll from '../../components/PropertiesViewAll/PropertiesViewAll'
 
 const ClientSideViewAllProperties = () => {
   const [type, setType] = useState<string | null>(null)
