@@ -3,16 +3,11 @@ export async function generateStaticParams() {
 }
 
 import VerifyTokenClient from './VerifyTokenClient'
-import type { FC } from 'react'
 
-type PageProps = {
-  params: {
-    token: string
-  }
+interface PageProps {
+  params: { token: string }
 }
 
-const Page: FC<PageProps> = ({ params }) => {
+export default function Page({ params }: PageProps) {
   return <VerifyTokenClient token={params.token} />
 }
-
-export default Page
