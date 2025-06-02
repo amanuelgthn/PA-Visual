@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useEffect, useState } from 'react'
 import { Carousel, ConfigProvider, Spin } from 'antd'
 import { Property } from '@/app/Types/property/property'
